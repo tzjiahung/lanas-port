@@ -27,11 +27,7 @@ jobs:
 
       - run: npm ci
 
-      # Set BASE_URL if deploying as a project page (e.g. /lanas-port/).
-      # If using a custom domain or username.github.io, remove the env line below.
       - run: npm run build
-        env:
-          BASE_URL: /lanas-port/
 
       - uses: actions/upload-pages-artifact@v3
         with:
