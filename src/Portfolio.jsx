@@ -539,7 +539,7 @@ export function ArticlesCol({ isMobile }) {
 
 // ─── Status bar ───────────────────────────────────────────────
 
-const CHANGELOG_STAMP = '2026-05-03 22:01 UTC+8 (Taipei)'
+const CHANGELOG_STAMP = __BUILD_TIME__
 
 const CONTACT_LINKS = [
   { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
