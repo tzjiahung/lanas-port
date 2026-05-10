@@ -36,6 +36,10 @@ html, body {
   scrollbar-color: rgba(58, 46, 58, 0.18) transparent;
 }
 
+body.font-mono, body.font-mono * {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace !important;
+}
+
 a { color: inherit; }
 *, *::before, *::after { box-sizing: border-box; }
 
