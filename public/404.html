@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>
+    // GitHub Pages SPA redirect: forward /path → /#/path
+    var path = window.location.pathname;
+    if (path && path !== '/') {
+      window.location.replace('/#' + path + window.location.search);
+    }
+  </script>
+</head>
+<body></body>
+</html>
