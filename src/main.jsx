@@ -6,6 +6,7 @@ import OecFin from './OecFin.jsx'
 import OecCompliance from './OecCompliance.jsx'
 import OclockGreen from './OclockGreen.jsx'
 import Fooma from './Fooma.jsx'
+import Ucarer from './Ucarer.jsx'
 import './index.css'
 
 function matchView(hash) {
@@ -15,6 +16,7 @@ function matchView(hash) {
   if (path === 'oec-fin') return 'oec-fin'
   if (path === 'oclock') return 'oclock'
   if (path === 'fooma') return 'fooma'
+  if (path === 'ucarer') return 'ucarer'
   return 'portfolio'
 }
 
@@ -32,6 +34,7 @@ function Root() {
   if (view === 'oec-fin') return <OecCompliance />
   if (view === 'oclock') return <OclockGreen />
   if (view === 'fooma') return <Fooma />
+  if (view === 'ucarer') return <Ucarer />
   return <Portfolio />
 }
 

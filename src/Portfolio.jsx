@@ -386,7 +386,7 @@ const WORKS = [
     title: 'Ucarer App Redesign',
     role: 'UX Design · Handed Over',
     year: '2023',
-    url: 'https://lanahung.com/ucarer',
+    url: '#/ucarer',
     desc: '',
     cover: 'case-covers/ucarer.png',
     accent: ['#c8d8e8', '#d8c0dc'],

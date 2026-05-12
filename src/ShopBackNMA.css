@@ -849,3 +849,14 @@
   --snma-on-acc2:  #1A1A1A;
   --snma-on-acc3:  #FFFFFF;
 }
+
+/* Ucarer palette override — vibrant green */
+.ucarer-root {
+  --snma-bg-soft:  #EEF9F2;
+  --snma-accent1:  #3BBF60;
+  --snma-accent2:  #68D48A;
+  --snma-accent3:  #A8E4B8;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #FFFFFF;
+  --snma-on-acc3:  #1A1A1A;
+}
