@@ -1,46 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ShopBackNMA.css'
-
-const CONTACT_LINKS = [
-  { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
-  { label: 'Medium',   href: 'https://medium.com/@lanahung' },
-  { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
-]
-
-function CaseFooter() {
-  return (
-    <footer className="snma-footer">
-      <div className="snma-footer-inner">
-        <div className="snma-footer-changelog">
-          <span className="snma-footer-clabel">CHANGELOG</span>
-          <span>{__BUILD_TIME__}</span>
-        </div>
-        <div className="snma-footer-links">
-          {CONTACT_LINKS.map((l, i) => (
-            <React.Fragment key={l.label}>
-              {i > 0 && <span className="snma-footer-dot">·</span>}
-              <a
-                href={l.href}
-                target={l.href.startsWith('mailto:') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className="snma-footer-link"
-                onClick={(e) => {
-                  if (l.href.startsWith('mailto:')) return
-                  e.preventDefault()
-                  const w = window.open(l.href, '_blank', 'noopener,noreferrer')
-                  if (!w) window.top.location.href = l.href
-                }}
-              >
-                {l.label}
-              </a>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-    </footer>
-  )
-}
+import { useScrollSpy, useReveal, scrollTo, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
@@ -50,86 +10,6 @@ const SECTIONS = [
   { id: 'impact',      label: 'Impact'      },
   { id: 'takeaways',   label: 'Takeaways'   },
 ]
-
-function useScrollSpy() {
-  const [active, setActive] = useState(SECTIONS[0].id)
-  useEffect(() => {
-    const ids = SECTIONS.map(s => s.id)
-    function sync() {
-      const y = window.scrollY + 140
-      let current = ids[0]
-      for (const id of ids) {
-        const el = document.getElementById(id)
-        if (el && el.offsetTop <= y) current = id
-      }
-      setActive(current)
-    }
-    window.addEventListener('scroll', sync, { passive: true })
-    sync()
-    return () => window.removeEventListener('scroll', sync)
-  }, [])
-  return active
-}
-
-function useReveal() {
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
-      }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.snma-reveal').forEach(el => io.observe(el))
-    return () => io.disconnect()
-  }, [])
-}
-
-function scrollTo(id) {
-  const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
-
-function RailNav({ active }) {
-  return (
-    <nav className="snma-rail" aria-label="Page sections">
-      <a href="/" className="snma-rail-back" onClick={(e) => { e.preventDefault(); window.location.replace('/') }}>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        Back to home
-      </a>
-      <div className="snma-rail-divider" />
-      {SECTIONS.map(s => (
-        <button
-          key={s.id}
-          className={`snma-rail-btn${active === s.id ? ' active' : ''}`}
-          onClick={() => scrollTo(s.id)}
-        >
-          <span className="snma-rail-dot" />
-          <span>{s.label}</span>
-        </button>
-      ))}
-    </nav>
-  )
-}
-
-function TopBar() {
-  return (
-    <header className="snma-topbar">
-      <a href="/" className="snma-topbar-brand">
-        <span className="snma-topbar-dot" />
-        <span>Lana Hung</span>
-      </a>
-      <div className="snma-topbar-links">
-        {SECTIONS.map(s => (
-          <button key={s.id} className="snma-topbar-link" onClick={() => scrollTo(s.id)}>
-            {s.label}
-          </button>
-        ))}
-      </div>
-    </header>
-  )
-}
 
 function Hero() {
   return (
@@ -488,7 +368,7 @@ function Takeaways() {
 }
 
 export default function ShopBackNMA() {
-  const active = useScrollSpy()
+  const active = useScrollSpy(SECTIONS)
   useReveal()
 
   useEffect(() => {
@@ -511,8 +391,8 @@ export default function ShopBackNMA() {
 
   return (
     <div className="snma-root">
-      <RailNav active={active} />
-      <TopBar />
+      <RailNav sections={SECTIONS} active={active} />
+      <TopBar sections={SECTIONS} />
       <Hero />
       <Overview />
       <Assumptions />

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import Portfolio from './Portfolio.jsx'
 import ShopBackNMA from './ShopBackNMA.jsx'
+import OecFin from './OecFin.jsx'
 import './index.css'
 
 function matchView(hash) {
   const path = hash.replace(/^#+\/*/, '').replace(/\/+$/, '').toLowerCase()
   if (path === 'shopback-nma') return 'shopback-nma'
+  if (path === 'oec-fin') return 'oec-fin'
   return 'portfolio'
 }
 
@@ -19,7 +21,9 @@ function Root() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  return view === 'shopback-nma' ? <ShopBackNMA /> : <Portfolio />
+  if (view === 'shopback-nma') return <ShopBackNMA />
+  if (view === 'oec-fin') return <OecFin />
+  return <Portfolio />
 }
 
 ReactDOM.createRoot(document.getElementById('portfolio-root')).render(
