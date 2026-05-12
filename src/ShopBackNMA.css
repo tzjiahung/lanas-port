@@ -816,3 +816,14 @@
 .survey-findings .snma-impact-img {
   max-width: none;
 }
+
+/* OEC Compliance palette override — corporate blue · periwinkle · slate */
+.oec-root {
+  --snma-bg-soft:  #EEF3FB;
+  --snma-accent1:  #3B7DD8;
+  --snma-accent2:  #8BAEE8;
+  --snma-accent3:  #64B5C8;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #FFFFFF;
+  --snma-on-acc3:  #FFFFFF;
+}
