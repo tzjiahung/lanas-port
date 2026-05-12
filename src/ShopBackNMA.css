@@ -702,6 +702,70 @@
 
 .snma-takeaway p { color: var(--snma-fg-soft); font-size: 15px; line-height: 1.55; margin: 0; }
 
+/* ---- Footer ---- */
+.snma-footer {
+  border-top: 1px solid rgba(26, 26, 26, 0.10);
+  background: var(--snma-bg);
+}
+
+.snma-footer-inner {
+  max-width: var(--snma-max);
+  margin: 0 auto;
+  padding: 12px clamp(20px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--snma-mono);
+  font-size: 11.5px;
+  color: rgba(26, 26, 26, 0.55);
+  letter-spacing: 0.02em;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 881px) {
+  .snma-footer-inner {
+    padding-left: clamp(180px, 16vw, 240px);
+  }
+}
+
+.snma-footer-changelog {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.snma-footer-clabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(26, 26, 26, 0.35);
+}
+
+.snma-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.snma-footer-dot {
+  color: rgba(26, 26, 26, 0.25);
+}
+
+.snma-footer-link {
+  color: rgba(26, 26, 26, 0.55);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.snma-footer-link:hover {
+  background: rgba(26, 26, 26, 0.06);
+  color: rgba(26, 26, 26, 0.9);
+}
+
 /* ---- Reveal on scroll ---- */
 .snma-reveal {
   opacity: 0;

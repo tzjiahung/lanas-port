@@ -1,6 +1,47 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './ShopBackNMA.css'
 
+const CONTACT_LINKS = [
+  { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
+  { label: 'Medium',   href: 'https://medium.com/@lanahung' },
+  { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
+]
+
+function CaseFooter() {
+  return (
+    <footer className="snma-footer">
+      <div className="snma-footer-inner">
+        <div className="snma-footer-changelog">
+          <span className="snma-footer-clabel">CHANGELOG</span>
+          <span>{__BUILD_TIME__}</span>
+        </div>
+        <div className="snma-footer-links">
+          {CONTACT_LINKS.map((l, i) => (
+            <React.Fragment key={l.label}>
+              {i > 0 && <span className="snma-footer-dot">·</span>}
+              <a
+                href={l.href}
+                target={l.href.startsWith('mailto:') ? undefined : '_blank'}
+                rel="noopener noreferrer"
+                className="snma-footer-link"
+                onClick={(e) => {
+                  if (l.href.startsWith('mailto:')) return
+                  e.preventDefault()
+                  const w = window.open(l.href, '_blank', 'noopener,noreferrer')
+                  if (!w) window.top.location.href = l.href
+                }}
+              >
+                {l.label}
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </footer>
+  )
+}
+
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
   { id: 'assumptions', label: 'Assumptions' },
@@ -472,6 +513,7 @@ export default function ShopBackNMA() {
       <Method />
       <Impact />
       <Takeaways />
+      <CaseFooter />
     </div>
   )
 }
