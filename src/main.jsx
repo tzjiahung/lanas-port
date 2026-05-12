@@ -4,15 +4,17 @@ import Portfolio from './Portfolio.jsx'
 import ShopBackNMA from './ShopBackNMA.jsx'
 import './index.css'
 
+function matchView(hash) {
+  const path = hash.replace(/^#\/?/, '').replace(/\/$/, '')
+  if (path === 'shopback-nma') return 'shopback-nma'
+  return 'portfolio'
+}
+
 function Root() {
-  const [view, setView] = useState(() =>
-    window.location.hash === '#/shopback-nma' ? 'shopback-nma' : 'portfolio'
-  )
+  const [view, setView] = useState(() => matchView(window.location.hash))
 
   useEffect(() => {
-    function onHash() {
-      setView(window.location.hash === '#/shopback-nma' ? 'shopback-nma' : 'portfolio')
-    }
+    function onHash() { setView(matchView(window.location.hash)) }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
