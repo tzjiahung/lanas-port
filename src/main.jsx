@@ -4,6 +4,7 @@ import Portfolio from './Portfolio.jsx'
 import ShopBackNMA from './ShopBackNMA.jsx'
 import OecFin from './OecFin.jsx'
 import OecCompliance from './OecCompliance.jsx'
+import OclockGreen from './OclockGreen.jsx'
 import './index.css'
 
 function matchView(hash) {
@@ -11,6 +12,7 @@ function matchView(hash) {
   if (path === 'shopback-nma') return 'shopback-nma'
   if (path === 'fitback') return 'fitback'
   if (path === 'oec-fin') return 'oec-fin'
+  if (path === 'oclock') return 'oclock'
   return 'portfolio'
 }
 
@@ -26,6 +28,7 @@ function Root() {
   if (view === 'shopback-nma') return <ShopBackNMA />
   if (view === 'fitback') return <OecFin />
   if (view === 'oec-fin') return <OecCompliance />
+  if (view === 'oclock') return <OclockGreen />
   return <Portfolio />
 }
 

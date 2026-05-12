@@ -366,7 +366,7 @@ const WORKS = [
     title: "O'Clock Green App Design",
     role: 'UX Design · Side Project',
     year: '2023',
-    url: 'https://lanahung.com/oclock',
+    url: '#/oclock',
     desc: '',
     cover: 'case-covers/oclock-green.png',
     accent: ['#c9e4c4', '#e0eccd'],
@@ -406,14 +406,12 @@ function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fi
   const linkProps = url
     ? {
         href: url,
-        ...(isInternal ? {} : { target: '_blank', rel: 'noopener noreferrer' }),
         onClick: (e) => {
           e.preventDefault();
           if (isInternal) {
             window.location.hash = url.slice(1);
           } else {
-            const w = window.open(url, '_blank', 'noopener,noreferrer');
-            if (!w) window.top.location.href = url;
+            window.location.href = url;
           }
         },
       }

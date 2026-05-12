@@ -827,3 +827,14 @@
   --snma-on-acc2:  #FFFFFF;
   --snma-on-acc3:  #FFFFFF;
 }
+
+/* O'Clock Green palette override — mint-teal · warm orange */
+.oclock-root {
+  --snma-bg-soft:  #EBF9F7;
+  --snma-accent1:  #3DBAA8;
+  --snma-accent2:  #F5933A;
+  --snma-accent3:  #5DCEC0;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #FFFFFF;
+  --snma-on-acc3:  #FFFFFF;
+}
