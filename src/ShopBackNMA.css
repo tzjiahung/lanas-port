@@ -838,3 +838,14 @@
   --snma-on-acc2:  #FFFFFF;
   --snma-on-acc3:  #FFFFFF;
 }
+
+/* FooMa palette override — warm pink · yellow */
+.fooma-root {
+  --snma-bg-soft:  #FFF0F3;
+  --snma-accent1:  #E8697A;
+  --snma-accent2:  #F5C13A;
+  --snma-accent3:  #F0A0B5;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #1A1A1A;
+  --snma-on-acc3:  #FFFFFF;
+}

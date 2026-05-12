@@ -376,7 +376,7 @@ const WORKS = [
     title: 'FooMa OMO Food Waste Design',
     role: 'UX Design · Hackathon',
     year: '2023',
-    url: 'https://lanahung.com/fooma',
+    url: '#/fooma',
     desc: '',
     cover: 'case-covers/fooma.png',
     accent: ['#f8d8b8', '#f0e0a8'],
