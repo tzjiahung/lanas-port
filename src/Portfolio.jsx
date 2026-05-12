@@ -708,22 +708,28 @@ function App() {
           ...(isMobile ? gridStyles.outerMobile : null),
           padding: isMobile ? '12px 16px 12px' : `16px ${t.outerPadding}px 8px`,
         }}>
-          <div style={{
-            ...(isMobile ? gridStyles.gridMobile : gridStyles.grid),
-            gap: isMobile ? Math.max(12, t.cardGap) : t.cardGap,
-          }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateRows: isMobile ? 'auto auto auto' : '2fr 1fr 1fr',
-              gap: isMobile ? Math.max(12, t.cardGap) : t.cardGap,
-              minHeight: 0, minWidth: 0, overflow: 'hidden',
-            }}>
-              <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile={isMobile} headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} />
-              <ArticlesCol padding={t.cardPadding} radius={t.cardRadius} isMobile={isMobile} headerHeight={t.cardHeaderHeight} />
-              <TalksCol padding={t.cardPadding} radius={t.cardRadius} isMobile={isMobile} headerHeight={t.cardHeaderHeight} />
+          {isMobile ? (
+            <div style={{ ...gridStyles.gridMobile, gap: Math.max(12, t.cardGap) }}>
+              <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} />
+              <WorksCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
+              <ArticlesCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
+              <TalksCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
             </div>
-            <WorksCol padding={t.cardPadding} radius={t.cardRadius} isMobile={isMobile} headerHeight={t.cardHeaderHeight} />
-          </div>
+          ) : (
+            <div style={{ ...gridStyles.grid, gap: t.cardGap }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateRows: '2fr 1fr 1fr',
+                gap: t.cardGap,
+                minHeight: 0, minWidth: 0, overflow: 'hidden',
+              }}>
+                <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} />
+                <ArticlesCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} />
+                <TalksCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} />
+              </div>
+              <WorksCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} />
+            </div>
+          )}
         </div>
         <StatusBar isMobile={isMobile} />
       </main>
