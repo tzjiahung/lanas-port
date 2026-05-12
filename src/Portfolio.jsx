@@ -326,7 +326,7 @@ const WORKS = [
     title: 'ShopBack New Market Activation',
     role: 'UX Research · Shipped',
     year: '2025',
-    url: 'https://lanahung.com/shopback-nma',
+    url: '#/shopback-nma',
     desc: 'Uncovering root causes of post-signup barriers through a mixed-methods study; findings informed a 7-step onboarding redesign.',
     cover: 'case-covers/shopback.png',
     accent: ['#d8c0dc', '#f0c8d4'],
@@ -402,15 +402,19 @@ function buildWorksMarkdown() {
 function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fill }) {
   const [hover, setHover] = React.useState(false);
   const Tag = url ? 'a' : 'article';
+  const isInternal = url && url.startsWith('#/');
   const linkProps = url
     ? {
         href: url,
-        target: '_blank',
-        rel: 'noopener noreferrer',
+        ...(isInternal ? {} : { target: '_blank', rel: 'noopener noreferrer' }),
         onClick: (e) => {
           e.preventDefault();
-          const w = window.open(url, '_blank', 'noopener,noreferrer');
-          if (!w) window.top.location.href = url;
+          if (isInternal) {
+            window.location.hash = url.slice(1);
+          } else {
+            const w = window.open(url, '_blank', 'noopener,noreferrer');
+            if (!w) window.top.location.href = url;
+          }
         },
       }
     : {};
