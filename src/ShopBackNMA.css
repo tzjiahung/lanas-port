@@ -860,3 +860,14 @@
   --snma-on-acc2:  #FFFFFF;
   --snma-on-acc3:  #1A1A1A;
 }
+
+/* OecTypo palette override — red annotation · OEC blue */
+.oectypo-root {
+  --snma-bg-soft:  #EEF4FC;
+  --snma-accent1:  #E53935;
+  --snma-accent2:  #4A8CE8;
+  --snma-accent3:  #7BB3F0;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #FFFFFF;
+  --snma-on-acc3:  #FFFFFF;
+}

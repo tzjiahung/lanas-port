@@ -346,7 +346,7 @@ const WORKS = [
     title: 'OEC Group Typography System Redesign',
     role: 'UX Design · Shipped',
     year: '2024',
-    url: 'https://lanahung.com/oec-typo',
+    url: '#/oec-typo',
     desc: '',
     cover: 'case-covers/oec-typography.png',
     accent: ['#f6c9b4', '#e8d4c0'],
