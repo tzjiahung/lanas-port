@@ -797,3 +797,22 @@
 }
 
 .snma-reveal.in { opacity: 1; transform: none; }
+
+/* FitBack (OecFin) palette override — teal-green · sky-blue · amber */
+.oecfin-root {
+  --snma-bg-soft:  #F0F8F4;
+  --snma-accent1:  #3DAB78;
+  --snma-accent2:  #4BBDE0;
+  --snma-accent3:  #F5A623;
+  --snma-on-acc1:  #FFFFFF;
+  --snma-on-acc2:  #FFFFFF;
+  --snma-on-acc3:  #1A1A1A;
+}
+
+/* FitBack survey findings — wider image column */
+.survey-findings .snma-impact-card {
+  grid-template-columns: 1fr 1.5fr;
+}
+.survey-findings .snma-impact-img {
+  max-width: none;
+}

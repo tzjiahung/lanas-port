@@ -8,7 +8,7 @@ import './index.css'
 function matchView(hash) {
   const path = hash.replace(/^#+\/*/, '').replace(/\/+$/, '').toLowerCase()
   if (path === 'shopback-nma') return 'shopback-nma'
-  if (path === 'oec-fin') return 'oec-fin'
+  if (path === 'fitback') return 'fitback'
   return 'portfolio'
 }
 
@@ -22,7 +22,7 @@ function Root() {
   }, [])
 
   if (view === 'shopback-nma') return <ShopBackNMA />
-  if (view === 'oec-fin') return <OecFin />
+  if (view === 'fitback') return <OecFin />
   return <Portfolio />
 }
 

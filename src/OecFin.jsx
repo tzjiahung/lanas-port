@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter, ImgPlaceholder } from './CaseLayout.jsx'
+import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview'   },
@@ -33,7 +33,7 @@ function Hero() {
         </p>
 
         <dl className="snma-meta">
-          <div><dt>Role</dt><dd>Lead UX Researcher</dd></div>
+          <div><dt>Team</dt><dd>2 Designers, 1 PM</dd></div>
           <div><dt>Duration</dt><dd>Jul–Dec 2023 · 5 months</dd></div>
           <div><dt>Methodology</dt><dd>Survey Research · Correlation Analysis</dd></div>
           <div><dt>Tools</dt><dd>Google Sheets · Google Form</dd></div>
@@ -142,7 +142,7 @@ function Process() {
 
         <div className="snma-method-grid">
           <div className="snma-method-card a snma-reveal">
-            <div className="snma-method-ic">L</div>
+            <div className="snma-method-ic">1</div>
             <h3>Literature Review</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
               Explored the impacts of social networking on health and exercise. Found the <b>Five Stages of Behavior Change Model</b> — three of its ten habit-building strategies are social-networking-related.
@@ -153,7 +153,7 @@ function Process() {
           </div>
 
           <div className="snma-method-card b snma-reveal">
-            <div className="snma-method-ic">C</div>
+            <div className="snma-method-ic">2</div>
             <h3>Comparative Audit</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
               Audited social features across direct competitors (BAM App / Nan Shan Life) and non-direct comparators (Nike Run Club, Garmin Connect, iOS Health).
@@ -164,7 +164,7 @@ function Process() {
           </div>
 
           <div className="snma-method-card a snma-reveal">
-            <div className="snma-method-ic">E</div>
+            <div className="snma-method-ic">3</div>
             <h3>Expert Audit</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
               Reviewed FitBack's existing system — leaderboard and group creation features already existed. The team was focusing on group task functions to drive user invitations.
@@ -175,7 +175,7 @@ function Process() {
           </div>
 
           <div className="snma-method-card b snma-reveal">
-            <div className="snma-method-ic">S</div>
+            <div className="snma-method-ic">4</div>
             <h3>Questionnaire Survey</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
               Distributed via Facebook health &amp; fitness groups and Instagram to collect firsthand data on user motivations, club participation, and app usage patterns.
@@ -187,17 +187,17 @@ function Process() {
           </div>
         </div>
 
-        {/* Five Stages model diagram placeholder */}
+        {/* Five Stages model diagram */}
         <div style={{ marginBottom: 32 }}>
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Five Stages of Behavior Change Model
           </p>
-          <ImgPlaceholder label="Five Stages of Behavior Change Model diagram" height={280} />
+          <img src="/fitback/stages.avif" alt="Five Stages of Behavior Change Model diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive audit matrix</p>
-          <ImgPlaceholder label="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" height={240} />
+          <img src="/fitback/matrix.avif" alt="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
     </section>
@@ -222,7 +222,7 @@ function Survey() {
           positive emotions (61%), and friends' compliments (37%). Two of the top three are self-related — not social.
         </div>
 
-        <div className="snma-impact-grid">
+        <div className="snma-impact-grid survey-findings">
           {/* Motivators chart */}
           <div className="snma-impact-card snma-reveal">
             <div className="snma-impact-text">
@@ -236,7 +236,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <ImgPlaceholder label="Bar chart — top motivators to exercise" height="100%" style={{ minHeight: 180 }} />
+              <img src="/fitback/bar-chart.avif" alt="Bar chart — top motivators to exercise" loading="lazy" />
             </div>
           </div>
 
@@ -253,7 +253,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <ImgPlaceholder label="Cross-analysis chart — behavior stage vs club participation" height="100%" style={{ minHeight: 180 }} />
+              <img src="/fitback/cross-analysis.avif" alt="Cross-analysis chart — behavior stage vs club participation" loading="lazy" />
             </div>
           </div>
 
@@ -270,7 +270,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <ImgPlaceholder label="Chart — app usage by stage + preferred social features" height="100%" style={{ minHeight: 180 }} />
+              <img src="/fitback/finding3.avif" alt="Chart — app usage by stage and preferred social features" loading="lazy" />
             </div>
           </div>
         </div>
@@ -312,7 +312,7 @@ function Impact() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Revised development timeline</span>
               <h3>Social features deprioritized — for now</h3>
@@ -323,12 +323,9 @@ function Impact() {
                 <b>PM:</b> "This is an important research for our team. We would like to conduct the research on our internal users."
               </div>
             </div>
-            <div className="snma-impact-img">
-              <ImgPlaceholder label="Revised product roadmap / timeline" height="100%" style={{ minHeight: 180 }} />
-            </div>
           </div>
 
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Design direction clarified</span>
               <h3>PM &amp; designer alignment on social feature priority</h3>
@@ -338,9 +335,6 @@ function Impact() {
               <div className="snma-post-impact">
                 Enabled the team to confidently redirect design effort to higher-impact features.
               </div>
-            </div>
-            <div className="snma-impact-img no-bg">
-              <ImgPlaceholder label="Designer / PM feedback quote visual" height="100%" style={{ minHeight: 180 }} />
             </div>
           </div>
         </div>
@@ -402,7 +396,7 @@ export default function OecFin() {
   }, [])
 
   return (
-    <div className="snma-root">
+    <div className="snma-root oecfin-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />

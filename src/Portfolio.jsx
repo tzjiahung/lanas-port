@@ -336,7 +336,7 @@ const WORKS = [
     title: 'OEC Group Finance Module Design',
     role: 'UX Design · Shipped',
     year: '2024',
-    url: '#/oec-fin',
+    url: '#/fitback',
     desc: 'Led 0-to-1 Compliance module design, including report create, edit, and display states.',
     cover: 'case-covers/oec-compliance.png',
     accent: ['#f6c9b4', '#f8d8b8'],
