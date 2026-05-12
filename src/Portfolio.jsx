@@ -452,7 +452,7 @@ function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fi
 function WorksCol({ padding, radius, isMobile, headerHeight }) {
   const action = (
     <CopyPill
-      label="Copy Links"
+      label="Copy Links for AI"
       copiedLabel="Copied"
       ariaLabel="Copy all work case studies as Markdown for an AI assistant"
       getText={buildWorksMarkdown}
@@ -534,7 +534,7 @@ const articleStyles = {
 function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
   const action = (
     <CopyPill
-      label="Copy Links"
+      label="Copy Links for AI"
       copiedLabel="Copied"
       ariaLabel="Copy all article links as Markdown for an AI assistant"
       getText={buildArticlesMarkdown}
