@@ -10,6 +10,17 @@ import Ucarer from './Ucarer.jsx'
 import OecTypo from './OecTypo.jsx'
 import './index.css'
 
+const VIEW_TITLES = {
+  'shopback-nma': 'ShopBack NMA — Lana Hung',
+  'fitback': 'OEC Fin — Lana Hung',
+  'oec-fin': 'OEC Compliance — Lana Hung',
+  'oclock': "O'Clock Green — Lana Hung",
+  'fooma': 'Fooma — Lana Hung',
+  'ucarer': 'Ucarer Redesign — Lana Hung',
+  'oec-typo': 'OEC Typography — Lana Hung',
+  'portfolio': 'Tz-Jia (Lana) Hung — Portfolio',
+}
+
 function matchView(hash) {
   const path = hash.replace(/^#+\/*/, '').replace(/\/+$/, '').toLowerCase()
   if (path === 'shopback-nma') return 'shopback-nma'
@@ -22,11 +33,23 @@ function matchView(hash) {
   return 'portfolio'
 }
 
+function trackPageView(view) {
+  if (typeof window.gtag !== 'function') return
+  window.gtag('event', 'page_view', {
+    page_path: window.location.hash || '/',
+    page_title: VIEW_TITLES[view] || document.title,
+  })
+}
+
 function Root() {
   const [view, setView] = useState(() => matchView(window.location.hash))
 
   useEffect(() => {
-    function onHash() { setView(matchView(window.location.hash)) }
+    function onHash() {
+      const newView = matchView(window.location.hash)
+      setView(newView)
+      trackPageView(newView)
+    }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])

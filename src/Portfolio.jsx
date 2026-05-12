@@ -5,6 +5,10 @@ import VoxelMarker from './VoxelMarker.jsx'
 import PeachDawn from './Stars.jsx'
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider, TweakRadio, TweakSelect } from './TweaksPanel.jsx'
 
+function trackEvent(name, params) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params)
+}
+
 const TWEAK_DEFAULTS = {
   vignette: false,
   glow: false,
@@ -408,6 +412,7 @@ function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fi
         href: url,
         onClick: (e) => {
           e.preventDefault();
+          trackEvent('case_study_open', { case_study: title });
           if (isInternal) {
             window.location.hash = url.slice(1);
           } else {
@@ -550,6 +555,7 @@ function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{ ...articleStyles.link, padding: '2px 0px' }}
+              onClick={() => trackEvent('article_click', { article_title: a.title })}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.55)';
                 const arr = e.currentTarget.querySelector('[data-arr]');
@@ -643,6 +649,7 @@ function StatusBar({ isMobile }) {
               rel="noopener noreferrer"
               style={{ color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6, transition: 'background 0.15s, color 0.15s' }}
               onClick={(e) => {
+                trackEvent('contact_click', { link_label: l.label });
                 if (l.href.startsWith('mailto:')) return;
                 e.preventDefault();
                 const w = window.open(l.href, '_blank', 'noopener,noreferrer');
