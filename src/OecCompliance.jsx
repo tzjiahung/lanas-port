@@ -304,7 +304,7 @@ function Demo() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section alt">
+    <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">06 — Takeaways</span>
         <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
