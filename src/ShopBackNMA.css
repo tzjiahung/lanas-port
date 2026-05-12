@@ -66,6 +66,29 @@
   align-items: flex-start;
 }
 
+.snma-rail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-family: var(--snma-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--snma-fg-mute);
+  transition: color .2s ease;
+}
+
+.snma-rail-back:hover { color: var(--snma-fg); }
+
+.snma-rail-divider {
+  width: 28px;
+  height: 1px;
+  background: rgba(26, 26, 26, 0.14);
+  margin: 6px 14px 8px;
+}
+
 .snma-rail-btn {
   display: inline-flex;
   align-items: center;
