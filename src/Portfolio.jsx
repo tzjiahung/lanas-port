@@ -356,7 +356,7 @@ const WORKS = [
     title: 'Cathay FitBack Exploratory Research',
     role: 'UX Research · Handed Over',
     year: '2023',
-    url: 'https://lanahung.com/fitback',
+    url: '#/fitback',
     desc: 'Identified the importance of social features in promoting health awareness and how to design social networking features in the FitBack app.',
     cover: 'case-covers/cathay-fh.avif',
     accent: ['#f0c8d4', '#f6c9b4'],
