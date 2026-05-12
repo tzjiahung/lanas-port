@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <script>
     // GitHub Pages SPA redirect: forward /path → /#/path
-    var path = window.location.pathname;
+    // Strip trailing slash GitHub Pages silently adds (e.g. /shopback-nma/)
+    var path = window.location.pathname.replace(/\/+$/, '');
     if (path && path !== '/') {
       window.location.replace('/#' + path + window.location.search);
     }

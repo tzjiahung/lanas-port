@@ -5,7 +5,7 @@ import ShopBackNMA from './ShopBackNMA.jsx'
 import './index.css'
 
 function matchView(hash) {
-  const path = hash.replace(/^#\/?/, '').replace(/\/$/, '')
+  const path = hash.replace(/^#+\/*/, '').replace(/\/+$/, '').toLowerCase()
   if (path === 'shopback-nma') return 'shopback-nma'
   return 'portfolio'
 }
