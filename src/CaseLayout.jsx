@@ -1,6 +1,10 @@
 // Shared layout primitives for all case study pages
 import React, { useEffect, useState } from 'react'
 
+function trackEvent(name, params) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params)
+}
+
 export const CONTACT_LINKS = [
   { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
@@ -51,7 +55,7 @@ export function RailNav({ sections, active }) {
       <a
         href="/"
         className="snma-rail-back"
-        onClick={(e) => { e.preventDefault(); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'Back to home', section: 'rail_nav' }); window.location.replace('/') }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,7 +67,7 @@ export function RailNav({ sections, active }) {
         <button
           key={s.id}
           className={`snma-rail-btn${active === s.id ? ' active' : ''}`}
-          onClick={() => scrollTo(s.id)}
+          onClick={() => { trackEvent('click', { button_label: s.label, section: 'rail_nav' }); scrollTo(s.id); }}
         >
           <span className="snma-rail-dot" />
           <span>{s.label}</span>
@@ -79,14 +83,14 @@ export function TopBar({ sections }) {
       <a
         href="/"
         className="snma-topbar-brand"
-        onClick={(e) => { e.preventDefault(); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'Lana Hung', section: 'topbar' }); window.location.replace('/') }}
       >
         <span className="snma-topbar-dot" />
         <span>Lana Hung</span>
       </a>
       <div className="snma-topbar-links">
         {sections.map(s => (
-          <button key={s.id} className="snma-topbar-link" onClick={() => scrollTo(s.id)}>
+          <button key={s.id} className="snma-topbar-link" onClick={() => { trackEvent('click', { button_label: s.label, section: 'topbar' }); scrollTo(s.id); }}>
             {s.label}
           </button>
         ))}
@@ -113,6 +117,7 @@ export function CaseFooter() {
                 rel="noopener noreferrer"
                 className="snma-footer-link"
                 onClick={(e) => {
+                  trackEvent('click', { button_label: l.label, section: 'footer' })
                   if (l.href.startsWith('mailto:')) return
                   e.preventDefault()
                   const w = window.open(l.href, '_blank', 'noopener,noreferrer')

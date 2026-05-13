@@ -87,7 +87,7 @@ function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0 }) {
   );
 }
 
-function CopyPill({ label = 'Copy for AI', copiedLabel = 'Copied', getText, ariaLabel }) {
+function CopyPill({ label = 'Copy for AI', copiedLabel = 'Copied', getText, ariaLabel, trackLabel }) {
   const [state, setState] = React.useState('idle');
   const [hover, setHover] = React.useState(false);
   const timer = React.useRef(null);
@@ -109,6 +109,7 @@ function CopyPill({ label = 'Copy for AI', copiedLabel = 'Copied', getText, aria
         document.body.removeChild(ta);
       }
       setState('copied');
+      trackEvent('click', { button_label: `Copy Links for AI — ${trackLabel}` });
     } catch (e) {
       setState('error');
     }
@@ -151,6 +152,13 @@ function CopyPill({ label = 'Copy for AI', copiedLabel = 'Copied', getText, aria
 }
 
 function Card({ title, children, style, padding, radius, headerAction, titleColor, isMobile, headerHeight, noFade, markerKind }) {
+  const scrolledRef = React.useRef(false);
+  function handleScroll() {
+    if (scrolledRef.current) return;
+    scrolledRef.current = true;
+    trackEvent('scroll', { card: title });
+  }
+
   const cardStyle = {
     ...cardStyles.card,
     ...(padding != null ? { padding: `${padding}px ${padding + 2}px` } : null),
@@ -177,7 +185,7 @@ function Card({ title, children, style, padding, radius, headerAction, titleColo
         </div>
         {headerAction}
       </div>
-      <div style={bodyStyle} className={isMobile ? '' : 'col-scroll'}>{children}</div>
+      <div style={bodyStyle} className={isMobile ? '' : 'col-scroll'} onScroll={isMobile ? undefined : handleScroll}>{children}</div>
     </section>
   );
 }
@@ -412,7 +420,7 @@ function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fi
         href: url,
         onClick: (e) => {
           e.preventDefault();
-          trackEvent('case_study_open', { case_study: title });
+          trackEvent('click', { button_label: title, section: 'work' });
           if (isInternal) {
             window.location.hash = url.slice(1);
           } else {
@@ -461,6 +469,7 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
       copiedLabel="Copied"
       ariaLabel="Copy all work case studies as Markdown for an AI assistant"
       getText={buildWorksMarkdown}
+      trackLabel="work"
     />
   );
 
@@ -543,6 +552,7 @@ function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
       copiedLabel="Copied"
       ariaLabel="Copy all article links as Markdown for an AI assistant"
       getText={buildArticlesMarkdown}
+      trackLabel="articles"
     />
   );
   return (
@@ -555,7 +565,7 @@ function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{ ...articleStyles.link, padding: '2px 0px' }}
-              onClick={() => trackEvent('article_click', { article_title: a.title })}
+              onClick={() => trackEvent('click', { button_label: a.title, section: 'articles' })}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.55)';
                 const arr = e.currentTarget.querySelector('[data-arr]');
@@ -649,7 +659,7 @@ function StatusBar({ isMobile }) {
               rel="noopener noreferrer"
               style={{ color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6, transition: 'background 0.15s, color 0.15s' }}
               onClick={(e) => {
-                trackEvent('contact_click', { link_label: l.label });
+                trackEvent('click', { button_label: l.label, section: 'footer' });
                 if (l.href.startsWith('mailto:')) return;
                 e.preventDefault();
                 const w = window.open(l.href, '_blank', 'noopener,noreferrer');
