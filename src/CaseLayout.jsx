@@ -6,7 +6,7 @@ function trackEvent(name, params) {
 }
 
 export const CONTACT_LINKS = [
-  { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
+  { label: 'Resume',   href: 'https://drive.google.com/file/d/17T2oENUnpFg1jx71Wvg8NCpCsZ9QqrP-/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
   { label: 'Medium',   href: 'https://medium.com/@lanahung' },
   { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
@@ -113,15 +113,10 @@ export function CaseFooter() {
               {i > 0 && <span className="snma-footer-dot">·</span>}
               <a
                 href={l.href}
-                target={l.href.startsWith('mailto:') ? undefined : '_blank'}
-                rel="noopener noreferrer"
+                target={l.href.startsWith('mailto:') ? undefined : '_top'}
                 className="snma-footer-link"
                 onClick={(e) => {
                   trackEvent('click', { button_label: l.label, section: 'footer' })
-                  if (l.href.startsWith('mailto:')) return
-                  e.preventDefault()
-                  const w = window.open(l.href, '_blank', 'noopener,noreferrer')
-                  if (!w) window.top.location.href = l.href
                 }}
               >
                 {l.label}

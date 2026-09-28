@@ -591,7 +591,7 @@ function TalksCol({ padding, radius, isMobile, headerHeight }) {
 const CHANGELOG_STAMP = __BUILD_TIME__
 
 const CONTACT_LINKS = [
-  { label: 'Resume',   href: 'https://drive.google.com/file/d/1RJ9YajZ4Arcvg7RzmP4fnIOglAN0m11H/view?usp=sharing' },
+  { label: 'Resume',   href: 'https://drive.google.com/file/d/17T2oENUnpFg1jx71Wvg8NCpCsZ9QqrP-/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
   { label: 'Medium',   href: 'https://medium.com/@lanahung' },
   { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
@@ -617,15 +617,10 @@ function StatusBar({ isMobile }) {
             {i > 0 && <span style={{ color: 'rgba(58,46,58,0.3)' }}>·</span>}
             <a
               href={l.href}
-              target={l.href.startsWith('mailto:') ? undefined : '_blank'}
-              rel="noopener noreferrer"
+              target={l.href.startsWith('mailto:') ? undefined : '_top'}
               style={{ color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6, transition: 'background 0.15s, color 0.15s' }}
               onClick={(e) => {
                 trackEvent('click', { button_label: l.label, section: 'footer' });
-                if (l.href.startsWith('mailto:')) return;
-                e.preventDefault();
-                const w = window.open(l.href, '_blank', 'noopener,noreferrer');
-                if (!w) window.top.location.href = l.href;
               }}
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(180,140,210,0.14)'; e.currentTarget.style.color = 'rgba(58,46,58,0.95)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(58,46,58,0.7)'; }}
