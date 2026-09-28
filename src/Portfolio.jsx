@@ -593,6 +593,7 @@ const CHANGELOG_STAMP = __BUILD_TIME__
 const CONTACT_LINKS = [
   { label: 'Resume',   href: 'https://drive.google.com/file/d/17T2oENUnpFg1jx71Wvg8NCpCsZ9QqrP-/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
+  { label: 'GitHub',   href: 'https://github.com/tzjiahung' },
   { label: 'Medium',   href: 'https://medium.com/@lanahung' },
   { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
 ];
