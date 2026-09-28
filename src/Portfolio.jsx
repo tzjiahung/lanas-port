@@ -245,44 +245,6 @@ const ABOUT_GRADIENTS = {
   none:   { bg: 'rgba(255,255,255,0.92)', border: '1px solid rgba(58, 46, 58, 0.08)', shadow: 'none' },
 };
 
-function buildAboutMarkdown() {
-  return [
-    `# Tz-Jia (Lana) Hung — About`,
-    `Source: portfolio`,
-    ``,
-    `Hi, I'm Tz-Jia (Lana) Hung, an incoming HCDE student at the University of Washington.`,
-    ``,
-    `## Intro`,
-    `Lana is an **AI-first product maker** and **collaborator** who proactively explores new technologies, shares what she learns with her team, and puts those tools to work solving complex UX problems.`,
-    ``,
-    `## How I work`,
-    `**A designer who can do design, research, and PM work.** A person who can sketch the flow, run the study that questions it, and write the spec that ships it. **Generalist by intent, not by accident.**`,
-    ``,
-    `## What I value`,
-    `> Empathize, listen, deep dive. Put myself in users' shoes, create the room where people feel safe to say what they actually think — then dig until the real problem surfaces.`,
-    ``,
-    `## What I'm looking for`,
-    `Summer 2027 UX design roles on teams where designers, researchers, and PMs fuel each other and build as one!`,
-    ``,
-    `## Toolkit`,
-    `- Design — Claude · Figma · Miro`,
-    `- Research — Survicate · Lyssna · Dovetail · Metaview`,
-    `- Data — SQL · Python · R · Amplitude · Metabase · Hotjar · GA4 · Excel`,
-    `- AI / Build — Claude · Cursor · n8n · Replit`,
-    ``,
-    `## Awards & Talks`,
-    `- Group Winner & Best Presenter — HCI Student Hackathon (Jul 2022)`,
-    `- Workshop Host — Cathay FH design workshop (2022)`,
-    `- Third Place & Semi-finalist — Atona Case Competition, 75 teams (2020)`,
-    ``,
-    `## Outside of work`,
-    `- LEGO — every Friday evening`,
-    `- Volleyball & marathons — since high school`,
-    `- Scuba diving — Spain, Malta, Taiwan`,
-    ``,
-  ].join('\n');
-}
-
 function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVariant }) {
   const g = ABOUT_GRADIENTS[gradient] || ABOUT_GRADIENTS.lilac;
   return (
@@ -319,9 +281,9 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
           <AboutBlock heading={null} marker={null}>
             <p style={{ margin: 0 }}>
               <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52' }}>Lana Hung</span> is an{' '}
-              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>AI-first product maker</strong>{' '}
-              who can do{' '}
-              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>design, research, and PM work</strong>.
+              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>AI-native designer and researcher</strong>{' '}
+              driving user experiences for{' '}
+              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>multi-market platforms</strong>.
             </p>
           </AboutBlock>
         </div>
