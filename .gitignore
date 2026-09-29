@@ -4,3 +4,4 @@ dist
 .env.*
 .DS_Store
 design_handoff_lana_port
+BACKLOG.md
