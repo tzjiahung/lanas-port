@@ -476,6 +476,8 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
 // ─── Articles column ──────────────────────────────────────────
 
 const ARTICLES = [
+  { title: 'Building a UX Research Agent for Slack with n8n, GitLab CI, and Claude', date: 'Aug 2026', readMin: 8, url: 'https://medium.com/@LanaHung/building-a-ux-research-agent-for-slack-with-n8n-gitlab-ci-and-claude-2668908b3cd1' },
+  { title: 'How we transformed qualitative synthesize with AI: ChatGPT, NotebookLM, Claude Code', date: 'Jun 2026', readMin: 7, url: 'https://medium.com/@LanaHung/how-we-transformed-qualitative-synthesize-with-ai-chatgpt-notebooklm-claude-code-0b4df664a15f' },
   { title: 'Applying to HCI Masters in the Age of AI (Fall 2026)', date: 'Apr 2026', readMin: 11, url: 'https://medium.com/@LanaHung/applying-to-hci-masters-in-the-age-of-ai-fall-2026-915eab17fdcd' },
   { title: 'Assessing the Need for SB Pay Onboarding Using SQL and GSheets', date: 'Apr 2026', readMin: 7, url: 'https://medium.com/@LanaHung/assessing-the-need-for-sb-pay-onboarding-using-sql-and-gsheets-a44cf881261d' },
   { title: 'Segmenting Users by Defining User Properties from Behavioral Data', date: 'Sep 2025', readMin: 6, url: 'https://medium.com/@LanaHung/segmenting-users-by-defining-user-properties-from-behavior-data-526a9dd102d6' },
