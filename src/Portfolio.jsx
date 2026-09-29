@@ -524,8 +524,7 @@ function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
           <li key={i}>
             <a
               href={a.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_top"
               style={{ ...articleStyles.link, padding: '2px 0px' }}
               onClick={() => trackEvent('click', { button_label: a.title, section: 'articles' })}
               onMouseEnter={(e) => {
