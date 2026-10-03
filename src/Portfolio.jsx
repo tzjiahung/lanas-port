@@ -302,7 +302,7 @@ const WORKS = [
     year: '2025',
     url: '#/shopback-nma',
     desc: 'Uncovering root causes of post-signup barriers through a mixed-methods study; findings informed a 7-step onboarding redesign.',
-    cover: 'case-covers/shopback.png',
+    cover: 'case-covers/shopback.jpg',
     accent: ['#d8c0dc', '#f0c8d4'],
   },
   {
@@ -312,7 +312,7 @@ const WORKS = [
     year: '2024',
     url: '#/oec-fin',
     desc: 'Led 0-to-1 Compliance module design, including report create, edit, and display states.',
-    cover: 'case-covers/oec-compliance.png',
+    cover: 'case-covers/oec-compliance.jpg',
     accent: ['#f6c9b4', '#f8d8b8'],
   },
   {
@@ -322,7 +322,7 @@ const WORKS = [
     year: '2024',
     url: '#/oec-typo',
     desc: '',
-    cover: 'case-covers/oec-typography.png',
+    cover: 'case-covers/oec-typography.jpg',
     accent: ['#f6c9b4', '#e8d4c0'],
   },
   {
