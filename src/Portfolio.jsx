@@ -438,7 +438,7 @@ function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compac
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
           <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#2a1e2e', letterSpacing: '-0.01em' }}>{title}</h3>
-          <span style={{ fontSize: 12, color: 'rgba(58,46,58,0.55)' }}>{year}</span>
+          <span style={{ fontSize: 12, color: 'rgba(58,46,58,0.55)' }}>· {year}</span>
         </div>
       </div>
     </Tag>
