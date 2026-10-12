@@ -303,6 +303,8 @@ const WORKS = [
     url: '#/shopback-nma',
     desc: 'Uncovering root causes of post-signup barriers through a mixed-methods study; findings informed a 7-step onboarding redesign.',
     cover: 'case-covers/shopback.jpg',
+    tags: ['Research', 'Shipped'],
+    tagColor: '#b46fae',
     accent: ['#d8c0dc', '#f0c8d4'],
   },
   {
@@ -313,6 +315,8 @@ const WORKS = [
     url: '#/oec-fin',
     desc: 'Led 0-to-1 Compliance module design, including report create, edit, and display states.',
     cover: 'case-covers/oec-compliance.jpg',
+    tags: ['Design', 'Shipped'],
+    tagColor: '#3d6fd8',
     accent: ['#f6c9b4', '#f8d8b8'],
   },
   {
@@ -323,6 +327,8 @@ const WORKS = [
     url: '#/oec-typo',
     desc: '',
     cover: 'case-covers/oec-typography.jpg',
+    tags: ['Design', 'Shipped'],
+    tagColor: '#3d6fd8',
     accent: ['#f6c9b4', '#e8d4c0'],
   },
   {
@@ -333,6 +339,8 @@ const WORKS = [
     url: '#/fitback',
     desc: 'Identified the importance of social features in promoting health awareness and how to design social networking features in the FitBack app.',
     cover: 'case-covers/cathay-fh.avif',
+    tags: ['Research', 'Handed over'],
+    tagColor: '#2e7d6b',
     accent: ['#f0c8d4', '#f6c9b4'],
   },
   {
@@ -343,6 +351,8 @@ const WORKS = [
     url: '#/oclock',
     desc: '',
     cover: 'case-covers/oclock-green.png',
+    tags: ['Design', 'Side project'],
+    tagColor: '#2a9d8f',
     accent: ['#c9e4c4', '#e0eccd'],
   },
   {
@@ -353,6 +363,8 @@ const WORKS = [
     url: '#/fooma',
     desc: '',
     cover: 'case-covers/fooma.png',
+    tags: ['Design', 'Hackathon'],
+    tagColor: '#d9606a',
     accent: ['#f8d8b8', '#f0e0a8'],
   },
   {
@@ -363,6 +375,8 @@ const WORKS = [
     url: '#/ucarer',
     desc: '',
     cover: 'case-covers/ucarer.png',
+    tags: ['Design', 'Side project'],
+    tagColor: '#3a9a2e',
     accent: ['#c8d8e8', '#d8c0dc'],
   },
 ];
@@ -373,7 +387,7 @@ function buildWorksMarkdown() {
   return header + body;
 }
 
-function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fill }) {
+function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill }) {
   const [hover, setHover] = React.useState(false);
   const Tag = url ? 'a' : 'article';
   const isInternal = url && url.startsWith('#/');
@@ -413,6 +427,13 @@ function CaseStudy({ title, role, year, desc, cover, url, compact, imgHeight, fi
               {role.split(' · ')[1] || 'Case study'}
             </div>
         }
+        {tags && tags.length > 0 && (
+          <div style={{ position: 'absolute', top: 10, left: 10, display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            {tags.map((t) => (
+              <span key={t} style={{ padding: '4px 10px', borderRadius: 8, background: 'rgba(255,255,255,0.92)', color: tagColor || '#7d68a3', fontSize: 12, fontWeight: 600, lineHeight: 1.3 }}>{t}</span>
+            ))}
+          </div>
+        )}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
