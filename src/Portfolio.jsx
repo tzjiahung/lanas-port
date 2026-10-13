@@ -281,7 +281,7 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
           <AboutBlock heading={null} marker={null}>
             <p style={{ margin: 0 }}>
               <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52' }}>Lana Hung</span> is an{' '}
-              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>AI-native UX generalist</strong>{' '}
+              <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>AI-native UX designer</strong>{' '}
               who designs, researches, and ships with measurable wins across{' '}
               <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>multi-market platforms</strong>.
             </p>
