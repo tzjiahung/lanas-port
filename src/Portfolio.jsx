@@ -620,21 +620,21 @@ const CONTACT_LINKS = [
   { label: 'Email',    href: 'mailto:tzjia.hung@gmail.com' },
 ];
 
-function StatusBar({ isMobile }) {
+function StatusBar({ isMobile, inset }) {
   const wrap = {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    padding: '8px 32px', fontSize: 12, color: 'rgba(58,46,58,0.6)',
+    padding: `10px ${inset}px 8px`, fontSize: 12, color: 'rgba(58,46,58,0.6)',
     fontFamily: '"JetBrains Mono", "SF Mono", ui-monospace, monospace',
     letterSpacing: '0.02em', flexShrink: 0,
   };
-  const mobileWrap = isMobile ? { flexDirection: 'column', alignItems: 'flex-start', gap: 8, padding: '12px 16px 18px' } : null;
+  const mobileWrap = isMobile ? { flexDirection: 'column', alignItems: 'flex-start', gap: 8, padding: `20px ${inset}px 12px` } : null;
   return (
     <div style={{ ...wrap, ...mobileWrap }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(58,46,58,0.45)' }}>CHANGELOG</span>
         <span style={{ color: 'rgba(58,46,58,0.7)' }}>{CHANGELOG_STAMP}</span>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: isMobile ? 'wrap' : 'nowrap', justifyContent: isMobile ? 'flex-start' : 'flex-end' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: isMobile ? 'wrap' : 'nowrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', margin: isMobile ? '0 0 0 -8px' : 0 }}>
         {CONTACT_LINKS.map((l, i) => (
           <React.Fragment key={l.label}>
             {i > 0 && <span style={{ color: 'rgba(58,46,58,0.3)' }}>·</span>}
@@ -700,10 +700,12 @@ function App() {
       </div>
 
       <main style={isMobile ? mainStyles.wrapMobile : mainStyles.wrap}>
+        {/* Inset matches card text: outer padding + 1px card border + card horizontal padding */}
+        <StatusBar isMobile={isMobile} inset={(isMobile ? 16 : t.outerPadding) + 1 + t.cardPadding + 2} />
         <div style={{
           ...gridStyles.outer,
           ...(isMobile ? gridStyles.outerMobile : null),
-          padding: isMobile ? '12px 16px 12px' : `16px ${t.outerPadding}px 8px`,
+          padding: isMobile ? '0 16px 12px' : `0 ${t.outerPadding}px 16px`,
         }}>
           {isMobile ? (
             <div style={{ ...gridStyles.gridMobile, gap: Math.max(12, t.cardGap) }}>
@@ -728,7 +730,6 @@ function App() {
             </div>
           )}
         </div>
-        <StatusBar isMobile={isMobile} />
       </main>
 
       <TweaksPanel title="Tweaks">
