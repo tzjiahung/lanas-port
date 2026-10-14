@@ -55,7 +55,7 @@ function ArrowOut() {
   );
 }
 
-function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0 }) {
+function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, color = '#b9a3d6' }) {
   const x = 9, y = 9, r = 7, pinch = 14 * 0.14;
   const d = [
     `M ${x} ${y - r}`,
@@ -82,7 +82,7 @@ function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0 }) {
       }}
       aria-hidden="true"
     >
-      <path d={d} fill="#b9a3d6" />
+      <path d={d} fill={color} />
     </svg>
   );
 }
@@ -178,13 +178,15 @@ function Card({ title, children, style, padding, radius, headerAction, titleColo
     : cardStyles.body;
   return (
     <section style={{ ...cardStyle, opacity: '1' }}>
-      <div style={headerStyle}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
-          {markerKind && <VoxelMarker kind={markerKind} size={22} />}
-          <h2 style={titleStyle}>{title}</h2>
+      {(title || headerAction) && (
+        <div style={headerStyle}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+            {markerKind && <VoxelMarker kind={markerKind} size={22} />}
+            {title && <h2 style={titleStyle}>{title}</h2>}
+          </div>
+          {headerAction}
         </div>
-        {headerAction}
-      </div>
+      )}
       <div style={bodyStyle} className={isMobile ? '' : 'col-scroll'} onScroll={isMobile ? undefined : handleScroll}>{children}</div>
     </section>
   );
@@ -445,8 +447,113 @@ function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compac
   );
 }
 
+const FOLDER_FRONT_TOP = 36; // tab height; the card body starts here
+const FOLDER_BACK_BG = '#f6f1fb';
+// Until Playground has content, clicking its tab shows a "Coming soon!" tooltip instead of switching.
+const PLAYGROUND_ENABLED = false;
+const FOLDER_STROKE = 2.5; // gradient stroke width of the Playground folder
+const FOLDER_STROKE_GRADIENT = 'linear-gradient(90deg, #b99be6, #ef8fc9)';
+// Soft shade along an inactive tab's bottom edge, as if the card in front casts onto it.
+const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
+
+function SparkleIcon({ size = 12, color = '#8a6fd1' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 12 12" aria-hidden="true">
+      <path d="M6 0.5C6.4 3.6 7.4 4.9 11.5 6C7.4 7.1 6.4 8.4 6 11.5C5.6 8.4 4.6 7.1 0.5 6C4.6 4.9 5.6 3.6 6 0.5Z" fill={color} />
+    </svg>
+  );
+}
+
+function FolderTabs({ active, onChange, radius }) {
+  const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1 };
+  const tabBtn = { fontFamily: 'inherit', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, margin: 0 };
+  const r = Math.max(radius ?? 8, 8);
+  const [soonPos, setSoonPos] = React.useState(null); // tooltip anchor, relative to the right tab area
+  const soonVisible = soonPos != null;
+  const soonTimer = React.useRef(null);
+  const areaRef = React.useRef(null);
+  React.useEffect(() => () => clearTimeout(soonTimer.current), []);
+  function onPlaygroundClick(e) {
+    if (PLAYGROUND_ENABLED) { onChange('playground'); return; }
+    trackEvent('click', { button_label: 'Playground tab (coming soon)', section: 'work' });
+    const area = areaRef.current.getBoundingClientRect();
+    const tabRect = e.currentTarget.getBoundingClientRect();
+    // Show the tooltip where the pointer clicked; keyboard presses (detail 0) anchor under the tab.
+    const x = e.detail === 0 ? tabRect.left + tabRect.width / 2 : e.clientX;
+    const y = e.detail === 0 ? tabRect.bottom : e.clientY;
+    const halfTip = 52; // keep the tooltip from spilling past the card's right edge
+    setSoonPos({ x: Math.min(x - area.left, area.width - halfTip), arrowX: x - area.left, y: y - area.top });
+    clearTimeout(soonTimer.current);
+    soonTimer.current = setTimeout(() => setSoonPos(null), 1000);
+  }
+  return (
+    <div role="tablist" aria-label="Work and playground" style={{ display: 'flex', alignItems: 'flex-end', height: FOLDER_FRONT_TOP, flexShrink: 0, position: 'relative' }}>
+      <button
+        type="button" role="tab" aria-selected={active === 'work'}
+        onClick={() => onChange('work')}
+        style={{
+          ...tabBtn,
+          position: 'relative', zIndex: active === 'work' ? 2 : 0, alignSelf: 'flex-start',
+          // The active tab overlaps the card's top border so the two read as one folder.
+          height: active === 'work' ? FOLDER_FRONT_TOP + 1 : FOLDER_FRONT_TOP,
+          marginBottom: active === 'work' ? -1 : 0,
+          padding: '0 16px',
+          background: 'rgba(255,255,255,0.92)',
+          border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none',
+          borderRadius: `${r + 2}px ${r + 2}px 0 0`,
+          boxShadow: active === 'work' ? 'none' : FOLDER_TAB_SHADE,
+          color: '#5b4a8a',
+        }}
+      >
+        <VoxelMarker kind="work" size={18} />
+        <span style={tabLabel}>Work</span>
+      </button>
+      <div ref={areaRef} style={{ flex: 1, alignSelf: 'stretch', position: 'relative' }}>
+        <button
+          type="button" role="tab" aria-selected={active === 'playground'}
+          onClick={onPlaygroundClick}
+          style={{
+            ...tabBtn,
+            position: 'absolute', top: 0, right: 0, zIndex: active === 'playground' ? 2 : 0,
+            height: active === 'playground' ? FOLDER_FRONT_TOP + FOLDER_STROKE : FOLDER_FRONT_TOP,
+            padding: '0 18px',
+            borderStyle: 'solid', borderColor: 'transparent', borderWidth: `${FOLDER_STROKE}px ${FOLDER_STROKE}px 0 ${FOLDER_STROKE}px`,
+            borderRadius: `${r + 2}px ${r + 2}px 0 0`,
+            background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_GRADIENT} border-box`,
+            boxShadow: active === 'playground' ? 'none' : FOLDER_TAB_SHADE,
+            color: '#5b4a8a',
+          }}
+        >
+          <VoxelMarker kind="playground" size={18} />
+          <span style={{ ...tabLabel, letterSpacing: '0.14em' }}>Playground</span>
+          <HeroSparkle size={12} top={-6} right={-7} color="#f2a65a" />
+          <HeroSparkle size={8} top={-5} right={58} color="#a993e6" delay={1.2} />
+        </button>
+        {soonVisible && (
+          <div role="status" style={{
+            position: 'absolute', top: soonPos.y + 14, left: soonPos.x, transform: 'translateX(-50%)', zIndex: 3,
+            padding: '6px 10px', borderRadius: 8,
+            background: '#fff', color: '#5b4a8a',
+            border: '1px solid rgba(91,74,138,0.15)',
+            fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap',
+            boxShadow: '0 6px 18px rgba(91,74,138,0.16)',
+            pointerEvents: 'none',
+          }}>
+            <span aria-hidden="true" style={{ position: 'absolute', top: -5, left: `calc(50% + ${soonPos.arrowX - soonPos.x}px - 4px)`, width: 8, height: 8, background: '#fff', borderTop: '1px solid rgba(91,74,138,0.15)', borderLeft: '1px solid rgba(91,74,138,0.15)', transform: 'rotate(45deg)' }} />
+            Coming soon!
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Hidden for now — flip to true to bring back the work card's "Copy links to clipboard".
+const SHOW_WORK_COPY_LINK = false;
+
 function WorksCol({ padding, radius, isMobile, headerHeight }) {
-  const action = (
+  const [tab, setTab] = React.useState('work');
+  const action = SHOW_WORK_COPY_LINK ? (
     <CopyPill
       label="Copy links to clipboard"
       copiedLabel="Copied"
@@ -454,7 +561,7 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
       getText={buildWorksMarkdown}
       trackLabel="work"
     />
-  );
+  ) : null;
 
   const top = WORKS.slice(0, 2);
   const bottom = WORKS.slice(2, 4);
@@ -475,22 +582,43 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
     const ro = new ResizeObserver(compute);
     ro.observe(topRowRef.current);
     return () => ro.disconnect();
-  }, [isMobile]);
+  }, [isMobile, tab]);
 
+  function selectTab(next) {
+    if (next === tab) return;
+    trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Playground tab', section: 'work' });
+    setTab(next);
+  }
+
+  const r = radius ?? 8;
+  const playgroundBody = {
+    border: `${FOLDER_STROKE}px solid transparent`,
+    background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_GRADIENT} border-box`,
+  };
   return (
-    <Card title="Work" padding={padding} radius={radius} style={cardCol} headerAction={action} titleColor="#7d68a3" isMobile={isMobile} headerHeight={headerHeight} noFade markerKind="work">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 20 : 24, minHeight: 0 }}>
-        <div ref={topRowRef} style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 16 : 20 }}>
-          {top.map((w, i) => <CaseStudy key={`top-${w.id}-${i}`} {...w} />)}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 2fr', gap: isMobile ? 16 : 20 }}>
-          {bottom.map((w, i) => <CaseStudy key={`bot-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: isMobile ? 16 : 20 }}>
-          {third.map((w, i) => <CaseStudy key={`row3-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
-        </div>
-      </div>
-    </Card>
+    <div style={{ ...(isMobile ? null : cardCol), display: 'flex', flexDirection: 'column', overflow: 'visible' }}>
+      <FolderTabs active={tab} onChange={selectTab} radius={radius} />
+      <Card padding={padding} radius={radius} style={{ ...cardCol, flex: 1, height: 'auto', position: 'relative', zIndex: 1, borderTopLeftRadius: tab === 'work' ? 0 : r + 2, borderTopRightRadius: tab === 'playground' ? 0 : r + 2, ...(tab === 'playground' ? playgroundBody : null) }} headerAction={action} isMobile={isMobile} headerHeight={headerHeight} noFade>
+        {tab === 'work' ? (
+          <div role="tabpanel" aria-label="Work" style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 20 : 24, minHeight: 0 }}>
+            <div ref={topRowRef} style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 16 : 20 }}>
+              {top.map((w, i) => <CaseStudy key={`top-${w.id}-${i}`} {...w} />)}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 2fr', gap: isMobile ? 16 : 20 }}>
+              {bottom.map((w, i) => <CaseStudy key={`bot-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: isMobile ? 16 : 20 }}>
+              {third.map((w, i) => <CaseStudy key={`row3-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
+            </div>
+          </div>
+        ) : (
+          <div role="tabpanel" aria-label="Playground" style={{ flex: 1, minHeight: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, color: 'rgba(58,46,58,0.55)', fontSize: 13, textAlign: 'center' }}>
+            <SparkleIcon size={20} />
+            <span>Experiments and side projects — coming soon.</span>
+          </div>
+        )}
+      </Card>
+    </div>
   );
 }
 
