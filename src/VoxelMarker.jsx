@@ -12,6 +12,7 @@ const VM_PALETTE = {
   gold:       '#d8b774',
   goldDk:     '#b89556',
   ink:        '#3a2e54',
+  pink:       '#eca3cf',
 };
 
 function vmShade(hex, face) {
@@ -121,12 +122,25 @@ const MARKERS = {
     { x: -1, y: 2, z: 0, c: VM_PALETTE.lavDk },
     { x: 1, y: 2, z: 0, c: VM_PALETTE.lavDk },
   ],
+  // Toy blocks in lavender and pink.
+  playground: () => [
+    { x: 0, y: 0, z: 0, c: VM_PALETTE.lav },
+    { x: 1, y: 0, z: 0, c: VM_PALETTE.pink },
+    { x: 0, y: 0, z: 1, c: VM_PALETTE.lavDk },
+    { x: 0, y: 1, z: 0, c: VM_PALETTE.lavLt },
+  ],
 };
+
+// True back-to-front order for markers that use depth (x/z) overlaps.
+const DEPTH_SORTED = new Set(['playground']);
+function vmDepthSort(cells) {
+  return cells.slice().sort((a, b) => (a.x + a.z) - (b.x + b.z) || a.y - b.y);
+}
 
 function VoxelMarker({ kind = 'intro', size = 28 }) {
   const cells = React.useMemo(() => {
     const fn = MARKERS[kind] || MARKERS.intro;
-    return vmSort(fn());
+    return DEPTH_SORTED.has(kind) ? vmDepthSort(fn()) : vmSort(fn());
   }, [kind]);
 
   let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
