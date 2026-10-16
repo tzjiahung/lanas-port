@@ -451,8 +451,16 @@ const FOLDER_FRONT_TOP = 36; // tab height; the card body starts here
 const FOLDER_BACK_BG = '#f6f1fb';
 // Until Playground has content, clicking its tab shows a "Coming soon!" tooltip instead of switching.
 const PLAYGROUND_ENABLED = false;
-const FOLDER_STROKE = 2.5; // gradient stroke width of the Playground folder
+const FOLDER_STROKE = 1.6; // gradient stroke width of the Playground folder
 const FOLDER_STROKE_GRADIENT = 'linear-gradient(90deg, #b99be6, #ef8fc9)';
+// The Playground tab's stroke circles around it: --pg-angle is animated by .pg-stroke-spin (index.css).
+// Lavender-to-pink glow behind the Playground tab. It orbits with the stroke: the pink glow
+// follows the stroke's light-pink highlight (180° into the conic gradient), lavender sits opposite.
+const FOLDER_GLOW = [
+  'calc(sin(var(--pg-angle)) * -8px) calc(cos(var(--pg-angle)) * 4px) 10px rgba(239,143,201,0.45)',
+  'calc(sin(var(--pg-angle)) * 8px) calc(cos(var(--pg-angle)) * -4px) 10px rgba(185,155,230,0.45)',
+].join(', ');
+const FOLDER_STROKE_SPIN_GRADIENT = 'conic-gradient(from var(--pg-angle), #b99be6, #ef8fc9, #f7c6e3, #ef8fc9, #b99be6)';
 // Soft shade along an inactive tab's bottom edge, as if the card in front casts onto it.
 const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
 
@@ -512,6 +520,7 @@ function FolderTabs({ active, onChange, radius }) {
         <button
           type="button" role="tab" aria-selected={active === 'playground'}
           onClick={onPlaygroundClick}
+          className="pg-stroke-spin"
           style={{
             ...tabBtn,
             position: 'absolute', top: 0, right: 0, zIndex: active === 'playground' ? 2 : 0,
@@ -519,8 +528,8 @@ function FolderTabs({ active, onChange, radius }) {
             padding: '0 18px',
             borderStyle: 'solid', borderColor: 'transparent', borderWidth: `${FOLDER_STROKE}px ${FOLDER_STROKE}px 0 ${FOLDER_STROKE}px`,
             borderRadius: `${r + 2}px ${r + 2}px 0 0`,
-            background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_GRADIENT} border-box`,
-            boxShadow: active === 'playground' ? 'none' : FOLDER_TAB_SHADE,
+            background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_SPIN_GRADIENT} border-box`,
+            boxShadow: active === 'playground' ? FOLDER_GLOW : `${FOLDER_TAB_SHADE}, ${FOLDER_GLOW}`,
             color: '#5b4a8a',
           }}
         >
