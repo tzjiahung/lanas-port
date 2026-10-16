@@ -61,6 +61,22 @@ a { color: inherit; }
   50%      { opacity: 1;    transform: scale(1.08); }
 }
 
+/* Playground tab: gradient stroke that circles around the tab */
+@property --pg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes pgStrokeSpin {
+  to { --pg-angle: 360deg; }
+}
+.pg-stroke-spin {
+  animation: pgStrokeSpin 4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-stroke-spin { animation: none; }
+}
+
 /* Responsive overrides — below 760px the layout collapses */
 @media (max-width: 759px) {
   .main-wrap {
