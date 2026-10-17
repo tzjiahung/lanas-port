@@ -447,10 +447,69 @@ function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compac
   );
 }
 
+// Playground pieces sit on the dot-grid canvas like frames on a FigJam board and can be dragged
+// around it. `x`/`y` is the starting spot (px from the canvas's top-left), `rotate` a slight tilt.
+const PLAYGROUND = [
+  { id: 'whatsapp-countdown', label: 'WhatsApp countdown', video: 'playground-covers/whatsapp-countdown.mp4', poster: 'playground-covers/whatsapp-countdown.jpg', x: 24, y: 24, rotate: -6, frame: '#e1f8e7', frameBorder: 'rgba(37,211,102,0.25)' },
+];
+
+function PlaygroundPiece({ label, video, poster, x, y, rotate, frame, frameBorder, canvasRef }) {
+  const [pos, setPos] = React.useState({ x, y });
+  const [dragging, setDragging] = React.useState(false);
+  const drag = React.useRef(null); // pointer offset from the piece's corner while dragging
+
+  function onPointerDown(e) {
+    if (e.button !== 0) return;
+    e.preventDefault(); // no native image/video drag or text selection
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { dx: e.clientX - pos.x, dy: e.clientY - pos.y };
+    setDragging(true);
+  }
+  function onPointerMove(e) {
+    if (!drag.current) return;
+    // Keep the piece on the canvas.
+    const canvas = canvasRef.current;
+    const maxX = Math.max(0, canvas.clientWidth - e.currentTarget.offsetWidth);
+    const maxY = Math.max(0, canvas.clientHeight - e.currentTarget.offsetHeight);
+    setPos({
+      x: Math.min(Math.max(e.clientX - drag.current.dx, 0), maxX),
+      y: Math.min(Math.max(e.clientY - drag.current.dy, 0), maxY),
+    });
+  }
+  function onPointerUp() {
+    if (!drag.current) return;
+    drag.current = null;
+    setDragging(false);
+    trackEvent('click', { button_label: `Playground piece moved: ${label}`, section: 'work' });
+  }
+
+  return (
+    <div
+      onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp}
+      style={{
+        position: 'absolute', left: pos.x, top: pos.y, zIndex: dragging ? 2 : 1,
+        width: 'min(100%, 300px)', padding: 12, boxSizing: 'border-box',
+        background: frame, borderRadius: 16, border: `1px solid ${frameBorder}`,
+        transform: `rotate(${rotate}deg) scale(${dragging ? 1.03 : 1})`,
+        boxShadow: dragging
+          ? '0 2px 4px rgba(58,46,58,0.08), 0 22px 40px -14px rgba(91,74,138,0.38)'
+          : '0 1px 2px rgba(58,46,58,0.06), 0 10px 24px -12px rgba(91,74,138,0.26)',
+        transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+        cursor: dragging ? 'grabbing' : 'grab', touchAction: 'none', userSelect: 'none',
+      }}
+    >
+      <video
+        src={video} poster={poster} autoPlay muted loop playsInline aria-label={label}
+        style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', display: 'block', borderRadius: 8, pointerEvents: 'none' }}
+      />
+    </div>
+  );
+}
+
 const FOLDER_FRONT_TOP = 36; // tab height; the card body starts here
 const FOLDER_BACK_BG = '#f6f1fb';
 // Until Playground has content, clicking its tab shows a "Coming soon!" tooltip instead of switching.
-const PLAYGROUND_ENABLED = false;
+const PLAYGROUND_ENABLED = true;
 const FOLDER_STROKE = 2; // gradient stroke width of the Playground folder
 // FigJam-style dot grid for the Playground canvas, drawn over FOLDER_BACK_BG.
 const PLAYGROUND_DOT_GRID = 'radial-gradient(circle, rgba(155,125,210,0.4) 0.6px, transparent 1px) 0 0 / 20px 20px';
@@ -469,14 +528,6 @@ const folderSpinGradient = (at) => `conic-gradient(from var(--pg-angle) at ${at}
 const FOLDER_TAB_CLIP = 'inset(-24px -24px 0 -24px)';
 // Soft shade along an inactive tab's bottom edge, as if the card in front casts onto it.
 const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
-
-function SparkleIcon({ size = 12, color = '#8a6fd1' }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 12 12" aria-hidden="true">
-      <path d="M6 0.5C6.4 3.6 7.4 4.9 11.5 6C7.4 7.1 6.4 8.4 6 11.5C5.6 8.4 4.6 7.1 0.5 6C4.6 4.9 5.6 3.6 6 0.5Z" fill={color} />
-    </svg>
-  );
-}
 
 function FolderTabs({ active, onChange, radius, strokeCenter }) {
   const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1 };
@@ -612,6 +663,8 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
     return () => ro.disconnect();
   }, []);
 
+  const canvasRef = React.useRef(null); // the Playground canvas that pieces are dragged around
+
   function selectTab(next) {
     if (next === tab) return;
     trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Playground tab', section: 'work' });
@@ -641,9 +694,8 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
             </div>
           </div>
         ) : (
-          <div role="tabpanel" aria-label="Playground" style={{ flex: 1, minHeight: 240, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 10, color: 'rgba(58,46,58,0.55)', fontSize: 13, textAlign: 'center' }}>
-            <SparkleIcon size={20} />
-            <span>Experiments and side projects — coming soon.</span>
+          <div ref={canvasRef} role="tabpanel" aria-label="Playground" style={{ flex: 1, minHeight: 380, position: 'relative' }}>
+            {PLAYGROUND.map(p => <PlaygroundPiece key={p.id} {...p} canvasRef={canvasRef} />)}
           </div>
         )}
       </Card>
