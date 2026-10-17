@@ -64,7 +64,7 @@ a { color: inherit; }
 /* Playground tab: gradient stroke that circles around the tab */
 @property --pg-angle {
   syntax: '<angle>';
-  inherits: false;
+  inherits: true; /* the tab and card read it from their shared wrapper */
   initial-value: 0deg;
 }
 @keyframes pgStrokeSpin {
