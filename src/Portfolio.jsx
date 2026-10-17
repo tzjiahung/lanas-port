@@ -451,16 +451,22 @@ const FOLDER_FRONT_TOP = 36; // tab height; the card body starts here
 const FOLDER_BACK_BG = '#f6f1fb';
 // Until Playground has content, clicking its tab shows a "Coming soon!" tooltip instead of switching.
 const PLAYGROUND_ENABLED = false;
-const FOLDER_STROKE = 1.6; // gradient stroke width of the Playground folder
-const FOLDER_STROKE_GRADIENT = 'linear-gradient(90deg, #b99be6, #ef8fc9)';
-// The Playground tab's stroke circles around it: --pg-angle is animated by .pg-stroke-spin (index.css).
+const FOLDER_STROKE = 2; // gradient stroke width of the Playground folder
+// FigJam-style dot grid for the Playground canvas, drawn over FOLDER_BACK_BG.
+const PLAYGROUND_DOT_GRID = 'radial-gradient(circle, rgba(155,125,210,0.4) 0.6px, transparent 1px) 0 0 / 20px 20px';
+// The Playground stroke circles around the tab and card: --pg-angle is animated by .pg-stroke-spin
+// (index.css) on their shared wrapper, so both stay in step.
 // Lavender-to-pink glow behind the Playground tab. It orbits with the stroke: the pink glow
 // follows the stroke's light-pink highlight (180° into the conic gradient), lavender sits opposite.
 const FOLDER_GLOW = [
   'calc(sin(var(--pg-angle)) * -8px) calc(cos(var(--pg-angle)) * 4px) 10px rgba(239,143,201,0.45)',
   'calc(sin(var(--pg-angle)) * 8px) calc(cos(var(--pg-angle)) * -4px) 10px rgba(185,155,230,0.45)',
 ].join(', ');
-const FOLDER_STROKE_SPIN_GRADIENT = 'conic-gradient(from var(--pg-angle), #b99be6, #ef8fc9, #f7c6e3, #ef8fc9, #b99be6)';
+// The tab and card centre the conic on the same point (`at`, measured from each one's top-right
+// corner) so the stroke's colour runs on unbroken where the tab meets the card.
+const folderSpinGradient = (at) => `conic-gradient(from var(--pg-angle) at ${at}, #b99be6, #ef8fc9, #f7c6e3, #ef8fc9, #b99be6)`;
+// Keeps the tab's glow from spilling down onto the card below it.
+const FOLDER_TAB_CLIP = 'inset(-24px -24px 0 -24px)';
 // Soft shade along an inactive tab's bottom edge, as if the card in front casts onto it.
 const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
 
@@ -472,7 +478,7 @@ function SparkleIcon({ size = 12, color = '#8a6fd1' }) {
   );
 }
 
-function FolderTabs({ active, onChange, radius }) {
+function FolderTabs({ active, onChange, radius, strokeCenter }) {
   const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1 };
   const tabBtn = { fontFamily: 'inherit', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, margin: 0 };
   const r = Math.max(radius ?? 8, 8);
@@ -520,7 +526,6 @@ function FolderTabs({ active, onChange, radius }) {
         <button
           type="button" role="tab" aria-selected={active === 'playground'}
           onClick={onPlaygroundClick}
-          className="pg-stroke-spin"
           style={{
             ...tabBtn,
             position: 'absolute', top: 0, right: 0, zIndex: active === 'playground' ? 2 : 0,
@@ -528,8 +533,9 @@ function FolderTabs({ active, onChange, radius }) {
             padding: '0 18px',
             borderStyle: 'solid', borderColor: 'transparent', borderWidth: `${FOLDER_STROKE}px ${FOLDER_STROKE}px 0 ${FOLDER_STROKE}px`,
             borderRadius: `${r + 2}px ${r + 2}px 0 0`,
-            background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_SPIN_GRADIENT} border-box`,
+            background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${folderSpinGradient(strokeCenter ? `right ${strokeCenter.x}px top ${strokeCenter.y + FOLDER_FRONT_TOP}px` : 'center')} border-box`,
             boxShadow: active === 'playground' ? FOLDER_GLOW : `${FOLDER_TAB_SHADE}, ${FOLDER_GLOW}`,
+            clipPath: active === 'playground' ? FOLDER_TAB_CLIP : 'none',
             color: '#5b4a8a',
           }}
         >
@@ -593,6 +599,19 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
     return () => ro.disconnect();
   }, [isMobile, tab]);
 
+  // Centre of the card below the tabs, from its top-right corner: the shared centre of the Playground stroke.
+  const folderRef = React.useRef(null);
+  const [strokeCenter, setStrokeCenter] = React.useState(null);
+  React.useEffect(() => {
+    const el = folderRef.current;
+    if (!el) return;
+    const measure = () => setStrokeCenter({ x: el.offsetWidth / 2, y: (el.offsetHeight - FOLDER_FRONT_TOP) / 2 });
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   function selectTab(next) {
     if (next === tab) return;
     trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Playground tab', section: 'work' });
@@ -602,11 +621,12 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
   const r = radius ?? 8;
   const playgroundBody = {
     border: `${FOLDER_STROKE}px solid transparent`,
-    background: `linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${FOLDER_STROKE_GRADIENT} border-box`,
+    background: `${PLAYGROUND_DOT_GRID} padding-box, linear-gradient(${FOLDER_BACK_BG}, ${FOLDER_BACK_BG}) padding-box, ${folderSpinGradient(strokeCenter ? `right ${strokeCenter.x}px top ${strokeCenter.y}px` : 'center')} border-box`,
+    boxShadow: FOLDER_GLOW,
   };
   return (
-    <div style={{ ...(isMobile ? null : cardCol), display: 'flex', flexDirection: 'column', overflow: 'visible' }}>
-      <FolderTabs active={tab} onChange={selectTab} radius={radius} />
+    <div ref={folderRef} className="pg-stroke-spin" style={{ ...(isMobile ? null : cardCol), display: 'flex', flexDirection: 'column', overflow: 'visible' }}>
+      <FolderTabs active={tab} onChange={selectTab} radius={radius} strokeCenter={strokeCenter} />
       <Card padding={padding} radius={radius} style={{ ...cardCol, flex: 1, height: 'auto', position: 'relative', zIndex: 1, borderTopLeftRadius: tab === 'work' ? 0 : r + 2, borderTopRightRadius: tab === 'playground' ? 0 : r + 2, ...(tab === 'playground' ? playgroundBody : null) }} headerAction={action} isMobile={isMobile} headerHeight={headerHeight} noFade>
         {tab === 'work' ? (
           <div role="tabpanel" aria-label="Work" style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? 20 : 24, minHeight: 0 }}>
