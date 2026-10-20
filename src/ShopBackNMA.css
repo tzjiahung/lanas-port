@@ -317,38 +317,7 @@
 @media (max-width: 880px) { .snma-stat { grid-column: span 6 !important; } }
 @media (max-width: 520px) { .snma-stat { grid-column: span 12 !important; } }
 
-/* Decorative blobs */
-.snma-blob {
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: var(--snma-accent3);
-  opacity: .35;
-  filter: blur(80px);
-  top: -120px;
-  right: -100px;
-  z-index: 0;
-  animation: snmaFloat 14s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.snma-blob.b2 {
-  background: var(--snma-accent1);
-  width: 280px;
-  height: 280px;
-  top: 320px;
-  left: -80px;
-  animation-delay: -4s;
-  opacity: .25;
-}
-
 .snma-hero .snma-wrap { position: relative; z-index: 1; }
-
-@keyframes snmaFloat {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(40px, -28px); }
-}
 
 /* Marquee */
 .snma-marquee {
