@@ -200,7 +200,7 @@
 
 /* ---- Hero ---- */
 .snma-hero {
-  padding: clamp(48px, 8vw, 96px) 0 0;
+  padding: clamp(48px, 8vw, 96px) 0 clamp(48px, 6vw, 72px);
   position: relative;
   overflow: hidden;
 }
@@ -280,7 +280,6 @@
   min-height: 180px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .snma-stat:hover {
@@ -304,7 +303,7 @@
   text-transform: uppercase;
   letter-spacing: .08em;
   color: var(--snma-fg-mute);
-  margin-top: 14px;
+  margin-top: 24px;
 }
 
 .snma-stat-desc {
