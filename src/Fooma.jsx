@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -33,28 +33,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">7</div>
             <div>
               <div className="snma-stat-lbl">Interview participants</div>
               <div className="snma-stat-desc">In-depth interviews on food habits</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">90<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Willing to buy</div>
               <div className="snma-stat-desc">Workshop participants · rated efficient</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">#1</div>
             <div>
               <div className="snma-stat-lbl">Most popular design</div>
               <div className="snma-stat-desc">Won the workshop award</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">7</div>
             <div>
               <div className="snma-stat-lbl">Team members</div>
@@ -112,12 +112,12 @@ function Research() {
 
         {/* Research Goals */}
         <div className="snma-goals" style={{ marginBottom: 56 }}>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Address food waste</h3>
             <p>Understand the root causes of food waste and find design opportunities to reduce it while raising customer awareness.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Cultivate planned shopping</h3>
             <p>Identify what prevents people from planning grocery trips and design tools that build better habits over time.</p>
@@ -146,7 +146,7 @@ function Research() {
           </p>
 
           <div className="snma-impact-grid">
-            <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+            <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
               <div className="snma-impact-text">
                 <span className="snma-impact-kind">Interview Analysis</span>
                 <h3>Affinity diagram + Persona + Customer Journey Map</h3>
@@ -211,7 +211,7 @@ function Design() {
 
         {/* Hardware */}
         <div className="snma-impact-grid" style={{ marginBottom: 48 }}>
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Hardware — FooMa Scanning Device</span>
               <h3>Hangs inside your fridge. Scans before you store.</h3>
@@ -275,7 +275,7 @@ function Feedback() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Workshop Result</span>
               <h3>Over 90% of participants willing to buy FooMa</h3>
@@ -307,7 +307,7 @@ function Takeaways() {
           Two lessons from completing a full research and design cycle in two weeks.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Collaboration is the key to team success</span></h3>
             <p>
               Over two weeks, the team grew close, shared thoughts freely, distributed
@@ -315,7 +315,7 @@ function Takeaways() {
               not just coordination — is what makes a product great.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Hardware has a cost dimension</span></h3>
             <p>
               Designing a software + hardware product means cost and material selection become
@@ -331,7 +331,6 @@ function Takeaways() {
 
 export default function Fooma() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title

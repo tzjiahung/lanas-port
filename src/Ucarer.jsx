@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -33,28 +33,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
               <div className="snma-stat-lbl">Months</div>
               <div className="snma-stat-desc">End-to-end redesign timeline</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">95<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Prefer new version</div>
               <div className="snma-stat-desc">Workshop participants · new IA &amp; UI</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">Top 3</div>
             <div>
               <div className="snma-stat-lbl">Workshop ranking</div>
               <div className="snma-stat-desc">Best IA &amp; new user interface</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
               <div className="snma-stat-lbl">Team members</div>
@@ -111,12 +111,12 @@ function Research() {
 
         {/* Research Goals */}
         <div className="snma-goals" style={{ marginBottom: 56 }}>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Identify UX friction</h3>
             <p>Find and address any issues that hinder the user experience during interactions with the product.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Increase MAU</h3>
             <p>Understand what barriers prevent users from activating monthly and find design opportunities to remove them.</p>
@@ -141,7 +141,7 @@ function Research() {
             Recruiting criteria: people with experience finding caregivers for elderly, family,
             or friends; 30+ years old to match the app's core user age group.
           </p>
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr', marginBottom: 0 }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr', marginBottom: 0 }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Interview Analysis — Affinity Diagram</span>
               <h3>Complicated info and unintuitive flows were the core pain</h3>
@@ -233,7 +233,7 @@ function Prototype() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">High-fidelity prototype</span>
               <h3>All tabs redesigned with the new IA</h3>
@@ -246,7 +246,7 @@ function Prototype() {
             <img src="/ucarer/uproto.jpg" alt="High-fidelity prototype screens" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
 
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Service Map</span>
               <h3>End-to-end service interactions mapped</h3>
@@ -300,7 +300,7 @@ function Takeaways() {
           Two reflections from my first end-to-end UI/UX design project.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>This is where my interest in research began</span></h3>
             <p>
               Walking through every phase — interviewing, structuring, wireframing,
@@ -309,7 +309,7 @@ function Takeaways() {
               my primary focus.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Talk to actual users, not proxies</span></h3>
             <p>
               We didn't interview real Ucarer users before or after designing. If we had,
@@ -325,7 +325,6 @@ function Takeaways() {
 
 export default function Ucarer() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title
