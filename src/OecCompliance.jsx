@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -34,28 +34,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">0→1</div>
             <div>
               <div className="snma-stat-lbl">Full design scope</div>
               <div className="snma-stat-desc">End-to-end module, no prior designs</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
               <div className="snma-stat-lbl">Design proposals</div>
               <div className="snma-stat-desc">Explored before landing on final</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">50<span className="sm">K</span></div>
             <div>
               <div className="snma-stat-lbl">OEC customers</div>
               <div className="snma-stat-desc">Across North America, Europe, Asia</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">1<span className="sm">mo</span></div>
             <div>
               <div className="snma-stat-lbl">End-to-end</div>
@@ -118,17 +118,17 @@ function Problem() {
         </p>
 
         <div className="snma-goals">
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Hard to locate invoices</h3>
             <p>Accounting managers had no centralized place to retrieve shipping invoices required for regulatory compliance — documents were scattered across paper records.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Time-consuming process</h3>
             <p>Manually searching for and cross-referencing invoice records consumed significant time, slowing down compliance reporting cycles.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">03</div>
             <h3>High human error risk</h3>
             <p>Without a digital system, manual data entry and document handling increased the likelihood of errors that could affect compliance accuracy.</p>
@@ -151,7 +151,7 @@ function Flow() {
         </p>
 
         <div className="snma-method-grid">
-          <div className="snma-method-card a snma-reveal">
+          <div className="snma-method-card a">
             <div className="snma-method-ic">1</div>
             <h3>Enter inquiries</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -159,7 +159,7 @@ function Flow() {
               to narrow down which invoices are relevant for the compliance requirement.
             </p>
           </div>
-          <div className="snma-method-card b snma-reveal">
+          <div className="snma-method-card b">
             <div className="snma-method-ic">2</div>
             <h3>Filter invoices</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -167,7 +167,7 @@ function Flow() {
               results before moving to selection.
             </p>
           </div>
-          <div className="snma-method-card a snma-reveal">
+          <div className="snma-method-card a">
             <div className="snma-method-ic">3</div>
             <h3>Select invoices</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -175,7 +175,7 @@ function Flow() {
               new compliance record.
             </p>
           </div>
-          <div className="snma-method-card b snma-reveal">
+          <div className="snma-method-card b">
             <div className="snma-method-ic">4</div>
             <h3>Confirm selections</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -250,7 +250,7 @@ function Design() {
 
         <div className="snma-impact-grid">
           {PROPOSALS.map((p) => (
-            <div key={p.tag} className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+            <div key={p.tag} className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
               <div className="snma-impact-text">
                 <span className="snma-impact-kind">{p.tag}</span>
                 <h3>{p.title}</h3>
@@ -312,7 +312,7 @@ function Takeaways() {
           Two things this project taught me about 0-to-1 design in an enterprise context.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Explore before committing</span></h3>
             <p>
               Running four distinct proposals — even knowing some wouldn't work — gave the team
@@ -320,7 +320,7 @@ function Takeaways() {
               it much easier for stakeholders to trust proposal D.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Enterprise constraints shape design</span></h3>
             <p>
               Component libraries, existing ERP patterns, and column visibility requirements
@@ -336,7 +336,6 @@ function Takeaways() {
 
 export default function OecCompliance() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title
