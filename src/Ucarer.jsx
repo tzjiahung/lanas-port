@@ -13,8 +13,6 @@ const SECTIONS = [
 function Hero() {
   return (
     <section className="snma-hero" id="top">
-      <span className="snma-blob" aria-hidden="true" />
-      <span className="snma-blob b2" aria-hidden="true" />
       <div className="snma-wrap">
         <div className="snma-hero-label">
           UI/UX DESIGNER&nbsp;·&nbsp;SCHOOL PROJECT&nbsp;·&nbsp;UCARER
