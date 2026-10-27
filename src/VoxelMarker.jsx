@@ -122,6 +122,15 @@ const MARKERS = {
     { x: -1, y: 2, z: 0, c: VM_PALETTE.lavDk },
     { x: 1, y: 2, z: 0, c: VM_PALETTE.lavDk },
   ],
+  // Two stacks of gold coins.
+  fintech: () => [
+    { x: -1, y: 0, z: 0, c: VM_PALETTE.goldDk },
+    { x: -1, y: 1, z: 0, c: VM_PALETTE.gold },
+    { x: 1, y: 0, z: 0, c: VM_PALETTE.goldDk },
+    { x: 1, y: 1, z: 0, c: VM_PALETTE.gold },
+    { x: 1, y: 2, z: 0, c: VM_PALETTE.goldDk },
+    { x: 1, y: 3, z: 0, c: VM_PALETTE.gold },
+  ],
   // Toy blocks in lavender and pink.
   playground: () => [
     { x: 0, y: 0, z: 0, c: VM_PALETTE.lav },
