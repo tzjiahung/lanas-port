@@ -528,6 +528,15 @@ const folderSpinGradient = (at) => `conic-gradient(from var(--pg-angle) at ${at}
 const FOLDER_TAB_CLIP = 'inset(-24px -24px 0 -24px)';
 // Soft shade along an inactive tab's bottom edge, as if the card in front casts onto it.
 const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
+// The plain white tabs along the folder's left edge; Playground sits on its own at the right.
+const FOLDER_FRONT_TABS = [
+  { id: 'work', label: 'Work' },
+  { id: 'fintech', label: 'Fintech' },
+];
+const FINTECH_IDS = ['oec-finance', 'cathay-fitback'];
+const FINTECH_WORKS = WORKS.filter(w => FINTECH_IDS.includes(w.id));
+const WORK_TAB_WORKS = WORKS.filter(w => !FINTECH_IDS.includes(w.id));
+const TAB_TRACK_LABEL = { work: 'Work tab', fintech: 'Fintech tab', playground: 'Playground tab' };
 
 function FolderTabs({ active, onChange, radius, strokeCenter }) {
   const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1 };
@@ -552,27 +561,30 @@ function FolderTabs({ active, onChange, radius, strokeCenter }) {
     soonTimer.current = setTimeout(() => setSoonPos(null), 1000);
   }
   return (
-    <div role="tablist" aria-label="Work and playground" style={{ display: 'flex', alignItems: 'flex-end', height: FOLDER_FRONT_TOP, flexShrink: 0, position: 'relative' }}>
-      <button
-        type="button" role="tab" aria-selected={active === 'work'}
-        onClick={() => onChange('work')}
-        style={{
-          ...tabBtn,
-          position: 'relative', zIndex: active === 'work' ? 2 : 0, alignSelf: 'flex-start',
-          // The active tab overlaps the card's top border so the two read as one folder.
-          height: active === 'work' ? FOLDER_FRONT_TOP + 1 : FOLDER_FRONT_TOP,
-          marginBottom: active === 'work' ? -1 : 0,
-          padding: '0 16px',
-          background: 'rgba(255,255,255,0.92)',
-          border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none',
-          borderRadius: `${r + 2}px ${r + 2}px 0 0`,
-          boxShadow: active === 'work' ? 'none' : FOLDER_TAB_SHADE,
-          color: '#5b4a8a',
-        }}
-      >
-        <VoxelMarker kind="work" size={18} />
-        <span style={tabLabel}>Work</span>
-      </button>
+    <div role="tablist" aria-label="Work, fintech and playground" style={{ display: 'flex', alignItems: 'flex-end', height: FOLDER_FRONT_TOP, flexShrink: 0, position: 'relative' }}>
+      {FOLDER_FRONT_TABS.map(({ id, label }) => (
+        <button
+          key={id}
+          type="button" role="tab" aria-selected={active === id}
+          onClick={() => onChange(id)}
+          style={{
+            ...tabBtn,
+            position: 'relative', zIndex: active === id ? 2 : 0, alignSelf: 'flex-start',
+            // The active tab overlaps the card's top border so the two read as one folder.
+            height: active === id ? FOLDER_FRONT_TOP + 1 : FOLDER_FRONT_TOP,
+            marginBottom: active === id ? -1 : 0,
+            padding: '0 16px',
+            background: 'rgba(255,255,255,0.92)',
+            border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none',
+            borderRadius: `${r + 2}px ${r + 2}px 0 0`,
+            boxShadow: active === id ? 'none' : FOLDER_TAB_SHADE,
+            color: '#5b4a8a',
+          }}
+        >
+          <VoxelMarker kind={id} size={18} />
+          <span style={tabLabel}>{label}</span>
+        </button>
+      ))}
       <div ref={areaRef} style={{ flex: 1, alignSelf: 'stretch', position: 'relative' }}>
         <button
           type="button" role="tab" aria-selected={active === 'playground'}
@@ -629,9 +641,8 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
     />
   ) : null;
 
-  const top = WORKS.slice(0, 2);
-  const bottom = WORKS.slice(2, 4);
-  const third = WORKS.slice(4, 7);
+  const top = WORK_TAB_WORKS.slice(0, 2);
+  const third = WORK_TAB_WORKS.slice(2, 5);
 
   const topRowRef = React.useRef(null);
   const [compactImgH, setCompactImgH] = React.useState(null);
@@ -667,7 +678,7 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
 
   function selectTab(next) {
     if (next === tab) return;
-    trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Playground tab', section: 'work' });
+    trackEvent('click', { button_label: TAB_TRACK_LABEL[next], section: 'work' });
     setTab(next);
   }
 
@@ -686,12 +697,13 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
             <div ref={topRowRef} style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 16 : 20 }}>
               {top.map((w, i) => <CaseStudy key={`top-${w.id}-${i}`} {...w} />)}
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 2fr', gap: isMobile ? 16 : 20 }}>
-              {bottom.map((w, i) => <CaseStudy key={`bot-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
-            </div>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: isMobile ? 16 : 20 }}>
               {third.map((w, i) => <CaseStudy key={`row3-${w.id}-${i}`} {...w} compact imgHeight={compactImgH} />)}
             </div>
+          </div>
+        ) : tab === 'fintech' ? (
+          <div role="tabpanel" aria-label="Fintech" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 16 : 20, alignContent: 'start', minHeight: 0 }}>
+            {FINTECH_WORKS.map(w => <CaseStudy key={`fintech-${w.id}`} {...w} />)}
           </div>
         ) : (
           <div ref={canvasRef} role="tabpanel" aria-label="Playground" style={{ flex: 1, minHeight: 380, position: 'relative' }}>
