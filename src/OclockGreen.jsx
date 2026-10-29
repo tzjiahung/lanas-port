@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -20,7 +20,7 @@ function Hero() {
 
         <h1>
           A{' '}
-          <span className="snma-underline">reusable cup</span>{' '}
+          reusable cup{' '}
           rental system to cut Taiwan's{' '}
           <span className="snma-accent">paper cup waste.</span>
         </h1>
@@ -33,28 +33,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
               <div className="snma-stat-lbl">Team members</div>
               <div className="snma-stat-desc">Cross-functional side project team</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">8</div>
             <div>
               <div className="snma-stat-lbl">Usability test participants</div>
               <div className="snma-stat-desc">In-depth interviews + SUS</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">3</div>
             <div>
               <div className="snma-stat-lbl">Test methods</div>
               <div className="snma-stat-desc">Usability testing · Card sorting · SUS</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">78<span className="sm">/100</span></div>
             <div>
               <div className="snma-stat-lbl">SUS score</div>
@@ -69,7 +69,7 @@ function Hero() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section alt">
+    <section id="overview" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
@@ -101,7 +101,7 @@ function Research() {
     <section id="research" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Research</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Understanding why people don't bring reusable cups.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -113,7 +113,7 @@ function Research() {
         <div style={{ marginBottom: 56 }}>
           <span className="snma-section-label" style={{ fontSize: 11 }}>Table Research</span>
           <div className="snma-impact-grid" style={{ marginTop: 20 }}>
-            <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+            <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
               <div className="snma-impact-text">
                 <span className="snma-impact-kind">Policy context</span>
                 <h3>Incentives exist — but don't work</h3>
@@ -160,10 +160,10 @@ function Research() {
 
 function Design() {
   return (
-    <section id="design" className="snma-section alt">
+    <section id="design" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Design</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Rent a cup. Order coffee. Return. All on LINE.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -173,17 +173,17 @@ function Design() {
 
         {/* Design Goals */}
         <div className="snma-goals" style={{ marginBottom: 56 }}>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Eliminate carrying reusable cups</h3>
             <p>Customers shouldn't need to remember to bring their own cup — the cabinet at the store provides one.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Improve purchase efficiency</h3>
             <p>Streamline the making and purchasing of coffee by combining ordering and cup rental into one flow.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">03</div>
             <h3>No new app needed</h3>
             <p>Build entirely within LINE — Taiwan's most used platform — to minimise onboarding friction.</p>
@@ -242,7 +242,7 @@ function Test() {
     <section id="test" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Test</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Three methods. One honest picture.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -252,7 +252,7 @@ function Test() {
 
         <div className="snma-impact-grid">
           {/* Usability Testing */}
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Usability Testing · 8 participants</span>
               <h3>3 scenarios, 3 tasks, affinity diagram</h3>
@@ -272,7 +272,7 @@ function Test() {
           </div>
 
           {/* Card Sorting */}
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Card Sorting · 16 adjectives</span>
               <h3>Effective, innovative, easy — top 3 picks</h3>
@@ -288,7 +288,7 @@ function Test() {
           </div>
 
           {/* SUS */}
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">System Usability Score</span>
               <h3>78 / 100 — Grade B, room to reach A</h3>
@@ -339,14 +339,14 @@ function Takeaways() {
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Takeaways</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           What I'd carry into the next sprint ✨
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Two reflections from completing a full end-to-end case study in under two weeks.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Design and deliver under time pressure</span></h3>
             <p>
               My teammates and I had nearly two weeks to complete this end-to-end case study.
@@ -354,7 +354,7 @@ function Takeaways() {
               Constraints sharpen decision-making.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Interview both sides of the product</span></h3>
             <p>
               We only tested with customers (B2C). In hindsight, interviewing coffee shop
@@ -370,7 +370,6 @@ function Takeaways() {
 
 export default function OclockGreen() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title

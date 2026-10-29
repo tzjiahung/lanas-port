@@ -37,19 +37,6 @@ export function useScrollSpy(sections) {
   return active
 }
 
-export function useReveal() {
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
-      }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.snma-reveal').forEach(el => io.observe(el))
-    return () => io.disconnect()
-  }, [])
-}
-
 export function RailNav({ sections, active }) {
   return (
     <nav className="snma-rail" aria-label="Page sections">

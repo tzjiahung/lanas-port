@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, scrollTo, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
@@ -20,7 +20,7 @@ function Hero() {
         </div>
 
         <h1>
-          <span className="snma-underline">Mixed-methods</span>{' '}
+          Mixed-methods{' '}
           study to close ShopBack's new market{' '}
           <span className="snma-accent">activation gap</span>{' '}
           in the U.S. &amp; Germany.
@@ -34,28 +34,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Activation lift</div>
               <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">98<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Rated walkthrough helpful</div>
               <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">8</div>
             <div>
               <div className="snma-stat-lbl">Moderated interviews</div>
               <div className="snma-stat-desc">U.S. participants · 45 min each</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">136</div>
             <div>
               <div className="snma-stat-lbl">Survey responses</div>
@@ -71,7 +71,7 @@ function Hero() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section alt">
+    <section id="overview" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
@@ -129,7 +129,7 @@ function Assumptions() {
     <section id="assumptions" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Assumptions</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           We began with three existing assumptions about the gap.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -139,7 +139,7 @@ function Assumptions() {
         </p>
         <div className="snma-assumptions">
           {ASSUMPTIONS.map(a => (
-            <div key={a.n} className="snma-assumption snma-reveal">
+            <div key={a.n} className="snma-assumption">
               <span className="snma-assumption-tag">Assumption {a.n}</span>
               <div className="snma-assumption-n">{a.n}</div>
               <h3>{a.title}</h3>
@@ -157,21 +157,21 @@ function Assumptions() {
 
 function Goals() {
   return (
-    <section id="goals" className="snma-section alt">
+    <section id="goals" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Research goals</span>
         <div className="snma-goals">
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Explore first-time experience</h3>
             <p>Understand what actions users take immediately after signing up and landing on the home page.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Identify onboarding barriers</h3>
             <p>Uncover obstacles users face between signing up and actually browsing merchants or making transactions.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">03</div>
             <h3>Understand drivers of attraction</h3>
             <p>Learn what motivates users to engage — which incentives to offer, which features to highlight.</p>
@@ -202,7 +202,7 @@ function Method() {
         </p>
 
         <div className="snma-method-grid">
-          <div className="snma-method-card a snma-reveal">
+          <div className="snma-method-card a">
             <div className="snma-method-ic">I</div>
             <h3>
               User interviews{' '}
@@ -219,7 +219,7 @@ function Method() {
             </div>
           </div>
 
-          <div className="snma-method-card b snma-reveal">
+          <div className="snma-method-card b">
             <div className="snma-method-ic">S</div>
             <h3>
               Quantitative survey{' '}
@@ -255,10 +255,10 @@ function Method() {
 
 function Impact() {
   return (
-    <section id="impact" className="snma-section alt">
+    <section id="impact" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Impact</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Validated initial assumptions, uncovered user barriers.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -266,7 +266,7 @@ function Impact() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">New design — Shipped</span>
               <h3>7-Step onboarding walkthrough</h3>
@@ -284,7 +284,7 @@ function Impact() {
             </div>
           </div>
 
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Validated direction</span>
               <h3>Extra rewards for non-activated users</h3>
@@ -302,7 +302,7 @@ function Impact() {
             </div>
           </div>
 
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Validated business strategy</span>
               <h3>Support ACH transfers</h3>
@@ -329,7 +329,7 @@ function Takeaways() {
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">06 — Takeaways</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           What I'd carry into the next study ✨
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -337,14 +337,14 @@ function Takeaways() {
           market we know little about.
         </p>
         <div className="snma-takeaways">
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Alternative recruitment strategies</span></h3>
             <p>
               Non-activated users are hard to recruit. Prepare alternatives early — proxy user
               groups with similar behaviors, screener pre-quotas, and a richer incentive.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Triangulate data</span></h3>
             <p>
               Combine interview insights with existing behavioral data to ensure findings are
@@ -352,7 +352,7 @@ function Takeaways() {
               without numbers mis-scale.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Initiate early alignment</span></h3>
             <p>
               Daily interview recaps shared with PMs and designers enabled quicker iterations
@@ -367,7 +367,6 @@ function Takeaways() {
 
 export default function ShopBackNMA() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title

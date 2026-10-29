@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -20,7 +20,7 @@ function Hero() {
 
         <h1>
           Rebuilding OEC Portal's{' '}
-          <span className="snma-underline">typography</span>{' '}
+          typography{' '}
           system for{' '}
           <span className="snma-accent">clarity and consistency.</span>
         </h1>
@@ -33,28 +33,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">3</div>
             <div>
               <div className="snma-stat-lbl">Problems addressed</div>
               <div className="snma-stat-desc">Hierarchy · labels · designer guidance</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">2</div>
             <div>
               <div className="snma-stat-lbl">Design references</div>
               <div className="snma-stat-desc">Jira · Flexport</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">16→32</div>
             <div>
               <div className="snma-stat-lbl">Padding (px)</div>
               <div className="snma-stat-desc">Page title to section title spacing</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">1</div>
             <div>
               <div className="snma-stat-lbl">Style guide created</div>
@@ -69,7 +69,7 @@ function Hero() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section alt">
+    <section id="overview" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
@@ -102,7 +102,7 @@ function Problem() {
     <section id="problem" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Problem Statement</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Three layers of confusion in one interface.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -111,17 +111,17 @@ function Problem() {
         </p>
 
         <div className="snma-goals">
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Page title vs. section title</h3>
             <p>Users struggled to distinguish between page-level titles and section-level titles — the visual difference was too subtle to guide scanning.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Label marks vs. text content</h3>
             <p>Users found it difficult to differentiate label marks from body text content, causing confusion when reading dense data tables and forms.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">03</div>
             <h3>No guidelines for designers</h3>
             <p>Without clear font-picking rules, designers made inconsistent choices across screens — compounding the hierarchy problem at every new feature.</p>
@@ -138,10 +138,10 @@ function Problem() {
 
 function Design() {
   return (
-    <section id="design" className="snma-section alt">
+    <section id="design" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Design</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Referenced Jira and Flexport. Then built the rules.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -152,7 +152,7 @@ function Design() {
 
         {/* Adjustments */}
         <div className="snma-impact-grid" style={{ marginBottom: 48 }}>
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Key adjustments</span>
               <h3>Spacing and scale — two levers</h3>
@@ -191,7 +191,7 @@ function Impact() {
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Impact</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Clear hierarchy. Appealing visuals. Guided usage.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -200,7 +200,7 @@ function Impact() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Product outcome</span>
               <h3>Refreshed experience for users</h3>
@@ -215,7 +215,7 @@ function Impact() {
             </div>
           </div>
 
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Team outcome</span>
               <h3>Style guide minimizes design effort</h3>
@@ -237,17 +237,17 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section alt">
+    <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Takeaways</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           What I'd carry into the next system project ✨
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Two things this project reinforced about design systems work.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Small details shape the whole experience</span></h3>
             <p>
               Typography and padding are often overlooked — but once clear rules are
@@ -255,7 +255,7 @@ function Takeaways() {
               impact of a 16px spacing change was visible across every single screen.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Align with developers early</span></h3>
             <p>
               Initial misunderstandings with front-end developers slowed the process.
@@ -272,7 +272,6 @@ function Takeaways() {
 
 export default function OecTypo() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title
