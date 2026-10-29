@@ -32,38 +32,6 @@ function Hero() {
           <div><dt>Methods</dt><dd>Interviews · Survey · Behavioral data</dd></div>
           <div><dt>Tools</dt><dd>Lyssna · Amplitude · Metabase</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Activation lift</div>
-              <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">98<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Rated walkthrough helpful</div>
-              <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">8</div>
-            <div>
-              <div className="snma-stat-lbl">Moderated interviews</div>
-              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">136</div>
-            <div>
-              <div className="snma-stat-lbl">Survey responses</div>
-              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   )
@@ -264,6 +232,37 @@ function Impact() {
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Launched an onboarding design and validated 2 ongoing design directions based on the findings.
         </p>
+
+        <div className="snma-stats" style={{ marginBottom: 32 }}>
+          <div className="snma-stat">
+            <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Activation lift</div>
+              <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">98<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Rated walkthrough helpful</div>
+              <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">8</div>
+            <div>
+              <div className="snma-stat-lbl">Moderated interviews</div>
+              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">136</div>
+            <div>
+              <div className="snma-stat-lbl">Survey responses</div>
+              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
+            </div>
+          </div>
+        </div>
 
         <div className="snma-impact-grid">
           <div className="snma-impact-card">

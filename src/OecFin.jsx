@@ -36,37 +36,6 @@ function Hero() {
           <div><dt>Methodology</dt><dd>Survey Research · Correlation Analysis</dd></div>
           <div><dt>Tools</dt><dd>Google Sheets · Google Form</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">356</div>
-            <div>
-              <div className="snma-stat-lbl">Survey responses</div>
-              <div className="snma-stat-desc">Valid responses · mostly aged 20–30</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">77<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Top motivator</div>
-              <div className="snma-stat-desc">Personal goals, ranked #1</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">5</div>
-            <div>
-              <div className="snma-stat-lbl">Behavior stages</div>
-              <div className="snma-stat-desc">Stages of Change Model mapped</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Research methods</div>
-              <div className="snma-stat-desc">Lit review · Audit · Survey · Expert</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -308,6 +277,37 @@ function Impact() {
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Before this research, the product team planned to develop social networking functions immediately — without supporting evidence. The findings changed that.
         </p>
+
+        <div className="snma-stats" style={{ marginBottom: 32 }}>
+          <div className="snma-stat">
+            <div className="snma-stat-n">356</div>
+            <div>
+              <div className="snma-stat-lbl">Survey responses</div>
+              <div className="snma-stat-desc">Valid responses · mostly aged 20–30</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">77<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Top motivator</div>
+              <div className="snma-stat-desc">Personal goals, ranked #1</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">5</div>
+            <div>
+              <div className="snma-stat-lbl">Behavior stages</div>
+              <div className="snma-stat-desc">Stages of Change Model mapped</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">4</div>
+            <div>
+              <div className="snma-stat-lbl">Research methods</div>
+              <div className="snma-stat-desc">Lit review · Audit · Survey · Expert</div>
+            </div>
+          </div>
+        </div>
 
         <div className="snma-impact-grid">
           <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
