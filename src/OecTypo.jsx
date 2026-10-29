@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -22,7 +22,7 @@ function Hero() {
           Rebuilding OEC Portal's{' '}
           typography{' '}
           system for{' '}
-          <span className="snma-accent">clarity and consistency.</span>
+          clarity and consistency.
         </h1>
 
         <dl className="snma-meta">
@@ -296,6 +296,7 @@ export default function OecTypo() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/oec-typography.jpg" alt="OEC Group Typography System Redesign" />
       <Overview />
       <Problem />
       <Design />

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview'   },
@@ -23,7 +23,7 @@ function Hero() {
           Cathay{' '}
           FitBack{' '}
           Exploratory{' '}
-          <span className="snma-accent">Research</span>
+          Research
         </h1>
 
         <p className="snma-hero-subtitle">
@@ -62,7 +62,7 @@ function Overview() {
             More and more health &amp; fitness applications are integrating social networking features — such as <b>Strava</b> and <b>Nike Run Club.</b> Since FitBack lives inside an insurance app, the team wasn't sure whether to follow suit.
           </p>
           <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none', margin: 0 }}>
-            This research asked: <span className="hl-u">are social features able to promote health awareness and encourage people to work out more?</span> And if so, <span className="hl-u">how should they be designed for FitBack?</span>
+            This research asked: <b>are social features able to promote health awareness and encourage people to work out more?</b> And if so, <b>how should they be designed for FitBack?</b>
           </p>
         </div>
       </div>
@@ -397,6 +397,7 @@ export default function OecFin() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/cathay-fh.avif" alt="Cathay FitBack Exploratory Research" />
       <Overview />
       <Goals />
       <Process />

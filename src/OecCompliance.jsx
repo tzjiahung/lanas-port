@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -8,6 +8,7 @@ const SECTIONS = [
   { id: 'flow',      label: 'User Flow' },
   { id: 'design',    label: 'Design'    },
   { id: 'demo',      label: 'Demo'      },
+  { id: 'impact',    label: 'Impact'    },
   { id: 'takeaways', label: 'Takeaways' },
 ]
 
@@ -23,7 +24,7 @@ function Hero() {
           0-to-1{' '}
           Compliance{' '}
           module for OEC Group's{' '}
-          <span className="snma-accent">internal ERP portal.</span>
+          internal ERP portal.
         </h1>
 
         <dl className="snma-meta">
@@ -32,37 +33,6 @@ function Hero() {
           <div><dt>Deliverables</dt><dd>IA · User Flow · Wireframe · Prototype</dd></div>
           <div><dt>Tools</dt><dd>Figma · Confluence · Jira</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">0→1</div>
-            <div>
-              <div className="snma-stat-lbl">Full design scope</div>
-              <div className="snma-stat-desc">End-to-end module, no prior designs</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Design proposals</div>
-              <div className="snma-stat-desc">Explored before landing on final</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">50<span className="sm">K</span></div>
-            <div>
-              <div className="snma-stat-lbl">OEC customers</div>
-              <div className="snma-stat-desc">Across North America, Europe, Asia</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">1<span className="sm">mo</span></div>
-            <div>
-              <div className="snma-stat-lbl">End-to-end</div>
-              <div className="snma-stat-desc">IA to shipped prototype</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -300,11 +270,51 @@ function Demo() {
   )
 }
 
+function Impact() {
+  return (
+    <section id="impact" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">06 — Impact</span>
+        <div className="snma-stats">
+          <div className="snma-stat">
+            <div className="snma-stat-n">0→1</div>
+            <div>
+              <div className="snma-stat-lbl">Full design scope</div>
+              <div className="snma-stat-desc">End-to-end module, no prior designs</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">4</div>
+            <div>
+              <div className="snma-stat-lbl">Design proposals</div>
+              <div className="snma-stat-desc">Explored before landing on final</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">50<span className="sm">K</span></div>
+            <div>
+              <div className="snma-stat-lbl">OEC customers</div>
+              <div className="snma-stat-desc">Across North America, Europe, Asia</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">1<span className="sm">mo</span></div>
+            <div>
+              <div className="snma-stat-lbl">End-to-end</div>
+              <div className="snma-stat-desc">IA to shipped prototype</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Takeaways</span>
+        <span className="snma-section-label">07 — Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next design sprint ✨
         </h2>
@@ -360,11 +370,13 @@ export default function OecCompliance() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/oec-compliance.jpg" alt="OEC Group Finance Module Design" />
       <Overview />
       <Problem />
       <Flow />
       <Design />
       <Demo />
+      <Impact />
       <Takeaways />
       <CaseFooter />
     </div>

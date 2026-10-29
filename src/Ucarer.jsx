@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'research',  label: 'Research'  },
   { id: 'ideate',    label: 'Ideate'    },
   { id: 'prototype', label: 'Prototype' },
+  { id: 'impact',    label: 'Impact'    },
   { id: 'takeaways', label: 'Takeaways' },
 ]
 
@@ -22,7 +23,7 @@ function Hero() {
           Redesigning{' '}
           Ucarer{' '}
           to boost activation and{' '}
-          <span className="snma-accent">simplify care-finding.</span>
+          simplify care-finding.
         </h1>
 
         <dl className="snma-meta">
@@ -31,37 +32,6 @@ function Hero() {
           <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
           <div><dt>Team</dt><dd>Lin Ying, Yi Jia, Tsai Tzung</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Months</div>
-              <div className="snma-stat-desc">End-to-end redesign timeline</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">95<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Prefer new version</div>
-              <div className="snma-stat-desc">Workshop participants · new IA &amp; UI</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">Top 3</div>
-            <div>
-              <div className="snma-stat-lbl">Workshop ranking</div>
-              <div className="snma-stat-desc">Best IA &amp; new user interface</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Team members</div>
-              <div className="snma-stat-desc">School project collaboration</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -288,11 +258,51 @@ function Prototype() {
   )
 }
 
+function Impact() {
+  return (
+    <section id="impact" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">05 — Impact</span>
+        <div className="snma-stats">
+          <div className="snma-stat">
+            <div className="snma-stat-n">4</div>
+            <div>
+              <div className="snma-stat-lbl">Months</div>
+              <div className="snma-stat-desc">End-to-end redesign timeline</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">95<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Prefer new version</div>
+              <div className="snma-stat-desc">Workshop participants · new IA &amp; UI</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">Top 3</div>
+            <div>
+              <div className="snma-stat-lbl">Workshop ranking</div>
+              <div className="snma-stat-desc">Best IA &amp; new user interface</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">4</div>
+            <div>
+              <div className="snma-stat-lbl">Team members</div>
+              <div className="snma-stat-desc">School project collaboration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Takeaways</span>
+        <span className="snma-section-label">06 — Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next project ✨
         </h2>
@@ -349,10 +359,12 @@ export default function Ucarer() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/ucarer.png" alt="Ucarer App Redesign" uncropped />
       <Overview />
       <Research />
       <Ideate />
       <Prototype />
+      <Impact />
       <Takeaways />
       <CaseFooter />
     </div>

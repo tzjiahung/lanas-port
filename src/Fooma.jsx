@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'research',  label: 'Research'  },
   { id: 'design',    label: 'Design'    },
   { id: 'feedback',  label: 'Feedback'  },
+  { id: 'impact',    label: 'Impact'    },
   { id: 'takeaways', label: 'Takeaways' },
 ]
 
@@ -22,7 +23,7 @@ function Hero() {
           A{' '}
           food waste{' '}
           solution that turns your fridge into a{' '}
-          <span className="snma-accent">smart reminder.</span>
+          smart reminder.
         </h1>
 
         <dl className="snma-meta">
@@ -31,37 +32,6 @@ function Hero() {
           <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
           <div><dt>Team</dt><dd>Jun, Hsuan, Renchu, Yichen, Jimmy, Yao</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">7</div>
-            <div>
-              <div className="snma-stat-lbl">Interview participants</div>
-              <div className="snma-stat-desc">In-depth interviews on food habits</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">90<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Willing to buy</div>
-              <div className="snma-stat-desc">Workshop participants · rated efficient</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">#1</div>
-            <div>
-              <div className="snma-stat-lbl">Most popular design</div>
-              <div className="snma-stat-desc">Won the workshop award</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">7</div>
-            <div>
-              <div className="snma-stat-lbl">Team members</div>
-              <div className="snma-stat-desc">Cross-functional workshop team</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -295,11 +265,51 @@ function Feedback() {
   )
 }
 
+function Impact() {
+  return (
+    <section id="impact" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">05 — Impact</span>
+        <div className="snma-stats">
+          <div className="snma-stat">
+            <div className="snma-stat-n">7</div>
+            <div>
+              <div className="snma-stat-lbl">Interview participants</div>
+              <div className="snma-stat-desc">In-depth interviews on food habits</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">90<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Willing to buy</div>
+              <div className="snma-stat-desc">Workshop participants · rated efficient</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">#1</div>
+            <div>
+              <div className="snma-stat-lbl">Most popular design</div>
+              <div className="snma-stat-desc">Won the workshop award</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">7</div>
+            <div>
+              <div className="snma-stat-lbl">Team members</div>
+              <div className="snma-stat-desc">Cross-functional workshop team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Takeaways</span>
+        <span className="snma-section-label">06 — Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next sprint ✨
         </h2>
@@ -355,10 +365,12 @@ export default function Fooma() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/fooma.png" alt="FooMa OMO Food Waste Design" uncropped />
       <Overview />
       <Research />
       <Design />
       <Feedback />
+      <Impact />
       <Takeaways />
       <CaseFooter />
     </div>

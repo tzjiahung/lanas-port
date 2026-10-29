@@ -37,6 +37,16 @@ export function useScrollSpy(sections) {
   return active
 }
 
+export function CaseCover({ src, alt, uncropped }) {
+  return (
+    <section className={uncropped ? 'snma-cover uncropped' : 'snma-cover'}>
+      <div className="snma-wrap">
+        <img src={src} alt={alt} />
+      </div>
+    </section>
+  )
+}
+
 export function RailNav({ sections, active }) {
   return (
     <nav className="snma-rail" aria-label="Page sections">
