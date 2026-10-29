@@ -17,8 +17,8 @@
   --snma-radius:   14px;
   --snma-max:      1320px;
   --snma-gutter:   clamp(20px, 4vw, 56px);
-  --snma-font:     "Inter", system-ui, sans-serif;
-  --snma-mono:     "JetBrains Mono", ui-monospace, monospace;
+  --snma-font:     "Lato", system-ui, sans-serif;
+  --snma-mono:     "Lato", system-ui, sans-serif;
 
   background: var(--snma-bg);
   color: var(--snma-fg);
@@ -485,7 +485,7 @@
   border-radius: 14px;
   display: grid;
   place-items: center;
-  font-family: "Instrument Serif", Georgia, serif;
+  font-family: var(--snma-font);
   font-style: italic;
   font-size: 26px;
   background: var(--snma-accent1);

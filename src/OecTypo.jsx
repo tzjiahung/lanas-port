@@ -31,37 +31,6 @@ function Hero() {
           <div><dt>Type</dt><dd>Personal Project</dd></div>
           <div><dt>Tools</dt><dd>Figma</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">3</div>
-            <div>
-              <div className="snma-stat-lbl">Problems addressed</div>
-              <div className="snma-stat-desc">Hierarchy · labels · designer guidance</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">2</div>
-            <div>
-              <div className="snma-stat-lbl">Design references</div>
-              <div className="snma-stat-desc">Jira · Flexport</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">16→32</div>
-            <div>
-              <div className="snma-stat-lbl">Padding (px)</div>
-              <div className="snma-stat-desc">Page title to section title spacing</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">1</div>
-            <div>
-              <div className="snma-stat-lbl">Style guide created</div>
-              <div className="snma-stat-desc">For designers across the team</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -198,6 +167,37 @@ function Impact() {
           The redesign elevated visual clarity and usability across the entire portal —
           and gave the team a shared framework to maintain consistency going forward.
         </p>
+
+        <div className="snma-stats" style={{ marginBottom: 32 }}>
+          <div className="snma-stat">
+            <div className="snma-stat-n">3</div>
+            <div>
+              <div className="snma-stat-lbl">Problems addressed</div>
+              <div className="snma-stat-desc">Hierarchy · labels · designer guidance</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">2</div>
+            <div>
+              <div className="snma-stat-lbl">Design references</div>
+              <div className="snma-stat-desc">Jira · Flexport</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">16→32</div>
+            <div>
+              <div className="snma-stat-lbl">Padding (px)</div>
+              <div className="snma-stat-desc">Page title to section title spacing</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">1</div>
+            <div>
+              <div className="snma-stat-lbl">Style guide created</div>
+              <div className="snma-stat-desc">For designers across the team</div>
+            </div>
+          </div>
+        </div>
 
         <div className="snma-impact-grid">
           <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
