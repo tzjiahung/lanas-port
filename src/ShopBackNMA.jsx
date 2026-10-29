@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
@@ -22,7 +22,7 @@ function Hero() {
         <h1>
           Mixed-methods{' '}
           study to close ShopBack's new market{' '}
-          <span className="snma-accent">activation gap</span>{' '}
+          activation gap{' '}
           in the U.S. &amp; Germany.
         </h1>
 
@@ -49,17 +49,17 @@ function Overview() {
           <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
             Data revealed a critical issue in our newly launched markets, the{' '}
             <b>United States</b> and <b>Germany</b>. While a significant share of users
-            signed up, <span className="hl-u">only <b>12%</b> activated within the first
-            seven days</span> — where activation means starting to browse merchant stores
+            signed up, <b>only 12% activated within the first
+            seven days</b> — where activation means starting to browse merchant stores
             or completing a first transaction. By comparison, established markets such as{' '}
             <b>Singapore</b> and <b>Australia</b> see activation rates around{' '}
-            <span className="hl-u"><b>40%</b></span>.
+            <b>40%</b>.
           </p>
           <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none' }}>
             This gap matters. In new market launches,{' '}
-            <span className="hl-u">early activation is a key milestone in the product
-            cycle</span> — it signals initial adoption and{' '}
-            <span className="hl-u">sets the foundation for long-term conversion</span>{' '}
+            <b>early activation is a key milestone in the product
+            cycle</b> — it signals initial adoption and{' '}
+            <b>sets the foundation for long-term conversion</b>{' '}
             and sustained product usage.
           </p>
         </div>
@@ -390,6 +390,7 @@ export default function ShopBackNMA() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/shopback.jpg" alt="ShopBack New Market Activation" />
       <Overview />
       <Assumptions />
       <Goals />

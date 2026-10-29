@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'research',  label: 'Research'  },
   { id: 'design',    label: 'Design'    },
   { id: 'test',      label: 'Test'      },
+  { id: 'impact',    label: 'Impact'    },
   { id: 'takeaways', label: 'Takeaways' },
 ]
 
@@ -22,7 +23,7 @@ function Hero() {
           A{' '}
           reusable cup{' '}
           rental system to cut Taiwan's{' '}
-          <span className="snma-accent">paper cup waste.</span>
+          paper cup waste.
         </h1>
 
         <dl className="snma-meta">
@@ -31,37 +32,6 @@ function Hero() {
           <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
           <div><dt>Team</dt><dd>Matthew, Hannah, Shannon</dd></div>
         </dl>
-
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Team members</div>
-              <div className="snma-stat-desc">Cross-functional side project team</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">8</div>
-            <div>
-              <div className="snma-stat-lbl">Usability test participants</div>
-              <div className="snma-stat-desc">In-depth interviews + SUS</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">3</div>
-            <div>
-              <div className="snma-stat-lbl">Test methods</div>
-              <div className="snma-stat-desc">Usability testing · Card sorting · SUS</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">78<span className="sm">/100</span></div>
-            <div>
-              <div className="snma-stat-lbl">SUS score</div>
-              <div className="snma-stat-desc">System Usability Score · Grade B</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -334,11 +304,51 @@ function Test() {
   )
 }
 
+function Impact() {
+  return (
+    <section id="impact" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">05 — Impact</span>
+        <div className="snma-stats">
+          <div className="snma-stat">
+            <div className="snma-stat-n">4</div>
+            <div>
+              <div className="snma-stat-lbl">Team members</div>
+              <div className="snma-stat-desc">Cross-functional side project team</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">8</div>
+            <div>
+              <div className="snma-stat-lbl">Usability test participants</div>
+              <div className="snma-stat-desc">In-depth interviews + SUS</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">3</div>
+            <div>
+              <div className="snma-stat-lbl">Test methods</div>
+              <div className="snma-stat-desc">Usability testing · Card sorting · SUS</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">78<span className="sm">/100</span></div>
+            <div>
+              <div className="snma-stat-lbl">SUS score</div>
+              <div className="snma-stat-desc">System Usability Score · Grade B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Takeaways</span>
+        <span className="snma-section-label">06 — Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next sprint ✨
         </h2>
@@ -394,10 +404,12 @@ export default function OclockGreen() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
+      <CaseCover src="/case-covers/oclock-green.png" alt="O'Clock Green App Design" uncropped />
       <Overview />
       <Research />
       <Design />
       <Test />
+      <Impact />
       <Takeaways />
       <CaseFooter />
     </div>

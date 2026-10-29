@@ -57,8 +57,8 @@
 .snma-rail {
   position: fixed;
   left: 28px;
-  top: 50%;
-  transform: translateY(-50%);
+  /* Line up with the hero label, which sits at the hero's top padding */
+  top: calc(clamp(48px, 8vw, 96px) + 2px);
   z-index: 50;
   display: flex;
   flex-direction: column;
@@ -197,7 +197,7 @@
 
 /* ---- Hero ---- */
 .snma-hero {
-  padding: clamp(48px, 8vw, 96px) 0 clamp(48px, 6vw, 72px);
+  padding: clamp(48px, 8vw, 96px) 0 clamp(24px, 3vw, 32px);
   position: relative;
   overflow: hidden;
 }
@@ -223,24 +223,16 @@
   line-height: 0.95;
 }
 
-.snma-accent { color: var(--snma-accent1); }
-
-/* Reusable highlight underline (peach bar) — used across sections */
-.snma-root .hl-u {
-  background: linear-gradient(180deg, transparent 45%, #ffd4a8 45%, #ffd4a8 96%, transparent 96%);
-  padding: 0 .08em;
-}
-
 /* Meta grid */
 .snma-meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px 32px;
-  padding: 28px 0;
-  border-top: 1px solid var(--snma-fg);
-  border-bottom: 1px solid var(--snma-fg);
+  padding-top: 28px;
   margin-bottom: 56px;
 }
+
+.snma-hero .snma-wrap > :last-child { margin-bottom: 0; }
 
 .snma-meta dt {
   font-family: var(--snma-mono);
@@ -304,6 +296,15 @@
 @media (max-width: 520px) { .snma-stat { grid-column: span 12 !important; } }
 
 .snma-hero .snma-wrap { position: relative; z-index: 1; }
+
+/* Cover image between hero and first section */
+.snma-cover img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--snma-radius);
+}
+.snma-cover.uncropped img { aspect-ratio: auto; }
 
 /* Marquee */
 .snma-marquee {
@@ -653,11 +654,6 @@
 }
 
 .snma-takeaway h3 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 10px; }
-
-.snma-takeaway h3 span {
-  background: linear-gradient(180deg, transparent 45%, #ffd4a8 45%, #ffd4a8 96%, transparent 96%);
-  padding: 0 .08em;
-}
 
 .snma-takeaway p { color: var(--snma-fg-soft); font-size: 15px; line-height: 1.55; margin: 0; }
 
