@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, useReveal, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview'   },
@@ -21,7 +21,7 @@ function Hero() {
 
         <h1>
           Cathay{' '}
-          <span className="snma-underline">FitBack</span>{' '}
+          FitBack{' '}
           Exploratory{' '}
           <span className="snma-accent">Research</span>
         </h1>
@@ -38,28 +38,28 @@ function Hero() {
         </dl>
 
         <div className="snma-stats">
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">356</div>
             <div>
               <div className="snma-stat-lbl">Survey responses</div>
               <div className="snma-stat-desc">Valid responses · mostly aged 20–30</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">77<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Top motivator</div>
               <div className="snma-stat-desc">Personal goals, ranked #1</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">5</div>
             <div>
               <div className="snma-stat-lbl">Behavior stages</div>
               <div className="snma-stat-desc">Stages of Change Model mapped</div>
             </div>
           </div>
-          <div className="snma-stat snma-reveal">
+          <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
               <div className="snma-stat-lbl">Research methods</div>
@@ -74,7 +74,7 @@ function Hero() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section alt">
+    <section id="overview" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
@@ -107,17 +107,17 @@ function Goals() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Project goals</span>
         <div className="snma-goals">
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">01</div>
             <h3>Understand importance of social features</h3>
             <p>Understand the importance of social features in promoting health awareness and encouraging exercise.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">02</div>
             <h3>Determine FitBack's suitability</h3>
             <p>Determine whether FitBack is a suitable product context for incorporating social networking features.</p>
           </div>
-          <div className="snma-goal snma-reveal">
+          <div className="snma-goal">
             <div className="snma-goal-n">03</div>
             <h3>How to design social features</h3>
             <p>If social features are warranted, identify how to design them effectively within the FitBack context.</p>
@@ -130,7 +130,7 @@ function Goals() {
 
 function Process() {
   return (
-    <section id="process" className="snma-section alt">
+    <section id="process" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Research process</span>
         <h2 className="snma-section-title">A four-method research approach.</h2>
@@ -139,7 +139,7 @@ function Process() {
         </p>
 
         <div className="snma-method-grid">
-          <div className="snma-method-card a snma-reveal">
+          <div className="snma-method-card a">
             <div className="snma-method-ic">1</div>
             <h3>Literature Review</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -150,7 +150,7 @@ function Process() {
             </div>
           </div>
 
-          <div className="snma-method-card b snma-reveal">
+          <div className="snma-method-card b">
             <div className="snma-method-ic">2</div>
             <h3>Comparative Audit</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -161,7 +161,7 @@ function Process() {
             </div>
           </div>
 
-          <div className="snma-method-card a snma-reveal">
+          <div className="snma-method-card a">
             <div className="snma-method-ic">3</div>
             <h3>Expert Audit</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -172,7 +172,7 @@ function Process() {
             </div>
           </div>
 
-          <div className="snma-method-card b snma-reveal">
+          <div className="snma-method-card b">
             <div className="snma-method-ic">4</div>
             <h3>Questionnaire Survey</h3>
             <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
@@ -222,7 +222,7 @@ function Survey() {
 
         <div className="snma-impact-grid survey-findings">
           {/* Motivators chart */}
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Finding 01 — Motivation</span>
               <h3>Self-related factors dominate</h3>
@@ -239,7 +239,7 @@ function Survey() {
           </div>
 
           {/* Club participation chart */}
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Finding 02 — Club participation</span>
               <h3>Stage 5 users participate most in clubs</h3>
@@ -256,7 +256,7 @@ function Survey() {
           </div>
 
           {/* App usage chart */}
-          <div className="snma-impact-card snma-reveal">
+          <div className="snma-impact-card">
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Finding 03 — App usage &amp; feature preference</span>
               <h3>"Feed" is the most preferred social function</h3>
@@ -299,10 +299,10 @@ function Survey() {
 
 function Impact() {
   return (
-    <section id="impact" className="snma-section alt">
+    <section id="impact" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Impact</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           Research shifted the roadmap before a single line was designed.
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
@@ -310,7 +310,7 @@ function Impact() {
         </p>
 
         <div className="snma-impact-grid">
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Revised development timeline</span>
               <h3>Social features deprioritized — for now</h3>
@@ -323,7 +323,7 @@ function Impact() {
             </div>
           </div>
 
-          <div className="snma-impact-card snma-reveal" style={{ gridTemplateColumns: '1fr' }}>
+          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Design direction clarified</span>
               <h3>PM &amp; designer alignment on social feature priority</h3>
@@ -346,20 +346,20 @@ function Takeaways() {
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">06 — Takeaways</span>
-        <h2 className="snma-section-title" style={{ maxWidth: 'none' }}>
+        <h2 className="snma-section-title">
           What I'd carry into the next study ✨
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Two things this project taught me about doing exploratory research as an intern with limited resources.
         </p>
         <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Don't be afraid to discard previous content</span></h3>
             <p>
               I presented three versions and discussed each with my mentor — none were clear enough. Mentors and colleagues offered perspectives I'd missed. Iteration isn't failure; it's the process. Being willing to restart is a research skill, not a weakness.
             </p>
           </div>
-          <div className="snma-takeaway snma-reveal">
+          <div className="snma-takeaway">
             <h3><span>Don't let limited resources restrict you</span></h3>
             <p>
               Without access to internal FitBack users, I surveyed external users instead. The insights were still valuable — PMs gave positive feedback and were willing to replicate the study internally. Constraints push creativity; work with what you have.
@@ -373,7 +373,6 @@ function Takeaways() {
 
 export default function OecFin() {
   const active = useScrollSpy(SECTIONS)
-  useReveal()
 
   useEffect(() => {
     const prev = document.title
