@@ -42,7 +42,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A freight forwarding giant going digital
         </h2>
@@ -78,7 +78,7 @@ function Problem() {
   return (
     <section id="problem" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Problem</span>
+        <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
           Paper-based compliance creates real operational pain
         </h2>
@@ -113,7 +113,7 @@ function Flow() {
   return (
     <section id="flow" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — User Flow</span>
+        <span className="snma-section-label">User Flow</span>
         <h2 className="snma-section-title">Adding a compliance in 4 steps</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           The core interaction centers on adding a new compliance record — a four-action
@@ -209,7 +209,7 @@ function Design() {
   return (
     <section id="design" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Design proposals</span>
+        <span className="snma-section-label">Design proposals</span>
         <h2 className="snma-section-title">
           Four proposals. One clear winner
         </h2>
@@ -250,7 +250,7 @@ function Demo() {
   return (
     <section id="demo" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Demo</span>
+        <span className="snma-section-label">Demo</span>
         <h2 className="snma-section-title">
           Prototype walkthrough
         </h2>
@@ -274,7 +274,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <div className="snma-stats">
           <div className="snma-stat">
             <div className="snma-stat-n">0→1</div>
@@ -314,7 +314,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">07 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next design sprint ✨
         </h2>

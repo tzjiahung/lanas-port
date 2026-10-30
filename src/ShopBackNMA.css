@@ -118,7 +118,7 @@
 
 .snma-rail-btn.active { color: var(--snma-fg); }
 .snma-rail-btn.active .snma-rail-dot {
-  background: var(--snma-accent2);
+  background: color-mix(in srgb, var(--snma-accent1) 35%, white);
   width: 18px;
   border-radius: 4px;
 }
@@ -168,7 +168,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--snma-accent2);
+    background: color-mix(in srgb, var(--snma-accent1) 35%, white);
   }
 
   .snma-topbar-links {
@@ -351,19 +351,10 @@
   font-family: var(--snma-mono);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: .06em;
   color: var(--snma-fg-mute);
   margin-bottom: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.snma-section-label::before {
-  content: "";
-  width: 32px;
-  height: 1px;
-  background: currentColor;
+  display: block;
 }
 
 .snma-section-title {
@@ -377,6 +368,14 @@
 .snma-section-intro {
   font-size: 16px;
   color: var(--snma-fg-soft);
+}
+
+.snma-overview-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  border-radius: var(--snma-radius);
 }
 
 /* ---- Assumptions ---- */

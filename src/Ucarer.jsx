@@ -41,7 +41,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A caregiving platform with too much friction
         </h2>
@@ -70,7 +70,7 @@ function Research() {
   return (
     <section id="research" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Research</span>
+        <span className="snma-section-label">Research</span>
         <h2 className="snma-section-title">
           Walk through first. Interview after
         </h2>
@@ -152,7 +152,7 @@ function Ideate() {
   return (
     <section id="ideate" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — Ideate</span>
+        <span className="snma-section-label">Ideate</span>
         <h2 className="snma-section-title">
           Rebuild the architecture. Then draw the screens
         </h2>
@@ -193,7 +193,7 @@ function Prototype() {
   return (
     <section id="prototype" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Prototype</span>
+        <span className="snma-section-label">Prototype</span>
         <h2 className="snma-section-title">
           Visual design applied. Color palette retained
         </h2>
@@ -262,7 +262,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <div className="snma-stats">
           <div className="snma-stat">
             <div className="snma-stat-n">4</div>
@@ -302,7 +302,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next project ✨
         </h2>
