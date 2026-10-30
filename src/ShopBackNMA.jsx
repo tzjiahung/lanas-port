@@ -19,12 +19,7 @@ function Hero() {
           LEAD UX RESEARCHER&nbsp;·&nbsp;SHIPPED&nbsp;·&nbsp;SHOPBACK
         </div>
 
-        <h1>
-          Mixed-methods{' '}
-          study to close ShopBack's new market{' '}
-          activation gap{' '}
-          in the U.S. &amp; Germany.
-        </h1>
+        <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany.</h1>
 
         <dl className="snma-meta">
           <div><dt>Team</dt><dd>1 Researcher, 1 Designer, 1 PM</dd></div>
