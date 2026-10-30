@@ -389,9 +389,8 @@
 
 .snma-assumption {
   background: var(--snma-card);
-  border: 1px solid rgba(26, 26, 26, 0.12);
   border-radius: var(--snma-radius);
-  padding: 28px;
+  padding: 28px 0;
 }
 
 .snma-assumption-tag {
@@ -405,16 +404,6 @@
   padding: 4px 10px;
   border-radius: 999px;
   margin-bottom: 20px;
-}
-
-.snma-assumption-n {
-  font-family: var(--snma-font);
-  font-weight: 800;
-  font-size: 72px;
-  letter-spacing: -0.04em;
-  color: rgba(26, 26, 26, 0.08);
-  line-height: .9;
-  margin-bottom: 12px;
 }
 
 .snma-assumption h3 {
