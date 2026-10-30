@@ -36,7 +36,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A cashback platform with a sign-up–to–activation gap
         </h2>
@@ -58,6 +58,12 @@ function Overview() {
             and sustained product usage.
           </p>
         </div>
+        <img
+          className="snma-overview-img"
+          src="/shopback-nma/markets.jpg"
+          alt="ShopBack logo alongside the flags of the two new markets"
+          loading="lazy"
+        />
       </div>
     </section>
   )
@@ -91,7 +97,7 @@ function Assumptions() {
   return (
     <section id="assumptions" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Assumptions</span>
+        <span className="snma-section-label">Assumptions</span>
         <h2 className="snma-section-title">
           Three existing assumptions about the gap
         </h2>
@@ -121,7 +127,7 @@ function Goals() {
   return (
     <section id="goals" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — Research goals</span>
+        <span className="snma-section-label">Research goals</span>
         <div className="snma-goals">
           <div className="snma-goal">
             <div className="snma-goal-n">01</div>
@@ -156,7 +162,7 @@ function Method() {
   return (
     <section id="method" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Methodology</span>
+        <span className="snma-section-label">Methodology</span>
         <h2 className="snma-section-title">A mixed-methods approach</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           Qualitative-first, quantitative for validation. Interviews surfaced the texture of
@@ -219,7 +225,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <h2 className="snma-section-title">
           Validated initial assumptions, uncovered user barriers
         </h2>
@@ -261,7 +267,6 @@ function Impact() {
         <div className="snma-impact-grid">
           <div className="snma-impact-card">
             <div className="snma-impact-text">
-              <span className="snma-impact-kind">New design — Shipped</span>
               <h3>7-Step onboarding walkthrough</h3>
               <p>
                 Designed to guide first-time browsing and surface the most relevant merchants for
@@ -276,7 +281,6 @@ function Impact() {
 
           <div className="snma-impact-card">
             <div className="snma-impact-text">
-              <span className="snma-impact-kind">Validated direction</span>
               <h3>Extra rewards for non-activated users</h3>
               <p>
                 Interviews showed users reacted most positively to clear, tangible reward prompts —
@@ -291,7 +295,6 @@ function Impact() {
 
           <div className="snma-impact-card">
             <div className="snma-impact-text">
-              <span className="snma-impact-kind">Validated business strategy</span>
               <h3>Support ACH transfers</h3>
               <p>
                 PayPal as the sole withdrawal method created friction — many users couldn't easily
@@ -313,7 +316,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next study ✨
         </h2>

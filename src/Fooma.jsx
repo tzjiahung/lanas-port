@@ -41,7 +41,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           Tackling food waste through software and hardware
         </h2>
@@ -71,7 +71,7 @@ function Research() {
   return (
     <section id="research" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Research</span>
+        <span className="snma-section-label">Research</span>
         <h2 className="snma-section-title">
           Why do people waste food — and what habits drive it?
         </h2>
@@ -158,7 +158,7 @@ function Design() {
   return (
     <section id="design" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — Design</span>
+        <span className="snma-section-label">Design</span>
         <h2 className="snma-section-title">
           A fridge scanner and a LINE chatbot — no new app needed
         </h2>
@@ -236,7 +236,7 @@ function Feedback() {
   return (
     <section id="feedback" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Feedback</span>
+        <span className="snma-section-label">Feedback</span>
         <h2 className="snma-section-title">
           Most popular design. 90% willing to buy
         </h2>
@@ -269,7 +269,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <div className="snma-stats">
           <div className="snma-stat">
             <div className="snma-stat-n">7</div>
@@ -309,7 +309,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next sprint ✨
         </h2>

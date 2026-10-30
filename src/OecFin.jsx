@@ -45,7 +45,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A health &amp; fitness feature inside an insurance app
         </h2>
@@ -74,7 +74,7 @@ function Goals() {
   return (
     <section id="goals" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Project goals</span>
+        <span className="snma-section-label">Project goals</span>
         <div className="snma-goals">
           <div className="snma-goal">
             <div className="snma-goal-n">01</div>
@@ -101,7 +101,7 @@ function Process() {
   return (
     <section id="process" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — Research process</span>
+        <span className="snma-section-label">Research process</span>
         <h2 className="snma-section-title">A four-method research approach</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           Each method built on the last — from theory, to competitive context, to existing system, to firsthand user data.
@@ -175,7 +175,7 @@ function Survey() {
   return (
     <section id="survey" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Questionnaire survey</span>
+        <span className="snma-section-label">Questionnaire survey</span>
         <h2 className="snma-section-title">356 responses. Real users, real motivations</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           The survey was structured into four sections: exercise habits, motivating methods, health &amp; fitness club experiences, and app experiences. Distributed externally via social channels due to limited internal access as an intern.
@@ -270,7 +270,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <h2 className="snma-section-title">
           Research shifted the roadmap before a single line was designed
         </h2>
@@ -345,7 +345,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">06 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next study ✨
         </h2>

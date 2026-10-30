@@ -40,7 +40,7 @@ function Overview() {
   return (
     <section id="overview" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">01 — Overview</span>
+        <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A B2B portal where hierarchy is everything
         </h2>
@@ -70,7 +70,7 @@ function Problem() {
   return (
     <section id="problem" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">02 — Problem Statement</span>
+        <span className="snma-section-label">Problem Statement</span>
         <h2 className="snma-section-title">
           Three layers of confusion in one interface
         </h2>
@@ -109,7 +109,7 @@ function Design() {
   return (
     <section id="design" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">03 — Design</span>
+        <span className="snma-section-label">Design</span>
         <h2 className="snma-section-title">
           Referenced Jira and Flexport. Then built the rules
         </h2>
@@ -159,7 +159,7 @@ function Impact() {
   return (
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">04 — Impact</span>
+        <span className="snma-section-label">Impact</span>
         <h2 className="snma-section-title">
           Clear hierarchy. Appealing visuals. Guided usage
         </h2>
@@ -239,7 +239,7 @@ function Takeaways() {
   return (
     <section id="takeaways" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">05 — Takeaways</span>
+        <span className="snma-section-label">Takeaways</span>
         <h2 className="snma-section-title">
           What I'd carry into the next system project ✨
         </h2>
