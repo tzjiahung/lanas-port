@@ -23,7 +23,7 @@ function Hero() {
           A{' '}
           reusable cup{' '}
           rental system to cut Taiwan's{' '}
-          paper cup waste.
+          paper cup waste
         </h1>
 
         <dl className="snma-meta">
@@ -43,7 +43,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A digital product born from Taiwan's plastic ban.
+          A digital product born from Taiwan's plastic ban
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           Taiwan changed its policy on single-use plastic cups in 2022 to reduce plastic waste.
@@ -72,7 +72,7 @@ function Research() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Research</span>
         <h2 className="snma-section-title">
-          Understanding why people don't bring reusable cups.
+          Understanding why people don't bring reusable cups
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           We started with secondary research to understand the policy landscape, then used
@@ -134,7 +134,7 @@ function Design() {
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Design</span>
         <h2 className="snma-section-title">
-          Rent a cup. Order coffee. Return. All on LINE.
+          Rent a cup. Order coffee. Return. All on LINE
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           We focused on the software side — a LINE Official Account that handles the full
@@ -213,7 +213,7 @@ function Test() {
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Test</span>
         <h2 className="snma-section-title">
-          Three methods. One honest picture.
+          Three methods. One honest picture
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           We combined usability testing, card sorting, and SUS scoring to triangulate

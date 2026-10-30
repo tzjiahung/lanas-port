@@ -22,7 +22,7 @@ function Hero() {
           Rebuilding OEC Portal's{' '}
           typography{' '}
           system for{' '}
-          clarity and consistency.
+          clarity and consistency
         </h1>
 
         <dl className="snma-meta">
@@ -42,7 +42,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A B2B portal where hierarchy is everything.
+          A B2B portal where hierarchy is everything
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           The <b>OEC Portal</b> is a B2B product that allows customers to track shipment
@@ -72,7 +72,7 @@ function Problem() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Problem Statement</span>
         <h2 className="snma-section-title">
-          Three layers of confusion in one interface.
+          Three layers of confusion in one interface
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           The typography issues affected users, designers, and the product's overall
@@ -111,7 +111,7 @@ function Design() {
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Design</span>
         <h2 className="snma-section-title">
-          Referenced Jira and Flexport. Then built the rules.
+          Referenced Jira and Flexport. Then built the rules
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           To stay aligned with design trends and industry standards for B2B data-dense
@@ -161,7 +161,7 @@ function Impact() {
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Impact</span>
         <h2 className="snma-section-title">
-          Clear hierarchy. Appealing visuals. Guided usage.
+          Clear hierarchy. Appealing visuals. Guided usage
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           The redesign elevated visual clarity and usability across the entire portal —

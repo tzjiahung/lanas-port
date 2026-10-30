@@ -19,7 +19,7 @@ function Hero() {
           LEAD UX RESEARCHER&nbsp;·&nbsp;SHIPPED&nbsp;·&nbsp;SHOPBACK
         </div>
 
-        <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany.</h1>
+        <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany</h1>
 
         <dl className="snma-meta">
           <div><dt>Team</dt><dd>1 Researcher, 1 Designer, 1 PM</dd></div>
@@ -38,7 +38,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A cashback platform with a sign-up–to–activation gap.
+          A cashback platform with a sign-up–to–activation gap
         </h2>
         <div>
           <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
@@ -93,7 +93,7 @@ function Assumptions() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Assumptions</span>
         <h2 className="snma-section-title">
-          We began with three existing assumptions about the gap.
+          Three existing assumptions about the gap
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           The product team had early hypotheses about why new users stalled after sign-up.
@@ -157,7 +157,7 @@ function Method() {
     <section id="method" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Methodology</span>
-        <h2 className="snma-section-title">A mixed-methods approach.</h2>
+        <h2 className="snma-section-title">A mixed-methods approach</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           Qualitative-first, quantitative for validation. Interviews surfaced the texture of
           the experience; the survey confirmed which barriers were widespread.
@@ -221,7 +221,7 @@ function Impact() {
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Impact</span>
         <h2 className="snma-section-title">
-          Validated initial assumptions, uncovered user barriers.
+          Validated initial assumptions, uncovered user barriers
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Launched an onboarding design and validated 2 ongoing design directions based on the findings.
@@ -265,14 +265,11 @@ function Impact() {
               <h3>7-Step onboarding walkthrough</h3>
               <p>
                 Designed to guide first-time browsing and surface the most relevant merchants for
-                new U.S. users. Post-launch data validated it:{' '}
+                new U.S. users. Post-launch data validated it: <b>activation rose 9.38%</b>, and{' '}
                 <b>98% of users rated the walkthrough as helpful.</b>
               </p>
-              <div className="snma-post-impact">
-                <b>+9.38%</b>&nbsp;activation lift&nbsp;·&nbsp;<b>98%</b>&nbsp;rated helpful
-              </div>
             </div>
-            <div className="snma-impact-img">
+            <div className="snma-showcase">
               <img src="/shopback-nma/onboarding.gif" alt="7-step onboarding walkthrough demo" loading="lazy" />
             </div>
           </div>
@@ -284,13 +281,10 @@ function Impact() {
               <p>
                 Interviews showed users reacted most positively to clear, tangible reward prompts —
                 "Earn $15" or "Earn $5 on your first browser extension purchase" — over vague
-                cashback framing.
+                cashback framing. The direction was handed off to the growth team for A/B testing.
               </p>
-              <div className="snma-post-impact">
-                Direction handed off to growth team for A/B test.
-              </div>
             </div>
-            <div className="snma-impact-img no-bg">
+            <div className="snma-showcase">
               <img src="/shopback-nma/VDD1.webp" alt="Extra rewards prompt screen" loading="lazy" />
             </div>
           </div>
@@ -301,13 +295,11 @@ function Impact() {
               <h3>Support ACH transfers</h3>
               <p>
                 PayPal as the sole withdrawal method created friction — many users couldn't easily
-                recall their account credentials and abandoned the redemption flow. ACH was prioritized.
+                recall their account credentials and abandoned the redemption flow. ACH was prioritized
+                and roadmapped to the finance &amp; payments squad.
               </p>
-              <div className="snma-post-impact">
-                Roadmapped to finance &amp; payments squad.
-              </div>
             </div>
-            <div className="snma-impact-img no-bg">
+            <div className="snma-showcase">
               <img src="/shopback-nma/VBS.webp" alt="ACH transfer / payout flow" loading="lazy" />
             </div>
           </div>

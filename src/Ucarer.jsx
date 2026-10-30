@@ -23,7 +23,7 @@ function Hero() {
           Redesigning{' '}
           Ucarer{' '}
           to boost activation and{' '}
-          simplify care-finding.
+          simplify care-finding
         </h1>
 
         <dl className="snma-meta">
@@ -43,7 +43,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A caregiving platform with too much friction.
+          A caregiving platform with too much friction
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           <b>Ucarer</b> connects caregivers with individuals in need of personalized care
@@ -72,7 +72,7 @@ function Research() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Research</span>
         <h2 className="snma-section-title">
-          Walk through first. Interview after.
+          Walk through first. Interview after
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Before talking to users, we walked through the product ourselves to identify
@@ -154,7 +154,7 @@ function Ideate() {
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Ideate</span>
         <h2 className="snma-section-title">
-          Rebuild the architecture. Then draw the screens.
+          Rebuild the architecture. Then draw the screens
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Restructured the app's five tabs — Home, Long-term Subscription, News, My Order,
@@ -195,7 +195,7 @@ function Prototype() {
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Prototype</span>
         <h2 className="snma-section-title">
-          Visual design applied. Color palette retained.
+          Visual design applied. Color palette retained
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           We retained the original Ucarer color palette to maintain brand continuity,

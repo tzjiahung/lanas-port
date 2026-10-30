@@ -23,7 +23,7 @@
   background: var(--snma-bg);
   color: var(--snma-fg);
   font-family: var(--snma-font);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -375,9 +375,8 @@
 }
 
 .snma-section-intro {
-  font-size: clamp(17px, 1.4vw, 19px);
+  font-size: 16px;
   color: var(--snma-fg-soft);
-  max-width: 64ch;
 }
 
 /* ---- Assumptions ---- */
@@ -413,7 +412,7 @@
   letter-spacing: -0.02em;
 }
 
-.snma-assumption p { color: var(--snma-fg-soft); font-size: 15px; margin: 0; }
+.snma-assumption p { color: var(--snma-fg-soft); font-size: 16px; margin: 0; }
 
 .snma-imgslot {
   margin-top: 18px;
@@ -447,7 +446,7 @@
 }
 
 .snma-goal h3 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.02em; }
-.snma-goal p { color: var(--snma-fg-soft); font-size: 15px; line-height: 1.55; margin: 0; }
+.snma-goal p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
 
 /* ---- Method ---- */
 .snma-method-grid {
@@ -575,20 +574,16 @@
 
 .snma-impact-card {
   background: var(--snma-card);
-  border: 1px solid rgba(26, 26, 26, 0.12);
   border-radius: var(--snma-radius);
-  padding: 28px;
+  padding: 28px 0;
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  column-gap: 40px;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
   align-items: start;
 }
 
-@media (max-width: 880px) {
-  .snma-impact-card { grid-template-columns: 1fr; row-gap: 20px; }
-}
-
 .snma-impact-text { display: flex; flex-direction: column; }
+.snma-impact-text > :last-child { margin-bottom: 0; }
 
 .snma-impact-kind {
   font-family: var(--snma-mono);
@@ -600,13 +595,10 @@
 }
 
 .snma-impact-card h3 { font-size: 24px; letter-spacing: -0.02em; margin-bottom: 14px; }
-.snma-impact-card p { color: var(--snma-fg-soft); font-size: 14.5px; line-height: 1.55; margin: 0 0 20px; }
+.snma-impact-card p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0 0 20px; }
 
 .snma-post-impact {
-  background: var(--snma-bg-soft);
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-size: 13.5px;
+  font-size: 16px;
   margin-top: auto;
 }
 
@@ -618,13 +610,23 @@
   overflow: hidden;
   min-height: 180px;
   max-width: 320px;
-  justify-self: end;
+  justify-self: start;
   width: 100%;
   align-self: start;
 }
 
 .snma-impact-img.no-bg { background: transparent; }
 .snma-impact-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* Pink panel with the screen centred, used for NMA impact visuals */
+.snma-showcase {
+  background: var(--snma-bg-soft);
+  border-radius: var(--snma-radius);
+  padding: clamp(32px, 5vw, 56px) 24px;
+  display: flex;
+  justify-content: center;
+}
+.snma-showcase img { width: 100%; max-width: 360px; height: auto; display: block; }
 
 /* ---- Takeaways ---- */
 .snma-takeaways {
@@ -644,7 +646,7 @@
 
 .snma-takeaway h3 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 10px; }
 
-.snma-takeaway p { color: var(--snma-fg-soft); font-size: 15px; line-height: 1.55; margin: 0; }
+.snma-takeaway p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
 
 /* ---- Footer ---- */
 .snma-footer {
@@ -723,6 +725,10 @@
 /* FitBack survey findings — wider image column */
 .survey-findings .snma-impact-card {
   grid-template-columns: 1fr 1.5fr;
+  column-gap: 40px;
+}
+@media (max-width: 880px) {
+  .survey-findings .snma-impact-card { grid-template-columns: 1fr; }
 }
 .survey-findings .snma-impact-img {
   max-width: none;
