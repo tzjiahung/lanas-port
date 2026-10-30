@@ -23,7 +23,7 @@ function Hero() {
           A{' '}
           food waste{' '}
           solution that turns your fridge into a{' '}
-          smart reminder.
+          smart reminder
         </h1>
 
         <dl className="snma-meta">
@@ -43,7 +43,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          Tackling food waste through software and hardware.
+          Tackling food waste through software and hardware
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           According to the EU project "FUSIONS," food waste stems from a{' '}
@@ -160,7 +160,7 @@ function Design() {
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Design</span>
         <h2 className="snma-section-title">
-          A fridge scanner and a LINE chatbot — no new app needed.
+          A fridge scanner and a LINE chatbot — no new app needed
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Three core features: check what's in the fridge, check expiration dates, and
@@ -184,7 +184,7 @@ function Design() {
           <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Hardware — FooMa Scanning Device</span>
-              <h3>Hangs inside your fridge. Scans before you store.</h3>
+              <h3>Hangs inside your fridge. Scans before you store</h3>
               <p>
                 The FooMa device is hung inside the refrigerator. Users scan food products
                 before placing them inside. The device automatically tracks items and
@@ -238,7 +238,7 @@ function Feedback() {
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Feedback</span>
         <h2 className="snma-section-title">
-          Most popular design. 90% willing to buy.
+          Most popular design. 90% willing to buy
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           At the end of the workshop, participants evaluated all teams' solutions.

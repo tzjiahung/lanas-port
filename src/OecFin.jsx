@@ -47,7 +47,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A health &amp; fitness feature inside an insurance app.
+          A health &amp; fitness feature inside an insurance app
         </h2>
 
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
@@ -102,7 +102,7 @@ function Process() {
     <section id="process" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — Research process</span>
-        <h2 className="snma-section-title">A four-method research approach.</h2>
+        <h2 className="snma-section-title">A four-method research approach</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           Each method built on the last — from theory, to competitive context, to existing system, to firsthand user data.
         </p>
@@ -176,7 +176,7 @@ function Survey() {
     <section id="survey" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Questionnaire survey</span>
-        <h2 className="snma-section-title">356 responses. Real users, real motivations.</h2>
+        <h2 className="snma-section-title">356 responses. Real users, real motivations</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           The survey was structured into four sections: exercise habits, motivating methods, health &amp; fitness club experiences, and app experiences. Distributed externally via social channels due to limited internal access as an intern.
         </p>
@@ -272,7 +272,7 @@ function Impact() {
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Impact</span>
         <h2 className="snma-section-title">
-          Research shifted the roadmap before a single line was designed.
+          Research shifted the roadmap before a single line was designed
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Before this research, the product team planned to develop social networking functions immediately — without supporting evidence. The findings changed that.

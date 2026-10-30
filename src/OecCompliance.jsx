@@ -24,7 +24,7 @@ function Hero() {
           0-to-1{' '}
           Compliance{' '}
           module for OEC Group's{' '}
-          internal ERP portal.
+          internal ERP portal
         </h1>
 
         <dl className="snma-meta">
@@ -44,7 +44,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">01 — Overview</span>
         <h2 className="snma-section-title">
-          A freight forwarding giant going digital.
+          A freight forwarding giant going digital
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
@@ -80,7 +80,7 @@ function Problem() {
       <div className="snma-wrap">
         <span className="snma-section-label">02 — Problem</span>
         <h2 className="snma-section-title">
-          Paper-based compliance creates real operational pain.
+          Paper-based compliance creates real operational pain
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Before this module, accounting managers had no digital system to retrieve and manage
@@ -114,7 +114,7 @@ function Flow() {
     <section id="flow" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">03 — User Flow</span>
-        <h2 className="snma-section-title">Adding a compliance in 4 steps.</h2>
+        <h2 className="snma-section-title">Adding a compliance in 4 steps</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           The core interaction centers on adding a new compliance record — a four-action
           sequence that lets users query, filter, select, and confirm the right invoices.
@@ -211,7 +211,7 @@ function Design() {
       <div className="snma-wrap">
         <span className="snma-section-label">04 — Design proposals</span>
         <h2 className="snma-section-title">
-          Four proposals. One clear winner.
+          Four proposals. One clear winner
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           The core design challenge was the invoice selection step — how should users enter
@@ -252,7 +252,7 @@ function Demo() {
       <div className="snma-wrap">
         <span className="snma-section-label">05 — Demo</span>
         <h2 className="snma-section-title">
-          Prototype walkthrough.
+          Prototype walkthrough
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 40, maxWidth: 'none' }}>
           End-to-end flow of the shipped Compliance module — from creating a new compliance record to sending data back to the main system.
