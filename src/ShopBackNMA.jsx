@@ -104,7 +104,6 @@ function Assumptions() {
           {ASSUMPTIONS.map(a => (
             <div key={a.n} className="snma-assumption">
               <span className="snma-assumption-tag">Assumption {a.n}</span>
-              <div className="snma-assumption-n">{a.n}</div>
               <h3>{a.title}</h3>
               <p>{a.body}</p>
               <div className="snma-imgslot">
