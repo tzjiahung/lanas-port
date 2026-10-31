@@ -37,7 +37,8 @@ const ACTIVATION = [
   { market: 'Germany', rate: 20 },
 ]
 const ACTIVATION_TARGET = 30
-const ACTIVATION_MAX = 40
+// Bar scale: the full bar area represents 37.5%, matching the Figma chart
+const ACTIVATION_MAX = 37.5
 
 function Overview() {
   return (
@@ -52,22 +53,19 @@ function Overview() {
             Data revealed a critical issue in our newly launched markets, the{' '}
             <b>United States</b> and <b>Germany</b>. While a significant share of users
             signed up, <b>only about 10% in the U.S. and 20% in Germany activated within
-            the first seven days</b> — where activation means starting to browse merchant
+            the first seven days</b>, where activation means starting to browse merchant
             stores or completing a first transaction. That's well below our internal
             benchmarks, and short of the <b>30%+</b> target.
           </p>
           <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none' }}>
             This gap matters. In new market launches,{' '}
             <b>early activation is a key milestone in the product
-            cycle</b> — it signals initial adoption and{' '}
+            cycle</b>. It signals initial adoption and{' '}
             <b>sets the foundation for long-term conversion</b>{' '}
             and sustained product usage.
           </p>
         </div>
         <figure className="snma-chart">
-          <figcaption className="snma-chart-title">
-            First-7-day activation rate, new users
-          </figcaption>
           <div className="snma-chart-plot">
             {ACTIVATION.map(d => (
               <div key={d.market} className="snma-chart-row">
@@ -84,19 +82,15 @@ function Overview() {
             ))}
             <div
               className="snma-chart-target"
-              style={{ left: `calc(var(--lbl-w) + (100% - var(--lbl-w)) * ${ACTIVATION_TARGET / ACTIVATION_MAX})` }}
+              style={{ left: `calc(var(--plot-l) + var(--lbl-w) + (100% - var(--plot-l) - var(--lbl-w)) * ${ACTIVATION_TARGET / ACTIVATION_MAX})` }}
             >
               <span>Target {ACTIVATION_TARGET}%+</span>
             </div>
           </div>
-          <p className="snma-chart-src">Source: New Market Activation One Pager, June 2025</p>
+          <figcaption className="snma-chart-title">
+            First-7-day activation rate, new users
+          </figcaption>
         </figure>
-        <img
-          className="snma-overview-img"
-          src="/shopback-nma/markets.jpg"
-          alt="ShopBack logo alongside the flags of the two new markets"
-          loading="lazy"
-        />
       </div>
     </section>
   )
