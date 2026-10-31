@@ -370,6 +370,49 @@
   color: var(--snma-fg-soft);
 }
 
+/* Overview activation chart */
+.snma-chart { margin: 40px 0 0; }
+.snma-chart-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+.snma-chart-plot {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  /* label column + bar area; the target line is positioned within the bar area */
+  --lbl-w: 120px;
+  padding-top: 26px;
+}
+.snma-chart-row { display: grid; grid-template-columns: var(--lbl-w) 1fr; align-items: center; }
+.snma-chart-lbl { font-size: 14px; color: var(--snma-fg-soft); }
+.snma-chart-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  border-left: 1px solid rgba(26, 26, 26, 0.18);
+}
+.snma-chart-bar {
+  height: 100%;
+  background: var(--snma-accent1);
+  border-radius: 0 4px 4px 0;
+}
+.snma-chart-val { font-size: 14px; font-weight: 700; color: var(--snma-fg); }
+.snma-chart-target {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1.5px dashed var(--snma-fg-mute);
+}
+.snma-chart-target span {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--snma-fg-mute);
+}
+.snma-chart-src { font-size: 12px; color: var(--snma-fg-mute); margin: 16px 0 0; }
+
 .snma-overview-img {
   display: block;
   width: 100%;
