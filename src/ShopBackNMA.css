@@ -453,19 +453,6 @@
   padding: 28px 0;
 }
 
-.snma-assumption-tag {
-  display: inline-block;
-  font-family: var(--snma-mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  background: var(--snma-bg-soft);
-  color: var(--snma-fg-soft);
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-bottom: 20px;
-}
-
 .snma-assumption h3 {
   font-size: 24px;
   line-height: 1.1;

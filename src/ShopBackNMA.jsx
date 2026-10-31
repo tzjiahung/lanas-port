@@ -98,21 +98,21 @@ function Overview() {
 
 const ASSUMPTIONS = [
   {
-    n: '01',
+    n: 1,
     title: 'Lack of guided browsing',
     body: 'After signing up and landing on the home page, users may face an overload of information without a clear place to begin.',
     img: '/shopback-nma/assum1.avif',
     alt: 'Home page screenshot showing overwhelming information',
   },
   {
-    n: '02',
+    n: 2,
     title: 'Merchants & deals relevance',
     body: "Users may fail to activate because, on landing, they don't see merchants or deals that match their usual spending habits.",
     img: '/shopback-nma/assum2.avif',
     alt: 'Popular stores grid showing unrelevant merchants',
   },
   {
-    n: '03',
+    n: 3,
     title: 'Lack of instant reward',
     body: 'After spending time and effort to download and sign up, users may feel disappointed if no immediate incentive is provided.',
     img: '/shopback-nma/assum3.avif',
@@ -136,8 +136,7 @@ function Assumptions() {
         <div className="snma-assumptions">
           {ASSUMPTIONS.map(a => (
             <div key={a.n} className="snma-assumption">
-              <span className="snma-assumption-tag">Assumption {a.n}</span>
-              <h3>{a.title}</h3>
+              <h3>Assumption {a.n}: {a.title}</h3>
               <p>{a.body}</p>
               <div className="snma-imgslot">
                 <img src={a.img} alt={a.alt} loading="lazy" />
