@@ -389,7 +389,7 @@
   background: #FFFFFF;
   border-radius: 8px;
 }
-.snma-chart-row { display: grid; grid-template-columns: var(--lbl-w) 1fr; align-items: center; }
+.snma-chart-row { position: relative; z-index: 1; display: grid; grid-template-columns: var(--lbl-w) 1fr; align-items: center; }
 .snma-chart-lbl { font-size: 14px; font-weight: 700; }
 .snma-chart-track {
   display: flex;
@@ -403,20 +403,33 @@
   background: #FBBFCA;
   border-radius: 0 4px 4px 0;
 }
-.snma-chart-val { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.snma-chart-val {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  /* masks the target line where a value label crosses it on narrow screens */
+  padding: 0 3px;
+  margin-left: -3px;
+  background: #FFFFFF;
+}
 .snma-chart-target {
   position: absolute;
   top: 35px;
   bottom: 34px;
-  width: 0;
-  border-left: 1.5px dashed #444444;
+  width: 1.5px;
+  margin-left: -0.75px;
+  /* gradient dashes render consistently (iOS Safari drops fractional dashed borders) */
+  background: repeating-linear-gradient(to bottom, #444444 0 4px, transparent 4px 7px);
 }
+/* Label sits above the line, right-aligned to it, so it grows inward
+   and never spills past the plot's right edge on narrow screens */
 .snma-chart-target span {
   position: absolute;
-  top: 6px;
-  left: 6px;
+  bottom: calc(100% + 4px);
+  right: -6px;
   white-space: nowrap;
   font-size: 12px;
+  line-height: 1.2;
 }
 .snma-chart-title {
   margin-top: 20px;
