@@ -370,13 +370,62 @@
   color: var(--snma-fg-soft);
 }
 
-.snma-overview-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 40px;
+/* Overview activation chart (matches Figma node 225:130) */
+.snma-chart {
+  margin: 40px 0 0;
+  padding: 24px 24px 18px;
   border-radius: var(--snma-radius);
+  background: linear-gradient(90deg, #FDD9C9 0%, #FBBFCA 100%);
+  color: #444444;
 }
+.snma-chart-plot {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  /* left inset + label column; the target line is positioned within the bar area */
+  --plot-l: clamp(16px, 8vw, 98px);
+  --lbl-w: 104px;
+  padding: 48px 0 47px var(--plot-l);
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+.snma-chart-row { display: grid; grid-template-columns: var(--lbl-w) 1fr; align-items: center; }
+.snma-chart-lbl { font-size: 14px; font-weight: 700; }
+.snma-chart-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  border-left: 1px solid #444444;
+}
+.snma-chart-bar {
+  height: 100%;
+  background: #FBBFCA;
+  border-radius: 0 4px 4px 0;
+}
+.snma-chart-val { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.snma-chart-target {
+  position: absolute;
+  top: 35px;
+  bottom: 34px;
+  width: 0;
+  border-left: 1.5px dashed #444444;
+}
+.snma-chart-target span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.snma-chart-title {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
 
 /* ---- Assumptions ---- */
 .snma-assumptions {

@@ -32,6 +32,14 @@ function Hero() {
   )
 }
 
+const ACTIVATION = [
+  { market: 'United States', rate: 10 },
+  { market: 'Germany', rate: 20 },
+]
+const ACTIVATION_TARGET = 30
+// Bar scale: the full bar area represents 37.5%, matching the Figma chart
+const ACTIVATION_MAX = 37.5
+
 function Overview() {
   return (
     <section id="overview" className="snma-section">
@@ -44,26 +52,45 @@ function Overview() {
           <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
             Data revealed a critical issue in our newly launched markets, the{' '}
             <b>United States</b> and <b>Germany</b>. While a significant share of users
-            signed up, <b>only 12% activated within the first
-            seven days</b> — where activation means starting to browse merchant stores
-            or completing a first transaction. By comparison, established markets such as{' '}
-            <b>Singapore</b> and <b>Australia</b> see activation rates around{' '}
-            <b>40%</b>.
+            signed up, <b>only about 10% in the U.S. and 20% in Germany activated within
+            the first seven days</b>, where activation means starting to browse merchant
+            stores or completing a first transaction. That's well below our internal
+            benchmarks, and short of the <b>30%+</b> target.
           </p>
           <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none' }}>
             This gap matters. In new market launches,{' '}
             <b>early activation is a key milestone in the product
-            cycle</b> — it signals initial adoption and{' '}
+            cycle</b>. It signals initial adoption and{' '}
             <b>sets the foundation for long-term conversion</b>{' '}
             and sustained product usage.
           </p>
         </div>
-        <img
-          className="snma-overview-img"
-          src="/shopback-nma/markets.jpg"
-          alt="ShopBack logo alongside the flags of the two new markets"
-          loading="lazy"
-        />
+        <figure className="snma-chart">
+          <div className="snma-chart-plot">
+            {ACTIVATION.map(d => (
+              <div key={d.market} className="snma-chart-row">
+                <span className="snma-chart-lbl">{d.market}</span>
+                <div className="snma-chart-track">
+                  <div
+                    className="snma-chart-bar"
+                    style={{ width: `${(d.rate / ACTIVATION_MAX) * 100}%` }}
+                    title={`${d.market}: ~${d.rate}% activated within 7 days`}
+                  />
+                  <span className="snma-chart-val">~{d.rate}%</span>
+                </div>
+              </div>
+            ))}
+            <div
+              className="snma-chart-target"
+              style={{ left: `calc(var(--plot-l) + var(--lbl-w) + (100% - var(--plot-l) - var(--lbl-w)) * ${ACTIVATION_TARGET / ACTIVATION_MAX})` }}
+            >
+              <span>Target {ACTIVATION_TARGET}%+</span>
+            </div>
+          </div>
+          <figcaption className="snma-chart-title">
+            First-7-day activation rate, new users
+          </figcaption>
+        </figure>
       </div>
     </section>
   )
