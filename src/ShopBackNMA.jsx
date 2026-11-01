@@ -7,6 +7,7 @@ const SECTIONS = [
   { id: 'problem',     label: 'Problem'     },
   { id: 'goals',       label: 'Goals'       },
   { id: 'method',      label: 'Method'      },
+  { id: 'solution',    label: 'Solution'    },
   { id: 'impact',      label: 'Impact'      },
   { id: 'takeaways',   label: 'Takeaways'   },
 ]
@@ -247,48 +248,17 @@ function Method() {
   )
 }
 
-function Impact() {
+function Solution() {
   return (
-    <section id="impact" className="snma-section">
+    <section id="solution" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Impact</span>
+        <span className="snma-section-label">Solution</span>
         <h2 className="snma-section-title">
-          Confirmed all three problems, and uncovered new barriers
+          One shipped design, two validated directions
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Launched an onboarding design and validated 2 ongoing design directions based on the findings.
         </p>
-
-        <div className="snma-stats" style={{ marginBottom: 32 }}>
-          <div className="snma-stat">
-            <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Activation lift</div>
-              <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">98<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Rated walkthrough helpful</div>
-              <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">8</div>
-            <div>
-              <div className="snma-stat-lbl">Moderated interviews</div>
-              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">136</div>
-            <div>
-              <div className="snma-stat-lbl">Survey responses</div>
-              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
-            </div>
-          </div>
-        </div>
 
         <div className="snma-impact-grid">
           <div className="snma-impact-card">
@@ -330,6 +300,49 @@ function Impact() {
             </div>
             <div className="snma-showcase">
               <img src="/shopback-nma/VBS.webp" alt="ACH transfer / payout flow" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Impact() {
+  return (
+    <section id="impact" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">Impact</span>
+        <h2 className="snma-section-title" style={{ marginBottom: 56 }}>
+          Confirmed all three problems, and uncovered new barriers
+        </h2>
+        <div className="snma-stats">
+          <div className="snma-stat">
+            <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Activation lift</div>
+              <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">98<span className="sm">%</span></div>
+            <div>
+              <div className="snma-stat-lbl">Rated walkthrough helpful</div>
+              <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">8</div>
+            <div>
+              <div className="snma-stat-lbl">Moderated interviews</div>
+              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">136</div>
+            <div>
+              <div className="snma-stat-lbl">Survey responses</div>
+              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
             </div>
           </div>
         </div>
@@ -410,6 +423,7 @@ export default function ShopBackNMA() {
       <Assumptions />
       <Goals />
       <Method />
+      <Solution />
       <Impact />
       <Takeaways />
       <CaseFooter />
