@@ -4,7 +4,7 @@ import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from '
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
-  { id: 'assumptions', label: 'Assumptions' },
+  { id: 'problem',     label: 'Problem'     },
   { id: 'goals',       label: 'Goals'       },
   { id: 'method',      label: 'Method'      },
   { id: 'impact',      label: 'Impact'      },
@@ -99,22 +99,22 @@ function Overview() {
 const ASSUMPTIONS = [
   {
     n: 1,
-    title: 'Lack of guided browsing',
-    body: 'After signing up and landing on the home page, users may face an overload of information without a clear place to begin.',
+    title: 'Too much on screen, nowhere to start',
+    body: 'New users land on a busy home page right after sign-up, with no clear first step. Many leave before browsing a single store.',
     img: '/shopback-nma/assum1.avif',
     alt: 'Home page screenshot showing overwhelming information',
   },
   {
     n: 2,
-    title: 'Merchants & deals relevance',
-    body: "Users may fail to activate because, on landing, they don't see merchants or deals that match their usual spending habits.",
+    title: "Stores that don't feel relevant",
+    body: "The first merchants and deals users see don't match how they usually shop, so ShopBack doesn't look useful to them yet.",
     img: '/shopback-nma/assum2.avif',
     alt: 'Popular stores grid showing unrelevant merchants',
   },
   {
     n: 3,
-    title: 'Lack of instant reward',
-    body: 'After spending time and effort to download and sign up, users may feel disappointed if no immediate incentive is provided.',
+    title: 'Nothing in return for signing up',
+    body: 'Users put in the effort to download the app and sign up, then get no reward right away. The payoff feels too far off to act on.',
     img: '/shopback-nma/assum3.avif',
     alt: 'Home page with merchant promotions and campaign details',
   },
@@ -122,21 +122,21 @@ const ASSUMPTIONS = [
 
 function Assumptions() {
   return (
-    <section id="assumptions" className="snma-section">
+    <section id="problem" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Assumptions</span>
+        <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Three existing assumptions about the gap
+          New users sign up, but never start shopping
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          The product team had early hypotheses about why new users stalled after sign-up.
-          Before building anything, we wanted to know which of them (if any) actually held
-          up — and what we were missing.
+          The product team suspected three problems were holding new users back. Before
+          building anything, we set out to test which ones really held up, and what we
+          were missing.
         </p>
         <div className="snma-assumptions">
           {ASSUMPTIONS.map(a => (
             <div key={a.n} className="snma-assumption">
-              <h3>Assumption {a.n}: {a.title}</h3>
+              <h3>Problem {a.n}: {a.title}</h3>
               <p>{a.body}</p>
               <div className="snma-imgslot">
                 <img src={a.img} alt={a.alt} loading="lazy" />
@@ -253,7 +253,7 @@ function Impact() {
       <div className="snma-wrap">
         <span className="snma-section-label">Impact</span>
         <h2 className="snma-section-title">
-          Validated initial assumptions, uncovered user barriers
+          Confirmed all three problems, and uncovered new barriers
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
           Launched an onboarding design and validated 2 ongoing design directions based on the findings.
