@@ -4,8 +4,7 @@ import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from '
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
-  { id: 'problem',     label: 'Problem'     },
-  { id: 'goals',       label: 'Goals'       },
+  { id: 'hypotheses',  label: 'Hypotheses'  },
   { id: 'method',      label: 'Method'      },
   { id: 'solution',    label: 'Solution'    },
   { id: 'impact',      label: 'Impact'      },
@@ -121,23 +120,64 @@ const ASSUMPTIONS = [
   },
 ]
 
+const RESEARCH_GOALS = [
+  {
+    title: 'Identify onboarding barriers',
+    tint: 'peach',
+    body: 'Uncover obstacles users face between signing up and actually browsing merchants or making transactions.',
+  },
+  {
+    title: 'Understand drivers of attraction',
+    tint: 'pink',
+    body: 'Learn what motivates users to engage, which incentives to offer, which features to highlight.',
+  },
+  {
+    title: 'Understand drivers of first transaction',
+    tint: 'butter',
+    body: 'Learn what moves a new user from browsing to their first Cashback purchase.',
+  },
+]
+
+// Small HTML vignettes of the product moment behind each research goal
+function GoalVisual({ index }) {
+  if (index === 0) {
+    return (
+      <div className="snma-gv-phone">
+        <img src="/shopback-nma/home-uhs.png" alt="" loading="lazy" />
+      </div>
+    )
+  }
+  if (index === 1) {
+    return (
+      <div className="snma-gv-phone">
+        <img className="zoom" src="/shopback-nma/home-uhs.png" alt="" loading="lazy" />
+      </div>
+    )
+  }
+  return (
+    <div className="snma-gv-phone">
+      <img className="zoom-gift" src="/shopback-nma/home-uhs-gift.png" alt="" loading="lazy" />
+    </div>
+  )
+}
+
 function Assumptions() {
   return (
-    <section id="problem" className="snma-section">
+    <section id="hypotheses" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Problem</span>
+        <span className="snma-section-label">Hypotheses</span>
         <h2 className="snma-section-title">
-          New users sign up, but never start shopping
+          Before talking to users, we had three hypotheses
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          The product team suspected three problems were holding new users back. Before
-          building anything, we set out to test which ones really held up, and what we
-          were missing.
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
+          The product team had three hypotheses about why new users stalled after sign-up.
+          Before building anything, we set out to test which ones really held up, and what
+          we were missing.
         </p>
         <div className="snma-assumptions">
           {ASSUMPTIONS.map(a => (
             <div key={a.n} className="snma-assumption">
-              <h3>Problem {a.n}: {a.title}</h3>
+              <h3>Hypothesis {a.n}: {a.title}</h3>
               <p>{a.body}</p>
               <div className="snma-imgslot">
                 <img src={a.img} alt={a.alt} loading="lazy" />
@@ -145,32 +185,22 @@ function Assumptions() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  )
-}
 
-function Goals() {
-  return (
-    <section id="goals" className="snma-section">
-      <div className="snma-wrap">
-        <span className="snma-section-label">Research goals</span>
-        <div className="snma-goals">
-          <div className="snma-goal">
-            <div className="snma-goal-n">01</div>
-            <h3>Explore first-time experience</h3>
-            <p>Understand what actions users take immediately after signing up and landing on the home page.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">02</div>
-            <h3>Identify onboarding barriers</h3>
-            <p>Uncover obstacles users face between signing up and actually browsing merchants or making transactions.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">03</div>
-            <h3>Understand drivers of attraction</h3>
-            <p>Learn what motivates users to engage — which incentives to offer, which features to highlight.</p>
-          </div>
+        <h3 className="snma-subtitle">What we needed to learn</h3>
+        <ol className="snma-goal-list">
+          {RESEARCH_GOALS.map(g => (
+            <li key={g.title}>
+              <h4>{g.title}</h4>
+              <p>{g.body}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="snma-goal-tiles">
+          {RESEARCH_GOALS.map((g, i) => (
+            <div key={g.title} className={`snma-goal-visual ${g.tint}`} aria-hidden="true">
+              <GoalVisual index={i} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -418,10 +448,9 @@ export default function ShopBackNMA() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
-      <CaseCover src="/case-covers/shopback.jpg" alt="ShopBack New Market Activation" />
+      <CaseCover src="/case-covers/shopback-animated.gif" alt="ShopBack New Market Activation" />
       <Overview />
       <Assumptions />
-      <Goals />
       <Method />
       <Solution />
       <Impact />

@@ -375,7 +375,7 @@
   margin: 40px 0 0;
   padding: 24px 24px 18px;
   border-radius: var(--snma-radius);
-  background: linear-gradient(90deg, #FDD9C9 0%, #FBBFCA 100%);
+  background: linear-gradient(270deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff;
   color: #444444;
 }
 .snma-chart-plot {
@@ -387,6 +387,8 @@
   --lbl-w: 104px;
   padding: 48px 0 47px var(--plot-l);
   background: #FFFFFF;
+  /* Figma drop shadow: X 0, Y 0, blur 30, spread 0, #ABABAB at 25% */
+  box-shadow: 0 0 30px 0 rgba(171, 171, 171, 0.25);
   border-radius: 8px;
 }
 .snma-chart-row { position: relative; z-index: 1; display: grid; grid-template-columns: var(--lbl-w) 1fr; align-items: center; }
@@ -443,14 +445,14 @@
 /* ---- Assumptions ---- */
 .snma-assumptions {
   display: grid;
-  gap: 24px;
+  gap: 48px;
   grid-template-columns: 1fr;
 }
 
 .snma-assumption {
   background: var(--snma-card);
   border-radius: var(--snma-radius);
-  padding: 28px 0;
+  padding: 0;
 }
 
 .snma-assumption h3 {
@@ -495,6 +497,137 @@
 
 .snma-goal h3 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.02em; }
 .snma-goal p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
+
+/* Research goal tiles (NMA) */
+.snma-goal-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 880px) { .snma-goal-tiles { grid-template-columns: 1fr; } }
+
+.snma-goal-visual {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--snma-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+@media (max-width: 880px) { .snma-goal-visual { aspect-ratio: 4 / 3; } }
+
+/* Figma: linear #FDD9C9 → #FBBFCA at 56% over white */
+.snma-goal-visual.peach  { background: linear-gradient(90deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff; }
+.snma-goal-visual.pink   { background: linear-gradient(90deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff; }
+.snma-goal-visual.butter { background: linear-gradient(90deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff; }
+
+.snma-goal-list {
+  margin: 0 0 32px;
+  padding-left: 24px;
+  display: grid;
+  gap: 20px;
+}
+
+.snma-goal-list li::marker { font-weight: 600; color: var(--snma-fg); }
+.snma-goal-list h4 { font-size: 18px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.snma-goal-list p { margin: 0; font-size: 16px; color: var(--snma-fg-soft); }
+
+.snma-gv-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.08);
+  font-size: 12px;
+  color: var(--snma-fg);
+}
+
+.snma-gv-card b { display: block; font-weight: 700; }
+.snma-gv-card span { color: var(--snma-fg-mute); }
+
+/* 1 · home page window: holds on the top, then scrolls the full screen */
+.snma-gv-phone {
+  width: 92%;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.10);
+}
+
+/* Uses the original Real UHS mockup (1572×3012) uncropped. Its screen sits at x/y 181px and is
+   1210px wide, so the image is scaled to 1572/1210 = 129.92% of the window and shifted by
+   181/1210 = 14.96% (margin % is of width on both axes) to make the screen fill the window. */
+.snma-gv-phone img {
+  display: block;
+  width: 129.92%;
+  max-width: none;
+  height: auto;
+  margin: -14.96% 0 0 -14.96%;
+  animation: snma-home-scroll 5s ease-in-out infinite;
+}
+
+/* Screen is 2650px tall; scrolling it by (2650 - 1210) px = 47.81% of the 3012px image height.
+   Scrolls top to bottom only, then restarts from the top. */
+@keyframes snma-home-scroll {
+  0%, 18%   { transform: translateY(0); }
+  70%, 100% { transform: translateY(-47.81%); }
+}
+
+/* 2 · same window, zooms into the 9.9 banner text, then the Boosted stores.
+   transform: translate() scale() with origin at the image's top-left; x % is of image width
+   (1.2992 × window), y % of image height (2.4893 × window). */
+.snma-gv-phone img.zoom {
+  transform-origin: 0 0;
+  will-change: transform;
+  animation: snma-home-zoom 8s ease-in-out infinite;
+}
+
+@keyframes snma-home-zoom {
+  0%, 12%   { transform: translate(0, 0) scale(1); }
+  25%, 45%  { transform: translate(-12.50%, -47.13%) scale(1.9); }
+  58%, 80%  { transform: translate(-14.14%, -115.15%) scale(2.2); }
+  92%, 100% { transform: translate(0, 0) scale(1); }
+}
+
+/* 3 · welcome gift mockup, zooms into each of the three bonus cards in turn (2.6×).
+   Same image geometry as above; card centres in screen px: (239, 557), (626, 557), (977, 557). */
+.snma-gv-phone img.zoom-gift {
+  transform-origin: 0 0;
+  will-change: transform;
+  animation: snma-gift-zoom 8s ease-in-out infinite;
+}
+
+@keyframes snma-gift-zoom {
+  0%, 10%   { transform: translate(0, 0) scale(1); }
+  18%, 32%  { transform: translate(-19.46%, -37.61%) scale(2.6); }
+  40%, 54%  { transform: translate(-83.47%, -37.61%) scale(2.6); }
+  62%, 78%  { transform: translate(-141.52%, -37.61%) scale(2.6); }
+  88%, 100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Tiles turn 4:3 on narrow screens, so size the window by height there */
+@media (max-width: 880px) { .snma-gv-phone { width: auto; height: 100%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .snma-gv-phone img, .snma-gv-phone img.zoom, .snma-gv-phone img.zoom-gift { animation: none; }
+}
+
+/* 2 · welcome gift */
+.snma-gv-gift { width: 92%; padding: 12px; }
+.snma-gv-gift-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.snma-gv-gift-head span { color: #E03A3A; font-weight: 600; }
+.snma-gv-gift-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.snma-gv-gift-row > div { background: #FFF5F0; border-radius: 8px; padding: 8px; line-height: 1.3; }
+.snma-gv-gift-row b { font-size: 13px; }
+.snma-gv-gift-row span { font-size: 10.5px; }
+
+.snma-root .snma-subtitle {
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 72px 0 24px;
+}
 
 /* ---- Method ---- */
 .snma-method-grid {
