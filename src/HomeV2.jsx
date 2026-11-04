@@ -1,5 +1,4 @@
 import React from 'react'
-import VoxelAvatar from './VoxelAvatar.jsx'
 import VoxelMarker from './VoxelMarker.jsx'
 import {
   trackEvent, ArrowOut, HeroSparkle, CaseStudy,
@@ -82,10 +81,18 @@ const s = {
   },
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  hero: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, padding: '24px 0 4px' },
-  avatarWrap: { position: 'relative', display: 'inline-flex', flexShrink: 0 },
-  intro: { margin: 0, maxWidth: 800, fontSize: 16, lineHeight: '25.6px', fontWeight: 400, color: '#2a1e2e', textWrap: 'pretty' },
-  introStrong: { fontWeight: 700 },
+  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 0 24px' },
+  intro: { margin: 0, maxWidth: 1576, fontSize: 16, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '-0.01em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
+  introStrong: { fontWeight: 700, cursor: 'default' },
+  roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
+  role: { position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24 },
+  roleImgBox: { width: 230, height: 181, overflow: 'hidden' },
+  roleImg: { width: 230, height: 288, display: 'block' },
+  roleLabel: {
+    textAlign: 'center', borderRadius: 12, padding: '0 12px',
+    fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52',
+    transition: 'background 0.2s',
+  },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 4, minHeight: 18 },
   tab: {
@@ -141,26 +148,65 @@ function ContactLinks({ isMobile }) {
   )
 }
 
-function Hero({ isMobile }) {
+// Hero roles, from Figma node 254:90. Each one pairs a phrase in the intro with an avatar.
+// Hovering the phrase or the avatar plays that avatar's GIF and highlights its label; otherwise it shows a still frame.
+// Sparkles: `big` sits at the avatar's top right, `small` at its bottom left.
+const ROLES = [
+  { id: 'ai',        label: 'AI Experience Designer', still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif',        big: true,  small: true },
+  { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif', big: false, small: true },
+  { id: 'b2b',       label: 'B2B System Designer',    still: 'home-v2/avatars/b2b.png',       gif: 'home-v2/avatars/b2b.gif',       big: false, small: true },
+  { id: 'fintech',   label: 'Fintech Designer',       still: 'home-v2/avatars/fintech.png',   gif: 'home-v2/avatars/fintech.gif',   big: true,  small: false },
+  // Placeholder: uses the AI avatar until the Design Researcher GIF is ready.
+  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif',        big: true,  small: true },
+]
+
+function RolePhrase({ role, active, onActive, children }) {
   return (
-    <section style={{ ...s.hero, flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 20 : 32, textAlign: isMobile ? 'center' : 'left' }}>
-      <div style={s.avatarWrap}>
-        <div style={{ animation: 'avatarFloat 3.6s ease-in-out infinite', willChange: 'transform' }}>
-          <VoxelAvatar size={198} />
-        </div>
-        <HeroSparkle size={42} top={1} right={-11} />
-        <HeroSparkle size={26} bottom={-4} left={-9} delay={1.2} />
+    <strong
+      style={s.introStrong}
+      onMouseEnter={() => onActive(role)}
+      onMouseLeave={() => onActive(null)}
+    >
+      {children}
+    </strong>
+  )
+}
+
+function RoleAvatar({ role, active, onActive }) {
+  return (
+    <div style={s.role} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
+      <div style={s.roleImgBox}>
+        {/* Swapping in the GIF on hover starts it from the first frame; swapping back stops it. */}
+        <img
+          key={active ? 'gif' : 'still'}
+          src={active ? role.gif : role.still}
+          alt=""
+          aria-hidden="true"
+          style={s.roleImg}
+        />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: s.intro.maxWidth }}>
-        <p style={s.intro}>
-          An <strong style={s.introStrong}>AI-first UX designer</strong> with 3 years of experience designing{' '}
-          <strong style={s.introStrong}>AI, e-commerce, fintech, and B2B products</strong>, from early exploration to
-          launch.
-        </p>
-        <p style={s.intro}>
-          Currently studying <strong style={s.introStrong}>Human Centered Design &amp; Engineering</strong>{' '}
-          @ UW in Seattle.
-        </p>
+      {role.big && <HeroSparkle size={42} top={25} left={168} />}
+      {role.small && <HeroSparkle size={26} top={200} left={-9} delay={1.2} />}
+      <span style={{ ...s.roleLabel, background: active ? '#ffffff' : 'transparent' }}>{role.label}</span>
+    </div>
+  )
+}
+
+function Hero({ isMobile }) {
+  const [active, setActive] = React.useState(null)
+  const r = (id) => ROLES.find((x) => x.id === id)
+  const phrase = (id, text) => (
+    <RolePhrase role={id} active={active === id} onActive={setActive}>{text}</RolePhrase>
+  )
+  return (
+    <section style={s.hero}>
+      <p style={s.intro}>
+        An AI-first product designer with 3 years of experience designing {phrase('ai', 'AI')},{' '}
+        {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
+        Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
+      </p>
+      <div style={{ ...s.roles, gap: isMobile ? 16 : 32 }}>
+        {ROLES.map((role) => <RoleAvatar key={role.id} role={role} active={active === role.id} onActive={setActive} />)}
       </div>
     </section>
   )
