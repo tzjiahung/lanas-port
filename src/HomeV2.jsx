@@ -23,7 +23,7 @@ const WIDE_COVERS = {
 const HOME_WORKS = WORKS.slice(0, 6).map((w) => (WIDE_COVERS[w.id] ? { ...w, cover: WIDE_COVERS[w.id] } : w))
 
 // The new page's resume link (the original home page keeps its own).
-const RESUME_URL = 'https://drive.google.com/file/d/1kXBYMC_Q_nGXdEg279h2lrjgTJs01HCJ/view?usp=sharing'
+const RESUME_URL = 'https://drive.google.com/file/d/11qNajkcb8YeLHNBtIWcNRtafqfvkVFt8/view?usp=sharing'
 const HOME_LINKS = CONTACT_LINKS.map((l) => (l.label === 'Resume' ? { ...l, href: RESUME_URL } : l))
 
 // Article thumbnails, taken from each post's lead image on Medium (keyed by the post's ID at the end of its URL).
