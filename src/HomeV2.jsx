@@ -156,8 +156,7 @@ const ROLES = [
   { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif', big: false, small: true },
   { id: 'b2b',       label: 'B2B System Designer',    still: 'home-v2/avatars/b2b.png',       gif: 'home-v2/avatars/b2b.gif',       big: false, small: true },
   { id: 'fintech',   label: 'Fintech Designer',       still: 'home-v2/avatars/fintech.png',   gif: 'home-v2/avatars/fintech.gif',   big: true,  small: false },
-  // Placeholder: uses the AI avatar until the Design Researcher GIF is ready.
-  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif',        big: true,  small: true },
+  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/research.png',  gif: 'home-v2/avatars/research.gif',  big: true,  small: true },
 ]
 
 function RolePhrase({ role, active, onActive, children }) {
