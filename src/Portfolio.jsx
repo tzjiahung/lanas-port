@@ -824,7 +824,7 @@ function TalksCol({ padding, radius, isMobile, headerHeight }) {
 export const CHANGELOG_STAMP = __BUILD_TIME__
 
 export const CONTACT_LINKS = [
-  { label: 'Resume',   href: 'https://drive.google.com/file/d/1St1aakqtpUVyR-E1CtBUKJpMCmvh23jH/view?usp=sharing' },
+  { label: 'Resume',   href: 'https://drive.google.com/file/d/11qNajkcb8YeLHNBtIWcNRtafqfvkVFt8/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
   { label: 'GitHub',   href: 'https://github.com/tzjiahung' },
   { label: 'Medium',   href: 'https://medium.com/@lanahung' },
