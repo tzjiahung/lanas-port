@@ -234,4 +234,5 @@ function VoxelAvatar({ size = 132 }) {
   );
 }
 
+export { buildGirl, VOX_PALETTE }
 export default VoxelAvatar

@@ -1,6 +1,7 @@
 import React from 'react'
 import VoxelAvatar from './VoxelAvatar.jsx'
 import VoxelAvatarV2 from './VoxelAvatarV2.jsx'
+import VoxelAvatar3D from './VoxelAvatar3D.jsx'
 import VoxelMarker from './VoxelMarker.jsx'
 import PeachDawn from './Stars.jsx'
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider, TweakRadio, TweakSelect } from './TweaksPanel.jsx'
@@ -28,6 +29,8 @@ const TWEAK_DEFAULTS = {
   outerPadding: 8,
   avatarSize: 76,
   avatarVariant: 'v1',
+  avatar3D: true,
+  avatarSpinSeconds: 9,
   heroPaddingY: 24,
   heroGap: 24,
   heroIntroSize: 16,
@@ -247,7 +250,7 @@ const ABOUT_GRADIENTS = {
   none:   { bg: 'rgba(255,255,255,0.92)', border: '1px solid rgba(58, 46, 58, 0.08)', shadow: 'none' },
 };
 
-function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVariant }) {
+function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVariant, avatar3D, avatarSpinSeconds }) {
   const g = ABOUT_GRADIENTS[gradient] || ABOUT_GRADIENTS.lilac;
   return (
     <Card
@@ -270,7 +273,9 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
               }
             `}</style>
             <div style={{ animation: 'avatarFloatAbout 3.6s ease-in-out infinite', willChange: 'transform' }}>
-              {(() => {
+              {avatar3D ? (
+                <VoxelAvatar3D model={avatarVariant} size={198} spinSeconds={avatarSpinSeconds} />
+              ) : (() => {
                 const Avatar = avatarVariant === 'v2' ? VoxelAvatarV2 : VoxelAvatar;
                 return <Avatar size={198} />;
               })()}
@@ -918,7 +923,7 @@ function App() {
         }}>
           {isMobile ? (
             <div style={{ ...gridStyles.gridMobile, gap: Math.max(12, t.cardGap) }}>
-              <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} />
+              <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} avatar3D={t.avatar3D} avatarSpinSeconds={t.avatarSpinSeconds} />
               <WorksCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
               <ArticlesCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
               <TalksCol padding={t.cardPadding} radius={t.cardRadius} isMobile headerHeight={t.cardHeaderHeight} />
@@ -931,7 +936,7 @@ function App() {
                 gap: t.cardGap,
                 minHeight: 0, minWidth: 0, overflow: 'hidden',
               }}>
-                <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} />
+                <AboutCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} gradient={t.aboutGradient} avatarVariant={t.avatarVariant} avatar3D={t.avatar3D} avatarSpinSeconds={t.avatarSpinSeconds} />
                 <ArticlesCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} />
                 <TalksCol padding={t.cardPadding} radius={t.cardRadius} isMobile={false} headerHeight={t.cardHeaderHeight} />
               </div>
@@ -953,6 +958,8 @@ function App() {
         <TweakSlider label="Outer padding" value={t.outerPadding} min={0} max={160} step={4} unit="px" onChange={(v) => setTweak('outerPadding', v)} />
         <TweakSelect label="About card bg" value={t.aboutGradient} options={['lilac', 'peach', 'sunset', 'mint', 'cream', 'none']} onChange={(v) => setTweak('aboutGradient', v)} />
         <TweakRadio label="Avatar" value={t.avatarVariant} options={[{ value: 'v1', label: 'V1' }, { value: 'v2', label: 'V2' }]} onChange={(v) => setTweak('avatarVariant', v)} />
+        <TweakToggle label="3D avatar (spins, drag to turn)" value={t.avatar3D} onChange={(v) => setTweak('avatar3D', v)} />
+        {t.avatar3D && <TweakSlider label="Spin speed (sec / turn)" value={t.avatarSpinSeconds} min={3} max={30} step={1} unit="s" onChange={(v) => setTweak('avatarSpinSeconds', v)} />}
 
         <TweakSection label="Background" />
         <TweakSlider label="Lightness" value={t.lightness} min={0} max={100} step={1} unit="%" onChange={(v) => setTweak('lightness', v)} />
