@@ -8,7 +8,6 @@ import {
 // New home page, built from Figma "home-page-v5" (node 263:6479).
 // This is the home page. The previous home page (Portfolio.jsx) is kept at #/home-v1, unlinked.
 
-const MONO = '"JetBrains Mono", "SF Mono", ui-monospace, monospace'
 const CONTENT_MAX = 1200
 const MOBILE_BP = 760
 
@@ -62,6 +61,7 @@ function ArticleThumb({ url }) {
 const s = {
   page: {
     position: 'relative', minHeight: '100vh', overflowX: 'hidden',
+    fontFamily: "'Lato', ui-sans-serif, system-ui, -apple-system, sans-serif",
     // The hero background image (959px tall) fades to white at its bottom edge, so the page is white
     // from there down. Stops are in px so the seam lines up at any page height (phones are much taller).
     background: 'linear-gradient(180deg, #f2e5ef 0px, #ffffff 959px, #fffffe 100%)',
@@ -76,7 +76,7 @@ const s = {
     padding: '10px 23px 8px',
   },
   name: { fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52' },
-  links: { display: 'flex', alignItems: 'center', gap: 6, fontFamily: MONO, fontSize: 12, letterSpacing: '0.02em' },
+  links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, letterSpacing: '0.02em' },
   link: {
     color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
     transition: 'background 0.15s, color 0.15s',
@@ -113,7 +113,7 @@ const s = {
   },
   workGrid: { display: 'grid', gap: 24 },
   footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px 23px' },
-  changelog: { display: 'flex', alignItems: 'center', gap: 10, fontFamily: MONO },
+  changelog: { display: 'flex', alignItems: 'center', gap: 10 },
   changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(58,46,58,0.45)' },
   changelogStamp: { fontSize: 12, letterSpacing: '0.02em', color: 'rgba(58,46,58,0.7)' },
 }
@@ -281,10 +281,10 @@ function ArticleList() {
               if (arr) arr.style.transform = 'translateX(0)'
             }}
           >
-            <span style={articleStyles.num}>{String(i + 1).padStart(2, '0')}</span>
+            <span style={{ ...articleStyles.num, fontFamily: 'inherit' }}>{String(i + 1).padStart(2, '0')}</span>
             <ArticleThumb url={a.url} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 3, minWidth: 0, flex: 1 }}>
-              <span style={{ ...articleStyles.title, fontSize: 14 }}>{a.title}</span>
+              <span style={{ ...articleStyles.title, fontSize: 14, fontWeight: 600 }}>{a.title}</span>
               <span style={articleStyles.meta}>
                 {a.date}
                 {a.readMin != null && (
