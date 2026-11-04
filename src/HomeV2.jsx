@@ -62,7 +62,9 @@ function ArticleThumb({ url }) {
 const s = {
   page: {
     position: 'relative', minHeight: '100vh', overflowX: 'hidden',
-    background: 'linear-gradient(180deg, #f2e5ef 0%, #ffffff 59.135%, #fffffe 100%)',
+    // The hero background image (959px tall) fades to white at its bottom edge, so the page is white
+    // from there down. Stops are in px so the seam lines up at any page height (phones are much taller).
+    background: 'linear-gradient(180deg, #f2e5ef 0px, #ffffff 959px, #fffffe 100%)',
   },
   heroBg: {
     position: 'absolute', top: 0, left: 0, width: '100%', height: 959,
@@ -171,9 +173,38 @@ function RolePhrase({ role, active, onActive, children }) {
   )
 }
 
-function RoleAvatar({ role, active, onActive }) {
+// True while at least half of `ref`'s element is on screen. Only watches when `enabled`.
+function useInView(ref, enabled) {
+  const [inView, setInView] = React.useState(false)
+  React.useEffect(() => {
+    const el = ref.current
+    if (!enabled || !el || typeof IntersectionObserver === 'undefined') { setInView(false); return }
+    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.5 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [ref, enabled])
+  return inView
+}
+
+// Phones and other touch screens can't hover, so there each avatar plays while it's in view instead.
+function useAutoPlay(isMobile) {
+  const [noHover, setNoHover] = React.useState(() => typeof window !== 'undefined' && window.matchMedia?.('(hover: none)').matches)
+  React.useEffect(() => {
+    const mq = window.matchMedia?.('(hover: none)')
+    if (!mq) return
+    const onChange = () => setNoHover(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return isMobile || noHover
+}
+
+function RoleAvatar({ role, active: hovered, onActive, autoPlay }) {
+  const ref = React.useRef(null)
+  const inView = useInView(ref, autoPlay)
+  const active = hovered || inView
   return (
-    <div style={s.role} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
+    <div ref={ref} style={s.role} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
       <div style={s.roleImgBox}>
         {/* Swapping in the GIF on hover starts it from the first frame; swapping back stops it. */}
         <img
@@ -193,7 +224,7 @@ function RoleAvatar({ role, active, onActive }) {
 
 function Hero({ isMobile }) {
   const [active, setActive] = React.useState(null)
-  const r = (id) => ROLES.find((x) => x.id === id)
+  const autoPlay = useAutoPlay(isMobile)
   const phrase = (id, text) => (
     <RolePhrase role={id} active={active === id} onActive={setActive}>{text}</RolePhrase>
   )
@@ -205,7 +236,7 @@ function Hero({ isMobile }) {
         Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
       </p>
       <div style={{ ...s.roles, gap: isMobile ? 16 : 32 }}>
-        {ROLES.map((role) => <RoleAvatar key={role.id} role={role} active={active === role.id} onActive={setActive} />)}
+        {ROLES.map((role) => <RoleAvatar key={role.id} role={role} active={active === role.id} onActive={setActive} autoPlay={autoPlay} />)}
       </div>
     </section>
   )
