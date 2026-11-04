@@ -231,7 +231,7 @@ function Hero({ isMobile }) {
   return (
     <section style={s.hero}>
       <p style={s.intro}>
-        An AI-first product designer with 3 years of experience designing {phrase('ai', 'AI')},{' '}
+        An AI-first product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
         {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
         Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
       </p>
