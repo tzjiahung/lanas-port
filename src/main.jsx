@@ -8,6 +8,7 @@ import OclockGreen from './OclockGreen.jsx'
 import Fooma from './Fooma.jsx'
 import Ucarer from './Ucarer.jsx'
 import OecTypo from './OecTypo.jsx'
+import HomeV2 from './HomeV2.jsx'
 import './index.css'
 
 const VIEW_TITLES = {
@@ -18,6 +19,7 @@ const VIEW_TITLES = {
   'fooma': 'Fooma — Lana Hung',
   'ucarer': 'Ucarer Redesign — Lana Hung',
   'oec-typo': 'OEC Typography — Lana Hung',
+  'home-v1': 'Tz-Jia (Lana) Hung — Portfolio',
   'portfolio': 'Tz-Jia (Lana) Hung — Portfolio',
 }
 
@@ -30,6 +32,7 @@ function matchView(hash) {
   if (path === 'fooma') return 'fooma'
   if (path === 'ucarer') return 'ucarer'
   if (path === 'oec-typo') return 'oec-typo'
+  if (path === 'home-v1') return 'home-v1'   // previous home page, kept but not linked
   return 'portfolio'
 }
 
@@ -61,7 +64,8 @@ function Root() {
   if (view === 'fooma') return <Fooma />
   if (view === 'ucarer') return <Ucarer />
   if (view === 'oec-typo') return <OecTypo />
-  return <Portfolio />
+  if (view === 'home-v1') return <Portfolio />
+  return <HomeV2 />   // home page (also answers the old #/home-v2 address)
 }
 
 ReactDOM.createRoot(document.getElementById('portfolio-root')).render(

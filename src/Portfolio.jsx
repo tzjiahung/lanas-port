@@ -5,7 +5,7 @@ import VoxelMarker from './VoxelMarker.jsx'
 import PeachDawn from './Stars.jsx'
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider, TweakRadio, TweakSelect } from './TweaksPanel.jsx'
 
-function trackEvent(name, params) {
+export function trackEvent(name, params) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params)
 }
 
@@ -39,7 +39,7 @@ const TWEAK_DEFAULTS = {
 
 const ART_W_PORTFOLIO = 1440;
 
-function ArrowOut() {
+export function ArrowOut() {
   return (
     <svg
       width="10" height="10" viewBox="0 0 10 10"
@@ -55,7 +55,7 @@ function ArrowOut() {
   );
 }
 
-function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, color = '#b9a3d6' }) {
+export function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, color = '#b9a3d6' }) {
   const x = 9, y = 9, r = 7, pinch = 14 * 0.14;
   const d = [
     `M ${x} ${y - r}`,
@@ -296,7 +296,7 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
 
 // ─── Works column ─────────────────────────────────────────────
 
-const WORKS = [
+export const WORKS = [
   {
     id: 'shopback-activation',
     title: 'ShopBack New Market Activation',
@@ -389,7 +389,8 @@ function buildWorksMarkdown() {
   return header + body;
 }
 
-function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill }) {
+// `hoverZoom={false}` turns off the cover's zoom on hover.
+export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill, aspectRatio, hoverZoom = true }) {
   const [hover, setHover] = React.useState(false);
   const Tag = url ? 'a' : 'article';
   const isInternal = url && url.startsWith('#/');
@@ -415,13 +416,14 @@ function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compac
       style={{ display: 'flex', flexDirection: 'column', gap: compact ? 8 : 12, cursor: 'pointer', textDecoration: 'none', color: 'inherit', minHeight: 0, overflow: 'hidden' }}
     >
       <div style={{
-        ...(fill ? { flex: '1 1 0', minHeight: 0 } : imgHeight ? { height: imgHeight } : { aspectRatio: compact ? '1 / 1' : '3 / 2' }),
+        ...(fill ? { flex: '1 1 0', minHeight: 0 } : imgHeight ? { height: imgHeight } : { aspectRatio: aspectRatio || (compact ? '1 / 1' : '3 / 2') }),
         borderRadius: 8,
         background: 'rgba(255,255,255,0.55)',
         border: '1px solid rgba(58,46,58,0.08)',
         position: 'relative', overflow: 'hidden',
-        transition: 'transform 0.4s cubic-bezier(.2,.7,.3,1)',
-        transform: hover ? 'scale(1.03)' : 'scale(1)',
+        ...(hoverZoom
+          ? { transition: 'transform 0.4s cubic-bezier(.2,.7,.3,1)', transform: hover ? 'scale(1.03)' : 'scale(1)' }
+          : null),
       }}>
         {cover
           ? <img src={cover} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
@@ -705,7 +707,7 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
 
 // ─── Articles column ──────────────────────────────────────────
 
-const ARTICLES = [
+export const ARTICLES = [
   { title: 'Building a UX Research Agent for Slack with n8n, GitLab CI, and Claude', date: 'Aug 2026', readMin: 8, url: 'https://medium.com/@LanaHung/building-a-ux-research-agent-for-slack-with-n8n-gitlab-ci-and-claude-2668908b3cd1' },
   { title: 'How we transformed qualitative synthesize with AI: ChatGPT, NotebookLM, Claude Code', date: 'Jun 2026', readMin: 7, url: 'https://medium.com/@LanaHung/how-we-transformed-qualitative-synthesize-with-ai-chatgpt-notebooklm-claude-code-0b4df664a15f' },
   { title: 'Applying to HCI Masters in the Age of AI (Fall 2026)', date: 'Apr 2026', readMin: 11, url: 'https://medium.com/@LanaHung/applying-to-hci-masters-in-the-age-of-ai-fall-2026-915eab17fdcd' },
@@ -730,7 +732,7 @@ function buildArticlesMarkdown() {
   return header + body + '\n';
 }
 
-const articleStyles = {
+export const articleStyles = {
   link: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, padding: '10px 12px', borderRadius: 10, textDecoration: 'none', color: 'inherit', transition: 'background 0.15s' },
   title: { fontSize: 13.5, color: '#2a1e2e', fontWeight: 500, lineHeight: 1.4, textWrap: 'balance' },
   meta: { fontSize: 11.5, color: 'rgba(58,46,58,0.55)' },
@@ -819,9 +821,9 @@ function TalksCol({ padding, radius, isMobile, headerHeight }) {
 
 // ─── Status bar ───────────────────────────────────────────────
 
-const CHANGELOG_STAMP = __BUILD_TIME__
+export const CHANGELOG_STAMP = __BUILD_TIME__
 
-const CONTACT_LINKS = [
+export const CONTACT_LINKS = [
   { label: 'Resume',   href: 'https://drive.google.com/file/d/1St1aakqtpUVyR-E1CtBUKJpMCmvh23jH/view?usp=sharing' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tzjia-hung/' },
   { label: 'GitHub',   href: 'https://github.com/tzjiahung' },
