@@ -3,24 +3,13 @@ import './ShopBackNMA.css'
 import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
 
 const SECTIONS = [
-  { id: 'overview',        label: 'Overview'        },
-  { id: 'hypotheses',      label: 'Hypotheses'      },
-  { id: 'method',          label: 'Method'          },
-  { id: 'findings',        label: 'Key findings'    },
-  { id: 'recommendations', label: 'Recommendations' },
-  { id: 'impact',          label: 'Impact'          },
-  { id: 'reflection',      label: 'Reflection'      },
+  { id: 'overview',    label: 'Overview'    },
+  { id: 'hypotheses',  label: 'Hypotheses'  },
+  { id: 'method',      label: 'Method'      },
+  { id: 'solution',    label: 'Solution'    },
+  { id: 'impact',      label: 'Impact'      },
+  { id: 'reflection',  label: 'Reflection'  },
 ]
-
-// Marks a spot where Lana still needs to add real context
-function Placeholder({ children }) {
-  return (
-    <div className="snma-placeholder">
-      <span className="snma-placeholder-lbl">Add context</span>
-      {children}
-    </div>
-  )
-}
 
 function Hero() {
   return (
@@ -283,80 +272,11 @@ function Method() {
   )
 }
 
-const FINDINGS = [
-  {
-    title: "The welcome offer motivates, but it isn't attractive enough",
-    tag: 'Hypothesis 3',
-    body: (
-      <>
-        The welcome offer was the top reason to sign up (<b>U.S. 62%, DE 64%</b>), yet its
-        perceived attractiveness was only moderate, especially in Germany (<b>3.6/5</b>).
-        A bigger bonus could turn more sign-ups into first purchases.
-      </>
-    ),
-  },
-  {
-    title: 'The walkthrough helps, but first use still feels confusing',
-    tag: 'Hypothesis 1',
-    body: (
-      <>
-        New U.S. users rated the onboarding walkthrough helpful (<b>4.14/5</b>), mostly for
-        explaining how Cashback works. Still, <b>about 20%</b> hit friction and confusion
-        at first use.
-      </>
-    ),
-  },
-  {
-    title: 'Technical issues block German users',
-    tag: 'New barrier',
-    body: (
-      <>
-        App glitches and untracked Cashback were the top challenge for new German users
-        (<b>37%</b>), likely tied to cookie consent and tracking.
-      </>
-    ),
-  },
-  {
-    title: 'Users forget to activate Cashback',
-    tag: 'New barrier',
-    body: (
-      <>
-        Forgetting to activate Cashback was the second most cited challenge
-        (<b>U.S. 29%, DE 25%</b>). Current reminders underperform: only <b>8 to 9%</b> of
-        existing users said ShopBack promotions or reminders motivate them.
-      </>
-    ),
-  },
-]
-
-function Findings() {
-  return (
-    <section id="findings" className="snma-section">
-      <div className="snma-wrap">
-        <span className="snma-section-label">Key findings</span>
-        <h2 className="snma-section-title" style={{ marginBottom: 56 }}>
-          What we found
-        </h2>
-        <div className="snma-findings">
-          {FINDINGS.map((f, i) => (
-            <div key={f.title} className="snma-finding">
-              <h3>Finding {i + 1}: {f.title}</h3>
-              <span className="snma-rq-tag">{f.tag}</span>
-              <p>{f.body}</p>
-              <Placeholder>A participant quote that brings this finding to life.</Placeholder>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function Solution() {
   return (
-    <section id="recommendations" className="snma-section">
+    <section id="solution" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Recommendations</span>
+        <span className="snma-section-label">Solution</span>
         <h2 className="snma-section-title">
           One shipped design, two validated directions
         </h2>
@@ -421,41 +341,39 @@ function Impact() {
           Confirmed all three problems, and uncovered new barriers
         </h2>
         <div className="snma-stats">
-          <div className="snma-stat" style={{ gridColumn: 'span 6' }}>
+          <div className="snma-stat">
             <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Activation lift</div>
               <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
             </div>
           </div>
-          <div className="snma-stat" style={{ gridColumn: 'span 6' }}>
+          <div className="snma-stat">
             <div className="snma-stat-n">98<span className="sm">%</span></div>
             <div>
               <div className="snma-stat-lbl">Rated walkthrough helpful</div>
               <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
             </div>
           </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">8</div>
+            <div>
+              <div className="snma-stat-lbl">Moderated interviews</div>
+              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
+            </div>
+          </div>
+          <div className="snma-stat">
+            <div className="snma-stat-n">136</div>
+            <div>
+              <div className="snma-stat-lbl">Survey responses</div>
+              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
+            </div>
+          </div>
         </div>
-
-        <h3 className="snma-subtitle">Influence on decisions</h3>
-        <ul className="snma-influence">
-          <li>
-            Shared findings and recommendations with the product team in Slack, with a full
-            report and a rationale for each one. Then ran a findings walkthrough and tagged the
-            owner of each recommendation to agree next steps.
-          </li>
-          <li>ACH transfers were prioritized and added to the finance &amp; payments squad's roadmap.</li>
-          <li>The extra rewards direction was handed off to the growth team for A/B testing.</li>
-        </ul>
-        <Placeholder>
-          Other decisions, roadmap changes or teams that acted on the findings, and any A/B test
-          results for the rewards direction.
-        </Placeholder>
       </div>
     </section>
   )
 }
-
 
 const REFLECTIONS = [
   {
@@ -521,7 +439,6 @@ export default function ShopBackNMA() {
       <Overview />
       <Assumptions />
       <Method />
-      <Findings />
       <Solution />
       <Impact />
       <Takeaways />
