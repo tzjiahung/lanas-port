@@ -7,7 +7,7 @@ const SECTIONS = [
   { id: 'problem',   label: 'Problem'   },
   { id: 'design',    label: 'Design'    },
   { id: 'impact',    label: 'Impact'    },
-  { id: 'takeaways', label: 'Takeaways' },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -237,34 +237,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next system project ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two things this project reinforced about design systems work.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>Small details shape the whole experience</span></h3>
-            <p>
-              Typography and padding are often overlooked — but once clear rules are
-              established, they create harmonious, polished interfaces at scale. The
-              impact of a 16px spacing change was visible across every single screen.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Align with developers early</span></h3>
-            <p>
-              Initial misunderstandings with front-end developers slowed the process.
-              Understanding each other's constraints early on led to a mutually agreeable
-              solution — and reminded me that design systems are a collaboration, not a
-              hand-off.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next system project</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>Small details shape the whole experience</h4>
+            <p>Typography and padding are often overlooked, but once clear rules are established, they create harmonious, polished interfaces at scale. The impact of a 16px spacing change was visible across every single screen.</p>
+          </li>
+          <li>
+            <h4>Align with developers early</h4>
+            <p>Initial misunderstandings with front-end developers slowed the process. Understanding each other's constraints early on led to a mutually agreeable solution and reminded me that design systems are a collaboration, not a hand-off.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )

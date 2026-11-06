@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: 'ideate',    label: 'Ideate'    },
   { id: 'prototype', label: 'Prototype' },
   { id: 'impact',    label: 'Impact'    },
-  { id: 'takeaways', label: 'Takeaways' },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -300,34 +300,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next project ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two reflections from my first end-to-end UI/UX design project.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>This is where my interest in research began</span></h3>
-            <p>
-              Walking through every phase — interviewing, structuring, wireframing,
-              prototyping — I found myself most energized during the research process.
-              This project sparked the curiosity that led me toward UX research as
-              my primary focus.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Talk to actual users, not proxies</span></h3>
-            <p>
-              We didn't interview real Ucarer users before or after designing. If we had,
-              we'd have built on actual pain points instead of inferred ones — and validated
-              whether the redesign solved the right problems.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next project</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>This is where my interest in research began</h4>
+            <p>Walking through every phase (interviewing, structuring, wireframing, prototyping), I found myself most energized during the research process. This project sparked the curiosity that led me toward UX research as my primary focus.</p>
+          </li>
+          <li>
+            <h4>Talk to actual users, not proxies</h4>
+            <p>We didn't interview real Ucarer users before or after designing. If we had, we'd have built on actual pain points instead of inferred ones, and validated whether the redesign solved the right problems.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )

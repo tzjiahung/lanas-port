@@ -9,7 +9,7 @@ const SECTIONS = [
   { id: 'design',    label: 'Design'    },
   { id: 'demo',      label: 'Demo'      },
   { id: 'impact',    label: 'Impact'    },
-  { id: 'takeaways', label: 'Takeaways' },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -312,33 +312,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next design sprint ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two things this project taught me about 0-to-1 design in an enterprise context.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>Explore before committing</span></h3>
-            <p>
-              Running four distinct proposals — even knowing some wouldn't work — gave the team
-              a shared language for trade-offs. Showing why proposals A, B, and C failed made
-              it much easier for stakeholders to trust proposal D.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Enterprise constraints shape design</span></h3>
-            <p>
-              Component libraries, existing ERP patterns, and column visibility requirements
-              were non-negotiable. The best design was the one that worked within those constraints —
-              not the most elegant in isolation.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next design sprint</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>Explore before committing</h4>
+            <p>Running four distinct proposals, even knowing some wouldn't work, gave the team a shared language for trade-offs. Showing why proposals A, B, and C failed made it much easier for stakeholders to trust proposal D.</p>
+          </li>
+          <li>
+            <h4>Enterprise constraints shape design</h4>
+            <p>Component libraries, existing ERP patterns, and column visibility requirements were non-negotiable. The best design was the one that worked within those constraints, not the most elegant in isolation.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )

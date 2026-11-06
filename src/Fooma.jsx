@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: 'design',    label: 'Design'    },
   { id: 'feedback',  label: 'Feedback'  },
   { id: 'impact',    label: 'Impact'    },
-  { id: 'takeaways', label: 'Takeaways' },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -307,33 +307,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next sprint ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two lessons from completing a full research and design cycle in two weeks.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>Collaboration is the key to team success</span></h3>
-            <p>
-              Over two weeks, the team grew close, shared thoughts freely, distributed
-              tasks smoothly, and supported each other. I learned that genuine collaboration —
-              not just coordination — is what makes a product great.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Hardware has a cost dimension</span></h3>
-            <p>
-              Designing a software + hardware product means cost and material selection become
-              design constraints too. In the next iteration, I'd bring in hardware feasibility
-              earlier to make sure the solution is actually buildable at scale.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next sprint</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>Collaboration is the key to team success</h4>
+            <p>Over two weeks, the team grew close, shared thoughts freely, distributed tasks smoothly, and supported each other. I learned that genuine collaboration, not just coordination, is what makes a product great.</p>
+          </li>
+          <li>
+            <h4>Hardware has a cost dimension</h4>
+            <p>Designing a software + hardware product means cost and material selection become design constraints too. In the next iteration, I'd bring in hardware feasibility earlier to make sure the solution is actually buildable at scale.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )
