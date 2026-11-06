@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: 'process',    label: 'Process'    },
   { id: 'survey',     label: 'Survey'     },
   { id: 'impact',     label: 'Impact'     },
-  { id: 'takeaways',  label: 'Takeaways'  },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -343,29 +343,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next study ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two things this project taught me about doing exploratory research as an intern with limited resources.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>Don't be afraid to discard previous content</span></h3>
-            <p>
-              I presented three versions and discussed each with my mentor — none were clear enough. Mentors and colleagues offered perspectives I'd missed. Iteration isn't failure; it's the process. Being willing to restart is a research skill, not a weakness.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Don't let limited resources restrict you</span></h3>
-            <p>
-              Without access to internal FitBack users, I surveyed external users instead. The insights were still valuable — PMs gave positive feedback and were willing to replicate the study internally. Constraints push creativity; work with what you have.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next study</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>Don't be afraid to discard previous content</h4>
+            <p>I presented three versions and discussed each with my mentor, but none were clear enough. Mentors and colleagues offered perspectives I'd missed. Iteration isn't failure; it's the process. Being willing to restart is a research skill, not a weakness.</p>
+          </li>
+          <li>
+            <h4>Don't let limited resources restrict you</h4>
+            <p>Without access to internal FitBack users, I surveyed external users instead. The insights were still valuable. PMs gave positive feedback and were willing to replicate the study internally. Constraints push creativity; work with what you have.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )

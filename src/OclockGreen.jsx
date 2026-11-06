@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: 'design',    label: 'Design'    },
   { id: 'test',      label: 'Test'      },
   { id: 'impact',    label: 'Impact'    },
-  { id: 'takeaways', label: 'Takeaways' },
+  { id: 'reflection', label: 'Reflection' },
 ]
 
 function Hero() {
@@ -346,33 +346,20 @@ function Impact() {
 
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next sprint ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Two reflections from completing a full end-to-end case study in under two weeks.
-        </p>
-        <div className="snma-takeaways" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
-          <div className="snma-takeaway">
-            <h3><span>Design and deliver under time pressure</span></h3>
-            <p>
-              My teammates and I had nearly two weeks to complete this end-to-end case study.
-              We collaborated and divided work according to individual strengths — and shipped.
-              Constraints sharpen decision-making.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Interview both sides of the product</span></h3>
-            <p>
-              We only tested with customers (B2C). In hindsight, interviewing coffee shop
-              employees (B2B) would have surfaced operational concerns earlier — and made
-              our persona and problem statement sharper.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next sprint</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          <li>
+            <h4>Design and deliver under time pressure</h4>
+            <p>My teammates and I had nearly two weeks to complete this end-to-end case study. We collaborated and divided work according to individual strengths, and shipped. Constraints sharpen decision-making.</p>
+          </li>
+          <li>
+            <h4>Interview both sides of the product</h4>
+            <p>We only tested with customers (B2C). In hindsight, interviewing coffee shop employees (B2B) would have surfaced operational concerns earlier and made our persona and problem statement sharper.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )

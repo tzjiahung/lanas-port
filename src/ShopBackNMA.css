@@ -686,6 +686,26 @@
 
 .snma-method-meta b { color: var(--snma-fg); font-weight: 600; }
 
+/* Method blocks: interviews and survey share one open layout (no card) */
+.snma-method-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.snma-method-block h3 { font-size: 22px; letter-spacing: -0.02em; }
+.snma-method-scope { color: var(--snma-fg-mute); font-weight: 400; }
+.snma-method-block p { color: var(--snma-fg-soft); margin: 0; }
+
+.snma-method-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: var(--snma-radius);
+}
+
 /* Timeline */
 .snma-timeline {
   background: var(--snma-card);
@@ -828,6 +848,11 @@
 .snma-takeaway h3 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 10px; }
 
 .snma-takeaway p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
+
+/* ---- Reflection (numbered list, last section before the footer) ---- */
+.snma-section.snma-section-end { padding-bottom: clamp(96px, 12vw, 160px); }
+.snma-root h2.snma-reflection-title { margin-bottom: 24px; }
+.snma-goal-list.snma-reflection-list { margin-bottom: 0; }
 
 /* ---- Footer ---- */
 .snma-footer {

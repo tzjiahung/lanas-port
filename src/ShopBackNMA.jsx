@@ -8,7 +8,7 @@ const SECTIONS = [
   { id: 'method',      label: 'Method'      },
   { id: 'solution',    label: 'Solution'    },
   { id: 'impact',      label: 'Impact'      },
-  { id: 'takeaways',   label: 'Takeaways'   },
+  { id: 'reflection',  label: 'Reflection'  },
 ]
 
 function Hero() {
@@ -226,40 +226,34 @@ function Method() {
           the experience; the survey confirmed which barriers were widespread.
         </p>
 
-        <div className="snma-method-grid">
-          <div className="snma-method-card a">
-            <div className="snma-method-ic">I</div>
-            <h3>
-              User interviews{' '}
-              <span style={{ color: 'var(--snma-fg-mute)', fontWeight: 400 }}>(U.S. only)</span>
-            </h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              45-minute in-depth sessions to deeply uncover barriers that new-market users were
-              running into. Mix of recently activated and non-activated users for contrast.
-            </p>
-            <div className="snma-method-meta">
-              <span><b>8</b> Participants</span>
-              <span><b>45</b> min each</span>
-              <span><b>LA · SF · Philly</b></span>
-            </div>
-          </div>
+        <div className="snma-method-block">
+          <h3>
+            User interviews{' '}
+            <span className="snma-method-scope">(U.S. only)</span>
+          </h3>
+          <p>
+            45-minute in-depth sessions to deeply uncover the barriers new-market users were
+            running into, with a mix of recently activated and non-activated users for contrast.
+            We had 8 participants, 45 minutes each, located in LA, SF, and Philadelphia.
+          </p>
+          <img
+            className="snma-method-img"
+            src="/shopback-nma/interview.jpg"
+            alt="A remote user interview, with the participant's face covered by an illustration"
+            loading="lazy"
+          />
+        </div>
 
-          <div className="snma-method-card b">
-            <div className="snma-method-ic">S</div>
-            <h3>
-              Quantitative survey{' '}
-              <span style={{ color: 'var(--snma-fg-mute)', fontWeight: 400 }}>(U.S. + DE)</span>
-            </h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              A 6-minute survey to validate which difficulties were most critical across a larger
-              user base, and to compare U.S. vs. Germany response patterns.
-            </p>
-            <div className="snma-method-meta">
-              <span><b>136</b> Responses</span>
-              <span><b>6</b> min</span>
-              <span><b>29 US · 107 DE</b></span>
-            </div>
-          </div>
+        <div className="snma-method-block">
+          <h3>
+            Quantitative survey{' '}
+            <span className="snma-method-scope">(U.S. + DE)</span>
+          </h3>
+          <p>
+            A 6-minute survey to validate which difficulties were most critical across a larger
+            user base, and to compare U.S. vs. Germany response patterns. We received 136
+            responses, 29 from the U.S. and 107 from Germany.
+          </p>
         </div>
 
         <div className="snma-timeline">
@@ -381,42 +375,35 @@ function Impact() {
   )
 }
 
+const REFLECTIONS = [
+  {
+    title: 'Prepare alternative recruitment strategies earlier',
+    body: 'We learned that recruiting non-activated users is challenging since they\u2019re already not engaging with our product. Looking back, I would have explored alternative recruitment strategies sooner, like reaching out to friends and family or offering better incentives to boost participation.',
+  },
+  {
+    title: 'Spend more time digging into behavioral data to triangulate findings',
+    body: 'It would be better to combine interview insights with not just survey results, but also existing behavioral data. This would have helped us back up qualitative insights with actual numbers, and better understand how widespread certain behaviors really are.',
+  },
+  {
+    title: 'Align with stakeholders earlier',
+    body: 'I would share brief recaps with PMs and designers after each day of user interviews, along with regular updates on survey progress, to help the team build a shared understanding of emerging insights to iterate earlier, rather than waiting until the research is complete.',
+  },
+]
+
 function Takeaways() {
   return (
-    <section id="takeaways" className="snma-section">
+    <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
-        <span className="snma-section-label">Takeaways</span>
-        <h2 className="snma-section-title">
-          What I'd carry into the next study ✨
-        </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Three things this project taught me about doing fast, mixed-methods research in a
-          market we know little about.
-        </p>
-        <div className="snma-takeaways">
-          <div className="snma-takeaway">
-            <h3><span>Alternative recruitment strategies</span></h3>
-            <p>
-              Non-activated users are hard to recruit. Prepare alternatives early — proxy user
-              groups with similar behaviors, screener pre-quotas, and a richer incentive.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Triangulate data</span></h3>
-            <p>
-              Combine interview insights with existing behavioral data to ensure findings are
-              validated and assessed holistically. Numbers without stories mislead; stories
-              without numbers mis-scale.
-            </p>
-          </div>
-          <div className="snma-takeaway">
-            <h3><span>Initiate early alignment</span></h3>
-            <p>
-              Daily interview recaps shared with PMs and designers enabled quicker iterations
-              and helped the team process insights as they emerged, not at the end.
-            </p>
-          </div>
-        </div>
+        <span className="snma-section-label">Reflection</span>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next study</h2>
+        <ol className="snma-goal-list snma-reflection-list">
+          {REFLECTIONS.map(r => (
+            <li key={r.title}>
+              <h4>{r.title}</h4>
+              <p>{r.body}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )
