@@ -5,7 +5,7 @@ import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayo
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'problem',   label: 'Problem'   },
-  { id: 'flow',      label: 'User Flow' },
+  { id: 'flow',      label: 'User flow' },
   { id: 'design',    label: 'Design'    },
   { id: 'demo',      label: 'Demo'      },
   { id: 'impact',    label: 'Impact'    },
