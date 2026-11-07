@@ -6,7 +6,7 @@ const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
   { id: 'hypotheses',  label: 'Hypotheses'  },
   { id: 'method',      label: 'Method'      },
-  { id: 'solution',    label: 'Solution'    },
+  { id: 'recommendations', label: 'Recommendations' },
   { id: 'impact',      label: 'Impact'      },
   { id: 'reflection',  label: 'Reflection'  },
 ]
@@ -274,9 +274,9 @@ function Method() {
 
 function Solution() {
   return (
-    <section id="solution" className="snma-section">
+    <section id="recommendations" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Solution</span>
+        <span className="snma-section-label">Recommendations</span>
         <h2 className="snma-section-title">
           One shipped design, two validated directions
         </h2>
@@ -295,7 +295,7 @@ function Solution() {
               </p>
             </div>
             <div className="snma-showcase">
-              <img src="/shopback-nma/onboarding.gif" alt="7-step onboarding walkthrough demo" loading="lazy" />
+              <img className="snma-phone-clip" src="/shopback-nma/onboarding.gif" alt="7-step onboarding walkthrough demo" loading="lazy" />
             </div>
           </div>
 
@@ -303,8 +303,8 @@ function Solution() {
             <div className="snma-impact-text">
               <h3>Extra rewards for non-activated users</h3>
               <p>
-                Interviews showed users reacted most positively to clear, tangible reward prompts —
-                "Earn $15" or "Earn $5 on your first browser extension purchase" — over vague
+                Interviews showed users reacted most positively to clear, tangible reward prompts,
+                such as "Earn $15" or "Earn $5 on your first browser extension purchase", over vague
                 cashback framing. The direction was handed off to the growth team for A/B testing.
               </p>
             </div>
@@ -317,7 +317,7 @@ function Solution() {
             <div className="snma-impact-text">
               <h3>Support ACH transfers</h3>
               <p>
-                PayPal as the sole withdrawal method created friction — many users couldn't easily
+                PayPal as the sole withdrawal method created friction. Many users couldn't easily
                 recall their account credentials and abandoned the redemption flow. ACH was prioritized
                 and roadmapped to the finance &amp; payments squad.
               </p>
