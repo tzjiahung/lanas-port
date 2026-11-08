@@ -997,3 +997,73 @@
   --snma-on-acc2:  #FFFFFF;
   --snma-on-acc3:  #FFFFFF;
 }
+
+
+/* NMA Recommendations: same spacing as Hypotheses (32px under the subtitle, 48px between items) */
+.snma-impact-grid.snma-reco-grid { gap: 48px; }
+.snma-reco-grid > .snma-impact-card { padding: 0; }
+/* A screenshot of text (the Slack TL;DR) needs more width than the phone shots */
+.snma-showcase img.snma-showcase-wide {
+  max-width: 720px;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(26, 26, 26, 0.08);
+}
+.snma-showcase.snma-method-showcase {
+  margin-top: 10px;
+  background: linear-gradient(270deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff;
+}
+
+/* NMA Impact rows: figure on the left, number and caption on the right (Figma 234:2947) */
+.snma-impact-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 24px; }
+.snma-impact-row { display: grid; row-gap: 24px; align-content: start; }
+.snma-root .snma-impact-row h3 { font-size: 18px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.snma-impact-row p { color: var(--snma-fg-soft); margin: 0; }
+.snma-chart.snma-impact-fig {
+  margin: 0;
+  padding: 24px;
+  background: linear-gradient(90deg, rgba(253, 217, 201, 0.56), rgba(251, 191, 202, 0.56)), #fff;
+}
+.snma-impact-fig .snma-chart-plot { --plot-l: clamp(16px, 3vw, 36px); }
+/* The lift: tucked 4px under the original bar's rounded end so the two read as one bar */
+.snma-impact-fig .snma-chart-grow {
+  flex: none;
+  position: relative;
+  z-index: -1;
+  margin-left: -8px; /* cancels the track gap, so the value label keeps its spot until it grows */
+  background: #FFE8EC; /* a lighter tint of the original bar pink #FBBFCA */
+  transition: width 1.2s cubic-bezier(.22, .8, .3, 1), margin-left 1.2s cubic-bezier(.22, .8, .3, 1);
+}
+.snma-impact-fig.grown .snma-chart-grow { margin-left: -12px; }
+/* only the growth animates; resetting to the original bars is instant */
+.snma-impact-fig:not(.grown) .snma-chart-grow { transition: none; }
+.snma-impact-fig .snma-chart-track { isolation: isolate; }
+@media (max-width: 880px) {
+  .snma-impact-rows { grid-template-columns: 1fr; }
+}
+
+/* "You're all set" screen, styled like the Hypotheses tiles: the screen in a rounded window with a
+   soft shadow, the height of the chart box, scrolling from the title down to the two buttons */
+.snma-allset {
+  width: min(300px, 100%);
+  height: 165px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fbe3dd;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.10);
+}
+.snma-allset img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: snma-allset-scroll 7s ease-in-out infinite;
+}
+/* scrolls down only; each loop restarts from the top instead of scrolling back up */
+@keyframes snma-allset-scroll {
+  0%, 22%   { transform: translateY(-28.7%); }
+  55%, 100% { transform: translateY(-49.2%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .snma-allset img { animation: none; transform: translateY(-38%); }
+  .snma-impact-fig .snma-chart-grow { transition: none; }
+}

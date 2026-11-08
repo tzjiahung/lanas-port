@@ -236,12 +236,14 @@ function Method() {
             running into, with a mix of recently activated and non-activated users for contrast.
             We had 8 participants, 45 minutes each, located in LA, SF, and Philadelphia.
           </p>
-          <img
-            className="snma-method-img"
-            src="/shopback-nma/interview.jpg"
-            alt="A remote user interview, with the participant's face covered by an illustration"
-            loading="lazy"
-          />
+          <div className="snma-showcase snma-method-showcase">
+            <img
+              className="snma-showcase-wide"
+              src="/shopback-nma/interview.jpg"
+              alt="A remote user interview, with the participant's face covered by an illustration"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="snma-method-block">
@@ -278,20 +280,19 @@ function Solution() {
       <div className="snma-wrap">
         <span className="snma-section-label">Recommendations</span>
         <h2 className="snma-section-title">
-          One shipped design, two validated directions
+          Suggested 3 design directions
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Launched an onboarding design and validated 2 ongoing design directions based on the findings.
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
+          Onboarding walkthroughs, extra rewards, and ACH transfers. The onboarding walkthrough and reward incentive were launched within a week, and the other shipped within two weeks.
         </p>
 
-        <div className="snma-impact-grid">
+        <div className="snma-impact-grid snma-reco-grid">
           <div className="snma-impact-card">
             <div className="snma-impact-text">
               <h3>7-Step onboarding walkthrough</h3>
               <p>
                 Designed to guide first-time browsing and surface the most relevant merchants for
-                new U.S. users. Post-launch data validated it: <b>activation rose 9.38%</b>, and{' '}
-                <b>98% of users rated the walkthrough as helpful.</b>
+                new U.S. users.
               </p>
             </div>
             <div className="snma-showcase">
@@ -326,9 +327,81 @@ function Solution() {
               <img src="/shopback-nma/VBS.webp" alt="ACH transfer / payout flow" loading="lazy" />
             </div>
           </div>
+
+          <div className="snma-impact-card">
+            <div className="snma-impact-text">
+              <h3>A TL;DR for the working team on Slack</h3>
+              <p>
+                Posted a summary of the findings and recommendations, with the full report and the
+                rationale behind each one. Also invited anyone interested to a walkthrough, so the
+                team could dig into the insights together.
+              </p>
+            </div>
+            <div className="snma-showcase">
+              <img className="snma-showcase-wide" src="/shopback-nma/slack-tldr.webp" alt="Slack message sharing the research summary and recommendations with the team" loading="lazy" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  )
+}
+
+// Impact: activation before and after the onboarding launch. The bars grow from the
+// pre-launch rates to the post-launch rates whenever the chart scrolls into view: the original
+// bar stays put and the lift grows out of its end in a lighter pink.
+const LIFT = [
+  { market: 'United States', before: 10, after: 19.38, label: '19.4' },
+  { market: 'Germany', before: 20, after: 22, label: '22' },
+]
+
+function LiftChart() {
+  const ref = React.useRef(null)
+  // 'start' = original bars, shown instantly (no transition); 'grown' = lift animates in
+  const [phase, setPhase] = useState('start')
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !('IntersectionObserver' in window)) { setPhase('grown'); return }
+    let timers = []
+    const clear = () => { timers.forEach(clearTimeout); timers = [] }
+    // jump back to the original bars (never animate backwards), hold, then grow again
+    const play = () => {
+      setPhase('start')
+      timers.push(setTimeout(() => setPhase('grown'), 800))
+      timers.push(setTimeout(play, 5800))
+    }
+    const io = new IntersectionObserver(([e]) => {
+      clear()
+      if (e.isIntersecting) play()
+      else setPhase('start')
+    }, { threshold: 0.5 })
+    io.observe(el)
+    return () => { io.disconnect(); clear() }
+  }, [])
+  const grown = phase === 'grown'
+  return (
+    <figure ref={ref} className={`snma-chart snma-impact-fig${grown ? ' grown' : ''}`}>
+      <div className="snma-chart-plot">
+        {LIFT.map(d => (
+          <div key={d.market} className="snma-chart-row">
+            <span className="snma-chart-lbl">{d.market}</span>
+            <div className="snma-chart-track">
+              <div
+                className="snma-chart-bar"
+                style={{ width: `${(d.before / ACTIVATION_MAX) * 100}%` }}
+                title={`${d.market}: ~${d.before}% before launch`}
+              />
+              <div
+                className="snma-chart-bar snma-chart-grow"
+                style={{ width: grown ? `calc(${((d.after - d.before) / ACTIVATION_MAX) * 100}% + 4px)` : 0 }}
+                title={`${d.market}: ~${d.label}% after launch`}
+              />
+              <span className="snma-chart-val">~{grown ? d.label : d.before}%</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </figure>
   )
 }
 
@@ -337,37 +410,30 @@ function Impact() {
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">Impact</span>
-        <h2 className="snma-section-title" style={{ marginBottom: 56 }}>
-          Confirmed all three problems, and uncovered new barriers
+        <h2 className="snma-section-title">
+          Shaped onboarding and rewards for new markets
         </h2>
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">+9.38<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Activation lift</div>
-              <div className="snma-stat-desc">U.S. new user activation, post-launch</div>
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
+          Mixed-methods research guided how new users in the U.S. and Germany are onboarded and rewarded.
+        </p>
+        <div className="snma-impact-rows">
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>+9.38% Activation lift</h3>
+              <p>U.S. first-7-day activation rate increased post-launch.</p>
             </div>
+            <LiftChart />
           </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">98<span className="sm">%</span></div>
-            <div>
-              <div className="snma-stat-lbl">Rated walkthrough helpful</div>
-              <div className="snma-stat-desc">In-app rating after 7-step onboarding</div>
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>98% Rated helpful (among 1k users)</h3>
+              <p>In-app rating after 7-step onboarding.</p>
             </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">8</div>
-            <div>
-              <div className="snma-stat-lbl">Moderated interviews</div>
-              <div className="snma-stat-desc">U.S. participants · 45 min each</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">136</div>
-            <div>
-              <div className="snma-stat-lbl">Survey responses</div>
-              <div className="snma-stat-desc">29 U.S. · 107 Germany</div>
-            </div>
+            <figure className="snma-chart snma-impact-fig">
+              <div className="snma-allset" aria-hidden="true">
+                <img src="/shopback-nma/all-set.webp" alt="" loading="lazy" />
+              </div>
+            </figure>
           </div>
         </div>
       </div>
