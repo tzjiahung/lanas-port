@@ -357,7 +357,7 @@ export default function OecCompliance() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
-      <CaseCover src="/case-covers/oec-compliance.jpg" alt="OEC Group Finance Module Design" />
+      <CaseCover src="/case-covers/oec-compliance-thumbnail.webp" alt="OEC Group Finance Module Design" uncropped />
       <Overview />
       <Problem />
       <Flow />
