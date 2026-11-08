@@ -388,7 +388,7 @@ export default function OecFin() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
-      <CaseCover src="/case-covers/cathay-fh.avif" alt="Cathay FitBack Exploratory Research" />
+      <CaseCover src="/case-covers/cathay-fitback-thumbnail.webp" alt="Cathay FitBack Exploratory Research" uncropped />
       <Overview />
       <Goals />
       <Process />

@@ -435,7 +435,7 @@ export default function ShopBackNMA() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
-      <CaseCover src="/case-covers/shopback-animated.gif" alt="ShopBack New Market Activation" />
+      <CaseCover src="/case-covers/shopback-nma-thumbnail.webp" alt="ShopBack New Market Activation" uncropped />
       <Overview />
       <Assumptions />
       <Method />

@@ -282,7 +282,7 @@ export default function OecTypo() {
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
       <Hero />
-      <CaseCover src="/case-covers/oec-typography.jpg" alt="OEC Group Typography System Redesign" />
+      <CaseCover src="/case-covers/oec-typography-thumbnail.webp" alt="OEC Group Typography System Redesign" uncropped />
       <Overview />
       <Problem />
       <Design />
