@@ -5,7 +5,7 @@ import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from '
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
   { id: 'hypotheses',  label: 'Hypotheses'  },
-  { id: 'method',      label: 'Method'      },
+  { id: 'method',      label: 'Methodology' },
   { id: 'recommendations', label: 'Recommendations' },
   { id: 'impact',      label: 'Impact'      },
   { id: 'reflection',  label: 'Reflection'  },
