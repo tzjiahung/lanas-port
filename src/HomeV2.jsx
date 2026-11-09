@@ -87,7 +87,10 @@ const s = {
   intro: { margin: 0, maxWidth: 1576, fontSize: 16, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '-0.01em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   introStrong: { fontWeight: 700, cursor: 'default' },
   roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
-  role: { position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24 },
+  role: {
+    position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24,
+    transition: 'transform 0.25s ease',
+  },
   roleImgBox: { width: 230, height: 181, overflow: 'hidden' },
   roleImg: { width: 230, height: 288, display: 'block' },
   roleLabel: {
@@ -204,7 +207,7 @@ function RoleAvatar({ role, active: hovered, onActive, autoPlay }) {
   const inView = useInView(ref, autoPlay)
   const active = hovered || inView
   return (
-    <div ref={ref} style={s.role} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
+    <div ref={ref} style={{ ...s.role, transform: hovered ? 'scale(1.2)' : 'none' }} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
       <div style={s.roleImgBox}>
         {/* Swapping in the GIF on hover starts it from the first frame; swapping back stops it. */}
         <img
