@@ -1056,14 +1056,15 @@
   display: block;
   width: 100%;
   height: auto;
-  animation: snma-allset-scroll 7s ease-in-out infinite;
+  animation: snma-allset-scroll 5s ease-in-out infinite;
 }
 /* scrolls down only; each loop restarts from the top instead of scrolling back up */
+/* Positions in the 1125×2436 export: hand from y≈660, last button ends y≈1720; the end view leaves room under it */
 @keyframes snma-allset-scroll {
-  0%, 22%   { transform: translateY(-28.7%); }
-  55%, 100% { transform: translateY(-49.2%); }
+  0%, 28%   { transform: translateY(-26.5%); }
+  52%, 100% { transform: translateY(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .snma-allset img { animation: none; transform: translateY(-38%); }
+  .snma-allset img { animation: none; transform: translateY(-37%); }
   .snma-impact-fig .snma-chart-grow { transition: none; }
 }
