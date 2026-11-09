@@ -159,7 +159,10 @@ function Flow() {
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             User flow diagram
           </p>
-          <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}
+          <div style={{ background: '#DCDCDC', padding: '5%', borderRadius: 10 }}>
+            <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" style={{ width: '100%', display: 'block' }} />
+          </div>
         </div>
       </div>
     </section>
