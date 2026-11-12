@@ -54,17 +54,12 @@ function Overview() {
           One of the UN's Sustainable Development Goals calls for responsible consumption
           and production — making food waste a globally recognized issue.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
           FooMa is a <b>software + hardware</b> solution combining a scanning device inside
           your refrigerator with a <b>LINE chatbot</b> — Taiwan's most popular messaging
           platform. The goal: encourage responsibility in food purchasing and raise awareness
           about valuing food, with no extra app required.
         </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 20 }}>Research &amp; Design Process</p>
-          <img src="/fooma/mprocess.png" alt="Research and Design process overview" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
-        </div>
       </div>
     </section>
   )
