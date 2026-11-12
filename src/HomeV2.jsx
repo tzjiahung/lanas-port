@@ -70,6 +70,7 @@ const s = {
     position: 'absolute', top: 0, left: 0, width: '100%', height: 959,
     display: 'block', pointerEvents: 'none', userSelect: 'none',
   },
+  sparkleLayer: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, pointerEvents: 'none' },
   content: { position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' },
   topBar: {
     width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -155,14 +156,35 @@ function ContactLinks({ isMobile }) {
 
 // Hero roles, from Figma node 254:90. Each one pairs a phrase in the intro with an avatar.
 // Hovering the phrase or the avatar plays that avatar's GIF and highlights its label; otherwise it shows a still frame.
-// Sparkles: `big` sits at the avatar's top right, `small` at its bottom left.
 const ROLES = [
-  { id: 'ai',        label: 'AI Experience Designer', still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif',        big: true,  small: true },
-  { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif', big: false, small: true },
-  { id: 'b2b',       label: 'B2B System Designer',    still: 'home-v2/avatars/b2b.png',       gif: 'home-v2/avatars/b2b.gif',       big: false, small: true },
-  { id: 'fintech',   label: 'Fintech Designer',       still: 'home-v2/avatars/fintech.png',   gif: 'home-v2/avatars/fintech.gif',   big: true,  small: false },
-  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/research.png',  gif: 'home-v2/avatars/research.gif',  big: true,  small: true },
+  { id: 'ai',        label: 'AI Experience Designer', still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif' },
+  { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif' },
+  { id: 'b2b',       label: 'B2B System Designer',    still: 'home-v2/avatars/b2b.png',       gif: 'home-v2/avatars/b2b.gif' },
+  { id: 'fintech',   label: 'Fintech Designer',       still: 'home-v2/avatars/fintech.png',   gif: 'home-v2/avatars/fintech.gif' },
+  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/research.png',  gif: 'home-v2/avatars/research.gif' },
 ]
+
+// Sparkles scattered over the background of the first fold only. They scroll away with the page.
+// Positions are percentages of the first screen's height and width, kept mostly toward the edges so they sit behind empty space.
+const BG_SPARKLES = [
+  { size: 42, top: '14%', left: '6%',  delay: 0 },
+  { size: 26, top: '34%', left: '13%', delay: 1.2 },
+  { size: 34, top: '9%',  left: '88%', delay: 0.6 },
+  { size: 22, top: '42%', left: '93%', delay: 1.8 },
+  { size: 26, top: '62%', left: '3%',  delay: 0.9 },
+  // Just past "Seattle" at the end of the intro. The intro is centred, so this is offset from the centre in px.
+  { size: 26, top: 106, left: 'calc(50% + 266px)', delay: 0.3 },
+  { size: 22, top: '88%', left: '9%',  delay: 1.5 },
+  { size: 30, top: '24%', left: '52%', delay: 2.1 },
+]
+
+function BackgroundSparkles() {
+  return (
+    <div aria-hidden="true" style={s.sparkleLayer}>
+      {BG_SPARKLES.map((p, i) => <HeroSparkle key={i} {...p} />)}
+    </div>
+  )
+}
 
 function RolePhrase({ role, active, onActive, children }) {
   return (
@@ -218,8 +240,6 @@ function RoleAvatar({ role, active: hovered, onActive, autoPlay }) {
           style={s.roleImg}
         />
       </div>
-      {role.big && <HeroSparkle size={42} top={25} left={168} />}
-      {role.small && <HeroSparkle size={26} top={200} left={-9} delay={1.2} />}
       <span style={{ ...s.roleLabel, background: active ? '#ffffff' : 'transparent' }}>{role.label}</span>
     </div>
   )
@@ -319,6 +339,7 @@ export default function HomeV2() {
   return (
     <div style={s.page}>
       <img src="home-v2/hero-bg.svg" alt="" aria-hidden="true" style={s.heroBg} />
+      <BackgroundSparkles />
       <div style={s.content}>
         <header style={{ ...s.topBar, flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? 8 : 0 }}>
           <span style={s.name}>Lana Hung</span>
