@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import Portfolio from './Portfolio.jsx'
 import ShopBackNMA from './ShopBackNMA.jsx'
@@ -56,6 +56,12 @@ function Root() {
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  // Pages switch by hash without a reload, so the browser keeps the old scroll position.
+  // Start each newly opened page at the top (before paint, so it never flashes mid-page).
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [view])
 
   if (view === 'shopback-nma') return <ShopBackNMA />
   if (view === 'fitback') return <OecFin />
