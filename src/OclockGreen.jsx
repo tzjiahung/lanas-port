@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -21,15 +21,22 @@ function Hero() {
           rental system to cut Taiwan's{' '}
           paper cup waste
         </h1>
-
-        <dl className="snma-meta">
-          <div><dt>Role</dt><dd>UX Researcher, UX/UI Designer</dd></div>
-          <div><dt>Timeline</dt><dd>Nov – Dec 2023 · 1 month</dd></div>
-          <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
-          <div><dt>Team</dt><dd>Matthew, Hannah, Shannon</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Role</dt><dd>UX Researcher, UX/UI Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Nov – Dec 2023 · 1 month</dd></div>
+        <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
+        <div><dt>Team</dt><dd>Matthew, Hannah, Shannon</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -386,8 +393,9 @@ export default function OclockGreen() {
     <div className="snma-root oclock-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/oclock-green.png" alt="O'Clock Green App Design" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Research />
       <Design />

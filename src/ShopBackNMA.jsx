@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, scrollTo, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',    label: 'Overview'    },
@@ -16,15 +16,22 @@ function Hero() {
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
         <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany</h1>
-
-        <dl className="snma-meta">
-          <div><dt>Team</dt><dd>1 Researcher, 1 Designer, 1 PM</dd></div>
-          <div><dt>Duration</dt><dd>Aug 2025 · 1 month</dd></div>
-          <div><dt>Methods</dt><dd>Interviews · Survey · Behavioral data</dd></div>
-          <div><dt>Tools</dt><dd>Lyssna · Amplitude · Metabase</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Team</dt><dd>1 Researcher, 1 Designer, 1 PM</dd></div>
+        <div><dt>Duration</dt><dd>Aug 2025 · 1 month</dd></div>
+        <div><dt>Methods</dt><dd>Interviews · Survey · Behavioral data</dd></div>
+        <div><dt>Tools</dt><dd>Lyssna · Amplitude · Metabase</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -496,8 +503,9 @@ export default function ShopBackNMA() {
     <div className="snma-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/shopback-nma-thumbnail.webp" alt="ShopBack New Market Activation" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Assumptions />
       <Method />

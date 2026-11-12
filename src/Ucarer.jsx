@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -21,15 +21,22 @@ function Hero() {
           to boost activation and{' '}
           simplify care-finding
         </h1>
-
-        <dl className="snma-meta">
-          <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
-          <div><dt>Timeline</dt><dd>Sep – Dec 2022 · 4 months</dd></div>
-          <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
-          <div><dt>Team</dt><dd>Lin Ying, Yi Jia, Tsai Tzung</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Sep – Dec 2022 · 4 months</dd></div>
+        <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
+        <div><dt>Team</dt><dd>Lin Ying, Yi Jia, Tsai Tzung</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -340,8 +347,9 @@ export default function Ucarer() {
     <div className="snma-root ucarer-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/ucarer.png" alt="Ucarer App Redesign" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Research />
       <Ideate />

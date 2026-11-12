@@ -47,6 +47,15 @@ export function CaseCover({ src, alt, uncropped }) {
   )
 }
 
+// Project info grid, placed below the title.
+export function CaseMeta({ children }) {
+  return (
+    <section className="snma-case-meta">
+      <div className="snma-wrap">{children}</div>
+    </section>
+  )
+}
+
 export function RailNav({ sections, active }) {
   return (
     <nav className="snma-rail" aria-label="Page sections">

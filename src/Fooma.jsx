@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -21,15 +21,22 @@ function Hero() {
           solution that turns your fridge into a{' '}
           smart reminder
         </h1>
-
-        <dl className="snma-meta">
-          <div><dt>Role</dt><dd>UX Researcher, UX/UI Designer</dd></div>
-          <div><dt>Timeline</dt><dd>Aug 2023 · 1 month</dd></div>
-          <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
-          <div><dt>Team</dt><dd>Jun, Hsuan, Renchu, Yichen, Jimmy, Yao</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Role</dt><dd>UX Researcher, UX/UI Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Aug 2023 · 1 month</dd></div>
+        <div><dt>Tools</dt><dd>Figma · FigJam</dd></div>
+        <div><dt>Team</dt><dd>Jun, Hsuan, Renchu, Yichen, Jimmy, Yao</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -347,8 +354,9 @@ export default function Fooma() {
     <div className="snma-root fooma-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/fooma.png" alt="FooMa OMO Food Waste Design" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Research />
       <Design />

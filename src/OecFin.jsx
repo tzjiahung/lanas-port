@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',   label: 'Overview'   },
@@ -25,15 +25,22 @@ function Hero() {
         <p className="snma-hero-subtitle">
           Applied the Stages of Change Theory to explain how social support strengthens motivation across different exercise habit stages; validated its applicability through 356 survey responses with balanced quotas across habit stages.
         </p>
-
-        <dl className="snma-meta">
-          <div><dt>Team</dt><dd>2 Designers, 1 PM</dd></div>
-          <div><dt>Duration</dt><dd>Jul–Dec 2023 · 5 months</dd></div>
-          <div><dt>Methodology</dt><dd>Survey Research · Correlation Analysis</dd></div>
-          <div><dt>Tools</dt><dd>Google Sheets · Google Form</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Team</dt><dd>2 Designers, 1 PM</dd></div>
+        <div><dt>Duration</dt><dd>Jul–Dec 2023 · 5 months</dd></div>
+        <div><dt>Methodology</dt><dd>Survey Research · Correlation Analysis</dd></div>
+        <div><dt>Tools</dt><dd>Google Sheets · Google Form</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -383,8 +390,9 @@ export default function OecFin() {
     <div className="snma-root oecfin-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/cathay-fitback-thumbnail.webp" alt="Cathay FitBack Exploratory Research" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Goals />
       <Process />
