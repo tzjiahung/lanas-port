@@ -53,17 +53,12 @@ function Overview() {
           interface, <b>finding information quickly is the top priority</b> — making a clear
           typographic hierarchy critical.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
           The existing hierarchy wasn't clear enough, leading to user confusion and usability
           issues. I took this on as a personal project: redesign the typography system and
           adjust paddings to improve visual hierarchy, readability, and consistency across
           the entire portal.
         </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 20 }}>Design Process</p>
-          <img src="/oec-typo/design-process.png" alt="Design process overview" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
-        </div>
       </div>
     </section>
   )

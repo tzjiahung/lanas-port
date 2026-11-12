@@ -53,17 +53,12 @@ function Overview() {
           services — elderly care, childcare, pet care, and more. Users can manage appointments,
           search for caregivers, and browse care-related articles and videos in one app.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
           This school project, in collaboration with Ucarer, set two goals: <b>boost monthly
           activated users (MAU)</b> and <b>enhance the overall experience</b>. To get there,
           we ran interviews and rebuilt the information architecture and user interface from
           the ground up.
         </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 20 }}>Research &amp; Design Process</p>
-          <img src="/ucarer/uprocess.png" alt="Research and Design process overview" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
-        </div>
       </div>
     </section>
   )

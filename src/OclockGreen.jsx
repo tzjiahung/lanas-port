@@ -53,17 +53,12 @@ function Overview() {
           But many shops simply switched to <b>paper cups</b> — and customers kept using
           disposable containers out of habit and convenience.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
           O'Clock is a <b>software + hardware</b> solution that emerged from the SDG wave.
           Together with three teammates, we designed a reusable cup rental system that lets
           customers borrow and return cups at in-store cabinets — entirely through LINE,
           Taiwan's most popular messaging platform, with no extra app to download.
         </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 20 }}>Research &amp; Design Process</p>
-          <img src="/oclock/oprocess.png" alt="Research and Design Process overview diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
-        </div>
       </div>
     </section>
   )
