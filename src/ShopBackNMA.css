@@ -30,6 +30,11 @@
   min-height: 100vh;
 }
 
+/* While a case study is open, make the page behind it white, so pulling past the top
+   (overscroll) shows white instead of the site's pink background. */
+html:has(.snma-root),
+html:has(.snma-root) body { background: #FFFFFF; }
+
 .snma-root * { box-sizing: border-box; }
 .snma-root a { color: inherit; }
 .snma-root img { display: block; max-width: 100%; }
