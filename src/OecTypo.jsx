@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -20,15 +20,22 @@ function Hero() {
           system for{' '}
           clarity and consistency
         </h1>
-
-        <dl className="snma-meta">
-          <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
-          <div><dt>Timeline</dt><dd>Apr 2024 · 1 month</dd></div>
-          <div><dt>Type</dt><dd>Personal Project</dd></div>
-          <div><dt>Tools</dt><dd>Figma</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
+        <div><dt>Timeline</dt><dd>Apr 2024 · 1 month</dd></div>
+        <div><dt>Type</dt><dd>Personal Project</dd></div>
+        <div><dt>Tools</dt><dd>Figma</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -277,8 +284,9 @@ export default function OecTypo() {
     <div className="snma-root oectypo-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/oec-typography-thumbnail.webp" alt="OEC Group Typography System Redesign" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Problem />
       <Design />

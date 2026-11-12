@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './ShopBackNMA.css'
-import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover } from './CaseLayout.jsx'
+import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
@@ -17,15 +17,22 @@ function Hero() {
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
         <h1>0 → 1 Building the Finance Compliance Module for an ERP System</h1>
-
-        <dl className="snma-meta">
-          <div><dt>Team</dt><dd>1 PM, 1 Designer, 2 Engineers</dd></div>
-          <div><dt>Duration</dt><dd>Sep 2024 · 1 month</dd></div>
-          <div><dt>Deliverables</dt><dd>IA · User Flow · Wireframe · Prototype</dd></div>
-          <div><dt>Tools</dt><dd>Figma · Confluence · Jira</dd></div>
-        </dl>
       </div>
     </section>
+  )
+}
+
+// Project info (team, timeline, tools), shown below the title.
+function Meta() {
+  return (
+    <CaseMeta>
+      <dl className="snma-meta">
+        <div><dt>Team</dt><dd>1 PM, 1 Designer, 2 Engineers</dd></div>
+        <div><dt>Duration</dt><dd>Sep 2024 · 1 month</dd></div>
+        <div><dt>Deliverables</dt><dd>IA · User Flow · Wireframe · Prototype</dd></div>
+        <div><dt>Tools</dt><dd>Figma · Confluence · Jira</dd></div>
+      </dl>
+    </CaseMeta>
   )
 }
 
@@ -350,8 +357,9 @@ export default function OecCompliance() {
     <div className="snma-root oec-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <Hero />
       <CaseCover src="/case-covers/oec-compliance-thumbnail.webp" alt="OEC Group Finance Module Design" uncropped />
+      <Hero />
+      <Meta />
       <Overview />
       <Problem />
       <Flow />
