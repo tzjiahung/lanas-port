@@ -6,6 +6,7 @@ const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'problem',   label: 'Problem'   },
   { id: 'design',    label: 'Design'    },
+  { id: 'guidelines', label: 'Guidelines' },
   { id: 'impact',    label: 'Impact'    },
   { id: 'reflection', label: 'Reflection' },
 ]
@@ -118,7 +119,7 @@ function Design() {
         </p>
 
         {/* Adjustments */}
-        <div className="snma-impact-grid" style={{ marginBottom: 48 }}>
+        <div className="snma-impact-grid">
           <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
             <div className="snma-impact-text">
               <span className="snma-impact-kind">Key adjustments</span>
@@ -136,18 +137,24 @@ function Design() {
             <img src="/oec-typo/design.png" alt="Before / after — typography spacing adjustments" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
           </div>
         </div>
+      </div>
+    </section>
+  )
+}
 
-        {/* Guidelines */}
-        <div>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-            Font Guidelines
-          </p>
-          <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
-            Established a font guideline for all designers on the team — specifying which
-            type style to use in each context, removing ambiguity from every design decision.
-          </p>
-          <img src="/oec-typo/guideline.png" alt="Typography style guide — font scales, weights, usage rules" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
-        </div>
+function Guidelines() {
+  return (
+    <section id="guidelines" className="snma-section">
+      <div className="snma-wrap">
+        <span className="snma-section-label">Font Guidelines</span>
+        <h2 className="snma-section-title">
+          One rulebook for every type decision
+        </h2>
+        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
+          Established a font guideline for all designers on the team, specifying which
+          type style to use in each context and removing ambiguity from every design decision.
+        </p>
+        <img src="/oec-typo/guideline.png" alt="Typography style guide — font scales, weights, usage rules" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
       </div>
     </section>
   )
@@ -285,6 +292,7 @@ export default function OecTypo() {
       <Overview />
       <Problem />
       <Design />
+      <Guidelines />
       <Impact />
       <Takeaways />
       <CaseFooter />
