@@ -15,10 +15,6 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <div className="snma-hero-label">
-          UX RESEARCHER &amp; DESIGNER&nbsp;·&nbsp;SIDE PROJECT&nbsp;·&nbsp;FOOMA
-        </div>
-
         <h1>
           A{' '}
           food waste{' '}

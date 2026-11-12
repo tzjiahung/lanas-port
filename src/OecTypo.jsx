@@ -14,10 +14,6 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <div className="snma-hero-label">
-          UI/UX DESIGNER&nbsp;·&nbsp;PERSONAL PROJECT&nbsp;·&nbsp;OEC GROUP
-        </div>
-
         <h1>
           Rebuilding OEC Portal's{' '}
           typography{' '}

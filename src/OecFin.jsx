@@ -15,10 +15,6 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <div className="snma-hero-label">
-          LEAD UX RESEARCHER&nbsp;·&nbsp;CATHAY FINANCIAL HOLDINGS
-        </div>
-
         <h1>
           Cathay{' '}
           FitBack{' '}
