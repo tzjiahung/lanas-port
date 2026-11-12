@@ -198,18 +198,6 @@
   overflow: hidden;
 }
 
-.snma-hero-label {
-  font-family: var(--snma-mono);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--snma-fg-mute);
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
 .snma-hero h1 {
   font-size: clamp(32px, 8vw, 48px);
   font-weight: 700;

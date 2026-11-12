@@ -15,10 +15,6 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <div className="snma-hero-label">
-          LEAD UX RESEARCHER&nbsp;·&nbsp;SHIPPED&nbsp;·&nbsp;SHOPBACK
-        </div>
-
         <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany</h1>
 
         <dl className="snma-meta">

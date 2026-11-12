@@ -16,16 +16,7 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <div className="snma-hero-label">
-          LEAD UX DESIGNER&nbsp;·&nbsp;SHIPPED&nbsp;·&nbsp;OEC GROUP
-        </div>
-
-        <h1>
-          0-to-1{' '}
-          Compliance{' '}
-          module for OEC Group's{' '}
-          internal ERP portal
-        </h1>
+        <h1>0 → 1 Building the Finance Compliance Module for an ERP System</h1>
 
         <dl className="snma-meta">
           <div><dt>Team</dt><dd>1 PM, 1 Designer, 2 Engineers</dd></div>
