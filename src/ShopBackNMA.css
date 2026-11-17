@@ -1083,3 +1083,34 @@ html:has(.snma-root) body { background: #FFFFFF; }
   .snma-allset img { animation: none; transform: translateY(-37%); }
   .snma-impact-fig .snma-chart-grow { transition: none; }
 }
+
+/* OEC Compliance demo video on a gradient backdrop */
+.oec-demo {
+  background: url('/oec-fin/demo-bg.jpg') center / cover no-repeat;
+  border-radius: var(--snma-radius);
+  padding: 6%;
+}
+.oec-demo-screen {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2018 / 1311;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(20, 40, 90, 0.18);
+}
+.oec-demo-screen video {
+  position: absolute;
+  left: -0.396%;
+  top: -0.610%;
+  width: 100.793%;
+  height: auto;
+  max-width: none;
+  display: block;
+}
+.oec-demo-notch {
+  position: absolute;
+  left: 43.81%;
+  top: 0;
+  width: 12.54%;
+  height: 3.51%;
+  background: #1e1e20;
+}
