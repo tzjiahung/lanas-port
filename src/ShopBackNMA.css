@@ -96,32 +96,47 @@ html:has(.snma-root) body { background: #FFFFFF; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
+  padding: 5px 12px;
   border-radius: 999px;
   cursor: pointer;
   background: transparent;
   border: none;
-  color: var(--snma-fg-soft);
+  color: var(--snma-fg-mute);
   font-family: var(--snma-font);
   font-size: 16px;
 }
 
+/* Empty spacer that reserves the dot column, so labels never move */
 .snma-rail-dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
-  background: rgba(26, 26, 26, 0.28);
   flex-shrink: 0;
 }
 
-.snma-rail-btn:hover { color: var(--snma-fg); }
-.snma-rail-btn:hover .snma-rail-dot { background: var(--snma-fg); }
-
+.snma-rail-btn:hover,
 .snma-rail-btn.active { color: var(--snma-fg); }
-.snma-rail-btn.active .snma-rail-dot {
+
+/* Sub-item: only the label is indented; the dot column stays on one line */
+.snma-rail-btn--sub .snma-rail-label { margin-left: 16px; }
+
+.snma-rail-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Single dot that slides along the dot column to the active item */
+.snma-rail-indicator {
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: color-mix(in srgb, var(--snma-accent1) 35%, white);
-  width: 18px;
-  border-radius: 4px;
+  transition: transform .3s ease;
+  pointer-events: none;
 }
 
 /* Rail pushes content right */

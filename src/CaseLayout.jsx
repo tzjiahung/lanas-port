@@ -1,5 +1,5 @@
 // Shared layout primitives for all case study pages
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 function trackEvent(name, params) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params)
@@ -57,6 +57,22 @@ export function CaseMeta({ children }) {
 }
 
 export function RailNav({ sections, active }) {
+  // One dot slides along a fixed vertical line to the active item; labels never move.
+  // Sections with `sub: true` are indented by label only.
+  const listRef = useRef(null)
+  const [dotY, setDotY] = useState(null)
+
+  useLayoutEffect(() => {
+    if (!listRef.current) return
+    const update = () => {
+      const btn = listRef.current?.querySelector(`[data-id="${active}"]`)
+      if (btn) setDotY(btn.offsetTop + btn.offsetHeight / 2)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [active])
+
   return (
     <nav className="snma-rail" aria-label="Page sections">
       <a
@@ -70,16 +86,22 @@ export function RailNav({ sections, active }) {
         Back to home
       </a>
       <div className="snma-rail-divider" />
-      {sections.map(s => (
-        <button
-          key={s.id}
-          className={`snma-rail-btn${active === s.id ? ' active' : ''}`}
-          onClick={() => { trackEvent('click', { button_label: s.label, section: 'rail_nav' }); scrollTo(s.id); }}
-        >
-          <span className="snma-rail-dot" />
-          <span>{s.label}</span>
-        </button>
-      ))}
+      <div className="snma-rail-list" ref={listRef}>
+        {dotY !== null && (
+          <span className="snma-rail-indicator" style={{ transform: `translateY(${dotY}px)` }} aria-hidden="true" />
+        )}
+        {sections.map(s => (
+          <button
+            key={s.id}
+            data-id={s.id}
+            className={`snma-rail-btn${s.sub ? ' snma-rail-btn--sub' : ''}${active === s.id ? ' active' : ''}`}
+            onClick={() => { trackEvent('click', { button_label: s.label, section: 'rail_nav' }); scrollTo(s.id); }}
+          >
+            <span className="snma-rail-dot" />
+            <span className="snma-rail-label">{s.label}</span>
+          </button>
+        ))}
+      </div>
     </nav>
   )
 }
