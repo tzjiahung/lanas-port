@@ -264,16 +264,15 @@ function Demo() {
         <p className="snma-section-intro" style={{ marginBottom: 40, maxWidth: 'none' }}>
           End-to-end flow of the shipped Compliance module — from creating a new compliance record to sending data back to the main system.
         </p>
-        <video
-          src="/oec-fin/o6.mp4"
-          width={2034}
-          height={1330}
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{ width: '100%', height: 'auto', borderRadius: 'var(--snma-radius)', display: 'block' }}
-        />
+        {/* Gradient backdrop; the video's baked-in black device frame (8px sides/top, 11px bottom,
+            camera notch at x 892–1145, y 8–54 of 2034×1330) is cropped away and the notch is
+            painted over with the browser bar colour. */}
+        <div className="oec-demo">
+          <div className="oec-demo-screen">
+            <video src="/oec-fin/o6.mp4" width={2034} height={1330} autoPlay loop muted playsInline />
+            <span className="oec-demo-notch" aria-hidden="true" />
+          </div>
+        </div>
       </div>
     </section>
   )
