@@ -159,7 +159,7 @@ function Flow() {
           </p>
           {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}
           <div style={{ background: '#DCDCDC', padding: '5%', borderRadius: 10 }}>
-            <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" style={{ width: '100%', display: 'block' }} />
+            <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" width={1159} height={647} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
         </div>
       </div>
@@ -175,6 +175,7 @@ const PROPOSALS = [
     caveat: 'Inquiry options only become visible after the user clicks the button — extra step, lower discoverability.',
     accepted: false,
     img: '/oec-fin/o2.webp',
+    w: 4096, h: 2206,
     alt: 'Proposal A — CTA below empty state mockup',
   },
   {
@@ -184,6 +185,7 @@ const PROPOSALS = [
     caveat: 'Card-in-card component structure creates visual complexity and an awkward nesting hierarchy.',
     accepted: false,
     img: '/oec-fin/o3.webp',
+    w: 3840, h: 2752,
     alt: 'Proposal B — card-in-card mockup',
   },
   {
@@ -193,6 +195,7 @@ const PROPOSALS = [
     caveat: 'Layout limitations prevent users from viewing all required invoice columns simultaneously.',
     accepted: false,
     img: '/oec-fin/o4.webp',
+    w: 4096, h: 1775,
     alt: 'Proposal C — transfer component mockup',
   },
   {
@@ -202,6 +205,7 @@ const PROPOSALS = [
     caveat: null,
     accepted: true,
     img: '/oec-fin/o5.webp',
+    w: 4096, h: 1365,
     alt: 'Proposal D — direct inquiries with dialog mockup',
   },
 ]
@@ -239,7 +243,7 @@ function Design() {
                   </div>
                 )}
               </div>
-              <img src={p.img} alt={p.alt} loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+              <img src={p.img} alt={p.alt} loading="lazy" width={p.w} height={p.h} style={{ width: '100%', height: 'auto', borderRadius: 10, marginTop: 8 }} />
             </div>
           ))}
         </div>
@@ -262,11 +266,13 @@ function Demo() {
         </p>
         <video
           src="/oec-fin/o6.mp4"
+          width={2034}
+          height={1330}
           autoPlay
           loop
           muted
           playsInline
-          style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }}
+          style={{ width: '100%', height: 'auto', borderRadius: 'var(--snma-radius)', display: 'block' }}
         />
       </div>
     </section>
@@ -359,7 +365,7 @@ export default function OecCompliance() {
     <div className="snma-root oec-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/oec-compliance-thumbnail.webp" alt="OEC Group Finance Module Design" uncropped />
+      <CaseCover src="/case-covers/oec-compliance-thumbnail.webp" width={960} height={640} alt="OEC Group Finance Module Design" uncropped />
       <Hero />
       <Meta />
       <Overview />

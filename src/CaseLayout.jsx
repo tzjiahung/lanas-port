@@ -37,11 +37,17 @@ export function useScrollSpy(sections) {
   return active
 }
 
-export function CaseCover({ src, alt, uncropped }) {
+export function CaseCover({ src, alt, uncropped, width, height }) {
   return (
     <section className={uncropped ? 'snma-cover uncropped' : 'snma-cover'}>
       <div className="snma-wrap">
-        <img src={src} alt={alt} />
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          style={uncropped && width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
+        />
       </div>
     </section>
   )

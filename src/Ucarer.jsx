@@ -99,7 +99,7 @@ function Research() {
             walkthroughs. This gave us a comprehensive picture of the product before approaching
             real users.
           </p>
-          <img src="/ucarer/uwalkthrough.jpg" alt="Walkthrough screenshots — existing app flows" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/ucarer/uwalkthrough.jpg" width={2400} height={3150} alt="Walkthrough screenshots — existing app flows" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Interviews */}
@@ -118,7 +118,7 @@ function Research() {
                 across all participants.
               </p>
             </div>
-            <img src="/ucarer/uaffinity.png" alt="Interview affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/ucarer/uaffinity.png" width={4800} height={2125} alt="Interview affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
         </div>
 
@@ -168,7 +168,7 @@ function Ideate() {
             Remaining tabs: Home · Long-term Subscription · News · My Order · My Account.
             Users can navigate through tabs and quickly find the functions they need.
           </p>
-          <img src="/ucarer/uinfoarch.png" alt="Rebuilt information architecture" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/ucarer/uinfoarch.png" width={3840} height={2364} alt="Rebuilt information architecture" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Wireframe */}
@@ -180,7 +180,7 @@ function Ideate() {
             Low-fidelity wireframes for all tabs and pages, based on the updated IA —
             before any visual styles were applied.
           </p>
-          <img src="/ucarer/uwireframe.png" alt="Wireframes — all tabs and pages" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/ucarer/uwireframe.png" width={9600} height={5400} alt="Wireframes — all tabs and pages" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
     </section>
@@ -211,7 +211,7 @@ function Prototype() {
                 and user flow.
               </p>
             </div>
-            <img src="/ucarer/uproto.jpg" alt="High-fidelity prototype screens" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/ucarer/uproto.jpg" width={2400} height={1664} alt="High-fidelity prototype screens" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
 
           <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
@@ -223,7 +223,7 @@ function Prototype() {
                 connect across the entire care-finding experience.
               </p>
             </div>
-            <img src="/ucarer/ufeedback.jpeg" alt="Service map" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/ucarer/ufeedback.jpeg" width={4032} height={3024} alt="Service map" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
         </div>
 
@@ -342,7 +342,7 @@ export default function Ucarer() {
     <div className="snma-root ucarer-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/ucarer.png" alt="Ucarer App Redesign" uncropped />
+      <CaseCover src="/case-covers/ucarer.png" width={1440} height={1440} alt="Ucarer App Redesign" uncropped />
       <Hero />
       <Meta />
       <Overview />

@@ -97,7 +97,7 @@ function Problem() {
         </div>
 
         <div style={{ marginTop: 48 }}>
-          <img src="/oec-typo/problem-statement.png" alt="Before — existing typography problems annotated" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
+          <img src="/oec-typo/problem-statement.png" width={960} height={772} alt="Before — existing typography problems annotated" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
         </div>
       </div>
     </section>
@@ -134,7 +134,7 @@ function Design() {
                 Padding between page title &amp; section title: <b>16px → 32px</b>
               </div>
             </div>
-            <img src="/oec-typo/design.png" alt="Before / after — typography spacing adjustments" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
+            <img src="/oec-typo/design.png" width={960} height={772} alt="Before / after — typography spacing adjustments" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
           </div>
         </div>
       </div>
@@ -154,7 +154,7 @@ function Guidelines() {
           Established a font guideline for all designers on the team, specifying which
           type style to use in each context and removing ambiguity from every design decision.
         </p>
-        <img src="/oec-typo/guideline.png" alt="Typography style guide — font scales, weights, usage rules" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
+        <img src="/oec-typo/guideline.png" width={960} height={660} alt="Typography style guide — font scales, weights, usage rules" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
       </div>
     </section>
   )
@@ -286,7 +286,7 @@ export default function OecTypo() {
     <div className="snma-root oectypo-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/oec-typography-thumbnail.webp" alt="OEC Group Typography System Redesign" uncropped />
+      <CaseCover src="/case-covers/oec-typography-thumbnail.webp" width={1280} height={853} alt="OEC Group Typography System Redesign" uncropped />
       <Hero />
       <Meta />
       <Overview />

@@ -105,6 +105,7 @@ const ASSUMPTIONS = [
     title: 'Too much on screen, nowhere to start',
     body: 'New users land on a busy home page right after sign-up, with no clear first step. Many leave before browsing a single store.',
     img: '/shopback-nma/assum1.avif',
+    w: 1920, h: 1034,
     alt: 'Home page screenshot showing overwhelming information',
   },
   {
@@ -112,6 +113,7 @@ const ASSUMPTIONS = [
     title: "Stores that don't feel relevant",
     body: "The first merchants and deals users see don't match how they usually shop, so ShopBack doesn't look useful to them yet.",
     img: '/shopback-nma/assum2.avif',
+    w: 1920, h: 1034,
     alt: 'Popular stores grid showing unrelevant merchants',
   },
   {
@@ -119,6 +121,7 @@ const ASSUMPTIONS = [
     title: 'Nothing in return for signing up',
     body: 'Users put in the effort to download the app and sign up, then get no reward right away. The payoff feels too far off to act on.',
     img: '/shopback-nma/assum3.avif',
+    w: 1920, h: 1034,
     alt: 'Home page with merchant promotions and campaign details',
   },
 ]
@@ -183,7 +186,7 @@ function Assumptions() {
               <h3>Hypothesis {a.n}: {a.title}</h3>
               <p>{a.body}</p>
               <div className="snma-imgslot">
-                <img src={a.img} alt={a.alt} loading="lazy" />
+                <img src={a.img} alt={a.alt} loading="lazy" width={a.w} height={a.h} />
               </div>
             </div>
           ))}
@@ -242,7 +245,7 @@ function Method() {
           <div className="snma-showcase snma-method-showcase">
             <img
               className="snma-showcase-wide"
-              src="/shopback-nma/interview.jpg"
+              src="/shopback-nma/interview.jpg" width={1844} height={929}
               alt="A remote user interview, with the participant's face covered by an illustration"
               loading="lazy"
             />
@@ -299,7 +302,7 @@ function Solution() {
               </p>
             </div>
             <div className="snma-showcase">
-              <img className="snma-phone-clip" src="/shopback-nma/onboarding.gif" alt="7-step onboarding walkthrough demo" loading="lazy" />
+              <img className="snma-phone-clip" src="/shopback-nma/onboarding.gif" width={770} height={1544} alt="7-step onboarding walkthrough demo" loading="lazy" />
             </div>
           </div>
 
@@ -313,7 +316,7 @@ function Solution() {
               </p>
             </div>
             <div className="snma-showcase">
-              <img src="/shopback-nma/VDD1.webp" alt="Extra rewards prompt screen" loading="lazy" />
+              <img src="/shopback-nma/VDD1.webp" width={1024} height={774} alt="Extra rewards prompt screen" loading="lazy" />
             </div>
           </div>
 
@@ -327,7 +330,7 @@ function Solution() {
               </p>
             </div>
             <div className="snma-showcase">
-              <img src="/shopback-nma/VBS.webp" alt="ACH transfer / payout flow" loading="lazy" />
+              <img src="/shopback-nma/VBS.webp" width={1024} height={813} alt="ACH transfer / payout flow" loading="lazy" />
             </div>
           </div>
 
@@ -341,7 +344,7 @@ function Solution() {
               </p>
             </div>
             <div className="snma-showcase">
-              <img className="snma-showcase-wide" src="/shopback-nma/slack-tldr.webp" alt="Slack message sharing the research summary and recommendations with the team" loading="lazy" />
+              <img className="snma-showcase-wide" src="/shopback-nma/slack-tldr.webp" width={1425} height={1223} alt="Slack message sharing the research summary and recommendations with the team" loading="lazy" />
             </div>
           </div>
         </div>
@@ -503,7 +506,7 @@ export default function ShopBackNMA() {
     <div className="snma-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/shopback-nma-thumbnail.webp" alt="ShopBack New Market Activation" uncropped />
+      <CaseCover src="/case-covers/shopback-nma-thumbnail.webp" width={1280} height={853} alt="ShopBack New Market Activation" uncropped />
       <Hero />
       <Meta />
       <Overview />
