@@ -7,7 +7,7 @@ const SECTIONS = [
   { id: 'problem',   label: 'Problem'   },
   { id: 'flow',      label: 'User flow' },
   { id: 'design',    label: 'Design'    },
-  { id: 'demo',      label: 'Demo'      },
+  { id: 'demo',      label: 'Demo',     sub: true },
   { id: 'impact',    label: 'Impact'    },
   { id: 'reflection', label: 'Reflection' },
 ]
