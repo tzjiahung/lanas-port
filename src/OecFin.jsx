@@ -162,12 +162,12 @@ function Process() {
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Five Stages of Behavior Change Model
           </p>
-          <img src="/fitback/stages.avif" alt="Five Stages of Behavior Change Model diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/fitback/stages.avif" width={1920} height={668} alt="Five Stages of Behavior Change Model diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive audit matrix</p>
-          <img src="/fitback/matrix.avif" alt="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/fitback/matrix.avif" width={1920} height={1152} alt="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
     </section>
@@ -206,7 +206,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <img src="/fitback/bar-chart.avif" alt="Bar chart — top motivators to exercise" loading="lazy" />
+              <img src="/fitback/bar-chart.avif" width={960} height={383} alt="Bar chart — top motivators to exercise" loading="lazy" />
             </div>
           </div>
 
@@ -223,7 +223,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <img src="/fitback/cross-analysis.avif" alt="Cross-analysis chart — behavior stage vs club participation" loading="lazy" />
+              <img src="/fitback/cross-analysis.avif" width={1920} height={1028} alt="Cross-analysis chart — behavior stage vs club participation" loading="lazy" />
             </div>
           </div>
 
@@ -240,7 +240,7 @@ function Survey() {
               </div>
             </div>
             <div className="snma-impact-img">
-              <img src="/fitback/finding3.avif" alt="Chart — app usage by stage and preferred social features" loading="lazy" />
+              <img src="/fitback/finding3.avif" width={1920} height={1028} alt="Chart — app usage by stage and preferred social features" loading="lazy" />
             </div>
           </div>
         </div>
@@ -390,7 +390,7 @@ export default function OecFin() {
     <div className="snma-root oecfin-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/cathay-fitback-thumbnail.webp" alt="Cathay FitBack Exploratory Research" uncropped />
+      <CaseCover src="/case-covers/cathay-fitback-thumbnail.webp" width={1280} height={853} alt="Cathay FitBack Exploratory Research" uncropped />
       <Hero />
       <Meta />
       <Overview />

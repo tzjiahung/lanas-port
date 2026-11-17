@@ -100,7 +100,7 @@ function Research() {
             experience, and family observations. We used FigJam to gather and affinity-map
             all the notes.
           </p>
-          <img src="/fooma/workshop.jpg" alt="Table research and brainstorming workshop" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/fooma/workshop.jpg" width={31472} height={9781} alt="Table research and brainstorming workshop" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Interview */}
@@ -121,9 +121,9 @@ function Research() {
                 <p>We used an affinity diagram to analyze qualitative results from all 7 participants, then built a persona and mapped the customer journey to pinpoint the moments where food waste occurs.</p>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 8 }}>
-                <img src="/fooma/msffinity.jpg" alt="Interview affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
-                <img src="/fooma/mpersona.png" alt="Persona" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
-                <img src="/fooma/mcjm.png" alt="Customer journey map" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
+                <img src="/fooma/msffinity.jpg" width={2400} height={933} alt="Interview affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
+                <img src="/fooma/mpersona.png" width={19200} height={9480} alt="Persona" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
+                <img src="/fooma/mcjm.png" width={19200} height={10620} alt="Customer journey map" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ function Design() {
             By refining the customer journey map and adding both software and hardware services,
             we mapped how FooMa interacts with users at every touchpoint.
           </p>
-          <img src="/fooma/mrcjm.png" alt="Service map — hardware and software interaction" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/fooma/mrcjm.png" width={19200} height={9980} alt="Service map — hardware and software interaction" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Hardware */}
@@ -189,7 +189,7 @@ function Design() {
                 <b> changes color or size</b> to signal storage status and upcoming expiration dates.
               </p>
             </div>
-            <img src="/fooma/mhard.png" alt="FooMa hardware scanning device" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/fooma/mhard.png" width={19200} height={8300} alt="FooMa hardware scanning device" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
         </div>
 
@@ -201,7 +201,7 @@ function Design() {
             <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
               Wireframe
             </p>
-            <img src="/fooma/mwireframe.png" alt="Wireframes — LINE chatbot flows" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+            <img src="/fooma/mwireframe.png" width={2880} height={1395} alt="Wireframes — LINE chatbot flows" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
           </div>
 
           <div style={{ marginBottom: 40, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
@@ -212,7 +212,7 @@ function Design() {
               Pink as the primary color, yellow as the secondary. Warm and approachable —
               designed to attract users and create positive feelings during everyday interactions.
             </p>
-            <img src="/fooma/mvisual.png" alt="Color scheme, typography, component styles" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+            <img src="/fooma/mvisual.png" width={2880} height={717} alt="Color scheme, typography, component styles" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
           </div>
 
           <div>
@@ -222,7 +222,7 @@ function Design() {
             <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
               Welcome message → check storage → check expiration date.
             </p>
-            <img src="/fooma/mprototype.png" alt="High-fidelity prototype — welcome, check storage, expiration date" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+            <img src="/fooma/mprototype.png" width={9600} height={4650} alt="High-fidelity prototype — welcome, check storage, expiration date" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
           </div>
         </div>
       </div>
@@ -349,7 +349,7 @@ export default function Fooma() {
     <div className="snma-root fooma-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/fooma.png" alt="FooMa OMO Food Waste Design" uncropped />
+      <CaseCover src="/case-covers/fooma.png" width={1254} height={1254} alt="FooMa OMO Food Waste Design" uncropped />
       <Hero />
       <Meta />
       <Overview />

@@ -37,7 +37,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
 
 .snma-root * { box-sizing: border-box; }
 .snma-root a { color: inherit; }
-.snma-root img { display: block; max-width: 100%; }
+.snma-root img { display: block; max-width: 100%; height: auto; }
 /* Undo the site-wide lilac selection so case studies use the browser default */
 .snma-root ::selection { background: Highlight; color: HighlightText; }
 

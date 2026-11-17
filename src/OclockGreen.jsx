@@ -96,7 +96,7 @@ function Research() {
                   significantly increase willingness to use eco-friendly containers.
                 </div>
               </div>
-              <img src="/oclock/otable.png" alt="Table research — policy landscape and market solutions" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+              <img src="/oclock/otable.png" width={961} height={386} alt="Table research — policy landscape and market solutions" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ function Research() {
             coffee shops, fast food restaurants, and supermarkets. We used STP (Segmentation,
             Targeting, Positioning) to narrow our focus.
           </p>
-          <img src="/oclock/ostp.png" alt="STP method — segmentation, targeting, positioning diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/ostp.png" width={2880} height={1203} alt="STP method — segmentation, targeting, positioning diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Customer Journey Map */}
@@ -119,7 +119,7 @@ function Research() {
             We mapped the end-to-end experience to surface pain points and opportunities
             across the beverage purchase journey.
           </p>
-          <img src="/oclock/ocjm.png" alt="Customer journey map" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/ocjm.png" width={2880} height={1248} alt="Customer journey map" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
     </section>
@@ -166,7 +166,7 @@ function Design() {
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
             The flow covers renting a cabinet, ordering coffee, and the store employee's order-receiving flow.
           </p>
-          <img src="/oclock/ouserflow.png" alt="User flow — customer renting cabinet, ordering coffee, store employee flow" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/ouserflow.png" width={2880} height={1089} alt="User flow — customer renting cabinet, ordering coffee, store employee flow" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Wireframe */}
@@ -174,7 +174,7 @@ function Design() {
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Wireframe
           </p>
-          <img src="/oclock/owireframe.png" alt="Wireframes" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/owireframe.png" width={4800} height={4840} alt="Wireframes" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Visual Identity */}
@@ -187,7 +187,7 @@ function Design() {
             representing warmth and the color of coffee. The combination is inviting and signals
             eco-friendliness without feeling austere.
           </p>
-          <img src="/oclock/odesignsys.png" alt="Color scheme, typography, button styles and component library" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/odesignsys.png" width={2880} height={1464} alt="Color scheme, typography, button styles and component library" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         {/* Prototype */}
@@ -198,7 +198,7 @@ function Design() {
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
             Select store → select date → select cabinet → choose coffee → collect order.
           </p>
-          <img src="/oclock/oproto.png" alt="High-fidelity prototype — 5 main screens" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
+          <img src="/oclock/oproto.png" width={2880} height={8688} alt="High-fidelity prototype — 5 main screens" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
     </section>
@@ -234,8 +234,8 @@ function Test() {
               </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 8 }}>
-              <img src="/oclock/oaffinity.jpg" alt="Affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
-              <img src="/oclock/otestingresults.png" alt="Problem quadrant chart" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
+              <img src="/oclock/oaffinity.jpg" width={1082} height={923} alt="Affinity diagram" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
+              <img src="/oclock/otestingresults.png" width={2880} height={1617} alt="Problem quadrant chart" loading="lazy" style={{ width: '100%', borderRadius: 10 }} />
             </div>
           </div>
 
@@ -252,7 +252,7 @@ function Test() {
                 we planned to refine in the next iteration.
               </p>
             </div>
-            <img src="/oclock/ocardresults.png" alt="Card sorting results" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/oclock/ocardresults.png" width={2880} height={1170} alt="Card sorting results" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
 
           {/* SUS */}
@@ -269,7 +269,7 @@ function Test() {
                 Next iteration: refine user flow to reduce unpredictable steps.
               </div>
             </div>
-            <img src="/oclock/osus.png" alt="SUS score breakdown" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
+            <img src="/oclock/osus.png" width={9600} height={1650} alt="SUS score breakdown" loading="lazy" style={{ width: '100%', borderRadius: 10, marginTop: 8 }} />
           </div>
         </div>
 
@@ -388,7 +388,7 @@ export default function OclockGreen() {
     <div className="snma-root oclock-root">
       <RailNav sections={SECTIONS} active={active} />
       <TopBar sections={SECTIONS} />
-      <CaseCover src="/case-covers/oclock-green.png" alt="O'Clock Green App Design" uncropped />
+      <CaseCover src="/case-covers/oclock-green.png" width={1440} height={1440} alt="O'Clock Green App Design" uncropped />
       <Hero />
       <Meta />
       <Overview />
