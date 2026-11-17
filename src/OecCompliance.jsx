@@ -196,7 +196,7 @@ const PROPOSALS = [
     alt: 'Proposal C — transfer component mockup',
   },
   {
-    tag: 'Proposal D — Final',
+    tag: 'Proposal D',
     title: 'Upfront query with inline filtering',
     body: 'Enable users to enter query parameters upfront, with filtering applied directly inside a dialog — all columns visible, no nesting issues.',
     caveat: null,
@@ -214,23 +214,25 @@ function Design() {
         <h2 className="snma-section-title">
           Four proposals. One clear winner
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
           The core design challenge was the invoice selection step — how should users enter
           query criteria and select invoices without losing context or introducing unnecessary complexity?
         </p>
 
-        <div className="snma-impact-grid">
+        <div className="snma-impact-grid" style={{ gap: 48 }}>
           {PROPOSALS.map((p) => (
-            <div key={p.tag} className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
+            <div key={p.tag} className="snma-impact-card" style={{ gridTemplateColumns: '1fr', padding: 0 }}>
               <div className="snma-impact-text">
-                <span className="snma-impact-kind">{p.tag}</span>
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
-                {p.caveat && (
-                  <div className="snma-post-impact" style={{ background: 'rgba(26,26,26,0.04)', color: 'var(--snma-fg-soft)' }}>
-                    ⚠️&nbsp;{p.caveat}
-                  </div>
-                )}
+                <h3>{p.tag}: {p.title}</h3>
+                <p>
+                  {p.body}
+                  {p.caveat && (
+                    <>
+                      <br />
+                      ⚠️&nbsp;{p.caveat}
+                    </>
+                  )}
+                </p>
                 {p.accepted && (
                   <div className="snma-post-impact">
                     ✓&nbsp;<b>Selected</b>&nbsp;— balances query discoverability with full invoice visibility.
