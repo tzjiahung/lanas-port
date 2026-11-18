@@ -76,8 +76,8 @@ const s = {
     width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: '10px 23px 8px',
   },
-  name: { fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52' },
-  links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, letterSpacing: '0.02em' },
+  name: { fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
+  links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, letterSpacing: '0em' },
   link: {
     color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
     transition: 'background 0.15s, color 0.15s',
@@ -85,7 +85,7 @@ const s = {
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
   hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 0 24px' },
-  intro: { margin: 0, maxWidth: 1576, fontSize: 16, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '-0.01em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
+  intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   introStrong: { fontWeight: 700, cursor: 'default' },
   roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
   role: {
@@ -96,7 +96,7 @@ const s = {
   roleImg: { width: 230, height: 288, display: 'block' },
   roleLabel: {
     textAlign: 'center', borderRadius: 12, padding: '0 12px',
-    fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52',
+    fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52',
     transition: 'background 0.2s',
   },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
