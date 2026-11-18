@@ -87,7 +87,7 @@ const s = {
   // Nav to intro 52px: 8 (top bar) + 44 here. Intro to avatars 24px: role paddingTop.
   // Avatars to work section 52px: 4 (roles) + 24 here + 24 (main gap).
   hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 24px' },
-  intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
+  intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: 1.6, fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   introStrong: { fontWeight: 700, cursor: 'default' },
   roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
   role: {
@@ -256,7 +256,7 @@ function Hero({ isMobile }) {
   return (
     <section style={s.hero}>
       <p style={s.intro}>
-        An AI-first product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
+        Product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
         {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
         Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
       </p>
