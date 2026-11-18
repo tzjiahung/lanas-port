@@ -142,23 +142,6 @@ export function CaseFooter() {
           <span className="snma-footer-clabel">CHANGELOG</span>
           <span>{__BUILD_TIME__}</span>
         </div>
-        <div className="snma-footer-links">
-          {CONTACT_LINKS.map((l, i) => (
-            <React.Fragment key={l.label}>
-              {i > 0 && <span className="snma-footer-dot">·</span>}
-              <a
-                href={l.href}
-                target={l.href.startsWith('mailto:') ? undefined : '_top'}
-                className="snma-footer-link"
-                onClick={(e) => {
-                  trackEvent('click', { button_label: l.label, section: 'footer' })
-                }}
-              >
-                {l.label}
-              </a>
-            </React.Fragment>
-          ))}
-        </div>
       </div>
     </footer>
   )

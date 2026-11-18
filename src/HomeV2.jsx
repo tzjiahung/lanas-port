@@ -84,7 +84,9 @@ const s = {
   },
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 0 24px' },
+  // Nav to intro 52px: 8 (top bar) + 44 here. Intro to avatars 24px: role paddingTop.
+  // Avatars to work section 52px: 4 (roles) + 24 here + 24 (main gap).
+  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 24px' },
   intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: '25.6px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   introStrong: { fontWeight: 700, cursor: 'default' },
   roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
@@ -173,7 +175,7 @@ const BG_SPARKLES = [
   { size: 22, top: '42%', left: '93%', delay: 1.8 },
   { size: 26, top: '62%', left: '3%',  delay: 0.9 },
   // Just past "Seattle" at the end of the intro. The intro is centred, so this is offset from the centre in px.
-  { size: 26, top: 106, left: 'calc(50% + 266px)', delay: 0.3 },
+  { size: 26, top: 130, left: 'calc(50% + 326px)', delay: 0.3 },
   { size: 22, top: '88%', left: '9%',  delay: 1.5 },
   { size: 30, top: '24%', left: '52%', delay: 2.1 },
 ]

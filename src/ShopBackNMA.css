@@ -874,24 +874,10 @@ html:has(.snma-root) body { background: #FFFFFF; }
 }
 
 .snma-footer-inner {
-  max-width: var(--snma-max);
-  margin: 0 auto;
-  padding: 10px clamp(20px, 4vw, 56px) 8px;
+  padding: 24px 23px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
-  font-size: 12px;
-  color: rgba(58, 46, 58, 0.6);
-  letter-spacing: 0.02em;
-  flex-wrap: wrap;
-}
-
-@media (min-width: 881px) {
-  .snma-footer-inner {
-    padding-left: clamp(210px, 18vw, 240px);
-  }
+  justify-content: center;
+  font-family: var(--snma-font);
 }
 
 .snma-footer-changelog {
@@ -908,31 +894,9 @@ html:has(.snma-root) body { background: #FFFFFF; }
 }
 
 .snma-footer-changelog > span:last-child {
+  font-size: 12px;
+  letter-spacing: 0.02em;
   color: rgba(58, 46, 58, 0.7);
-}
-
-.snma-footer-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.snma-footer-dot {
-  color: rgba(58, 46, 58, 0.3);
-}
-
-.snma-footer-link {
-  color: rgba(58, 46, 58, 0.7);
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background 0.15s, color 0.15s;
-}
-
-.snma-footer-link:hover {
-  background: rgba(180, 140, 210, 0.14);
-  color: rgba(58, 46, 58, 0.95);
 }
 
 /* FitBack (OecFin) palette override — teal-green · sky-blue · amber */
