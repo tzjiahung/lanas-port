@@ -106,7 +106,9 @@ const s = {
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 4, minHeight: 18 },
   tab: {
     flex: '1 0 0', minWidth: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-    padding: '8px 16px', margin: 0, cursor: 'pointer', fontFamily: 'inherit',
+    // Longhand padding: the selected tab overrides paddingBottom, and mixing that with the
+    // `padding` shorthand made React drop the bottom padding when a tab was deselected.
+    paddingTop: 8, paddingRight: 16, paddingBottom: 8, paddingLeft: 16, margin: 0, cursor: 'pointer', fontFamily: 'inherit',
     border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none', borderRadius: '6px 6px 0 0',
     filter: 'drop-shadow(0 12px 18px rgba(120,80,140,0.08))',
   },
