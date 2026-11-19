@@ -93,20 +93,21 @@ function Problem() {
           </div>
         </div>
 
-        <div style={{ marginTop: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-            What we needed to design
-          </p>
-          <p className="snma-section-intro" style={{ maxWidth: 'none', marginBottom: 16 }}>
-            A Compliance module where users could <b>add new compliances</b>,{' '}
-            <b>view previously added compliances</b>, and{' '}
-            <b>send compliance data back to the main system</b>.
-          </p>
-          <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none', margin: 0 }}>
-            It had to help users find the right shipping invoices quickly enough to meet regulatory
-            requirements, replacing the slow, error-prone paper process.
-          </p>
-        </div>
+        <h3 className="snma-subtitle">What we needed to design</h3>
+        <ol className="snma-goal-list" style={{ marginBottom: 0 }}>
+          <li>
+            <h4>Add new compliances</h4>
+            <p>Help users quickly find the right shipping invoices and file a compliance, replacing the slow, error-prone paper process.</p>
+          </li>
+          <li>
+            <h4>View previously added compliances</h4>
+            <p>Keep every past compliance in one place, so users can check what was already filed.</p>
+          </li>
+          <li>
+            <h4>Send compliance data back to the main system</h4>
+            <p>Push finished compliance data to the ERP, so records stay in sync without re-entering them by hand.</p>
+          </li>
+        </ol>
       </div>
     </section>
   )
