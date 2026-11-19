@@ -46,17 +46,13 @@ function Overview() {
         <h2 className="snma-section-title">
           Moving a global logistics company's finance workflow online
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
           ranking <b>top 2 for Trans-Pacific Trade</b>. Our organization provides freight transportation,
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
-          Internal users — accounting managers and operations teams in Taipei and Shanghai —
-          needed a dedicated module inside OEC's ERP portal to handle regulatory compliance.
-          The goal: design it <b>from 0 to 1</b>.
-        </p>
+        <img src="/oec-fin/offices-map.jpg" width={2400} height={1350} alt="World map of OEC Group offices in Seattle, New York, Mexico City, Shanghai, Shenzhen, Taipei and Singapore" loading="lazy" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
       </div>
     </section>
   )
@@ -71,8 +67,9 @@ function Problem() {
           Paper-based compliance creates real operational pain
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Before this module, accounting managers had no digital system to retrieve and manage
-          shipping invoices for compliance. The manual process was slow, fragmented, and error-prone.
+          Accounting managers and operations teams had no digital system to
+          retrieve and manage shipping invoices for compliance. The manual process was slow, fragmented,
+          and error-prone, so we needed a dedicated module inside OEC's finance portal, designed <b>from 0 to 1</b>.
         </p>
 
         <div className="snma-goals">
