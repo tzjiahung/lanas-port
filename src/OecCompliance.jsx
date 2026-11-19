@@ -7,7 +7,7 @@ const SECTIONS = [
   { id: 'problem',   label: 'Problem',  sub: true },
   // Design groups the three sections below it.
   { id: 'design',    label: 'Design'    },
-  { id: 'flow',      label: 'User flow', sub: true },
+  { id: 'flow',      label: 'User Flow', sub: true },
   { id: 'proposals', label: 'Exploration', sub: true },
   { id: 'demo',      label: 'Demo',     sub: true },
   { id: 'impact',    label: 'Impact'    },
@@ -167,8 +167,8 @@ function Flow() {
         </div>
 
         <div style={{ marginTop: 40 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-            User flow diagram
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+            User Flow Diagram
           </p>
           {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}
           <div style={{ background: '#DCDCDC', padding: '5%', borderRadius: 10 }}>
