@@ -17,9 +17,9 @@ function Hero() {
       <div className="snma-wrap">
         <h1>
           A{' '}
-          reusable cup{' '}
-          rental system to cut Taiwan's{' '}
-          paper cup waste
+          Reusable Cup{' '}
+          Rental System to Cut Taiwan's{' '}
+          Paper Cup Waste
         </h1>
       </div>
     </section>
@@ -160,7 +160,7 @@ function Design() {
 
         {/* User Flow */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             User Flow
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -171,7 +171,7 @@ function Design() {
 
         {/* Wireframe */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Wireframe
           </p>
           <img src="/oclock/owireframe.png" width={4800} height={4840} alt="Wireframes" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
@@ -179,7 +179,7 @@ function Design() {
 
         {/* Visual Identity */}
         <div style={{ marginBottom: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
             Visual Identity
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -192,7 +192,7 @@ function Design() {
 
         {/* Prototype */}
         <div>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Prototype — 5 key screens
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -275,12 +275,12 @@ function Test() {
 
         {/* Mentor Feedback */}
         <div style={{ marginTop: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
             Workshop Mentor Feedback
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
             <div style={{ borderTop: '2px solid var(--snma-accent1)', paddingTop: 20 }}>
-              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-accent1)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 10 }}>Strengths</div>
+              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-accent1)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 10 }}>Strengths</div>
               <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>
                 "A potential product incorporating both online and offline elements — a seamless,
                 convenient solution. Problem statement is clear and market analysis helps readers
@@ -288,7 +288,7 @@ function Test() {
               </p>
             </div>
             <div style={{ borderTop: '2px solid rgba(26,26,26,0.16)', paddingTop: 20 }}>
-              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 10 }}>Suggestions</div>
+              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 10 }}>Suggestions</div>
               <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>
                 "Think more specifically about what kind of users would want this — the persona
                 could be clearer. Consider also interviewing coffee shop employees to understand

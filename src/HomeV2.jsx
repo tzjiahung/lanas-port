@@ -112,7 +112,7 @@ const s = {
     border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none', borderRadius: '6px 6px 0 0',
     filter: 'drop-shadow(0 12px 18px rgba(120,80,140,0.08))',
   },
-  tabLabel: { fontSize: 16, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#7d68a3' },
+  tabLabel: { fontSize: 16, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', color: '#7d68a3' },
   panel: {
     // Sits above the unselected tab so that tab's shadow tucks under the white panel.
     position: 'relative', zIndex: 1,
@@ -123,8 +123,8 @@ const s = {
   workGrid: { display: 'grid', gap: 24 },
   footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px 23px' },
   changelog: { display: 'flex', alignItems: 'center', gap: 10 },
-  changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(58,46,58,0.45)' },
-  changelogStamp: { fontSize: 12, letterSpacing: '0.02em', color: 'rgba(58,46,58,0.7)' },
+  changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0em', color: 'rgba(58,46,58,0.45)' },
+  changelogStamp: { fontSize: 12, letterSpacing: '0em', color: 'rgba(58,46,58,0.7)' },
 }
 
 function useIsMobile() {

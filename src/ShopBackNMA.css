@@ -47,7 +47,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
 .snma-root h4 {
   font-family: var(--snma-font);
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: 0em;
   margin: 0;
   line-height: 1.04;
 }
@@ -85,12 +85,6 @@ html:has(.snma-root) body { background: #FFFFFF; }
 
 .snma-rail-back:hover { color: var(--snma-fg); }
 
-.snma-rail-divider {
-  width: 28px;
-  height: 1px;
-  background: rgba(26, 26, 26, 0.14);
-  margin: 6px 12px 8px;
-}
 
 .snma-rail-btn {
   display: inline-flex;
@@ -106,37 +100,19 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-size: 16px;
 }
 
-/* Empty spacer that reserves the dot column, so labels never move */
-.snma-rail-dot {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-}
-
 .snma-rail-btn:hover,
 .snma-rail-btn.active { color: var(--snma-fg); }
 
-/* Sub-item: only the label is indented; the dot column stays on one line */
+/* Sub-item: label is indented */
 .snma-rail-btn--sub .snma-rail-label { margin-left: 16px; }
 
 .snma-rail-list {
   position: relative;
+  /* Keeps the space the old divider took (6 + 1 + 8), so "Work" stays apart from the section list */
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-/* Single dot that slides along the dot column to the active item */
-.snma-rail-indicator {
-  position: absolute;
-  top: -4px;
-  left: 12px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--snma-accent1) 35%, white);
-  transition: transform .3s ease;
-  pointer-events: none;
 }
 
 /* Rail pushes content right */
@@ -180,13 +156,6 @@ html:has(.snma-root) body { background: #FFFFFF; }
     flex-shrink: 0;
   }
 
-  .snma-topbar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--snma-accent1) 35%, white);
-  }
-
   .snma-topbar-links {
     display: flex;
     flex-wrap: wrap;
@@ -197,7 +166,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   .snma-topbar-link {
     font-family: var(--snma-mono);
     font-size: 10px;
-    letter-spacing: .02em;
+    letter-spacing: 0em;
     padding: 5px 10px;
     border-radius: 999px;
     color: var(--snma-fg-soft);
@@ -220,8 +189,8 @@ html:has(.snma-root) body { background: #FFFFFF; }
 
 .snma-hero h1 {
   font-size: clamp(28px, 8vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-weight: 900;
+  letter-spacing: 0em;
   max-width: min(1208px, 100%);
   margin-bottom: calc(clamp(24px, 3vw, 32px) - 4px); /* matches the hero bottom padding, minus the line-height leading */
   line-height: 1.15;
@@ -241,7 +210,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-mono);
   text-transform: uppercase;
   font-size: 11px;
-  letter-spacing: .08em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
   margin-bottom: 8px;
 }
@@ -272,17 +241,17 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-font);
   font-size: 48px;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0em;
   line-height: .9;
 }
 
-.snma-stat-n .sm { font-size: .45em; font-weight: 700; letter-spacing: -0.02em; }
+.snma-stat-n .sm { font-size: .45em; font-weight: 700; letter-spacing: 0em; }
 
 .snma-stat-lbl {
   font-family: var(--snma-mono);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
   margin-top: 24px;
 }
@@ -334,7 +303,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   white-space: nowrap;
   font-family: var(--snma-mono);
   font-size: 13px;
-  letter-spacing: .04em;
+  letter-spacing: 0em;
   text-transform: uppercase;
   color: var(--snma-fg-soft);
   width: max-content;
@@ -361,16 +330,16 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-mono);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
   margin-bottom: 18px;
   display: block;
 }
 
 .snma-section-title {
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(24px, 2.6vw, 28px);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: 0em;
   margin-bottom: 24px;
   line-height: 1.04;
 }
@@ -469,7 +438,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-size: 24px;
   line-height: 1.1;
   margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
 }
 
 .snma-assumption p { color: var(--snma-fg-soft); font-size: 16px; margin: 0; }
@@ -499,13 +468,13 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-font);
   font-weight: 800;
   font-size: 56px;
-  letter-spacing: -0.05em;
+  letter-spacing: 0em;
   line-height: .85;
   margin-bottom: 16px;
   color: var(--snma-fg);
 }
 
-.snma-goal h3 { font-size: 22px; margin-bottom: 12px; letter-spacing: -0.02em; }
+.snma-goal h3 { font-size: 22px; margin-bottom: 12px; letter-spacing: 0em; }
 .snma-goal p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
 
 /* Research goal tiles (NMA) */
@@ -542,7 +511,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
 }
 
 .snma-goal-list li::marker { font-weight: 600; color: var(--snma-fg); }
-.snma-goal-list h4 { font-size: 18px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.snma-goal-list h4 { font-size: 18px; letter-spacing: 0em; margin-bottom: 6px; }
 .snma-goal-list p { margin: 0; font-size: 16px; color: var(--snma-fg-soft); }
 
 .snma-gv-card {
@@ -635,7 +604,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
 .snma-root .snma-subtitle {
   font-size: 24px;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
   margin: 72px 0 24px;
 }
 
@@ -678,7 +647,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   color: var(--snma-on-acc2);
 }
 
-.snma-method-card h3 { font-size: 22px; letter-spacing: -0.02em; }
+.snma-method-card h3 { font-size: 22px; letter-spacing: 0em; }
 
 .snma-method-meta {
   display: flex;
@@ -690,7 +659,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-mono);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
 }
 
@@ -704,7 +673,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   margin-bottom: 56px;
 }
 
-.snma-method-block h3 { font-size: 22px; letter-spacing: -0.02em; }
+.snma-method-block h3 { font-size: 22px; letter-spacing: 0em; }
 .snma-method-scope { color: var(--snma-fg-mute); font-weight: 400; }
 .snma-method-block p { color: var(--snma-fg-soft); margin: 0; }
 
@@ -724,7 +693,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   padding: 32px;
 }
 
-.snma-timeline h3 { font-size: 20px; margin-bottom: 24px; letter-spacing: -0.02em; }
+.snma-timeline h3 { font-size: 20px; margin-bottom: 24px; letter-spacing: 0em; }
 
 .snma-timeline-track {
   display: grid;
@@ -743,7 +712,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-mono);
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
   margin-bottom: 6px;
 }
@@ -769,8 +738,8 @@ html:has(.snma-root) body { background: #FFFFFF; }
   margin-bottom: 40px;
   font-family: var(--snma-font);
   font-weight: 600;
-  letter-spacing: -0.025em;
-  font-size: clamp(24px, 2.6vw, 36px);
+  letter-spacing: 0em;
+  font-size: clamp(24px, 2.6vw, 28px);
   line-height: 1.18;
 }
 
@@ -800,12 +769,12 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-family: var(--snma-mono);
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0em;
   color: var(--snma-fg-mute);
   margin-bottom: 12px;
 }
 
-.snma-impact-card h3 { font-size: 24px; letter-spacing: -0.02em; margin-bottom: 14px; }
+.snma-impact-card h3 { font-size: 24px; letter-spacing: 0em; margin-bottom: 14px; }
 .snma-impact-card p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0 0 20px; }
 
 .snma-post-impact {
@@ -859,7 +828,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
   border: 1px solid rgba(26, 26, 26, 0.12);
 }
 
-.snma-takeaway h3 { font-size: 22px; letter-spacing: -0.02em; margin-bottom: 10px; }
+.snma-takeaway h3 { font-size: 22px; letter-spacing: 0em; margin-bottom: 10px; }
 
 .snma-takeaway p { color: var(--snma-fg-soft); font-size: 16px; line-height: 1.55; margin: 0; }
 
@@ -889,13 +858,13 @@ html:has(.snma-root) body { background: #FFFFFF; }
 .snma-footer-clabel {
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0em;
   color: rgba(58, 46, 58, 0.45);
 }
 
 .snma-footer-changelog > span:last-child {
   font-size: 12px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0em;
   color: rgba(58, 46, 58, 0.7);
 }
 
@@ -995,7 +964,7 @@ html:has(.snma-root) body { background: #FFFFFF; }
 /* NMA Impact rows: figure on the left, number and caption on the right (Figma 234:2947) */
 .snma-impact-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 24px; }
 .snma-impact-row { display: grid; row-gap: 24px; align-content: start; }
-.snma-root .snma-impact-row h3 { font-size: 18px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.snma-root .snma-impact-row h3 { font-size: 18px; letter-spacing: 0em; margin-bottom: 6px; }
 .snma-impact-row p { color: var(--snma-fg-soft); margin: 0; }
 .snma-chart.snma-impact-fig {
   margin: 0;

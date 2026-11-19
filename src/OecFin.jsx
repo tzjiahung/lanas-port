@@ -159,14 +159,14 @@ function Process() {
 
         {/* Five Stages model diagram */}
         <div style={{ marginBottom: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Five Stages of Behavior Change Model
           </p>
           <img src="/fitback/stages.avif" width={1920} height={668} alt="Five Stages of Behavior Change Model diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive audit matrix</p>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive audit matrix</p>
           <img src="/fitback/matrix.avif" width={1920} height={1152} alt="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
@@ -247,7 +247,7 @@ function Survey() {
 
         {/* Survey insights summary */}
         <div style={{ marginTop: 40, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.14em', color: 'var(--snma-fg-mute)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12 }}>
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'currentColor' }} />
             Key insights
           </p>
@@ -258,7 +258,7 @@ function Survey() {
               { n: '03', text: 'Of prevalent social functions, "Feed" is most preferred. If FitBack adds social features, starting with a feed-style interaction is the strongest bet.' },
             ].map(i => (
               <div key={i.n} style={{ borderTop: '2px solid rgba(26,26,26,0.12)', paddingTop: 20 }}>
-                <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 10 }}>Insight {i.n}</div>
+                <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 10 }}>Insight {i.n}</div>
                 <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>{i.text}</p>
               </div>
             ))}

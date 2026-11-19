@@ -208,7 +208,7 @@ const cardStyles = {
   },
   title: {
     margin: 0, fontSize: 12, fontWeight: 600,
-    letterSpacing: '0.08em', textTransform: 'uppercase',
+    letterSpacing: '0em', textTransform: 'uppercase',
     color: 'rgba(58,46,58,0.55)',
   },
   body: {
@@ -227,7 +227,7 @@ function AboutBlock({ heading, marker, children }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         {marker && <VoxelMarker kind={marker} size={26} />}
-        <h3 style={{ margin: 0, fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(58,46,58,0.55)', textWrap: 'pretty' }}>
+        <h3 style={{ margin: 0, fontSize: 11, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', color: 'rgba(58,46,58,0.55)', textWrap: 'pretty' }}>
           {heading}
         </h3>
       </div>
@@ -282,7 +282,7 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
         <div style={{ marginTop: -2 }}>
           <AboutBlock heading={null} marker={null}>
             <p style={{ margin: 0 }}>
-              <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#5a2c52' }}>Lana Hung</span> is an{' '}
+              <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' }}>Lana Hung</span> is an{' '}
               <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>AI-native UX designer</strong>{' '}
               who designs, researches, and ships with measurable wins across{' '}
               <strong style={{ color: '#2a1e2e', fontWeight: 600 }}>multi-market platforms</strong>.
@@ -427,7 +427,7 @@ export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor,
       }}>
         {cover
           ? <img src={cover} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(58,46,58,0.32)', fontWeight: 500 }}>
+          : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, letterSpacing: '0em', textTransform: 'uppercase', color: 'rgba(58,46,58,0.32)', fontWeight: 500 }}>
               {role.split(' · ')[1] || 'Case study'}
             </div>
         }
@@ -441,7 +441,7 @@ export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor,
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-          <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#2a1e2e', letterSpacing: '-0.01em' }}>{title}</h3>
+          <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#2a1e2e', letterSpacing: '0em' }}>{title}</h3>
           <span style={{ fontSize: 12, color: 'rgba(58,46,58,0.55)' }}>· {year}</span>
         </div>
       </div>
@@ -532,7 +532,7 @@ const FOLDER_TAB_CLIP = 'inset(-24px -24px 0 -24px)';
 const FOLDER_TAB_SHADE = 'inset 0 -10px 8px -8px rgba(91,74,138,0.22)';
 
 function FolderTabs({ active, onChange, radius, strokeCenter }) {
-  const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', lineHeight: 1 };
+  const tabLabel = { fontSize: 12, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', lineHeight: 1 };
   const tabBtn = { fontFamily: 'inherit', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, margin: 0 };
   const r = Math.max(radius ?? 8, 8);
   const [soonPos, setSoonPos] = React.useState(null); // tooltip anchor, relative to the right tab area
@@ -593,7 +593,7 @@ function FolderTabs({ active, onChange, radius, strokeCenter }) {
           }}
         >
           <VoxelMarker kind="playground" size={18} />
-          <span style={{ ...tabLabel, letterSpacing: '0.14em' }}>Playground</span>
+          <span style={{ ...tabLabel, letterSpacing: '0em' }}>Playground</span>
           <HeroSparkle size={12} top={-6} right={-7} color="#f2a65a" />
           <HeroSparkle size={8} top={-5} right={58} color="#a993e6" delay={1.2} />
         </button>
@@ -836,13 +836,13 @@ function StatusBar({ isMobile, inset }) {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: `10px ${inset}px 8px`, fontSize: 12, color: 'rgba(58,46,58,0.6)',
     fontFamily: '"JetBrains Mono", "SF Mono", ui-monospace, monospace',
-    letterSpacing: '0.02em', flexShrink: 0,
+    letterSpacing: '0em', flexShrink: 0,
   };
   const mobileWrap = isMobile ? { flexDirection: 'column', alignItems: 'flex-start', gap: 8, padding: `20px ${inset}px 12px` } : null;
   return (
     <div style={{ ...wrap, ...mobileWrap }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', color: 'rgba(58,46,58,0.45)' }}>CHANGELOG</span>
+        <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0em', color: 'rgba(58,46,58,0.45)' }}>CHANGELOG</span>
         <span style={{ color: 'rgba(58,46,58,0.7)' }}>{CHANGELOG_STAMP}</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: isMobile ? 'wrap' : 'nowrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', margin: isMobile ? '0 0 0 -8px' : 0 }}>

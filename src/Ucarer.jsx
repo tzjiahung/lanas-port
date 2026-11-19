@@ -18,8 +18,8 @@ function Hero() {
         <h1>
           Redesigning{' '}
           Ucarer{' '}
-          to boost activation and{' '}
-          simplify care-finding
+          to Boost Activation and{' '}
+          Simplify Care-Finding
         </h1>
       </div>
     </section>
@@ -124,7 +124,7 @@ function Research() {
 
         {/* Insights */}
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
             Research Insights → Define
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 28 }}>
@@ -134,7 +134,7 @@ function Research() {
               { n: '03', title: 'IA needs a rebuild', text: 'The underlying information architecture needed a complete overhaul: rebuild the IA, then refine the user flow.' },
             ].map(i => (
               <div key={i.n} style={{ borderTop: '2px solid rgba(26,26,26,0.12)', paddingTop: 20 }}>
-                <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 8 }}>Insight {i.n}</div>
+                <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 8 }}>Insight {i.n}</div>
                 <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 8 }}>{i.title}</div>
                 <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>{i.text}</p>
               </div>
@@ -161,7 +161,7 @@ function Ideate() {
 
         {/* IA */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Information Architecture
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -173,7 +173,7 @@ function Ideate() {
 
         {/* Wireframe */}
         <div>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Wireframe
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -229,12 +229,12 @@ function Prototype() {
 
         {/* Feedback */}
         <div style={{ marginTop: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
             Workshop Feedback
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
             <div style={{ borderTop: '2px solid var(--snma-accent1)', paddingTop: 20 }}>
-              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-accent1)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 10 }}>Result</div>
+              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-accent1)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 10 }}>Result</div>
               <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>
                 Over <b>95% of participants preferred the new version</b> over the previous app.
                 They agreed with the new IA and said the updated structure made the booking
@@ -242,7 +242,7 @@ function Prototype() {
               </p>
             </div>
             <div style={{ borderTop: '2px solid rgba(26,26,26,0.16)', paddingTop: 20 }}>
-              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 10 }}>What resonated</div>
+              <div style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, color: 'var(--snma-fg-mute)', letterSpacing: '0em', textTransform: 'uppercase', marginBottom: 10 }}>What resonated</div>
               <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--snma-fg-soft)', margin: 0 }}>
                 "Most of them think with the new structure, it is easier to understand
                 the booking process." The well-structured IA was the most cited reason

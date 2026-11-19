@@ -17,9 +17,8 @@ function Hero() {
       <div className="snma-wrap">
         <h1>
           Rebuilding OEC Portal's{' '}
-          typography{' '}
-          system for{' '}
-          clarity and consistency
+          Typography{' '}
+          System
         </h1>
       </div>
     </section>
