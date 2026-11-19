@@ -48,7 +48,7 @@ function Overview() {
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
-          ranking <b>top 2 for Transpacific Trade</b>. Our organization provides freight transportation,
+          ranking <b>top 2 for Trans-Pacific Trade</b>. Our organization provides freight transportation,
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
