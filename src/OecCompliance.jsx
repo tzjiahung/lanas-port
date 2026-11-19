@@ -44,7 +44,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
-          A freight forwarding giant going digital
+          Moving a global logistics company's finance workflow online
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
@@ -156,7 +156,7 @@ function Flow() {
         </div>
 
         <div style={{ marginTop: 40 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '.08em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             User flow diagram
           </p>
           {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}

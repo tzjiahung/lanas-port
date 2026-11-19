@@ -139,7 +139,7 @@ export function ImgPlaceholder({ label, height = 240, style }) {
       fontSize: 11,
       fontFamily: 'var(--snma-mono)',
       color: 'rgba(26,26,26,0.32)',
-      letterSpacing: '0.08em',
+      letterSpacing: '0em',
       textTransform: 'uppercase',
       border: '1.5px dashed rgba(26,26,26,0.14)',
       ...style,
