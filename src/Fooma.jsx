@@ -17,9 +17,9 @@ function Hero() {
       <div className="snma-wrap">
         <h1>
           A{' '}
-          food waste{' '}
-          solution that turns your fridge into a{' '}
-          smart reminder
+          Food Waste{' '}
+          Solution That Turns Your Fridge into a{' '}
+          Smart Reminder
         </h1>
       </div>
     </section>

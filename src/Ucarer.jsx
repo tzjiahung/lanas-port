@@ -18,8 +18,8 @@ function Hero() {
         <h1>
           Redesigning{' '}
           Ucarer{' '}
-          to boost activation and{' '}
-          simplify care-finding
+          to Boost Activation and{' '}
+          Simplify Care-Finding
         </h1>
       </div>
     </section>

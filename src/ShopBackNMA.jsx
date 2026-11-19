@@ -15,7 +15,7 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <h1>Mixed-methods study to close new market activation gap in the U.S. &amp; Germany</h1>
+        <h1>Mixed-Methods Study to Close New Market Activation Gap in the U.S. &amp; Germany</h1>
       </div>
     </section>
   )

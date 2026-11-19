@@ -17,9 +17,9 @@ function Hero() {
       <div className="snma-wrap">
         <h1>
           A{' '}
-          reusable cup{' '}
-          rental system to cut Taiwan's{' '}
-          paper cup waste
+          Reusable Cup{' '}
+          Rental System to Cut Taiwan's{' '}
+          Paper Cup Waste
         </h1>
       </div>
     </section>
