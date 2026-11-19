@@ -103,7 +103,7 @@ const s = {
     transition: 'background 0.2s',
   },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
-  tabs: { display: 'flex', alignItems: 'flex-end', gap: 4, minHeight: 18 },
+  tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
   tab: {
     flex: '1 0 0', minWidth: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
     // Longhand padding: the selected tab overrides paddingBottom, and mixing that with the
