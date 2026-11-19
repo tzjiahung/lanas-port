@@ -52,23 +52,11 @@ function Overview() {
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
           Internal users — accounting managers and operations teams in Taipei and Shanghai —
           needed a dedicated module inside OEC's ERP portal to handle regulatory compliance.
           The goal: design it <b>from 0 to 1</b>.
         </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p className="snma-section-intro" style={{ maxWidth: 'none', marginBottom: 16 }}>
-            The Compliance module allows users to <b>add new compliances</b>,{' '}
-            <b>view previously added compliances</b>, and{' '}
-            <b>send compliance data back to the main system</b>.
-          </p>
-          <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none', margin: 0 }}>
-            Users can efficiently locate shipping invoices to satisfy regulatory compliance requirements
-            — replacing a slow, error-prone paper-based process.
-          </p>
-        </div>
       </div>
     </section>
   )
@@ -103,6 +91,21 @@ function Problem() {
             <h3>High human error risk</h3>
             <p>Without a digital system, manual data entry and document handling increased the likelihood of errors that could affect compliance accuracy.</p>
           </div>
+        </div>
+
+        <div style={{ marginTop: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+            What we needed to design
+          </p>
+          <p className="snma-section-intro" style={{ maxWidth: 'none', marginBottom: 16 }}>
+            A Compliance module where users could <b>add new compliances</b>,{' '}
+            <b>view previously added compliances</b>, and{' '}
+            <b>send compliance data back to the main system</b>.
+          </p>
+          <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none', margin: 0 }}>
+            It had to help users find the right shipping invoices quickly enough to meet regulatory
+            requirements, replacing the slow, error-prone paper process.
+          </p>
         </div>
       </div>
     </section>
