@@ -1,4 +1,5 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import VoxelMarker from './VoxelMarker.jsx'
 import {
   trackEvent, ArrowOut, HeroSparkle, CaseStudy,
@@ -328,13 +329,120 @@ function ArticleList() {
   )
 }
 
+// About tab, built from Figma "home-page-about-v6" (node 354:4068).
+// Each photo is 214px tall on desktop: square photos are 214px wide, wide ones fill their column at 4:3.
+// `crop` repeats the framing set in Figma for photos that aren't simply centred.
+const ABOUT_DIR = 'home-v2/about/'
+const DESIGN_PHOTOS = [
+  { src: 'amazon-conflux.jpg', caption: 'Building design product @ Amazon Conflux 2026', crop: { left: '-3.62%', top: '-10.56%', width: '114.7%', height: '114.7%' } },
+  { src: 'seattle-ux-event.jpg', caption: 'Attending UX design events @ Seattle', square: true },
+  { src: 'shopback-offsite.jpg', caption: 'Launching research agent @ ShopBack SG Offsite', crop: { left: '-34.73%', top: '-15%', width: '148.23%', height: '123.53%' } },
+  { src: 'hci-hackathon.jpg', caption: 'Presenting our product @ TW HCI Hackathon', square: true, crop: { left: '-17.94%', top: '-0.06%', width: '151.94%', height: '100%' } },
+]
+const LIFE_PHOTOS = [
+  { src: 'europe.jpg', caption: 'Traveling @ Europe', square: true, crop: { left: '-27.26%', top: '-11.72%', width: '148%', height: '116.59%' } },
+  { src: 'scuba-diving.jpg', caption: 'Scuba diving @ Canary Islands, Spain' },
+  { src: 'lego.jpg', caption: 'Playing lego with family and friends', square: true },
+  { src: 'volleyball.jpg', caption: 'Playing volleyball with college friends' },
+]
+
+const about = {
+  panel: { display: 'flex', flexDirection: 'column', gap: 32 },
+  section: { display: 'flex', flexDirection: 'column', gap: 8 },
+  heading: { ...articleStyles.title, margin: 0, fontSize: 14, fontWeight: 600 },
+  portrait: { width: 214, height: 214, borderRadius: 6, objectFit: 'cover', display: 'block' },
+  notes: { width: '100%', height: 'auto', borderRadius: 6, display: 'block' },
+  notesButton: { display: 'block', width: '100%', padding: 0, margin: 0, border: 'none', background: 'none', cursor: 'zoom-in' },
+  lightbox: {
+    position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
+    background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', cursor: 'zoom-out',
+  },
+  lightboxImg: { maxWidth: '100%', maxHeight: '100%', borderRadius: 8, boxShadow: '0 12px 36px rgba(120,80,140,0.12)', display: 'block' },
+  // Phones: the image keeps a readable height and scrolls sideways instead of shrinking to the screen width.
+  lightboxMobile: { justifyContent: 'flex-start', overflowX: 'auto', padding: '24px 16px' },
+  lightboxImgMobile: { maxWidth: 'none', height: 'min(70vh, 360px)', width: 'auto', flexShrink: 0 },
+  row: { display: 'grid', gap: 8 },
+  photo: { margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 0 },
+  frame: { position: 'relative', borderRadius: 6, overflow: 'hidden', maxWidth: '100%' },
+  caption: { ...articleStyles.meta, textAlign: 'center' },
+}
+
+function AboutPhoto({ src, caption, square, crop }) {
+  const frame = square ? { width: 214, aspectRatio: '1 / 1' } : { width: '100%', aspectRatio: '240 / 180' }
+  const img = crop
+    ? { position: 'absolute', maxWidth: 'none', ...crop }
+    : { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }
+  return (
+    <figure style={about.photo}>
+      <div style={{ ...about.frame, ...frame }}>
+        <img src={ABOUT_DIR + src} alt={caption} loading="lazy" style={{ ...img, display: 'block' }} />
+      </div>
+      <figcaption style={about.caption}>{caption}</figcaption>
+    </figure>
+  )
+}
+
+// Click to enlarge: opens over the page on a translucent white backdrop; click anywhere or press Esc to close.
+function ZoomableImage({ src, alt }) {
+  const isMobile = useIsMobile()
+  const [open, setOpen] = React.useState(false)
+  React.useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+  return (
+    <React.Fragment>
+      <button type="button" aria-label={`Enlarge: ${alt}`} style={about.notesButton} onClick={() => setOpen(true)}>
+        <img src={src} alt={alt} loading="lazy" style={about.notes} />
+      </button>
+      {/* Rendered on <body> so it sits above the tabs, which stack above the panel. */}
+      {open && createPortal(
+        <div role="dialog" aria-modal="true" aria-label={alt} style={{ ...about.lightbox, ...(isMobile ? about.lightboxMobile : null) }} onClick={() => setOpen(false)}>
+          <img src={src} alt={alt} style={{ ...about.lightboxImg, ...(isMobile ? about.lightboxImgMobile : null) }} />
+        </div>,
+        document.body,
+      )}
+    </React.Fragment>
+  )
+}
+
+function AboutSection({ title, children }) {
+  return (
+    <section style={about.section}>
+      <h3 style={about.heading}>{title}</h3>
+      {children}
+    </section>
+  )
+}
+
+function AboutPanel({ isMobile }) {
+  const row = { ...about.row, gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)' }
+  return (
+    <div style={about.panel}>
+      <img src={ABOUT_DIR + 'portrait.jpg'} alt="Lana Hung" style={about.portrait} />
+      <AboutSection title="When It Comes to Design, I Love...">
+        <div style={row}>{DESIGN_PHOTOS.map((p) => <AboutPhoto key={p.src} {...p} />)}</div>
+      </AboutSection>
+      <AboutSection title="From My Colleagues, I Received...">
+        <ZoomableImage src={ABOUT_DIR + 'colleague-notes.jpg'} alt="Thank-you notes from colleagues at ShopBack" />
+      </AboutSection>
+      <AboutSection title="Outside of Work, I Love...">
+        <div style={row}>{LIFE_PHOTOS.map((p) => <AboutPhoto key={p.src} {...p} />)}</div>
+      </AboutSection>
+    </div>
+  )
+}
+
 export default function HomeV2() {
   const isMobile = useIsMobile()
   const [tab, setTab] = React.useState('work')
 
   function selectTab(next) {
     if (next === tab) return
-    trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Article tab', section: 'home-v2' })
+    const labels = { work: 'Work tab', article: 'Article tab', about: 'About tab' }
+    trackEvent('click', { button_label: labels[next], section: 'home-v2' })
     setTab(next)
   }
 
@@ -355,14 +463,17 @@ export default function HomeV2() {
             <div role="tablist" aria-label="Work and articles" style={s.tabs}>
               <Tab id="work" label="Work" active={tab === 'work'} onSelect={selectTab} />
               <Tab id="article" label="Article" active={tab === 'article'} onSelect={selectTab} />
+              <Tab id="about" label="About" active={tab === 'about'} onSelect={selectTab} />
             </div>
             <section role="tabpanel" id={`home-v2-panel-${tab}`} aria-labelledby={`home-v2-tab-${tab}`} style={s.panel}>
               {tab === 'work' ? (
                 <div style={{ ...s.workGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
                   {HOME_WORKS.map((w) => <CaseStudy key={w.id} {...w} aspectRatio="760 / 487" hoverZoom={false} />)}
                 </div>
-              ) : (
+              ) : tab === 'article' ? (
                 <ArticleList />
+              ) : (
+                <AboutPanel isMobile={isMobile} />
               )}
             </section>
           </div>
