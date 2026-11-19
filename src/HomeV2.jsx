@@ -349,10 +349,11 @@ const LIFE_PHOTOS = [
 ]
 
 const about = {
-  panel: { display: 'flex', flexDirection: 'column', gap: 32 },
+  // paddingTop + the tab panel's own 16px padding = 32px above the portrait, matching the gaps between sections.
+  panel: { display: 'flex', flexDirection: 'column', gap: 32, paddingTop: 16 },
   section: { display: 'flex', flexDirection: 'column', gap: 8 },
   heading: { ...articleStyles.title, margin: 0, fontSize: 14, fontWeight: 600 },
-  portrait: { width: 214, height: 214, borderRadius: 6, objectFit: 'cover', display: 'block' },
+  portrait: { width: 214, height: 214, borderRadius: 6, objectFit: 'cover', display: 'block', marginLeft: 16 },
   notes: { width: '100%', height: 'auto', borderRadius: 6, display: 'block' },
   notesButton: { display: 'block', width: '100%', padding: 0, margin: 0, border: 'none', background: 'none', cursor: 'zoom-in' },
   lightbox: {
