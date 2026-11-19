@@ -1,5 +1,5 @@
 // Shared layout primitives for all case study pages
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function trackEvent(name, params) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params)
@@ -63,39 +63,21 @@ export function CaseMeta({ children }) {
 }
 
 export function RailNav({ sections, active }) {
-  // One dot slides along a fixed vertical line to the active item; labels never move.
-  // Sections with `sub: true` are indented by label only.
-  const listRef = useRef(null)
-  const [dotY, setDotY] = useState(null)
-
-  useLayoutEffect(() => {
-    if (!listRef.current) return
-    const update = () => {
-      const btn = listRef.current?.querySelector(`[data-id="${active}"]`)
-      if (btn) setDotY(btn.offsetTop + btn.offsetHeight / 2)
-    }
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [active])
+  // The active section is shown by its darker label. Sections with `sub: true` are indented.
 
   return (
     <nav className="snma-rail" aria-label="Page sections">
       <a
         href="/"
         className="snma-rail-back"
-        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'Work', section: 'rail_nav' }); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'All projects', section: 'rail_nav' }); window.location.replace('/') }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        Work
+        All projects
       </a>
-      <div className="snma-rail-divider" />
-      <div className="snma-rail-list" ref={listRef}>
-        {dotY !== null && (
-          <span className="snma-rail-indicator" style={{ transform: `translateY(${dotY}px)` }} aria-hidden="true" />
-        )}
+      <div className="snma-rail-list">
         {sections.map(s => (
           <button
             key={s.id}
@@ -103,7 +85,6 @@ export function RailNav({ sections, active }) {
             className={`snma-rail-btn${s.sub ? ' snma-rail-btn--sub' : ''}${active === s.id ? ' active' : ''}`}
             onClick={() => { trackEvent('click', { button_label: s.label, section: 'rail_nav' }); scrollTo(s.id); }}
           >
-            <span className="snma-rail-dot" />
             <span className="snma-rail-label">{s.label}</span>
           </button>
         ))}
@@ -120,7 +101,6 @@ export function TopBar({ sections }) {
         className="snma-topbar-brand"
         onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'Lana Hung', section: 'topbar' }); window.location.replace('/') }}
       >
-        <span className="snma-topbar-dot" />
         <span>Lana Hung</span>
       </a>
       <div className="snma-topbar-links">

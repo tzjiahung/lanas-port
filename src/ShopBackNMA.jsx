@@ -26,9 +26,9 @@ function Meta() {
   return (
     <CaseMeta>
       <dl className="snma-meta">
+        <div><dt>My Role</dt><dd>Product Designer</dd></div>
         <div><dt>Team</dt><dd>1 Researcher, 1 Designer, 1 PM</dd></div>
         <div><dt>Duration</dt><dd>Aug 2025 · 1 month</dd></div>
-        <div><dt>Methods</dt><dd>Interviews · Survey · Behavioral data</dd></div>
         <div><dt>Tools</dt><dd>Lyssna · Amplitude · Metabase</dd></div>
       </dl>
     </CaseMeta>

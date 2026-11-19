@@ -85,12 +85,6 @@ html:has(.snma-root) body { background: #FFFFFF; }
 
 .snma-rail-back:hover { color: var(--snma-fg); }
 
-.snma-rail-divider {
-  width: 28px;
-  height: 1px;
-  background: rgba(26, 26, 26, 0.14);
-  margin: 6px 12px 8px;
-}
 
 .snma-rail-btn {
   display: inline-flex;
@@ -106,37 +100,19 @@ html:has(.snma-root) body { background: #FFFFFF; }
   font-size: 16px;
 }
 
-/* Empty spacer that reserves the dot column, so labels never move */
-.snma-rail-dot {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-}
-
 .snma-rail-btn:hover,
 .snma-rail-btn.active { color: var(--snma-fg); }
 
-/* Sub-item: only the label is indented; the dot column stays on one line */
+/* Sub-item: label is indented */
 .snma-rail-btn--sub .snma-rail-label { margin-left: 16px; }
 
 .snma-rail-list {
   position: relative;
+  /* Keeps the space the old divider took (6 + 1 + 8), so "Work" stays apart from the section list */
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-/* Single dot that slides along the dot column to the active item */
-.snma-rail-indicator {
-  position: absolute;
-  top: -4px;
-  left: 12px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--snma-accent1) 35%, white);
-  transition: transform .3s ease;
-  pointer-events: none;
 }
 
 /* Rail pushes content right */
@@ -178,13 +154,6 @@ html:has(.snma-root) body { background: #FFFFFF; }
     text-decoration: none;
     color: inherit;
     flex-shrink: 0;
-  }
-
-  .snma-topbar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--snma-accent1) 35%, white);
   }
 
   .snma-topbar-links {

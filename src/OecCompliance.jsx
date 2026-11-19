@@ -5,8 +5,10 @@ import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from '
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'problem',   label: 'Problem'   },
-  { id: 'flow',      label: 'User flow' },
+  // Design groups the three sections below it; its anchor sits right before User flow.
   { id: 'design',    label: 'Design'    },
+  { id: 'flow',      label: 'User flow', sub: true },
+  { id: 'proposals', label: 'Exploration', sub: true },
   { id: 'demo',      label: 'Demo',     sub: true },
   { id: 'impact',    label: 'Impact'    },
   { id: 'reflection', label: 'Reflection' },
@@ -16,7 +18,7 @@ function Hero() {
   return (
     <section className="snma-hero" id="top">
       <div className="snma-wrap">
-        <h1>0 → 1 Building the Finance Compliance Module for an ERP System</h1>
+        <h1>0 → 1 Finance Compliance Module for a Logistics Company</h1>
       </div>
     </section>
   )
@@ -27,9 +29,9 @@ function Meta() {
   return (
     <CaseMeta>
       <dl className="snma-meta">
+        <div><dt>My Role</dt><dd>UI/UX Designer</dd></div>
         <div><dt>Team</dt><dd>1 PM, 1 Designer, 2 Engineers</dd></div>
         <div><dt>Duration</dt><dd>Sep 2024 · 1 month</dd></div>
-        <div><dt>Deliverables</dt><dd>IA · User Flow · Wireframe · Prototype</dd></div>
         <div><dt>Tools</dt><dd>Figma · Confluence · Jira</dd></div>
       </dl>
     </CaseMeta>
@@ -169,54 +171,54 @@ function Flow() {
 
 const PROPOSALS = [
   {
-    tag: 'Proposal A',
+    tag: 'Exploration A',
     title: 'CTA below empty state',
     body: 'Display a call-to-action button beneath the empty state on the compliance list page.',
     caveat: 'Inquiry options only become visible after the user clicks the button — extra step, lower discoverability.',
     accepted: false,
     img: '/oec-fin/o2.webp',
     w: 4096, h: 2206,
-    alt: 'Proposal A — CTA below empty state mockup',
+    alt: 'Exploration A — CTA below empty state mockup',
   },
   {
-    tag: 'Proposal B',
+    tag: 'Exploration B',
     title: 'Inquiries within Invoice section',
     body: 'Place the inquiry input fields directly inside the Invoice section card.',
     caveat: 'Card-in-card component structure creates visual complexity and an awkward nesting hierarchy.',
     accepted: false,
     img: '/oec-fin/o3.webp',
     w: 3840, h: 2752,
-    alt: 'Proposal B — card-in-card mockup',
+    alt: 'Exploration B — card-in-card mockup',
   },
   {
-    tag: 'Proposal C',
+    tag: 'Exploration C',
     title: 'Transfer component',
     body: 'Use a transfer/shuttle component to let users move invoices from available to selected.',
     caveat: 'Layout limitations prevent users from viewing all required invoice columns simultaneously.',
     accepted: false,
     img: '/oec-fin/o4.webp',
     w: 4096, h: 1775,
-    alt: 'Proposal C — transfer component mockup',
+    alt: 'Exploration C — transfer component mockup',
   },
   {
-    tag: 'Proposal D',
+    tag: 'Exploration D',
     title: 'Upfront query with inline filtering',
     body: 'Enable users to enter query parameters upfront, with filtering applied directly inside a dialog — all columns visible, no nesting issues.',
     caveat: null,
     accepted: true,
     img: '/oec-fin/o5.webp',
     w: 4096, h: 1365,
-    alt: 'Proposal D — direct inquiries with dialog mockup',
+    alt: 'Exploration D — direct inquiries with dialog mockup',
   },
 ]
 
 function Design() {
   return (
-    <section id="design" className="snma-section">
+    <section id="proposals" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Design proposals</span>
+        <span className="snma-section-label">Exploration</span>
         <h2 className="snma-section-title">
-          Four proposals. One clear winner
+          Four explorations for the invoice selection step
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
           The core design challenge was the invoice selection step — how should users enter
@@ -294,7 +296,7 @@ function Impact() {
           <div className="snma-stat">
             <div className="snma-stat-n">4</div>
             <div>
-              <div className="snma-stat-lbl">Design proposals</div>
+              <div className="snma-stat-lbl">Design explorations</div>
               <div className="snma-stat-desc">Explored before landing on final</div>
             </div>
           </div>
@@ -327,7 +329,7 @@ function Takeaways() {
         <ol className="snma-goal-list snma-reflection-list">
           <li>
             <h4>Explore before committing</h4>
-            <p>Running four distinct proposals, even knowing some wouldn't work, gave the team a shared language for trade-offs. Showing why proposals A, B, and C failed made it much easier for stakeholders to trust proposal D.</p>
+            <p>Running four distinct explorations, even knowing some wouldn't work, gave the team a shared language for trade-offs. Showing why explorations A, B, and C failed made it much easier for stakeholders to trust exploration D.</p>
           </li>
           <li>
             <h4>Enterprise constraints shape design</h4>
@@ -344,7 +346,7 @@ export default function OecCompliance() {
 
   useEffect(() => {
     const prev = document.title
-    document.title = 'Lana Hung — OEC ERP Compliance Module'
+    document.title = 'Lana Hung — OEC Finance Compliance Module'
     const prevBg = document.body.style.background
     const prevColor = document.body.style.color
     document.body.style.background = '#FFFFFF'
@@ -369,6 +371,7 @@ export default function OecCompliance() {
       <Meta />
       <Overview />
       <Problem />
+      <div id="design" aria-hidden="true" />
       <Flow />
       <Design />
       <Demo />
