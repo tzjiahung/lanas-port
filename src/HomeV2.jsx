@@ -360,10 +360,15 @@ const about = {
     position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
     background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)', cursor: 'zoom-out',
   },
-  lightboxImg: { maxWidth: '100%', maxHeight: '100%', borderRadius: 8, boxShadow: '0 12px 36px rgba(120,80,140,0.12)', display: 'block' },
+  // White padding around the image: the notes image is cropped tight at the top, so without it the tallest note
+  // looks cut off when enlarged.
+  lightboxImg: {
+    maxWidth: '100%', maxHeight: '100%', boxSizing: 'border-box', padding: 24, background: '#ffffff',
+    borderRadius: 8, boxShadow: '0 12px 36px rgba(120,80,140,0.12)', display: 'block',
+  },
   // Phones: the image keeps a readable height and scrolls sideways instead of shrinking to the screen width.
   lightboxMobile: { justifyContent: 'flex-start', overflowX: 'auto', padding: '24px 16px' },
-  lightboxImgMobile: { maxWidth: 'none', height: 'min(70vh, 360px)', width: 'auto', flexShrink: 0 },
+  lightboxImgMobile: { maxWidth: 'none', height: 'min(70vh, 408px)', width: 'auto', flexShrink: 0 },
   row: { display: 'grid', gap: 8 },
   photo: { margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 0 },
   frame: { position: 'relative', borderRadius: 6, overflow: 'hidden', maxWidth: '100%' },
