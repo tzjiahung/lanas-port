@@ -4,8 +4,8 @@ import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from '
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
-  { id: 'problem',   label: 'Problem'   },
-  // Design groups the three sections below it; its anchor sits right before User flow.
+  { id: 'problem',   label: 'Problem',  sub: true },
+  // Design groups the three sections below it.
   { id: 'design',    label: 'Design'    },
   { id: 'flow',      label: 'User flow', sub: true },
   { id: 'proposals', label: 'Exploration', sub: true },
@@ -40,7 +40,7 @@ function Meta() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section">
+    <section id="overview" className="snma-section" style={{ paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
@@ -64,7 +64,7 @@ function Overview() {
 
 function Problem() {
   return (
-    <section id="problem" className="snma-section">
+    <section id="problem" className="snma-section" style={{ paddingTop: 72 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
@@ -93,7 +93,17 @@ function Problem() {
           </div>
         </div>
 
-        <h3 className="snma-subtitle">What we needed to design</h3>
+      </div>
+    </section>
+  )
+}
+
+function DesignGoals() {
+  return (
+    <section id="design" className="snma-section" style={{ paddingBottom: 0 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">Design</span>
+        <h2 className="snma-section-title" style={{ marginBottom: 24 }}>What we needed to design</h2>
         <ol className="snma-goal-list" style={{ marginBottom: 0 }}>
           <li>
             <h4>Add new compliances</h4>
@@ -115,7 +125,7 @@ function Problem() {
 
 function Flow() {
   return (
-    <section id="flow" className="snma-section">
+    <section id="flow" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">User Flow</span>
         <h2 className="snma-section-title">Adding a compliance in 4 steps</h2>
@@ -218,7 +228,7 @@ const PROPOSALS = [
 
 function Design() {
   return (
-    <section id="proposals" className="snma-section">
+    <section id="proposals" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Exploration</span>
         <h2 className="snma-section-title">
@@ -261,7 +271,7 @@ function Design() {
 
 function Demo() {
   return (
-    <section id="demo" className="snma-section">
+    <section id="demo" className="snma-section" style={{ paddingTop: 72 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Demo</span>
         <h2 className="snma-section-title">
@@ -375,7 +385,7 @@ export default function OecCompliance() {
       <Meta />
       <Overview />
       <Problem />
-      <div id="design" aria-hidden="true" />
+      <DesignGoals />
       <Flow />
       <Design />
       <Demo />
