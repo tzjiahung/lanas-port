@@ -70,12 +70,12 @@ export function RailNav({ sections, active }) {
       <a
         href="/"
         className="snma-rail-back"
-        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'All projects', section: 'rail_nav' }); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'All Projects', section: 'rail_nav' }); window.location.replace('/') }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        All projects
+        All Projects
       </a>
       <div className="snma-rail-list">
         {sections.map(s => (
