@@ -31,9 +31,9 @@ function Meta() {
   return (
     <CaseMeta>
       <dl className="snma-meta">
-        <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
+        <div><dt>My Role</dt><dd>UI/UX Designer</dd></div>
         <div><dt>Timeline</dt><dd>Apr 2024 · 1 month</dd></div>
-        <div><dt>Type</dt><dd>Personal Project</dd></div>
+        <div><dt>Scope</dt><dd>Typography System · Spacing</dd></div>
         <div><dt>Tools</dt><dd>Figma</dd></div>
       </dl>
     </CaseMeta>

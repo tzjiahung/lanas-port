@@ -31,7 +31,7 @@ function Meta() {
   return (
     <CaseMeta>
       <dl className="snma-meta">
-        <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
+        <div><dt>My Role</dt><dd>UI/UX Designer</dd></div>
         <div><dt>Timeline</dt><dd>Sep – Dec 2022 · 4 months</dd></div>
         <div><dt>Tools</dt><dd>Figma · Miro</dd></div>
         <div><dt>Team</dt><dd>Lin Ying, Yi Jia, Tsai Tzung</dd></div>
