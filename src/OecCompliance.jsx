@@ -171,9 +171,9 @@ function Flow() {
           <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             User Flow Diagram
           </p>
-          {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}
-          <div style={{ background: '#DCDCDC', padding: '5%', borderRadius: 10 }}>
-            <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" width={1159} height={647} style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Same blue grain backdrop as the demo video below */}
+          <div className="oec-demo">
+            <img src="/oec-fin/user-flow.png" alt="User flow diagram: select invoices, create, save and complete a compliance, then send it to the main system" loading="lazy" width={1446} height={1320} style={{ width: '100%', height: 'auto', display: 'block', background: '#FFFFFF', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
           </div>
         </div>
       </div>
