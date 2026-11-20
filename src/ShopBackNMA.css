@@ -1016,12 +1016,29 @@ html:has(.snma-root) body { background: #FFFFFF; }
   .snma-impact-fig .snma-chart-grow { transition: none; }
 }
 
-/* OEC Compliance demo video on a gradient backdrop */
+/* OEC Compliance blue grain backdrop (demo video, user flow, handoff).
+   The smooth gradient is an image that can stretch to any frame shape without looking soft.
+   The grain is a separate tile drawn at screen resolution and added on top (plus-lighter),
+   so it stays crisp in tall frames too. The gradient is darkened by the grain's average,
+   so together they match the original background. */
 .oec-demo {
-  background: url('/oec-fin/demo-bg.jpg') center / cover no-repeat;
+  position: relative;
+  isolation: isolate;
+  background: url('/oec-fin/demo-gradient.jpg') center / cover no-repeat;
   border-radius: var(--snma-radius);
   padding: 6%;
 }
+.oec-demo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: url('/oec-fin/demo-grain.png') 0 0 / 128px 128px repeat;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+.oec-demo > * { position: relative; z-index: 1; }
 .oec-demo-screen {
   position: relative;
   overflow: hidden;

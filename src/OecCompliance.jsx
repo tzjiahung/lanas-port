@@ -10,6 +10,7 @@ const SECTIONS = [
   { id: 'design',    label: 'Design'    },
   { id: 'flow',      label: 'User Flow', sub: true },
   { id: 'proposals', label: 'Exploration', sub: true },
+  { id: 'handoff',   label: 'Handoff',  sub: true },
   { id: 'demo',      label: 'Demo',     sub: true },
   { id: 'impact',    label: 'Impact'    },
   { id: 'reflection', label: 'Reflection' },
@@ -116,6 +117,10 @@ function DesignGoals() {
             <p>Push finished compliance data to the ERP, so records stay in sync without re-entering them by hand.</p>
           </li>
         </ol>
+        {/* Same blue grain backdrop as the user flow, handoff and demo */}
+        <div className="oec-demo" style={{ marginTop: 40 }}>
+          <img src="/oec-fin/screen-flow.png" alt="Screen flow: from the compliance list, create a compliance, open the AP invoice list, save, then complete to write the compliance back to CW" loading="lazy" width={2866} height={584} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
+        </div>
       </div>
     </section>
   )
@@ -267,6 +272,20 @@ function Design() {
   )
 }
 
+function Handoff() {
+  return (
+    <section id="handoff" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">Handoff</span>
+        {/* Same blue grain backdrop as the user flow and demo */}
+        <div className="oec-demo">
+          <img src="/oec-fin/handoff.png" alt="Figma handoff file with the core frames, import invoices flow, complete flow and check flow" loading="lazy" width={1254} height={1632} style={{ width: '100%', height: 'auto', display: 'block', background: '#FFFFFF', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Demo() {
   return (
     <section id="demo" className="snma-section" style={{ paddingTop: 72 }}>
@@ -387,6 +406,7 @@ export default function OecCompliance() {
       <DesignGoals />
       <Flow />
       <Design />
+      <Handoff />
       <Demo />
       <Impact />
       <Takeaways />
