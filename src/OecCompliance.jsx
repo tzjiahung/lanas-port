@@ -193,7 +193,7 @@ const PROPOSALS = [
     body: 'Display a call-to-action button beneath the empty state on the compliance list page.',
     caveat: 'Inquiry options only become visible after the user clicks the button — extra step, lower discoverability.',
     accepted: false,
-    img: '/oec-fin/o2.webp',
+    img: '/oec-fin/exploration-a.webp',
     w: 4096, h: 2206,
     alt: 'Exploration A — CTA below empty state mockup',
   },
@@ -203,7 +203,7 @@ const PROPOSALS = [
     body: 'Place the inquiry input fields directly inside the Invoice section card.',
     caveat: 'Card-in-card component structure creates visual complexity and an awkward nesting hierarchy.',
     accepted: false,
-    img: '/oec-fin/o3.webp',
+    img: '/oec-fin/exploration-b.webp',
     w: 3840, h: 2752,
     alt: 'Exploration B — card-in-card mockup',
   },
@@ -213,7 +213,7 @@ const PROPOSALS = [
     body: 'Use a transfer/shuttle component to let users move invoices from available to selected.',
     caveat: 'Layout limitations prevent users from viewing all required invoice columns simultaneously.',
     accepted: false,
-    img: '/oec-fin/o4.webp',
+    img: '/oec-fin/exploration-c.webp',
     w: 4096, h: 1775,
     alt: 'Exploration C — transfer component mockup',
   },
@@ -223,7 +223,7 @@ const PROPOSALS = [
     body: 'Enable users to enter query parameters upfront, with filtering applied directly inside a dialog — all columns visible, no nesting issues.',
     caveat: null,
     accepted: true,
-    img: '/oec-fin/o5.webp',
+    img: '/oec-fin/exploration-d.webp',
     w: 4096, h: 1365,
     alt: 'Exploration D — direct inquiries with dialog mockup',
   },
@@ -262,7 +262,10 @@ function Design() {
                   </div>
                 )}
               </div>
-              <img src={p.img} alt={p.alt} loading="lazy" width={p.w} height={p.h} style={{ width: '100%', height: 'auto', borderRadius: 10, marginTop: 8 }} />
+              {/* Same blue grain backdrop as the user flow, handoff and demo */}
+              <div className="oec-demo" style={{ marginTop: 8 }}>
+                <img src={p.img} alt={p.alt} loading="lazy" width={p.w} height={p.h} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
+              </div>
             </div>
           ))}
         </div>
