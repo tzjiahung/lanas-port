@@ -5,6 +5,7 @@ import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from '
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
   { id: 'problem',   label: 'Problem',  sub: true },
+  { id: 'role',      label: 'My Role',  sub: true },
   // Design groups the three sections below it.
   { id: 'design',    label: 'Design'    },
   { id: 'flow',      label: 'User Flow', sub: true },
@@ -60,36 +61,36 @@ function Overview() {
 
 function Problem() {
   return (
-    <section id="problem" className="snma-section" style={{ paddingTop: 72 }}>
+    <section id="problem" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Paper-based compliance creates real operational pain
+          Paper-based compliance creates real pain
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
           Accounting managers and operations teams had no digital system to
           retrieve and manage shipping invoices for compliance. The manual process was slow, fragmented,
-          and error-prone, so we needed a dedicated module inside OEC's finance portal, designed <b>from 0 to 1</b>.
+          and error-prone.
         </p>
 
-        <div className="snma-goals">
-          <div className="snma-goal">
-            <div className="snma-goal-n">01</div>
-            <h3>Hard to locate invoices</h3>
-            <p>Accounting managers had no centralized place to retrieve shipping invoices required for regulatory compliance — documents were scattered across paper records.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">02</div>
-            <h3>Time-consuming process</h3>
-            <p>Manually searching for and cross-referencing invoice records consumed significant time, slowing down compliance reporting cycles.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">03</div>
-            <h3>High human error risk</h3>
-            <p>Without a digital system, manual data entry and document handling increased the likelihood of errors that could affect compliance accuracy.</p>
-          </div>
-        </div>
+      </div>
+    </section>
+  )
+}
 
+function MyRole() {
+  return (
+    <section id="role" className="snma-section" style={{ paddingTop: 72 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">My Role</span>
+        <h2 className="snma-section-title">
+          Designing the compliance module end to end
+        </h2>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          I designed the Compliance module from 0 to 1, letting accounting managers and operations teams add
+          multiple invoices to a single compliance number. Starting from the PM's PRD to designing a
+          user-centered interface and experience.
+        </p>
       </div>
     </section>
   )
@@ -382,6 +383,7 @@ export default function OecCompliance() {
       <Meta />
       <Overview />
       <Problem />
+      <MyRole />
       <DesignGoals />
       <Flow />
       <Design />
