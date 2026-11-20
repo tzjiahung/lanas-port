@@ -77,7 +77,7 @@ function Goals() {
   return (
     <section id="goals" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Project goals</span>
+        <span className="snma-section-label">Project Goals</span>
         <div className="snma-goals">
           <div className="snma-goal">
             <div className="snma-goal-n">01</div>
@@ -104,7 +104,7 @@ function Process() {
   return (
     <section id="process" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Research process</span>
+        <span className="snma-section-label">Research Process</span>
         <h2 className="snma-section-title">A four-method research approach</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           Each method built on the last — from theory, to competitive context, to existing system, to firsthand user data.
@@ -159,14 +159,14 @@ function Process() {
 
         {/* Five Stages model diagram */}
         <div style={{ marginBottom: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Five Stages of Behavior Change Model
           </p>
           <img src="/fitback/stages.avif" width={1920} height={668} alt="Five Stages of Behavior Change Model diagram" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
 
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive audit matrix</p>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>Competitive Audit Matrix</p>
           <img src="/fitback/matrix.avif" width={1920} height={1152} alt="Comparative audit matrix — BAM, Nike Run Club, Garmin, iOS Health" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
         </div>
       </div>
@@ -178,7 +178,7 @@ function Survey() {
   return (
     <section id="survey" className="snma-section">
       <div className="snma-wrap">
-        <span className="snma-section-label">Questionnaire survey</span>
+        <span className="snma-section-label">Questionnaire Survey</span>
         <h2 className="snma-section-title">356 responses. Real users, real motivations</h2>
         <p className="snma-section-intro" style={{ marginBottom: 56 }}>
           The survey was structured into four sections: exercise habits, motivating methods, health &amp; fitness club experiences, and app experiences. Distributed externally via social channels due to limited internal access as an intern.
@@ -247,9 +247,9 @@ function Survey() {
 
         {/* Survey insights summary */}
         <div style={{ marginTop: 40, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12 }}>
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'currentColor' }} />
-            Key insights
+            Key Insights
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
             {[

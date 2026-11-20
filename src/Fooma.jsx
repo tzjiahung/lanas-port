@@ -131,7 +131,7 @@ function Research() {
 
         {/* Insights */}
         <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
             Key Insights
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 28 }}>
@@ -167,7 +167,7 @@ function Design() {
 
         {/* Service Map */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Service Map
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -198,14 +198,14 @@ function Design() {
           <span className="snma-section-label" style={{ fontSize: 11 }}>Software — LINE Chatbot</span>
 
           <div style={{ marginTop: 32, marginBottom: 40 }}>
-            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
               Wireframe
             </p>
             <img src="/fooma/mwireframe.png" width={2880} height={1395} alt="Wireframes — LINE chatbot flows" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
           </div>
 
           <div style={{ marginBottom: 40, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
+            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
               Visual Identity
             </p>
             <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -216,8 +216,8 @@ function Design() {
           </div>
 
           <div>
-            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-              Prototype — 3 key appearances
+            <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+              Prototype — 3 Key Appearances
             </p>
             <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
               Welcome message → check storage → check expiration date.

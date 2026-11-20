@@ -4,11 +4,13 @@ import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from '
 
 const SECTIONS = [
   { id: 'overview',  label: 'Overview'  },
-  { id: 'problem',   label: 'Problem'   },
-  // Design groups the three sections below it; its anchor sits right before User flow.
+  { id: 'problem',   label: 'Problem',  sub: true },
+  { id: 'role',      label: 'My Role',  sub: true },
+  // Design groups the three sections below it.
   { id: 'design',    label: 'Design'    },
-  { id: 'flow',      label: 'User flow', sub: true },
+  { id: 'flow',      label: 'User Flow', sub: true },
   { id: 'proposals', label: 'Exploration', sub: true },
+  { id: 'handoff',   label: 'Handoff',  sub: true },
   { id: 'demo',      label: 'Demo',     sub: true },
   { id: 'impact',    label: 'Impact'    },
   { id: 'reflection', label: 'Reflection' },
@@ -40,35 +42,19 @@ function Meta() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section">
+    <section id="overview" className="snma-section" style={{ paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           Moving a global logistics company's finance workflow online
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
           ranking <b>top 2 for Trans-Pacific Trade</b>. Our organization provides freight transportation,
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
-        <p className="snma-section-intro" style={{ marginBottom: 48, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
-          Internal users — accounting managers and operations teams in Taipei and Shanghai —
-          needed a dedicated module inside OEC's ERP portal to handle regulatory compliance.
-          The goal: design it <b>from 0 to 1</b>.
-        </p>
-
-        <div style={{ background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p className="snma-section-intro" style={{ maxWidth: 'none', marginBottom: 16 }}>
-            The Compliance module allows users to <b>add new compliances</b>,{' '}
-            <b>view previously added compliances</b>, and{' '}
-            <b>send compliance data back to the main system</b>.
-          </p>
-          <p className="snma-section-intro" style={{ color: 'var(--snma-fg-soft)', maxWidth: 'none', margin: 0 }}>
-            Users can efficiently locate shipping invoices to satisfy regulatory compliance requirements
-            — replacing a slow, error-prone paper-based process.
-          </p>
-        </div>
+        <img src="/oec-fin/offices-map.jpg" width={2400} height={1350} alt="World map of OEC Group offices in Seattle, New York, Mexico City, Shanghai, Shenzhen, Taipei and Singapore" loading="lazy" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
       </div>
     </section>
   )
@@ -76,33 +62,64 @@ function Overview() {
 
 function Problem() {
   return (
-    <section id="problem" className="snma-section">
+    <section id="problem" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Paper-based compliance creates real operational pain
+          Paper-based compliance creates real pain
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Before this module, accounting managers had no digital system to retrieve and manage
-          shipping invoices for compliance. The manual process was slow, fragmented, and error-prone.
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          Accounting managers and operations teams had no digital system to
+          retrieve and manage shipping invoices for compliance. The manual process was slow, fragmented,
+          and error-prone.
         </p>
 
-        <div className="snma-goals">
-          <div className="snma-goal">
-            <div className="snma-goal-n">01</div>
-            <h3>Hard to locate invoices</h3>
-            <p>Accounting managers had no centralized place to retrieve shipping invoices required for regulatory compliance — documents were scattered across paper records.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">02</div>
-            <h3>Time-consuming process</h3>
-            <p>Manually searching for and cross-referencing invoice records consumed significant time, slowing down compliance reporting cycles.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">03</div>
-            <h3>High human error risk</h3>
-            <p>Without a digital system, manual data entry and document handling increased the likelihood of errors that could affect compliance accuracy.</p>
-          </div>
+      </div>
+    </section>
+  )
+}
+
+function MyRole() {
+  return (
+    <section id="role" className="snma-section" style={{ paddingTop: 72 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">My Role</span>
+        <h2 className="snma-section-title">
+          Designing the compliance module end to end
+        </h2>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          I designed the Compliance module from 0 to 1, letting accounting managers and operations teams add
+          multiple invoices to a single compliance number. Starting from the PM's PRD to designing a
+          user-centered interface and experience.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function DesignGoals() {
+  return (
+    <section id="design" className="snma-section" style={{ paddingBottom: 0 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">Design</span>
+        <h2 className="snma-section-title" style={{ marginBottom: 24 }}>What we needed to design</h2>
+        <ol className="snma-goal-list" style={{ marginBottom: 0 }}>
+          <li>
+            <h4>Add new compliances</h4>
+            <p>Help users quickly find the right shipping invoices and file a compliance, replacing the slow, error-prone paper process.</p>
+          </li>
+          <li>
+            <h4>View previously added compliances</h4>
+            <p>Keep every past compliance in one place, so users can check what was already filed.</p>
+          </li>
+          <li>
+            <h4>Send compliance data back to the main system</h4>
+            <p>Push finished compliance data to the ERP, so records stay in sync without re-entering them by hand.</p>
+          </li>
+        </ol>
+        {/* Same blue grain backdrop as the user flow, handoff and demo */}
+        <div className="oec-demo" style={{ marginTop: 40 }}>
+          <img src="/oec-fin/screen-flow.png" alt="Screen flow: from the compliance list, create a compliance, open the AP invoice list, save, then complete to write the compliance back to CW" loading="lazy" width={2866} height={584} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
         </div>
       </div>
     </section>
@@ -111,7 +128,7 @@ function Problem() {
 
 function Flow() {
   return (
-    <section id="flow" className="snma-section">
+    <section id="flow" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">User Flow</span>
         <h2 className="snma-section-title">Adding a compliance in 4 steps</h2>
@@ -156,12 +173,12 @@ function Flow() {
         </div>
 
         <div style={{ marginTop: 40 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-            User flow diagram
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+            User Flow Diagram
           </p>
-          {/* Grey frame matching the screen designs below (their #DCDCDC background is baked into the images), with extra padding so the diagram sits smaller */}
-          <div style={{ background: '#DCDCDC', padding: '5%', borderRadius: 10 }}>
-            <img src="/oec-fin/o1.webp" alt="Full user flow — add compliance, view compliances, send to system" loading="lazy" width={1159} height={647} style={{ width: '100%', height: 'auto', display: 'block' }} />
+          {/* Same blue grain backdrop as the demo video below */}
+          <div className="oec-demo">
+            <img src="/oec-fin/user-flow.png" alt="User flow diagram: select invoices, create, save and complete a compliance, then send it to the main system" loading="lazy" width={1446} height={1320} style={{ width: '100%', height: 'auto', display: 'block', background: '#FFFFFF', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
           </div>
         </div>
       </div>
@@ -176,7 +193,7 @@ const PROPOSALS = [
     body: 'Display a call-to-action button beneath the empty state on the compliance list page.',
     caveat: 'Inquiry options only become visible after the user clicks the button — extra step, lower discoverability.',
     accepted: false,
-    img: '/oec-fin/o2.webp',
+    img: '/oec-fin/exploration-a.webp',
     w: 4096, h: 2206,
     alt: 'Exploration A — CTA below empty state mockup',
   },
@@ -186,7 +203,7 @@ const PROPOSALS = [
     body: 'Place the inquiry input fields directly inside the Invoice section card.',
     caveat: 'Card-in-card component structure creates visual complexity and an awkward nesting hierarchy.',
     accepted: false,
-    img: '/oec-fin/o3.webp',
+    img: '/oec-fin/exploration-b.webp',
     w: 3840, h: 2752,
     alt: 'Exploration B — card-in-card mockup',
   },
@@ -196,7 +213,7 @@ const PROPOSALS = [
     body: 'Use a transfer/shuttle component to let users move invoices from available to selected.',
     caveat: 'Layout limitations prevent users from viewing all required invoice columns simultaneously.',
     accepted: false,
-    img: '/oec-fin/o4.webp',
+    img: '/oec-fin/exploration-c.webp',
     w: 4096, h: 1775,
     alt: 'Exploration C — transfer component mockup',
   },
@@ -206,7 +223,7 @@ const PROPOSALS = [
     body: 'Enable users to enter query parameters upfront, with filtering applied directly inside a dialog — all columns visible, no nesting issues.',
     caveat: null,
     accepted: true,
-    img: '/oec-fin/o5.webp',
+    img: '/oec-fin/exploration-d.webp',
     w: 4096, h: 1365,
     alt: 'Exploration D — direct inquiries with dialog mockup',
   },
@@ -214,7 +231,7 @@ const PROPOSALS = [
 
 function Design() {
   return (
-    <section id="proposals" className="snma-section">
+    <section id="proposals" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Exploration</span>
         <h2 className="snma-section-title">
@@ -245,7 +262,10 @@ function Design() {
                   </div>
                 )}
               </div>
-              <img src={p.img} alt={p.alt} loading="lazy" width={p.w} height={p.h} style={{ width: '100%', height: 'auto', borderRadius: 10, marginTop: 8 }} />
+              {/* Same blue grain backdrop as the user flow, handoff and demo */}
+              <div className="oec-demo" style={{ marginTop: 8 }}>
+                <img src={p.img} alt={p.alt} loading="lazy" width={p.w} height={p.h} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
+              </div>
             </div>
           ))}
         </div>
@@ -255,9 +275,23 @@ function Design() {
   )
 }
 
+function Handoff() {
+  return (
+    <section id="handoff" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">Handoff</span>
+        {/* Same blue grain backdrop as the user flow and demo */}
+        <div className="oec-demo">
+          <img src="/oec-fin/handoff.png" alt="Figma handoff file with the core frames, import invoices flow, complete flow and check flow" loading="lazy" width={1254} height={1632} style={{ width: '100%', height: 'auto', display: 'block', background: '#FFFFFF', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }} />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Demo() {
   return (
-    <section id="demo" className="snma-section">
+    <section id="demo" className="snma-section" style={{ paddingTop: 72 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Demo</span>
         <h2 className="snma-section-title">
@@ -371,9 +405,11 @@ export default function OecCompliance() {
       <Meta />
       <Overview />
       <Problem />
-      <div id="design" aria-hidden="true" />
+      <MyRole />
+      <DesignGoals />
       <Flow />
       <Design />
+      <Handoff />
       <Demo />
       <Impact />
       <Takeaways />

@@ -160,7 +160,7 @@ function Design() {
 
         {/* User Flow */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             User Flow
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -171,7 +171,7 @@ function Design() {
 
         {/* Wireframe */}
         <div style={{ marginBottom: 48 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
             Wireframe
           </p>
           <img src="/oclock/owireframe.png" width={4800} height={4840} alt="Wireframes" loading="lazy" style={{ width: '100%', borderRadius: 'var(--snma-radius)' }} />
@@ -179,7 +179,7 @@ function Design() {
 
         {/* Visual Identity */}
         <div style={{ marginBottom: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 16 }}>
             Visual Identity
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
@@ -192,8 +192,8 @@ function Design() {
 
         {/* Prototype */}
         <div>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
-            Prototype — 5 key screens
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 12 }}>
+            Prototype — 5 Key Screens
           </p>
           <p style={{ color: 'var(--snma-fg-soft)', fontSize: 14.5, marginBottom: 24 }}>
             Select store → select date → select cabinet → choose coffee → collect order.
@@ -275,7 +275,7 @@ function Test() {
 
         {/* Mentor Feedback */}
         <div style={{ marginTop: 48, background: 'var(--snma-card)', border: '1px solid rgba(26,26,26,0.12)', borderRadius: 'var(--snma-radius)', padding: 32 }}>
-          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
+          <p style={{ fontFamily: 'var(--snma-mono)', fontSize: 16, letterSpacing: '0em', color: 'var(--snma-fg-mute)', marginBottom: 24 }}>
             Workshop Mentor Feedback
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
