@@ -31,7 +31,7 @@ function Meta() {
   return (
     <CaseMeta>
       <dl className="snma-meta">
-        <div><dt>My Role</dt><dd>UI/UX Designer</dd></div>
+        <div><dt>My Role</dt><dd>Product Designer</dd></div>
         <div><dt>Team</dt><dd>1 PM, 1 Designer, 2 Engineers</dd></div>
         <div><dt>Duration</dt><dd>Sep 2024 · 1 month</dd></div>
         <div><dt>Tools</dt><dd>Figma · Confluence · Jira</dd></div>
@@ -46,7 +46,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
-          Moving a global logistics company's finance workflow online
+          OEC Group is a global logistics company with a real-time tracking portal
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
@@ -54,7 +54,16 @@ function Overview() {
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
-        <img src="/oec-fin/offices-map.jpg" width={2400} height={1350} alt="World map of OEC Group offices in Seattle, New York, Mexico City, Shanghai, Shenzhen, Taipei and Singapore" loading="lazy" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
+        <p className="snma-section-intro" style={{ marginTop: 16, marginBottom: 0, maxWidth: 'none' }}>
+          The main product is the tracking portal that allows customers and account managers to track their
+          bookings, shipments, and billing. It has around <b>1.9k monthly active users</b>.
+        </p>
+        {/* Office map beside the customer tracking platform: customers had a platform, finance staff didn't */}
+        <div className="oec-overview-media">
+          {/* Zooms through each office; a looping video, since as a GIF the grain made it 48 MB */}
+          <video src="/oec-fin/offices-map.mp4" poster="/oec-fin/offices-map.jpg" width={1280} height={720} autoPlay loop muted playsInline aria-label="World map of OEC Group offices, zooming in on Seattle, New York, Mexico City, Shanghai, Taipei, Shenzhen and Singapore" />
+          <img src="/oec-fin/tracking-platform.gif" width={1200} height={675} alt="OEC Group's customer tracking platform, showing the bookings, shipments and billing cards" loading="lazy" />
+        </div>
       </div>
     </section>
   )
@@ -66,13 +75,18 @@ function Problem() {
       <div className="snma-wrap">
         <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Paper-based compliance creates real pain
+          The existing finance workflow was costly and fragmented
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
-          Accounting managers and operations teams had no digital system to
-          retrieve and manage shipping invoices for compliance. The manual process was slow, fragmented,
-          and error-prone.
+          Previously, we focused on building the tracking portal for our customers. But as the company grew
+          and opened more offices around the globe, the finance workflow became more complex.
         </p>
+        <p className="snma-section-intro" style={{ marginTop: 16, marginBottom: 0, maxWidth: 'none' }}>
+          We had purchased CargoWise, but it was costly and built mainly for shipment legal declarations and
+          warehousing, which made finance workflows difficult to process in it. Accounting managers and
+          finance teams ended up relying on manual processes.
+        </p>
+        <img src="/oec-fin/problem-tools.jpg" width={2880} height={900} alt="The OEC Group portal's Billing card, then CargoWise, then a question mark: neither tool handled the finance workflow" loading="lazy" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
 
       </div>
     </section>
@@ -88,8 +102,8 @@ function MyRole() {
           Designing the compliance module end to end
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
-          I designed the Compliance module from 0 to 1, letting accounting managers and operations teams add
-          multiple invoices to a single compliance number. Starting from the PM's PRD to designing a
+          In a month, I designed the Compliance module from 0 to 1, letting accounting managers and finance
+          teams add multiple invoices to a single compliance number. Starting from the PM's PRD to designing a
           user-centered interface and experience.
         </p>
       </div>
@@ -126,50 +140,38 @@ function DesignGoals() {
   )
 }
 
+const FLOW_STEPS = [
+  { title: 'Enter inquiries', body: 'User queries with shipment details or date ranges to narrow down which invoices are relevant for the compliance.' },
+  { title: 'Filter invoices', body: 'The system surfaces matching invoices. Users apply additional filters to refine results before moving to selection.' },
+  { title: 'Select invoices', body: 'Users select the relevant invoices from the filtered list to attach to the new compliance record.' },
+  { title: 'Confirm selections', body: 'A final review step before the compliance data is saved and sent back to CargoWise.' },
+]
+
 function Flow() {
   return (
     <section id="flow" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">User Flow</span>
         <h2 className="snma-section-title">Adding a compliance in 4 steps</h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56 }}>
+        <p className="snma-section-intro" style={{ marginBottom: 40 }}>
           The core interaction centers on adding a new compliance record — a four-action
           sequence that lets users query, filter, select, and confirm the right invoices.
         </p>
 
-        <div className="snma-method-grid">
-          <div className="snma-method-card a">
-            <div className="snma-method-ic">1</div>
-            <h3>Enter inquiries</h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              User inputs query parameters — shipment details, date ranges, or reference numbers —
-              to narrow down which invoices are relevant for the compliance requirement.
-            </p>
-          </div>
-          <div className="snma-method-card b">
-            <div className="snma-method-ic">2</div>
-            <h3>Filter invoices</h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              The system surfaces matching invoices. Users apply additional filters to refine
-              results before moving to selection.
-            </p>
-          </div>
-          <div className="snma-method-card a">
-            <div className="snma-method-ic">3</div>
-            <h3>Select invoices</h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              Users select the relevant invoices from the filtered list to attach to the
-              new compliance record.
-            </p>
-          </div>
-          <div className="snma-method-card b">
-            <div className="snma-method-ic">4</div>
-            <h3>Confirm selections</h3>
-            <p style={{ color: 'var(--snma-fg-soft)', margin: 0 }}>
-              A final review step before the compliance data is saved and sent back to
-              the main ERP system.
-            </p>
-          </div>
+        {/* Four steps as a numbered list on the blue grain backdrop (Figma node 401:2684) */}
+        {/* Less side padding than the other backdrops, so each step's description fits on one line */}
+        <div className="oec-demo" style={{ padding: '5% 3%' }}>
+          <ol className="oec-steps">
+            {FLOW_STEPS.map((step, i) => (
+              <li key={step.title}>
+                <span className="oec-steps-n">{i + 1}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <div style={{ marginTop: 40 }}>
