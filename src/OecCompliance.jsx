@@ -54,7 +54,16 @@ function Overview() {
           logistics, and information services to over <b>50,000 customers</b> across North America,
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
-        <img src="/oec-fin/offices-map.jpg" width={2400} height={1350} alt="World map of OEC Group offices in Seattle, New York, Mexico City, Shanghai, Shenzhen, Taipei and Singapore" loading="lazy" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
+        <p className="snma-section-intro" style={{ marginTop: 16, marginBottom: 0, maxWidth: 'none' }}>
+          The main product is the tracking portal that allows customers and account managers to track their
+          bookings, shipments, and billing. It has around <b>1.9k monthly active users</b>.
+        </p>
+        {/* Office map beside the customer tracking platform: customers had a platform, finance staff didn't */}
+        <div className="oec-overview-media">
+          {/* Zooms through each office; a looping video, since as a GIF the grain made it 48 MB */}
+          <video src="/oec-fin/offices-map.mp4" poster="/oec-fin/offices-map.jpg" width={1280} height={720} autoPlay loop muted playsInline aria-label="World map of OEC Group offices, zooming in on Seattle, New York, Mexico City, Shanghai, Taipei, Shenzhen and Singapore" />
+          <img src="/oec-fin/tracking-platform.gif" width={1200} height={675} alt="OEC Group's customer tracking platform, showing the bookings, shipments and billing cards" loading="lazy" />
+        </div>
       </div>
     </section>
   )

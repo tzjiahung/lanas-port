@@ -1016,6 +1016,22 @@ html:has(.snma-root) body { background: #FFFFFF; }
   .snma-impact-fig .snma-chart-grow { transition: none; }
 }
 
+/* OEC Compliance overview: office map and tracking platform GIF side by side, stacked on small screens */
+.oec-overview-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+.oec-overview-media img,
+.oec-overview-media video {
+  width: 100%;
+  height: auto;
+  border-radius: var(--snma-radius);
+  display: block;
+}
+@media (max-width: 880px) { .oec-overview-media { grid-template-columns: 1fr; } }
+
 /* OEC Compliance blue grain backdrop (demo video, user flow, handoff).
    The smooth gradient is an image that can stretch to any frame shape without looking soft.
    The grain is a separate tile drawn at screen resolution and added on top (plus-lighter),
