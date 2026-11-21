@@ -46,7 +46,7 @@ function Overview() {
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
-          Moving a global logistics company's finance workflow online
+          OEC Group is a global logistics company with a real-time tracking portal
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
           <b>OEC Group</b> is a leading NVOCC freight forwarding company with cargo volume consistently
@@ -75,12 +75,13 @@ function Problem() {
       <div className="snma-wrap">
         <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Paper-based compliance creates real pain
+          The existing finance workflow was manual and fragmented
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
-          Accounting managers and operations teams had no digital system to
-          retrieve and manage shipping invoices for compliance. The manual process was slow, fragmented,
-          and error-prone.
+          Previously, we focused on building the tracking portal for our customers. But as the company grew
+          and opened more offices around the globe, the finance workflow became more complex. Accounting
+          managers and operations teams had no digital system to retrieve and manage shipping invoices for
+          compliance, and the existing manual process was slow, fragmented, and error-prone.
         </p>
 
       </div>
