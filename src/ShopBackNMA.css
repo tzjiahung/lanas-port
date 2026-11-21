@@ -1032,6 +1032,39 @@ html:has(.snma-root) body { background: #FFFFFF; }
 }
 @media (max-width: 880px) { .oec-overview-media { grid-template-columns: 1fr; } }
 
+/* OEC Compliance user flow steps: white card with numbered circles (Figma node 401:2684) */
+.oec-steps {
+  list-style: none;
+  margin: 0;
+  padding: 32px 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(20, 40, 90, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.oec-steps li { display: flex; gap: 20px; align-items: flex-start; }
+.oec-steps-n {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1e77d9;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.oec-steps h3 { font-size: 16px; font-weight: 700; letter-spacing: 0em; margin: 0 0 4px; line-height: 1.3; }
+.oec-steps p { margin: 0; color: var(--snma-fg-soft); }
+@media (max-width: 880px) {
+  .oec-steps { padding: 28px 24px; gap: 24px; }
+  .oec-steps li { gap: 16px; }
+}
+
 /* OEC Compliance blue grain backdrop (demo video, user flow, handoff).
    The smooth gradient is an image that can stretch to any frame shape without looking soft.
    The grain is a separate tile drawn at screen resolution and added on top (plus-lighter),
