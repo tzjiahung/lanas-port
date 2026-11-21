@@ -350,10 +350,11 @@ const LIFE_PHOTOS = [
 
 const about = {
   // paddingTop + the tab panel's own 16px padding = 32px above the portrait, matching the gaps between sections.
-  panel: { display: 'flex', flexDirection: 'column', gap: 32, paddingTop: 16 },
+  // paddingInline lines every section up with the portrait's left edge (16px in), mirrored on the right.
+  panel: { display: 'flex', flexDirection: 'column', gap: 32, paddingTop: 16, paddingInline: 16 },
   section: { display: 'flex', flexDirection: 'column', gap: 8 },
   heading: { ...articleStyles.title, margin: 0, fontSize: 14, fontWeight: 600 },
-  portrait: { width: 214, height: 214, borderRadius: 6, objectFit: 'cover', display: 'block', marginLeft: 16 },
+  portrait: { width: 214, height: 214, borderRadius: 6, objectFit: 'cover', display: 'block' },
   notes: { width: '100%', height: 'auto', borderRadius: 6, display: 'block' },
   notesButton: { display: 'block', width: '100%', padding: 0, margin: 0, border: 'none', background: 'none', cursor: 'zoom-in' },
   lightbox: {
@@ -372,8 +373,18 @@ const about = {
   row: { display: 'grid', gap: 8 },
   photo: { margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, minWidth: 0 },
   frame: { position: 'relative', borderRadius: 6, overflow: 'hidden', maxWidth: '100%' },
-  caption: { ...articleStyles.meta, textAlign: 'center' },
+  caption: { ...articleStyles.meta, fontSize: 12, textAlign: 'center' },
+  journey: { listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 6 },
+  journeyLine: { fontSize: 14, lineHeight: 'normal', color: articleStyles.meta.color },
 }
+
+// "My Design Journey..." lines, from Figma node 359:4673 (copy edited for grammar).
+const JOURNEY = [
+  '2026 Product Designer at ShopBack, designing membership and identity edge-case flows for deactivated users.',
+  '2024 UX Researcher at ShopBack, researching e-commerce products and AI experiences.',
+  '2023 Product Designer at OEC Group, designing a B2B logistics platform and finance modules.',
+  '2022 UX/UI Design Intern at Cathay Financial Holdings, designing social features to boost engagement in health and fitness.',
+]
 
 function AboutPhoto({ src, caption, square, crop }) {
   const frame = square ? { width: 214, aspectRatio: '1 / 1' } : { width: '100%', aspectRatio: '240 / 180' }
@@ -430,6 +441,11 @@ function AboutPanel({ isMobile }) {
   return (
     <div style={about.panel}>
       <img src={ABOUT_DIR + 'portrait.jpg'} alt="Lana Hung" style={about.portrait} />
+      <AboutSection title="My Design Journey...">
+        <ul style={about.journey}>
+          {JOURNEY.map((line) => <li key={line} style={about.journeyLine}>{line}</li>)}
+        </ul>
+      </AboutSection>
       <AboutSection title="When It Comes to Design, I Love...">
         <div style={row}>{DESIGN_PHOTOS.map((p) => <AboutPhoto key={p.src} {...p} />)}</div>
       </AboutSection>
