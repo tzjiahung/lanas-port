@@ -85,21 +85,22 @@ const s = {
   },
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  // Nav to intro 52px: 8 (top bar) + 44 here. Intro to avatar 16px: stage marginTop.
-  // Domain chips to work section 52px: 4 (chips) + 24 here + 24 (main gap).
+  // Nav to intro 52px: 8 (top bar) + 44 here. Intro to avatars 24px: role paddingTop.
+  // Avatars to work section 52px: 4 (roles) + 24 here + 24 (main gap).
   hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 24px' },
   intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: 1.6, fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   introStrong: { fontWeight: 700, cursor: 'default' },
-  // One avatar. The renders are 480x600 with empty space above the head (content starts at y=64),
-  // so the image is shifted up 30px and cut off mid-thigh: source rows 56 to 376, shown at 260/480 scale.
-  stage: { position: 'relative', width: 260, height: 173, overflow: 'hidden', marginTop: 16 },
-  stageImg: { position: 'absolute', top: -30, left: 0, width: 260, height: 325, display: 'block' },
-  chips: { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8, marginTop: 8, paddingBottom: 4 },
-  chip: {
-    margin: 0, border: 'none', cursor: 'pointer', fontFamily: 'inherit',
+  roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
+  role: {
+    position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24,
+    transition: 'transform 0.25s ease',
+  },
+  roleImgBox: { width: 230, height: 181, overflow: 'hidden' },
+  roleImg: { width: 230, height: 288, display: 'block' },
+  roleLabel: {
     textAlign: 'center', borderRadius: 12, padding: '0 12px',
     fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52',
-    transition: 'background 0.2s, box-shadow 0.2s',
+    transition: 'background 0.2s',
   },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
@@ -158,9 +159,8 @@ function ContactLinks({ isMobile }) {
   )
 }
 
-// Hero roles, from Figma node 254:90. Each one pairs a phrase in the intro with a render of the avatar holding
-// that domain's object. The renders are identical apart from the object and her expression, so the hero shows
-// one avatar and swaps between them: hovering a phrase or a chip shows that domain, and otherwise they take turns.
+// Hero roles, from Figma node 254:90. Each one pairs a phrase in the intro with an avatar.
+// Hovering the phrase or the avatar plays that avatar's GIF and highlights its label; otherwise it shows a still frame.
 const ROLES = [
   { id: 'ai',        label: 'AI Experience Designer', still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif' },
   { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif' },
@@ -191,16 +191,12 @@ function BackgroundSparkles() {
   )
 }
 
-// How long each domain shows before the next one (about one loop of its GIF), and how long a tap holds one.
-const CYCLE_MS = 3000
-const TAP_HOLD_MS = 10000
-
-function RolePhrase({ role, onHover, children }) {
+function RolePhrase({ role, active, onActive, children }) {
   return (
     <strong
       style={s.introStrong}
-      onPointerEnter={(e) => { if (e.pointerType === 'mouse') onHover(role) }}
-      onPointerLeave={(e) => { if (e.pointerType === 'mouse') onHover(null) }}
+      onMouseEnter={() => onActive(role)}
+      onMouseLeave={() => onActive(null)}
     >
       {children}
     </strong>
@@ -220,94 +216,194 @@ function useInView(ref, enabled) {
   return inView
 }
 
-function usePrefersReducedMotion() {
-  const query = '(prefers-reduced-motion: reduce)'
-  const [reduced, setReduced] = React.useState(() => typeof window !== 'undefined' && !!window.matchMedia?.(query).matches)
+// Phones and other touch screens can't hover, so there each avatar plays while it's in view instead.
+function useAutoPlay(isMobile) {
+  const [noHover, setNoHover] = React.useState(() => typeof window !== 'undefined' && window.matchMedia?.('(hover: none)').matches)
   React.useEffect(() => {
-    const mq = window.matchMedia?.(query)
+    const mq = window.matchMedia?.('(hover: none)')
     if (!mq) return
-    const onChange = () => setReduced(mq.matches)
+    const onChange = () => setNoHover(mq.matches)
     mq.addEventListener('change', onChange)
     return () => mq.removeEventListener('change', onChange)
   }, [])
-  return reduced
+  return isMobile || noHover
 }
 
-// The still sits underneath and stays visible until the GIF has loaded, so a swap never flashes empty.
-// It's hidden once the GIF is showing: moving objects (the turning warehouse, flying coins) would otherwise
-// show the still's copy through the GIF's transparent pixels. A new GIF element per role starts at frame one.
-function AvatarStage({ role, animate }) {
-  const [loadedId, setLoadedId] = React.useState(null)
-  const gifShowing = animate && loadedId === role.id
+function RoleAvatar({ role, active: hovered, onActive, autoPlay }) {
+  const ref = React.useRef(null)
+  const inView = useInView(ref, autoPlay)
+  const active = hovered || inView
   return (
-    <div style={s.stage} aria-hidden="true">
-      <img src={role.still} alt="" style={{ ...s.stageImg, opacity: gifShowing ? 0 : 1 }} />
-      {animate && <img key={role.id} src={role.gif} alt="" style={s.stageImg} onLoad={() => setLoadedId(role.id)} />}
+    <div ref={ref} style={{ ...s.role, transform: hovered ? 'scale(1.2)' : 'none' }} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
+      <div style={s.roleImgBox}>
+        {/* Swapping in the GIF on hover starts it from the first frame; swapping back stops it. */}
+        <img
+          key={active ? 'gif' : 'still'}
+          src={active ? role.gif : role.still}
+          alt=""
+          aria-hidden="true"
+          style={s.roleImg}
+        />
+      </div>
+      <span style={{ ...s.roleLabel, background: active ? '#ffffff' : 'transparent' }}>{role.label}</span>
     </div>
   )
 }
 
-function Hero() {
-  const ref = React.useRef(null)
-  const inView = useInView(ref, true)
-  const reducedMotion = usePrefersReducedMotion()
-  const [current, setCurrent] = React.useState(ROLES[0].id)
-  const [hovering, setHovering] = React.useState(false)
-  const [holdUntil, setHoldUntil] = React.useState(0)
-  const role = ROLES.find((r) => r.id === current)
-  const animate = !reducedMotion && inView
+// ---- Hero layout options, for comparing (prototype) -------------------------------------------------------
+// Pick one with ?hero=row | group | split in the address (before the #). Without it, the current five-in-a-row.
+const HERO_VARIANT = (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('hero')) || 'current'
 
-  // Take turns while the hero is on screen and nothing is hovered. A tap holds its domain a little longer.
+function useViewportWidth() {
+  const [w, setW] = React.useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1440))
   React.useEffect(() => {
-    if (!animate || hovering) return
-    const wait = Math.max(CYCLE_MS, holdUntil - Date.now())
-    const t = setTimeout(() => {
-      setCurrent((id) => ROLES[(ROLES.findIndex((r) => r.id === id) + 1) % ROLES.length].id)
-    }, wait)
-    return () => clearTimeout(t)
-  }, [animate, hovering, holdUntil, current])
+    const onResize = () => setW(window.innerWidth)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  return w
+}
 
-  // Stills are small, so fetch them all up front; fetch the next GIF while this one plays.
-  React.useEffect(() => { ROLES.forEach((r) => { new Image().src = r.still }) }, [])
-  React.useEffect(() => {
-    if (!animate) return
-    new Image().src = ROLES[(ROLES.findIndex((r) => r.id === current) + 1) % ROLES.length].gif
-  }, [animate, current])
+// The renders are 480x600 with wide empty margins. This crop keeps the figure plus her flying coins and hearts
+// (x 104 to 391 across every frame) from the top of her head to mid-thigh.
+const CROP = { x: 92, y: 56, w: 304, h: 314 }
+const BODY_CENTER_X = 246.5 - CROP.x   // her body spans x 162 to 331 in every render
 
-  function hover(id) {
-    setHovering(id != null)
-    if (id) setCurrent(id)
-  }
-  function pick(r) {
-    setCurrent(r.id)
-    setHoldUntil(Date.now() + TAP_HOLD_MS)
-    trackEvent('click', { button_label: r.label, section: 'home-v2-hero' })
-  }
-
-  const phrase = (id, text) => <RolePhrase role={id} onHover={hover}>{text}</RolePhrase>
+function CroppedAvatar({ role, playing, scale }) {
   return (
-    <section ref={ref} style={s.hero}>
-      <p style={s.intro}>
-        Product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
-        {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
-        Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
-      </p>
-      <AvatarStage role={role} animate={animate} />
-      <div role="group" aria-label="Design domains" style={s.chips}>
-        {ROLES.map((r) => {
-          const on = r.id === current
-          return (
-            <button
-              key={r.id} type="button" aria-pressed={on}
-              style={{ ...s.chip, background: on ? '#ffffff' : 'transparent', boxShadow: on ? '0 4px 12px rgba(120,80,140,0.12)' : 'none' }}
-              onPointerEnter={(e) => { if (e.pointerType === 'mouse') hover(r.id) }}
-              onPointerLeave={(e) => { if (e.pointerType === 'mouse') hover(null) }}
-              onClick={() => pick(r)}
-            >
-              {r.label}
-            </button>
-          )
-        })}
+    <div style={{ position: 'relative', width: Math.round(CROP.w * scale), height: Math.round(CROP.h * scale), overflow: 'hidden' }}>
+      <img
+        key={playing ? 'gif' : 'still'}
+        src={playing ? role.gif : role.still}
+        alt="" aria-hidden="true"
+        style={{ position: 'absolute', left: -CROP.x * scale, top: -CROP.y * scale, width: 480 * scale, height: 600 * scale, maxWidth: 'none', display: 'block' }}
+      />
+    </div>
+  )
+}
+
+// Option A, "row": the current look (each girl with her label), trimmed and smaller so all five fit one row on a
+// laptop. When the row doesn't fit (phones, tablets) it scrolls sideways instead of wrapping or stacking.
+function RowCell({ role, hovered, onActive, autoPlay, isMobile }) {
+  const ref = React.useRef(null)
+  const inView = useInView(ref, autoPlay)
+  const playing = hovered || inView
+  return (
+    <div
+      ref={ref}
+      style={{ width: isMobile ? 150 : 192, flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 16, scrollSnapAlign: 'center' }}
+      onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}
+    >
+      <div style={{ transition: 'transform 0.25s ease', transform: hovered ? 'scale(1.1)' : 'none', transformOrigin: '50% 100%' }}>
+        <CroppedAvatar role={role} playing={playing} scale={isMobile ? 0.46 : 0.5} />
+      </div>
+      <span style={{ ...s.roleLabel, background: playing ? '#ffffff' : 'transparent', ...(isMobile ? { fontSize: 14, lineHeight: '20px', padding: '2px 10px' } : null) }}>{role.label}</span>
+    </div>
+  )
+}
+
+function HeroRow({ active, setActive, autoPlay, isMobile }) {
+  return (
+    <div style={{ width: '100%', overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingBottom: 4 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', width: 'max-content', margin: '0 auto', padding: '0 8px' }}>
+        {ROLES.map((r) => <RowCell key={r.id} role={r} hovered={active === r.id} onActive={setActive} autoPlay={autoPlay} isMobile={isMobile} />)}
+      </div>
+    </div>
+  )
+}
+
+// Option B, "group": the five stand shoulder to shoulder like a group photo, each with a short label.
+// Hovering one (or her phrase in the intro) brings her forward and plays her GIF.
+// On touch screens they take turns stepping forward while the group is on screen.
+const GROUP_STEP = 146   // distance between neighbours, in render pixels. Her body is 169 wide, so only hair and shoulders overlap and every held object stays clear.
+const SHORT_LABELS = { ai: 'AI', ecommerce: 'E-commerce', b2b: 'B2B', fintech: 'Fintech', research: 'Research' }
+
+function HeroGroup({ active, setActive, autoPlay, scale, labelSize }) {
+  const ref = React.useRef(null)
+  const inView = useInView(ref, autoPlay)
+  const [turn, setTurn] = React.useState(0)
+  React.useEffect(() => {
+    if (!autoPlay || !inView) return
+    const t = setInterval(() => setTurn((i) => (i + 1) % ROLES.length), 3000)
+    return () => clearInterval(t)
+  }, [autoPlay, inView])
+  const current = active ?? (autoPlay && inView ? ROLES[turn].id : null)
+
+  const boxW = CROP.w * scale
+  const boxH = CROP.h * scale
+  const step = GROUP_STEP * scale
+  const labelH = 26
+  return (
+    <div ref={ref} style={{ position: 'relative', flexShrink: 0, width: step * (ROLES.length - 1) + boxW, height: boxH + 6 + labelH, marginTop: 16 }}>
+      {ROLES.map((r, i) => {
+        const on = r.id === current
+        const centerX = i * step + BODY_CENTER_X * scale
+        return (
+          <React.Fragment key={r.id}>
+            <div style={{
+              position: 'absolute', left: i * step, top: 0, pointerEvents: 'none',
+              // The middle one stands in front; the hovered one comes forward over everyone.
+              zIndex: on ? 10 : 3 - Math.abs(i - 2),
+              transform: on ? 'scale(1.1)' : 'none', transformOrigin: `${BODY_CENTER_X * scale}px 100%`, transition: 'transform 0.25s ease',
+            }}>
+              <CroppedAvatar role={r} playing={on} scale={scale} />
+            </div>
+            <span style={{
+              ...s.roleLabel, fontSize: labelSize, padding: '0 8px', position: 'absolute', top: boxH + 6, left: centerX,
+              transform: 'translateX(-50%)', whiteSpace: 'nowrap', zIndex: 11, background: on ? '#ffffff' : 'transparent',
+            }}>
+              {SHORT_LABELS[r.id]}
+            </span>
+            {/* Hover target: one slice per girl, so the transparent edges of a front render don't steal hover from her neighbour. */}
+            <div
+              style={{ position: 'absolute', zIndex: 20, top: 0, height: '100%', left: centerX - step / 2, width: step }}
+              onMouseEnter={() => setActive(r.id)} onMouseLeave={() => setActive(null)}
+            />
+          </React.Fragment>
+        )
+      })}
+    </div>
+  )
+}
+
+function Hero({ isMobile }) {
+  const [active, setActive] = React.useState(null)
+  const autoPlay = useAutoPlay(isMobile)
+  const vw = useViewportWidth()
+  const phrase = (id, text) => (
+    <RolePhrase role={id} active={active === id} onActive={setActive}>{text}</RolePhrase>
+  )
+  const intro = (style) => (
+    <p style={{ ...s.intro, ...style }}>
+      Product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
+      {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
+      Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
+    </p>
+  )
+  // The group shrinks to fit a phone: 4 steps between five girls plus one full render, inside 16px gutters.
+  const groupScale = Math.min(0.6, (vw - 32) / (GROUP_STEP * (ROLES.length - 1) + CROP.w))
+  const group = <HeroGroup active={active} setActive={setActive} autoPlay={autoPlay} scale={groupScale} labelSize={isMobile ? 13 : 16} />
+
+  if (HERO_VARIANT === 'row') {
+    return <section style={s.hero}>{intro()}<HeroRow active={active} setActive={setActive} autoPlay={autoPlay} isMobile={isMobile} /></section>
+  }
+  // Option C, "split": intro on the left, the group on the right. Narrower screens stack them like option B.
+  if (HERO_VARIANT === 'split' && vw >= 1100) {
+    return (
+      <section style={{ ...s.hero, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 56, maxWidth: CONTENT_MAX, paddingTop: 28 }}>
+        {intro({ textAlign: 'left', maxWidth: 520 })}
+        {group}
+      </section>
+    )
+  }
+  if (HERO_VARIANT === 'group' || HERO_VARIANT === 'split') {
+    return <section style={s.hero}>{intro()}{group}</section>
+  }
+  return (
+    <section style={s.hero}>
+      {intro()}
+      <div style={{ ...s.roles, gap: isMobile ? 16 : 32 }}>
+        {ROLES.map((role) => <RoleAvatar key={role.id} role={role} active={active === role.id} onActive={setActive} autoPlay={autoPlay} />)}
       </div>
     </section>
   )
@@ -524,7 +620,7 @@ export default function HomeV2() {
         </header>
 
         <main style={s.main}>
-          <Hero />
+          <Hero isMobile={isMobile} />
 
           <div style={s.folder}>
             <div role="tablist" aria-label="Work and articles" style={s.tabs}>
