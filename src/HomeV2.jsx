@@ -95,8 +95,10 @@ const s = {
     position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24,
     transition: 'transform 0.25s ease',
   },
-  roleImgBox: { width: 230, height: 181, overflow: 'hidden' },
-  roleImg: { width: 230, height: 288, display: 'block' },
+  // Each 230x288 avatar shows the band from 72px to 181px: the objects sit at the bottom of it.
+  // Only the bottom edge is clipped, so coins and gifts that fly higher float into the space above.
+  roleImgBox: { width: 230, height: 109, clipPath: 'inset(-200px -200px 0 -200px)' },
+  roleImg: { width: 230, height: 288, display: 'block', marginTop: -72 },
   roleLabel: {
     textAlign: 'center', borderRadius: 12, padding: '0 12px',
     fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52',
