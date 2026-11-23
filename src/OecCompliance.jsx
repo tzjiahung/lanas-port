@@ -128,8 +128,8 @@ function DesignGoals() {
             <p>Keep every past compliance in one place, so users can check what was already filed.</p>
           </li>
           <li>
-            <h4>Send compliance data back to the main system</h4>
-            <p>Push finished compliance data to the ERP, so records stay in sync without re-entering them by hand.</p>
+            <h4>Send compliance data back to the existing solution</h4>
+            <p>Push finished compliance data to CargoWise, so records stay in sync without re-entering them by hand.</p>
           </li>
         </ol>
         {/* Same blue grain backdrop as the user flow, handoff and demo */}
@@ -362,15 +362,15 @@ function Takeaways() {
     <section id="reflection" className="snma-section snma-section-end">
       <div className="snma-wrap">
         <span className="snma-section-label">Reflection</span>
-        <h2 className="snma-section-title snma-reflection-title">What I'd carry into the next design sprint</h2>
+        <h2 className="snma-section-title snma-reflection-title">What I'd carry into my next design work</h2>
         <ol className="snma-goal-list snma-reflection-list">
           <li>
-            <h4>Explore before committing</h4>
+            <h4>Explore and design more variations to spark discussion</h4>
             <p>Running four distinct explorations, even knowing some wouldn't work, gave the team a shared language for trade-offs. Showing why explorations A, B, and C failed made it much easier for stakeholders to trust exploration D.</p>
           </li>
           <li>
-            <h4>Enterprise constraints shape design</h4>
-            <p>Component libraries, existing ERP patterns, and column visibility requirements were non-negotiable. The best design was the one that worked within those constraints, not the most elegant in isolation.</p>
+            <h4>Make sure the designs comply with our design system</h4>
+            <p>Component libraries, existing design patterns, and column visibility requirements were non-negotiable. Sometimes the best design was the one that worked within those constraints, not the most elegant in isolation.</p>
           </li>
         </ol>
       </div>
