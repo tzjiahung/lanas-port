@@ -384,6 +384,7 @@ function Hero({ isMobile }) {
   const groupScale = Math.min(0.6, (vw - 32) / (GROUP_STEP * (ROLES.length - 1) + CROP.w))
   const group = <HeroGroup active={active} setActive={setActive} autoPlay={autoPlay} scale={groupScale} labelSize={isMobile ? 13 : 16} />
 
+  if (HERO_VARIANT === 'none') return <section style={s.hero}>{intro()}</section>
   if (HERO_VARIANT === 'row') {
     return <section style={s.hero}>{intro()}<HeroRow active={active} setActive={setActive} autoPlay={autoPlay} isMobile={isMobile} /></section>
   }
