@@ -106,6 +106,7 @@ function MyRole() {
           teams add multiple invoices to a single compliance number. Starting from the PM's PRD to designing a
           user-centered interface and experience.
         </p>
+        <video src="/oec-fin/compliance-module.mp4" poster="/oec-fin/compliance-module.jpg" width={1920} height={600} autoPlay loop muted playsInline aria-label="The Compliance tab appears in the SOPL finance portal, then the Compliance List builds row by row from top to bottom" style={{ width: '100%', height: 'auto', marginTop: 40, borderRadius: 'var(--snma-radius)', display: 'block' }} />
       </div>
     </section>
   )
