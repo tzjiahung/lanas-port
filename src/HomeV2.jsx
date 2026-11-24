@@ -75,35 +75,20 @@ const s = {
   content: { position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' },
   topBar: {
     width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    padding: '10px 23px 8px',
+    padding: '20px 24px 8px', // Header padding from Figma node 416:5809
   },
-  name: { fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
+  name: { fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
   links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, letterSpacing: '0em' },
   link: {
+    fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", // the dots between links stay Lato, as in Figma
     color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
     transition: 'background 0.15s, color 0.15s',
   },
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  // Nav to intro 52px: 8 (top bar) + 44 here. Intro to avatars 24px: role paddingTop.
-  // Avatars to work section 52px: 4 (roles) + 24 here + 24 (main gap).
-  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 24px' },
-  intro: { margin: 0, maxWidth: 1576, fontSize: 20, lineHeight: 1.6, fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
-  introStrong: { fontWeight: 700, cursor: 'default' },
-  roles: { width: '100%', display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'center', paddingBottom: 4 },
-  role: {
-    position: 'relative', width: 230, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, paddingTop: 24,
-    transition: 'transform 0.25s ease',
-  },
-  // Each 230x288 avatar shows the band from 72px to 181px: the objects sit at the bottom of it.
-  // Only the bottom edge is clipped, so coins and gifts that fly higher float into the space above.
-  roleImgBox: { width: 230, height: 109, clipPath: 'inset(-200px -200px 0 -200px)' },
-  roleImg: { width: 230, height: 288, display: 'block', marginTop: -72 },
-  roleLabel: {
-    textAlign: 'center', borderRadius: 12, padding: '0 12px',
-    fontSize: 16, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52',
-    transition: 'background 0.2s',
-  },
+  // Intro section from Figma node 416:5832: 32px above and below. Nav to intro 40px: 8 (top bar) + 32 here.
+  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 0' },
+  intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
   tab: {
@@ -123,7 +108,7 @@ const s = {
     boxShadow: '0 12px 36px rgba(120,80,140,0.08)', padding: 16,
   },
   workGrid: { display: 'grid', gap: 24 },
-  footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px 23px' },
+  footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px' },
   changelog: { display: 'flex', alignItems: 'center', gap: 10 },
   changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0em', color: 'rgba(58,46,58,0.45)' },
   changelogStamp: { fontSize: 12, letterSpacing: '0em', color: 'rgba(58,46,58,0.7)' },
@@ -161,16 +146,6 @@ function ContactLinks({ isMobile }) {
   )
 }
 
-// Hero roles, from Figma node 254:90. Each one pairs a phrase in the intro with an avatar.
-// Hovering the phrase or the avatar plays that avatar's GIF and highlights its label; otherwise it shows a still frame.
-const ROLES = [
-  { id: 'ai',        label: 'AI Experience Designer', still: 'home-v2/avatars/ai.png',        gif: 'home-v2/avatars/ai.gif' },
-  { id: 'ecommerce', label: 'E-commerce Designer',    still: 'home-v2/avatars/ecommerce.png', gif: 'home-v2/avatars/ecommerce.gif' },
-  { id: 'b2b',       label: 'B2B System Designer',    still: 'home-v2/avatars/b2b.png',       gif: 'home-v2/avatars/b2b.gif' },
-  { id: 'fintech',   label: 'Fintech Designer',       still: 'home-v2/avatars/fintech.png',   gif: 'home-v2/avatars/fintech.gif' },
-  { id: 'research',  label: 'Design Researcher',      still: 'home-v2/avatars/research.png',  gif: 'home-v2/avatars/research.gif' },
-]
-
 // Sparkles scattered over the background of the first fold only. They scroll away with the page.
 // Positions are percentages of the first screen's height and width, kept mostly toward the edges so they sit behind empty space.
 const BG_SPARKLES = [
@@ -193,81 +168,13 @@ function BackgroundSparkles() {
   )
 }
 
-function RolePhrase({ role, active, onActive, children }) {
-  return (
-    <strong
-      style={s.introStrong}
-      onMouseEnter={() => onActive(role)}
-      onMouseLeave={() => onActive(null)}
-    >
-      {children}
-    </strong>
-  )
-}
-
-// True while at least half of `ref`'s element is on screen. Only watches when `enabled`.
-function useInView(ref, enabled) {
-  const [inView, setInView] = React.useState(false)
-  React.useEffect(() => {
-    const el = ref.current
-    if (!enabled || !el || typeof IntersectionObserver === 'undefined') { setInView(false); return }
-    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.5 })
-    io.observe(el)
-    return () => io.disconnect()
-  }, [ref, enabled])
-  return inView
-}
-
-// Phones and other touch screens can't hover, so there each avatar plays while it's in view instead.
-function useAutoPlay(isMobile) {
-  const [noHover, setNoHover] = React.useState(() => typeof window !== 'undefined' && window.matchMedia?.('(hover: none)').matches)
-  React.useEffect(() => {
-    const mq = window.matchMedia?.('(hover: none)')
-    if (!mq) return
-    const onChange = () => setNoHover(mq.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isMobile || noHover
-}
-
-function RoleAvatar({ role, active: hovered, onActive, autoPlay }) {
-  const ref = React.useRef(null)
-  const inView = useInView(ref, autoPlay)
-  const active = hovered || inView
-  return (
-    <div ref={ref} style={{ ...s.role, transform: hovered ? 'scale(1.2)' : 'none' }} onMouseEnter={() => onActive(role.id)} onMouseLeave={() => onActive(null)}>
-      <div style={s.roleImgBox}>
-        {/* Swapping in the GIF on hover starts it from the first frame; swapping back stops it. */}
-        <img
-          key={active ? 'gif' : 'still'}
-          src={active ? role.gif : role.still}
-          alt=""
-          aria-hidden="true"
-          style={s.roleImg}
-        />
-      </div>
-      <span style={{ ...s.roleLabel, background: active ? '#ffffff' : 'transparent' }}>{role.label}</span>
-    </div>
-  )
-}
-
-function Hero({ isMobile }) {
-  const [active, setActive] = React.useState(null)
-  const autoPlay = useAutoPlay(isMobile)
-  const phrase = (id, text) => (
-    <RolePhrase role={id} active={active === id} onActive={setActive}>{text}</RolePhrase>
-  )
+function Hero() {
   return (
     <section style={s.hero}>
       <p style={s.intro}>
-        Product designer with 3+ years of experience designing {phrase('ai', 'AI')},{' '}
-        {phrase('ecommerce', 'E-commerce')}, {phrase('b2b', 'B2B')}, and {phrase('fintech', 'Fintech products')}.<br />
-        Currently studying {phrase('research', 'Human Centered Design & Engineering')} @ UW in Seattle.
+        Product designer with 3+ years of experience designing <b>AI, E-commerce, B2B</b>, and Fintech products.<br />
+        Currently studying Human Centered Design &amp; Engineering @ UW in Seattle.
       </p>
-      <div style={{ ...s.roles, gap: isMobile ? 16 : 32 }}>
-        {ROLES.map((role) => <RoleAvatar key={role.id} role={role} active={active === role.id} onActive={setActive} autoPlay={autoPlay} />)}
-      </div>
     </section>
   )
 }
@@ -483,7 +390,7 @@ export default function HomeV2() {
         </header>
 
         <main style={s.main}>
-          <Hero isMobile={isMobile} />
+          <Hero />
 
           <div style={s.folder}>
             <div role="tablist" aria-label="Work and articles" style={s.tabs}>
