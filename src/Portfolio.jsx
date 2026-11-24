@@ -708,19 +708,19 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
 // ─── Articles column ──────────────────────────────────────────
 
 export const ARTICLES = [
-  { title: 'Building a UX Research Agent for Slack with n8n, GitLab CI, and Claude', date: 'Aug 2026', readMin: 8, url: 'https://medium.com/@LanaHung/building-a-ux-research-agent-for-slack-with-n8n-gitlab-ci-and-claude-2668908b3cd1' },
-  { title: 'How we transformed qualitative synthesize with AI: ChatGPT, NotebookLM, Claude Code', date: 'Jun 2026', readMin: 7, url: 'https://medium.com/@LanaHung/how-we-transformed-qualitative-synthesize-with-ai-chatgpt-notebooklm-claude-code-0b4df664a15f' },
-  { title: 'Applying to HCI Masters in the Age of AI (Fall 2026)', date: 'Apr 2026', readMin: 11, url: 'https://medium.com/@LanaHung/applying-to-hci-masters-in-the-age-of-ai-fall-2026-915eab17fdcd' },
-  { title: 'Assessing the Need for SB Pay Onboarding Using SQL and GSheets', date: 'Apr 2026', readMin: 7, url: 'https://medium.com/@LanaHung/assessing-the-need-for-sb-pay-onboarding-using-sql-and-gsheets-a44cf881261d' },
-  { title: 'Segmenting Users by Defining User Properties from Behavioral Data', date: 'Sep 2025', readMin: 6, url: 'https://medium.com/@LanaHung/segmenting-users-by-defining-user-properties-from-behavior-data-526a9dd102d6' },
-  { title: 'Defining and Evaluating Metrics with Xmrit Charts for the Withdrawal Experience', date: 'Aug 2025', readMin: 8, url: 'https://medium.com/@LanaHung/defining-and-evaluating-metrics-along-with-xmrit-charts-for-withdrawal-experience-f44e3a56a105' },
-  { title: 'Using PostgreSQL to Segment Users and Solve In-App Survey Trigger Point Problem', date: 'Aug 2025', readMin: 7, url: 'https://medium.com/@LanaHung/using-postgresql-to-solve-an-in-app-survey-trigger-point-problem-bdc337310696' },
-  { title: 'Using ClaudeAI and Python to Run an F-Test in UX Research', date: 'Aug 2025', readMin: 6, url: 'https://medium.com/@LanaHung/using-claudeai-and-python-to-run-an-f-test-in-ux-research-2d2bd6254637' },
-  { title: 'Leveraging a Design Background to Conduct Better UX Research', date: 'Jan 2025', readMin: 5, url: 'https://medium.com/@LanaHung/connecting-the-dots-leveraging-a-design-background-to-conduct-better-ux-research-05b51a3b3be7' },
-  { title: 'Holding a Metaverse Product Design Workshop', date: 'Jul 2023', readMin: 6, url: 'https://medium.com/@LanaHung/2022-holding-a-metaverse-product-design-workshop-35784812e25c' },
-  { title: 'Cathay Financial Holdings UX/UI Design Internship Review (2/2)', date: 'May 2023', readMin: 9, url: 'https://medium.com/@LanaHung/2022-cathay-financial-holdings-ux-ui-design-internship-review-2-2-a7d4b01277fe' },
-  { title: 'Cathay Financial Holdings UX/UI Design Internship Review (1/2)', date: 'May 2023', readMin: 8, url: 'https://medium.com/@LanaHung/2022-cathay-financial-holdings-ux-ui-design-internship-review-1-2-c7d6bb9701a9' },
-  { title: 'Acer PM Summer Intern Application Review', date: 'Jan 2023', readMin: 8, url: 'https://medium.com/@LanaHung/2022-acer-pm-summer-intern-application-review-a59cea43a668' },
+  { tag: 'Research', title: 'Building a UX Research Agent for Slack with n8n, GitLab CI, and Claude', date: 'Aug 2026', readMin: 8, url: 'https://medium.com/@LanaHung/building-a-ux-research-agent-for-slack-with-n8n-gitlab-ci-and-claude-2668908b3cd1' },
+  { tag: 'Research', title: 'How we transformed qualitative synthesize with AI: ChatGPT, NotebookLM, Claude Code', date: 'Jun 2026', readMin: 7, url: 'https://medium.com/@LanaHung/how-we-transformed-qualitative-synthesize-with-ai-chatgpt-notebooklm-claude-code-0b4df664a15f' },
+  { tag: 'Other', title: 'Applying to HCI Masters in the Age of AI (Fall 2026)', date: 'Apr 2026', readMin: 11, url: 'https://medium.com/@LanaHung/applying-to-hci-masters-in-the-age-of-ai-fall-2026-915eab17fdcd' },
+  { tag: 'Research', title: 'Assessing the Need for SB Pay Onboarding Using SQL and GSheets', date: 'Apr 2026', readMin: 7, url: 'https://medium.com/@LanaHung/assessing-the-need-for-sb-pay-onboarding-using-sql-and-gsheets-a44cf881261d' },
+  { tag: 'Research', title: 'Segmenting Users by Defining User Properties from Behavioral Data', date: 'Sep 2025', readMin: 6, url: 'https://medium.com/@LanaHung/segmenting-users-by-defining-user-properties-from-behavior-data-526a9dd102d6' },
+  { tag: 'Research', title: 'Defining and Evaluating Metrics with Xmrit Charts for the Withdrawal Experience', date: 'Aug 2025', readMin: 8, url: 'https://medium.com/@LanaHung/defining-and-evaluating-metrics-along-with-xmrit-charts-for-withdrawal-experience-f44e3a56a105' },
+  { tag: 'Research', title: 'Using PostgreSQL to Segment Users and Solve In-App Survey Trigger Point Problem', date: 'Aug 2025', readMin: 7, url: 'https://medium.com/@LanaHung/using-postgresql-to-solve-an-in-app-survey-trigger-point-problem-bdc337310696' },
+  { tag: 'Research', title: 'Using ClaudeAI and Python to Run an F-Test in UX Research', date: 'Aug 2025', readMin: 6, url: 'https://medium.com/@LanaHung/using-claudeai-and-python-to-run-an-f-test-in-ux-research-2d2bd6254637' },
+  { tag: 'Research', title: 'Leveraging a Design Background to Conduct Better UX Research', date: 'Jan 2025', readMin: 5, url: 'https://medium.com/@LanaHung/connecting-the-dots-leveraging-a-design-background-to-conduct-better-ux-research-05b51a3b3be7' },
+  { tag: 'Design', title: 'Holding a Metaverse Product Design Workshop', date: 'Jul 2023', readMin: 6, url: 'https://medium.com/@LanaHung/2022-holding-a-metaverse-product-design-workshop-35784812e25c' },
+  { tag: 'Design', title: 'Cathay Financial Holdings UX/UI Design Internship Review (2/2)', date: 'May 2023', readMin: 9, url: 'https://medium.com/@LanaHung/2022-cathay-financial-holdings-ux-ui-design-internship-review-2-2-a7d4b01277fe' },
+  { tag: 'Design', title: 'Cathay Financial Holdings UX/UI Design Internship Review (1/2)', date: 'May 2023', readMin: 8, url: 'https://medium.com/@LanaHung/2022-cathay-financial-holdings-ux-ui-design-internship-review-1-2-c7d6bb9701a9' },
+  { tag: 'Other', title: 'Acer PM Summer Intern Application Review', date: 'Jan 2023', readMin: 8, url: 'https://medium.com/@LanaHung/2022-acer-pm-summer-intern-application-review-a59cea43a668' },
 ];
 
 function buildArticlesMarkdown() {

@@ -197,6 +197,11 @@ function Tab({ id, label, active, onSelect }) {
   )
 }
 
+// Article label (Research, Design or Other), a smaller take on the tags on the work cards.
+// Design uses the OEC card's blue; the others stay lilac.
+const articleTag = { display: 'inline-block', marginRight: 8, padding: '1px 8px', borderRadius: 4, background: 'rgba(125,104,163,0.12)', color: '#7d68a3', fontSize: 11, fontWeight: 600, lineHeight: 1.5 }
+const ARTICLE_TAG_COLORS = { Design: { background: 'rgba(61,111,216,0.12)', color: '#3d6fd8' } }
+
 function ArticleList() {
   return (
     <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -223,6 +228,7 @@ function ArticleList() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 3, minWidth: 0, flex: 1 }}>
               <span style={{ ...articleStyles.title, fontSize: 14, fontWeight: 600 }}>{a.title}</span>
               <span style={articleStyles.meta}>
+                {a.tag && <span style={{ ...articleTag, ...ARTICLE_TAG_COLORS[a.tag] }}>{a.tag}</span>}
                 {a.date}
                 {a.readMin != null && (
                   <React.Fragment>
