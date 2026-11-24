@@ -77,17 +77,17 @@ const s = {
     width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: '20px 24px 8px', // Header padding from Figma node 416:5809
   },
-  name: { fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
+  name: { fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
   links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, letterSpacing: '0em' },
   link: {
-    fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", // the dots between links stay Lato, as in Figma
     color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
     transition: 'background 0.15s, color 0.15s',
   },
   dot: { color: 'rgba(58,46,58,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  // Intro section from Figma node 416:5832: 32px above and below. Nav to intro 40px: 8 (top bar) + 32 here.
-  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 0' },
+  // Equal space above and below the intro, 52px each.
+  // Nav to intro: 8 (top bar) + 44 here. Intro to work cards: 28 here + 24 (main gap).
+  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 28px' },
   intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
@@ -155,7 +155,7 @@ const BG_SPARKLES = [
   { size: 22, top: '42%', left: '93%', delay: 1.8 },
   { size: 26, top: '62%', left: '3%',  delay: 0.9 },
   // Just past "Seattle" at the end of the intro. The intro is centred, so this is offset from the centre in px.
-  { size: 26, top: 130, left: 'calc(50% + 326px)', delay: 0.3 },
+  { size: 26, top: 130, left: 'calc(50% + 374px)', delay: 0.3 },
   { size: 22, top: '88%', left: '9%',  delay: 1.5 },
   { size: 30, top: '24%', left: '52%', delay: 2.1 },
 ]
@@ -172,7 +172,7 @@ function Hero() {
   return (
     <section style={s.hero}>
       <p style={s.intro}>
-        Product designer with 3+ years of experience designing <b>AI, E-commerce, B2B</b>, and Fintech products.<br />
+        Product designer with 3+ years of experience designing <b>AI, E-commerce, B2B</b>, and <b>Fintech</b> products.<br />
         Currently studying Human Centered Design &amp; Engineering @ UW in Seattle.
       </p>
     </section>
