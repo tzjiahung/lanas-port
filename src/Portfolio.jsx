@@ -299,7 +299,9 @@ function AboutCol({ padding, radius, isMobile, headerHeight, gradient, avatarVar
 export const WORKS = [
   {
     id: 'shopback-activation',
-    title: 'ShopBack New Market Activation',
+    title: 'Researching New Market Activation for an E-commerce Platform',
+    // Non-breaking spaces give the dots an extra space on each side (HTML collapses plain double spaces).
+    subtitle: 'ShopBack  ·  US & Germany  ·  +9.38% activation',
     role: 'UX Research · Shipped',
     year: '2025',
     url: '#/shopback-nma',
@@ -311,7 +313,8 @@ export const WORKS = [
   },
   {
     id: 'oec-finance',
-    title: 'OEC Group Finance Module Design',
+    title: 'Designing a Finance Module for a Logistics Company',
+    subtitle: 'OEC Group\u00a0 · \u00a0US & China\u00a0 · \u00a00 → 1',
     role: 'UX Design · Shipped',
     year: '2024',
     url: '#/oec-fin',
@@ -323,7 +326,8 @@ export const WORKS = [
   },
   {
     id: 'oec-typography',
-    title: 'OEC Group Typography System Redesign',
+    title: 'Redesigning the Typography System for a Logistics Tracking Platform',
+    subtitle: 'OEC Group\u00a0 · \u00a0US & China\u00a0 · \u00a0Shipped across 3 B2B products',
     role: 'UX Design · Shipped',
     year: '2024',
     url: '#/oec-typo',
@@ -335,7 +339,8 @@ export const WORKS = [
   },
   {
     id: 'cathay-fitback',
-    title: 'Cathay FitBack Exploratory Research',
+    title: 'Researching Social Impact in Health & Fitness Apps',
+    subtitle: 'Cathay Financial\u00a0 · \u00a0Taiwan\u00a0 · \u00a0Reshaped product roadmap',
     role: 'UX Research · Handed Over',
     year: '2023',
     url: '#/fitback',
@@ -390,7 +395,7 @@ function buildWorksMarkdown() {
 }
 
 // `hoverZoom={false}` turns off the cover's zoom on hover.
-export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill, aspectRatio, hoverZoom = true }) {
+export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill, aspectRatio, hoverZoom = true, titleSize = 14, subtitle }) {
   const [hover, setHover] = React.useState(false);
   const Tag = url ? 'a' : 'article';
   const isInternal = url && url.startsWith('#/');
@@ -441,9 +446,9 @@ export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor,
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-          <h3 style={{ margin: 0, fontSize: 14, fontWeight: 600, color: '#2a1e2e', letterSpacing: '0em' }}>{title}</h3>
-          <span style={{ fontSize: 12, color: 'rgba(58,46,58,0.55)' }}>· {year}</span>
+          <h3 style={{ margin: 0, fontSize: titleSize, fontWeight: 600, color: '#2a1e2e', letterSpacing: '0em' }}>{title}</h3>
         </div>
+        {subtitle && <p style={{ margin: 0, fontSize: 14, lineHeight: 1.45, color: 'rgba(0,0,0,0.5)' }}>{subtitle}</p>}
       </div>
     </Tag>
   );
