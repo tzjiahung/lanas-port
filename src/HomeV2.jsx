@@ -12,14 +12,9 @@ import {
 const CONTENT_MAX = 1200
 const MOBILE_BP = 760
 
-// The design shows the first six case studies in a two-column grid.
-// O'Clock and FooMa use widened copies of their covers (edges stretched outward in the image's own
-// background colour) so their square images aren't cropped by the wider card.
-const WIDE_COVERS = {
-  'oclock-green': 'home-v2/covers/oclock-green.jpg',
-  'fooma-omo': 'home-v2/covers/fooma.jpg',
-}
-const HOME_WORKS = WORKS.slice(0, 6).map((w) => (WIDE_COVERS[w.id] ? { ...w, cover: WIDE_COVERS[w.id] } : w))
+// The home page shows the first four case studies (ShopBack, OEC Finance, OEC Typography and
+// Cathay FitBack) in a two-column grid.
+const HOME_WORKS = WORKS.slice(0, 4)
 
 // The new page's resume link (the original home page keeps its own).
 const RESUME_URL = 'https://drive.google.com/file/d/11qNajkcb8YeLHNBtIWcNRtafqfvkVFt8/view?usp=sharing'
@@ -226,13 +221,13 @@ function ArticleList() {
             <span style={{ ...articleStyles.num, fontFamily: 'inherit' }}>{String(i + 1).padStart(2, '0')}</span>
             <ArticleThumb url={a.url} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 3, minWidth: 0, flex: 1 }}>
-              <span style={{ ...articleStyles.title, fontSize: 14, fontWeight: 600 }}>{a.title}</span>
-              <span style={articleStyles.meta}>
+              <span style={{ ...articleStyles.title, fontSize: 16, fontWeight: 600 }}>{a.title}</span>
+              <span style={{ ...articleStyles.meta, fontSize: 14, color: 'rgba(0,0,0,0.5)' }}>
                 {a.tag && <span style={{ ...articleTag, ...ARTICLE_TAG_COLORS[a.tag] }}>{a.tag}</span>}
                 {a.date}
                 {a.readMin != null && (
                   <React.Fragment>
-                    <span style={articleStyles.metaDot}>·</span>
+                    <span style={{ ...articleStyles.metaDot, color: 'inherit' }}>·</span>
                     {a.readMin} min read
                   </React.Fragment>
                 )}
@@ -407,7 +402,7 @@ export default function HomeV2() {
             <section role="tabpanel" id={`home-v2-panel-${tab}`} aria-labelledby={`home-v2-tab-${tab}`} style={s.panel}>
               {tab === 'work' ? (
                 <div style={{ ...s.workGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
-                  {HOME_WORKS.map((w) => <CaseStudy key={w.id} {...w} aspectRatio="760 / 487" hoverZoom={false} />)}
+                  {HOME_WORKS.map((w) => <CaseStudy key={w.id} {...w} aspectRatio="760 / 487" hoverZoom={false} titleSize={16} />)}
                 </div>
               ) : tab === 'article' ? (
                 <ArticleList />
