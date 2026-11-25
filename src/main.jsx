@@ -9,19 +9,8 @@ import Fooma from './Fooma.jsx'
 import Ucarer from './Ucarer.jsx'
 import OecTypo from './OecTypo.jsx'
 import HomeV2 from './HomeV2.jsx'
+import { trackPageView } from './analytics.js'
 import './index.css'
-
-const VIEW_TITLES = {
-  'shopback-nma': 'ShopBack NMA — Lana Hung',
-  'fitback': 'OEC Fin — Lana Hung',
-  'oec-fin': 'OEC Compliance — Lana Hung',
-  'oclock': "O'Clock Green — Lana Hung",
-  'fooma': 'Fooma — Lana Hung',
-  'ucarer': 'Ucarer Redesign — Lana Hung',
-  'oec-typo': 'OEC Typography — Lana Hung',
-  'home-v1': 'Tz-Jia (Lana) Hung — Portfolio',
-  'portfolio': 'Tz-Jia (Lana) Hung — Portfolio',
-}
 
 function matchView(hash) {
   const path = hash.replace(/^#+\/*/, '').replace(/\/+$/, '').toLowerCase()
@@ -33,21 +22,15 @@ function matchView(hash) {
   if (path === 'ucarer') return 'ucarer'
   if (path === 'oec-typo') return 'oec-typo'
   if (path === 'home-v1') return 'home-v1'   // previous home page, kept but not linked
-  return 'portfolio'
-}
-
-function trackPageView(view) {
-  if (typeof window.gtag !== 'function') return
-  window.gtag('event', 'page_view', {
-    page_path: window.location.hash || '/',
-    page_title: VIEW_TITLES[view] || document.title,
-  })
+  return 'home'
 }
 
 function Root() {
   const [view, setView] = useState(() => matchView(window.location.hash))
 
+  // One page view on first load (the GA tag itself is set not to send one), then one per page change.
   useEffect(() => {
+    trackPageView(matchView(window.location.hash))
     function onHash() {
       const newView = matchView(window.location.hash)
       setView(newView)

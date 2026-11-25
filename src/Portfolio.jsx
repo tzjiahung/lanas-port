@@ -5,9 +5,7 @@ import VoxelMarker from './VoxelMarker.jsx'
 import PeachDawn from './Stars.jsx'
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider, TweakRadio, TweakSelect } from './TweaksPanel.jsx'
 
-export function trackEvent(name, params) {
-  if (typeof window.gtag === 'function') window.gtag('event', name, params)
-}
+import { trackClick, trackEvent } from './analytics.js'
 
 const TWEAK_DEFAULTS = {
   vignette: false,
@@ -109,7 +107,7 @@ function CopyPill({ label = 'Copy for AI', copiedLabel = 'Copied', getText, aria
         document.body.removeChild(ta);
       }
       setState('copied');
-      trackEvent('click', { button_label: `Copy Links for AI — ${trackLabel}` });
+      trackClick(`copy_links_${trackLabel}`, 'home_v1');
     } catch (e) {
       setState('error');
     }
@@ -156,7 +154,7 @@ function Card({ title, children, style, padding, radius, headerAction, titleColo
   function handleScroll() {
     if (scrolledRef.current) return;
     scrolledRef.current = true;
-    trackEvent('scroll', { card: title });
+    trackEvent('card_scroll', { button_label: title, section: 'home_v1' });
   }
 
   const cardStyle = {
@@ -395,7 +393,7 @@ function buildWorksMarkdown() {
 }
 
 // `hoverZoom={false}` turns off the cover's zoom on hover.
-export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill, aspectRatio, hoverZoom = true, titleSize = 14, subtitle }) {
+export function CaseStudy({ id, title, role, year, desc, cover, url, tags, tagColor, compact, imgHeight, fill, aspectRatio, hoverZoom = true, titleSize = 14, subtitle }) {
   const [hover, setHover] = React.useState(false);
   const Tag = url ? 'a' : 'article';
   const isInternal = url && url.startsWith('#/');
@@ -404,7 +402,7 @@ export function CaseStudy({ title, role, year, desc, cover, url, tags, tagColor,
         href: url,
         onClick: (e) => {
           e.preventDefault();
-          trackEvent('click', { button_label: title, section: 'work' });
+          trackClick(id || title, 'work_cards');
           if (isInternal) {
             window.location.hash = url.slice(1);
           } else {
@@ -487,7 +485,7 @@ function PlaygroundPiece({ label, video, poster, x, y, rotate, frame, frameBorde
     if (!drag.current) return;
     drag.current = null;
     setDragging(false);
-    trackEvent('click', { button_label: `Playground piece moved: ${label}`, section: 'work' });
+    trackClick(`playground_move_${label}`, 'home_v1');
   }
 
   return (
@@ -547,7 +545,7 @@ function FolderTabs({ active, onChange, radius, strokeCenter }) {
   React.useEffect(() => () => clearTimeout(soonTimer.current), []);
   function onPlaygroundClick(e) {
     if (PLAYGROUND_ENABLED) { onChange('playground'); return; }
-    trackEvent('click', { button_label: 'Playground tab (coming soon)', section: 'work' });
+    trackClick('playground_tab_soon', 'home_v1');
     const area = areaRef.current.getBoundingClientRect();
     const tabRect = e.currentTarget.getBoundingClientRect();
     // Show the tooltip where the pointer clicked; keyboard presses (detail 0) anchor under the tab.
@@ -674,7 +672,7 @@ function WorksCol({ padding, radius, isMobile, headerHeight }) {
 
   function selectTab(next) {
     if (next === tab) return;
-    trackEvent('click', { button_label: next === 'work' ? 'Work tab' : 'Playground tab', section: 'work' });
+    trackClick(`${next}_tab`, 'home_v1');
     setTab(next);
   }
 
@@ -765,7 +763,7 @@ function ArticlesCol({ padding, radius, isMobile, headerHeight }) {
               href={a.url}
               target="_top"
               style={{ ...articleStyles.link, padding: '2px 0px' }}
-              onClick={() => trackEvent('click', { button_label: a.title, section: 'articles' })}
+              onClick={() => trackClick(a.title, 'home_v1_articles', { link_url: a.url })}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.55)';
                 const arr = e.currentTarget.querySelector('[data-arr]');
@@ -859,7 +857,7 @@ function StatusBar({ isMobile, inset }) {
               target={l.href.startsWith('mailto:') ? undefined : '_top'}
               style={{ color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6, transition: 'background 0.15s, color 0.15s' }}
               onClick={(e) => {
-                trackEvent('click', { button_label: l.label, section: 'footer' });
+                trackClick(l.label, 'home_v1_footer');
               }}
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(180,140,210,0.14)'; e.currentTarget.style.color = 'rgba(58,46,58,0.95)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(58,46,58,0.7)'; }}

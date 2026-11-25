@@ -1,9 +1,6 @@
 // Shared layout primitives for all case study pages
 import React, { useEffect, useState } from 'react'
-
-function trackEvent(name, params) {
-  if (typeof window.gtag === 'function') window.gtag('event', name, params)
-}
+import { trackClick } from './analytics.js'
 
 export const CONTACT_LINKS = [
   { label: 'Resume',   href: 'https://drive.google.com/file/d/11qNajkcb8YeLHNBtIWcNRtafqfvkVFt8/view?usp=sharing' },
@@ -70,7 +67,7 @@ export function RailNav({ sections, active }) {
       <a
         href="/"
         className="snma-rail-back"
-        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'All Projects', section: 'rail_nav' }); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackClick('all_projects', 'case_rail'); window.location.replace('/') }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M12 7H2M6 3L2 7L6 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -83,7 +80,7 @@ export function RailNav({ sections, active }) {
             key={s.id}
             data-id={s.id}
             className={`snma-rail-btn${s.sub ? ' snma-rail-btn--sub' : ''}${active === s.id ? ' active' : ''}`}
-            onClick={() => { trackEvent('click', { button_label: s.label, section: 'rail_nav' }); scrollTo(s.id); }}
+            onClick={() => { trackClick(s.id, 'case_rail'); scrollTo(s.id); }}
           >
             <span className="snma-rail-label">{s.label}</span>
           </button>
@@ -99,13 +96,13 @@ export function TopBar({ sections }) {
       <a
         href="/"
         className="snma-topbar-brand"
-        onClick={(e) => { e.preventDefault(); trackEvent('click', { button_label: 'Lana Hung', section: 'topbar' }); window.location.replace('/') }}
+        onClick={(e) => { e.preventDefault(); trackClick('home_logo', 'case_topbar'); window.location.replace('/') }}
       >
         <span>Lana Hung</span>
       </a>
       <div className="snma-topbar-links">
         {sections.map(s => (
-          <button key={s.id} className="snma-topbar-link" onClick={() => { trackEvent('click', { button_label: s.label, section: 'topbar' }); scrollTo(s.id); }}>
+          <button key={s.id} className="snma-topbar-link" onClick={() => { trackClick(s.id, 'case_topbar'); scrollTo(s.id); }}>
             {s.label}
           </button>
         ))}
