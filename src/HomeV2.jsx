@@ -1,8 +1,9 @@
 import React from 'react'
+import { trackClick } from './analytics.js'
 import { createPortal } from 'react-dom'
 import VoxelMarker from './VoxelMarker.jsx'
 import {
-  trackEvent, ArrowOut, HeroSparkle, CaseStudy,
+  ArrowOut, HeroSparkle, CaseStudy,
   WORKS, ARTICLES, articleStyles, CONTACT_LINKS, CHANGELOG_STAMP,
 } from './Portfolio.jsx'
 
@@ -129,7 +130,7 @@ function ContactLinks({ isMobile }) {
             href={l.href}
             target={l.href.startsWith('mailto:') ? undefined : '_top'}
             style={s.link}
-            onClick={() => trackEvent('click', { button_label: l.label, section: 'home-v2-header' })}
+            onClick={() => trackClick(l.label, 'home_header')}
             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(180,140,210,0.14)'; e.currentTarget.style.color = 'rgba(58,46,58,0.95)' }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(58,46,58,0.7)' }}
           >
@@ -206,7 +207,7 @@ function ArticleList() {
             href={a.url}
             target="_top"
             style={articleStyles.link}
-            onClick={() => trackEvent('click', { button_label: a.title, section: 'home-v2-articles' })}
+            onClick={() => trackClick(a.title, 'home_articles', { link_url: a.url })}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'rgba(180,140,210,0.08)'
               const arr = e.currentTarget.querySelector('[data-arr]')
@@ -375,8 +376,7 @@ export default function HomeV2() {
 
   function selectTab(next) {
     if (next === tab) return
-    const labels = { work: 'Work tab', article: 'Article tab', about: 'About tab' }
-    trackEvent('click', { button_label: labels[next], section: 'home-v2' })
+    trackClick(`${next}_tab`, 'home_tabs')
     setTab(next)
   }
 
