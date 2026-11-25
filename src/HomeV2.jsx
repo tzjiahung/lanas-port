@@ -42,8 +42,8 @@ const thumbFor = (url) => ARTICLE_THUMBS[url.split('-').pop()]
 
 const thumbStyle = {
   width: 120, aspectRatio: '3 / 2', flexShrink: 0, borderRadius: 6, overflow: 'hidden',
-  border: '1px solid rgba(58,46,58,0.08)',
-  background: 'linear-gradient(135deg, #f2e5ef, #e8dbf2)',
+  border: '1px solid rgba(32,44,60,0.08)',
+  background: 'linear-gradient(135deg, #eff6fc, #deecf9)',
 }
 
 function ArticleThumb({ url }) {
@@ -61,7 +61,7 @@ const s = {
     fontFamily: "'Lato', ui-sans-serif, system-ui, -apple-system, sans-serif",
     // The hero background image (959px tall) fades to white at its bottom edge, so the page is white
     // from there down. Stops are in px so the seam lines up at any page height (phones are much taller).
-    background: 'linear-gradient(180deg, #f2e5ef 0px, #ffffff 959px, #fffffe 100%)',
+    background: 'linear-gradient(180deg, #eff6fc 0px, #ffffff 959px, #fffffe 100%)',
   },
   heroBg: {
     position: 'absolute', top: 0, left: 0, width: '100%', height: 959,
@@ -73,18 +73,18 @@ const s = {
     width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: '20px 24px 8px', // Header padding from Figma node 416:5809
   },
-  name: { fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#5a2c52' },
+  name: { fontSize: 20, lineHeight: '25.6px', fontWeight: 700, letterSpacing: '0em', color: '#004578' },
   links: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, letterSpacing: '0em' },
   link: {
-    color: 'rgba(58,46,58,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
+    color: 'rgba(32,44,60,0.7)', textDecoration: 'none', padding: '4px 8px', borderRadius: 6,
     transition: 'background 0.15s, color 0.15s',
   },
-  dot: { color: 'rgba(58,46,58,0.3)' },
+  dot: { color: 'rgba(32,44,60,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
   // Equal space above and below the intro, 52px each.
   // Nav to intro: 8 (top bar) + 44 here. Intro to work cards: 28 here + 24 (main gap).
   hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 28px' },
-  intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#5a2c52', textAlign: 'center', textWrap: 'pretty' },
+  intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#004578', textAlign: 'center', textWrap: 'pretty' },
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
   tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
   tab: {
@@ -92,22 +92,22 @@ const s = {
     // Longhand padding: the selected tab overrides paddingBottom, and mixing that with the
     // `padding` shorthand made React drop the bottom padding when a tab was deselected.
     paddingTop: 8, paddingRight: 16, paddingBottom: 8, paddingLeft: 16, margin: 0, cursor: 'pointer', fontFamily: 'inherit',
-    border: '1px solid rgba(58,46,58,0.08)', borderBottom: 'none', borderRadius: '6px 6px 0 0',
-    filter: 'drop-shadow(0 12px 18px rgba(120,80,140,0.08))',
+    border: '1px solid rgba(32,44,60,0.08)', borderBottom: 'none', borderRadius: '6px 6px 0 0',
+    filter: 'drop-shadow(0 12px 18px rgba(0,69,120,0.08))',
   },
-  tabLabel: { fontSize: 16, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', color: '#7d68a3' },
+  tabLabel: { fontSize: 16, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', color: '#0078d4' },
   panel: {
     // Sits above the unselected tab so that tab's shadow tucks under the white panel.
     position: 'relative', zIndex: 1,
     background: '#ffffff',
-    border: '1px solid rgba(58,46,58,0.08)', borderTop: 'none', borderRadius: '0 0 8px 8px',
-    boxShadow: '0 12px 36px rgba(120,80,140,0.08)', padding: 16,
+    border: '1px solid rgba(32,44,60,0.08)', borderTop: 'none', borderRadius: '0 0 8px 8px',
+    boxShadow: '0 12px 36px rgba(0,69,120,0.08)', padding: 16,
   },
   workGrid: { display: 'grid', gap: 24 },
   footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px' },
   changelog: { display: 'flex', alignItems: 'center', gap: 10 },
-  changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0em', color: 'rgba(58,46,58,0.45)' },
-  changelogStamp: { fontSize: 12, letterSpacing: '0em', color: 'rgba(58,46,58,0.7)' },
+  changelogLabel: { fontSize: 10, fontWeight: 600, letterSpacing: '0em', color: 'rgba(32,44,60,0.45)' },
+  changelogStamp: { fontSize: 12, letterSpacing: '0em', color: 'rgba(32,44,60,0.7)' },
 }
 
 function useIsMobile() {
@@ -131,8 +131,8 @@ function ContactLinks({ isMobile }) {
             target={l.href.startsWith('mailto:') ? undefined : '_top'}
             style={s.link}
             onClick={() => trackClick(l.label, 'home_header')}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(180,140,210,0.14)'; e.currentTarget.style.color = 'rgba(58,46,58,0.95)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(58,46,58,0.7)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,120,212,0.10)'; e.currentTarget.style.color = 'rgba(32,44,60,0.95)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(32,44,60,0.7)' }}
           >
             {l.label}
           </a>
@@ -150,8 +150,6 @@ const BG_SPARKLES = [
   { size: 34, top: '9%',  left: '88%', delay: 0.6 },
   { size: 22, top: '42%', left: '93%', delay: 1.8 },
   { size: 26, top: '62%', left: '3%',  delay: 0.9 },
-  // Just past "Seattle" at the end of the intro. The intro is centred, so this is offset from the centre in px.
-  { size: 26, top: 130, left: 'calc(50% + 374px)', delay: 0.3 },
   { size: 22, top: '88%', left: '9%',  delay: 1.5 },
   { size: 30, top: '24%', left: '52%', delay: 2.1 },
 ]
@@ -159,7 +157,7 @@ const BG_SPARKLES = [
 function BackgroundSparkles() {
   return (
     <div aria-hidden="true" style={s.sparkleLayer}>
-      {BG_SPARKLES.map((p, i) => <HeroSparkle key={i} {...p} />)}
+      {BG_SPARKLES.map((p, i) => <HeroSparkle key={i} {...p} color="#71afe5" glow="rgba(113, 175, 229, 0.55)" />)}
     </div>
   )
 }
@@ -187,7 +185,7 @@ function Tab({ id, label, active, onSelect }) {
         ...(active ? { filter: 'none', position: 'relative', zIndex: 2, marginBottom: -1, paddingBottom: 9 } : null),
       }}
     >
-      <VoxelMarker kind="work" size={22} />
+      <VoxelMarker kind="workBlue" size={22} />
       <span style={s.tabLabel}>{label}</span>
     </button>
   )
@@ -195,7 +193,7 @@ function Tab({ id, label, active, onSelect }) {
 
 // Article label (Research, Design or Other), a smaller take on the tags on the work cards.
 // Design uses the OEC card's blue; the others stay lilac.
-const articleTag = { display: 'inline-block', marginRight: 8, padding: '1px 8px', borderRadius: 4, background: 'rgba(125,104,163,0.12)', color: '#7d68a3', fontSize: 11, fontWeight: 600, lineHeight: 1.5 }
+const articleTag = { display: 'inline-block', marginRight: 8, padding: '1px 8px', borderRadius: 4, background: 'rgba(0,120,212,0.12)', color: '#0078d4', fontSize: 11, fontWeight: 600, lineHeight: 1.5 }
 const ARTICLE_TAG_COLORS = { Design: { background: 'rgba(61,111,216,0.12)', color: '#3d6fd8' } }
 
 function ArticleList() {
@@ -209,7 +207,7 @@ function ArticleList() {
             style={articleStyles.link}
             onClick={() => trackClick(a.title, 'home_articles', { link_url: a.url })}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(180,140,210,0.08)'
+              e.currentTarget.style.background = 'rgba(0,120,212,0.06)'
               const arr = e.currentTarget.querySelector('[data-arr]')
               if (arr) arr.style.transform = 'translateX(2px)'
             }}
@@ -219,7 +217,7 @@ function ArticleList() {
               if (arr) arr.style.transform = 'translateX(0)'
             }}
           >
-            <span style={{ ...articleStyles.num, fontFamily: 'inherit' }}>{String(i + 1).padStart(2, '0')}</span>
+            <span style={{ ...articleStyles.num, fontFamily: 'inherit', color: 'rgba(0,69,120,0.55)' }}>{String(i + 1).padStart(2, '0')}</span>
             <ArticleThumb url={a.url} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 3, minWidth: 0, flex: 1 }}>
               <span style={{ ...articleStyles.title, fontSize: 16, fontWeight: 600 }}>{a.title}</span>
@@ -276,7 +274,7 @@ const about = {
   // looks cut off when enlarged.
   lightboxImg: {
     maxWidth: '100%', maxHeight: '100%', boxSizing: 'border-box', padding: 24, background: '#ffffff',
-    borderRadius: 8, boxShadow: '0 12px 36px rgba(120,80,140,0.12)', display: 'block',
+    borderRadius: 8, boxShadow: '0 12px 36px rgba(0,69,120,0.12)', display: 'block',
   },
   // Phones: the image keeps a readable height and scrolls sideways instead of shrinking to the screen width.
   lightboxMobile: { justifyContent: 'flex-start', overflowX: 'auto', padding: '24px 16px' },
@@ -374,6 +372,15 @@ export default function HomeV2() {
   const isMobile = useIsMobile()
   const [tab, setTab] = React.useState('work')
 
+  // The site-wide page colour (index.css) is pink, and it shows when the page is pulled past its top
+  // edge. Match it to the top of the blue page while the home page is open.
+  React.useEffect(() => {
+    const html = document.documentElement
+    const prev = [html.style.background, document.body.style.background]
+    html.style.background = document.body.style.background = '#eff6fc'
+    return () => { [html.style.background, document.body.style.background] = prev }
+  }, [])
+
   function selectTab(next) {
     if (next === tab) return
     trackClick(`${next}_tab`, 'home_tabs')
@@ -382,7 +389,7 @@ export default function HomeV2() {
 
   return (
     <div style={s.page}>
-      <img src="home-v2/hero-bg.svg" alt="" aria-hidden="true" style={s.heroBg} />
+      <img src="home-v2/hero-bg-blue.svg" alt="" aria-hidden="true" style={s.heroBg} />
       <BackgroundSparkles />
       <div style={s.content}>
         <header style={{ ...s.topBar, flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? 8 : 0 }}>

@@ -53,7 +53,7 @@ export function ArrowOut() {
   );
 }
 
-export function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, color = '#b9a3d6' }) {
+export function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, color = '#b9a3d6', glow = 'rgba(185, 163, 214, 0.55)' }) {
   const x = 9, y = 9, r = 7, pinch = 14 * 0.14;
   const d = [
     `M ${x} ${y - r}`,
@@ -76,7 +76,7 @@ export function HeroSparkle({ size = 22, top, right, left, bottom, delay = 0, co
         pointerEvents: 'none',
         transformOrigin: '50% 50%',
         animation: `heroSparkleTwinkle 2.4s ease-in-out ${delay}s infinite`,
-        filter: 'drop-shadow(0 0 5px rgba(185, 163, 214, 0.55))',
+        filter: `drop-shadow(0 0 5px ${glow})`,
       }}
       aria-hidden="true"
     >
