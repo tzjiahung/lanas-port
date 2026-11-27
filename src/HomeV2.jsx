@@ -1,7 +1,6 @@
 import React from 'react'
 import { trackClick } from './analytics.js'
 import { createPortal } from 'react-dom'
-import VoxelMarker from './VoxelMarker.jsx'
 import {
   ArrowOut, HeroSparkle, CaseStudy,
   WORKS, ARTICLES, articleStyles, CONTACT_LINKS, CHANGELOG_STAMP,
@@ -81,26 +80,23 @@ const s = {
   },
   dot: { color: 'rgba(32,44,60,0.3)' },
   main: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24, padding: '0 8px' },
-  // Equal space above and below the intro, 52px each.
-  // Nav to intro: 8 (top bar) + 44 here. Intro to work cards: 28 here + 24 (main gap).
-  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '44px 0 28px' },
+  // Nav to intro: 8 (top bar) + 48 here. Intro to tabs: 24 (main gap). Figma node 451:1250.
+  hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 0 0' },
   intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#004578', textAlign: 'center', textWrap: 'pretty' },
-  folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column' },
-  tabs: { display: 'flex', alignItems: 'flex-end', gap: 0, minHeight: 18 },
+  // Centred pill switcher above a see-through panel (Figma node 453:2457)
+  folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 },
+  // Switcher padding and colours from Figma node 453:2450
+  tabs: { display: 'flex', gap: 4, padding: '6px 8px', borderRadius: 24, background: 'rgba(255,255,255,0.4)' },
   tab: {
-    flex: '1 0 0', minWidth: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-    // Longhand padding: the selected tab overrides paddingBottom, and mixing that with the
-    // `padding` shorthand made React drop the bottom padding when a tab was deselected.
-    paddingTop: 8, paddingRight: 16, paddingBottom: 8, paddingLeft: 16, margin: 0, cursor: 'pointer', fontFamily: 'inherit',
-    border: '1px solid rgba(32,44,60,0.08)', borderBottom: 'none', borderRadius: '6px 6px 0 0',
-    filter: 'drop-shadow(0 12px 18px rgba(0,69,120,0.08))',
+    padding: '10px 24px', margin: 0, border: 'none', borderRadius: 24, cursor: 'pointer',
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Lato', sans-serif", fontSize: 16, lineHeight: '16px', fontWeight: 600,
+    transition: 'background 0.15s, color 0.15s',
   },
-  tabLabel: { fontSize: 16, fontWeight: 600, letterSpacing: '0em', textTransform: 'uppercase', color: '#0078d4' },
   panel: {
-    // Sits above the unselected tab so that tab's shadow tucks under the white panel.
-    position: 'relative', zIndex: 1,
-    background: '#ffffff',
-    border: '1px solid rgba(32,44,60,0.08)', borderTop: 'none', borderRadius: '0 0 8px 8px',
+    alignSelf: 'stretch',
+    // More solid white at the top, where the blue page background is strongest, fading toward the bottom
+    background: 'linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 100%)',
+    border: '1px solid rgba(32,44,60,0.08)', borderTop: 'none', borderRadius: 8,
     boxShadow: '0 12px 36px rgba(0,69,120,0.08)', padding: 16,
   },
   workGrid: { display: 'grid', gap: 24 },
@@ -151,7 +147,6 @@ const BG_SPARKLES = [
   { size: 22, top: '42%', left: '93%', delay: 1.8 },
   { size: 26, top: '62%', left: '3%',  delay: 0.9 },
   { size: 22, top: '88%', left: '9%',  delay: 1.5 },
-  { size: 30, top: '24%', left: '52%', delay: 2.1 },
 ]
 
 function BackgroundSparkles() {
@@ -178,15 +173,9 @@ function Tab({ id, label, active, onSelect }) {
     <button
       type="button" role="tab" id={`home-v2-tab-${id}`} aria-selected={active} aria-controls={`home-v2-panel-${id}`}
       onClick={() => onSelect(id)}
-      style={{
-        ...s.tab,
-        background: active ? '#ffffff' : '#f7f7f7',
-        // The selected tab joins the white panel below it: no shadow, and it covers the seam.
-        ...(active ? { filter: 'none', position: 'relative', zIndex: 2, marginBottom: -1, paddingBottom: 9 } : null),
-      }}
+      style={{ ...s.tab, background: active ? '#ffffff' : 'transparent', color: active ? '#004578' : 'rgba(0,69,120,0.8)' }}
     >
-      <VoxelMarker kind="workBlue" size={22} />
-      <span style={s.tabLabel}>{label}</span>
+      {label}
     </button>
   )
 }
