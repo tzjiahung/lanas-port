@@ -301,7 +301,7 @@ function Demo() {
           Prototype walkthrough
         </h2>
         <p className="snma-section-intro" style={{ marginBottom: 40, maxWidth: 'none' }}>
-          End-to-end flow of the shipped Compliance module — from creating a new compliance record to sending data back to the main system.
+          End-to-end flow of the shipped Compliance module, from creating a new compliance record to sending data back to the main system.
         </p>
         {/* Gradient backdrop; the video's baked-in black device frame (8px sides/top, 11px bottom,
             camera notch at x 892–1145, y 8–54 of 2034×1330) is cropped away and the notch is
@@ -322,34 +322,28 @@ function Impact() {
     <section id="impact" className="snma-section">
       <div className="snma-wrap">
         <span className="snma-section-label">Impact</span>
-        <div className="snma-stats">
-          <div className="snma-stat">
-            <div className="snma-stat-n">0→1</div>
-            <div>
-              <div className="snma-stat-lbl">Full design scope</div>
-              <div className="snma-stat-desc">End-to-end module, no prior designs</div>
+        <h2 className="snma-section-title">
+          Streamlined a complex compliance workflow into one module
+        </h2>
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
+          Improved the user experience of the finance compliance workflow by consolidating and simplifying it in a single platform.
+        </p>
+        <div className="snma-impact-rows">
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>Shipped within 1 month</h3>
+              <p>Designed and deployed the module, its components and user flows in one month.</p>
             </div>
+            {/* Zooms through the four weeks from PRD to deploy, on the same blue grain backdrop */}
+            <video src="/oec-fin/shipped-timeline.mp4" poster="/oec-fin/shipped-timeline.jpg" width={1600} height={1000} autoPlay loop muted playsInline aria-label="Timeline zooming from week 1 to week 4: PRD to IA and research, user flows and screen flow, explorations and components, handoff and deploy" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--snma-radius)' }} />
           </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">4</div>
-            <div>
-              <div className="snma-stat-lbl">Design explorations</div>
-              <div className="snma-stat-desc">Explored before landing on final</div>
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>200 monthly active internal users</h3>
+              <p>Released to production in the Shanghai office, changing how internal users file compliances.</p>
             </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">50<span className="sm">K</span></div>
-            <div>
-              <div className="snma-stat-lbl">OEC customers</div>
-              <div className="snma-stat-desc">Across North America, Europe, Asia</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">1<span className="sm">mo</span></div>
-            <div>
-              <div className="snma-stat-lbl">End-to-end</div>
-              <div className="snma-stat-desc">IA to shipped prototype</div>
-            </div>
+            {/* Same look as the Overview office map, with only the Shanghai office marked */}
+            <img src="/oec-fin/shanghai-map.jpg" width={1600} height={1000} alt="Map of East Asia with the Shanghai office marked" loading="lazy" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--snma-radius)' }} />
           </div>
         </div>
       </div>
