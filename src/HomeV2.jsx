@@ -54,6 +54,9 @@ function ArticleThumb({ url }) {
   )
 }
 
+// Frosted blur behind the glass switcher and panel
+const GLASS_BLUR = 'blur(8px) saturate(130%)'
+
 const s = {
   page: {
     position: 'relative', minHeight: '100vh', overflowX: 'hidden',
@@ -85,19 +88,57 @@ const s = {
   intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#004578', textAlign: 'center', textWrap: 'pretty' },
   // Centred pill switcher above a see-through panel (Figma node 453:2457)
   folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 },
-  // Switcher padding and colours from Figma node 453:2450
-  tabs: { display: 'flex', gap: 4, padding: '6px 8px', borderRadius: 24, background: 'rgba(255,255,255,0.4)' },
+  // Switcher padding and colours from Figma node 453:2450. The glass look (frosted fill, lit rim,
+  // thin side edges, soft lift) follows the iOS tab bar in Figma node 458:3088.
+  tabs: {
+    position: 'relative', display: 'flex', gap: 4, padding: '6px 8px', borderRadius: 999,
+    background: 'linear-gradient(180deg, rgba(255,255,255,0.48) 0%, rgba(255,255,255,0.36) 100%)',
+    backdropFilter: GLASS_BLUR, WebkitBackdropFilter: GLASS_BLUR,
+    boxShadow: [
+      'inset 0 1px 0.5px rgba(255,255,255,0.5)',      // light catching the top edge
+      'inset 0 -1px 0.5px rgba(255,255,255,0.2)',    // softer bounce on the bottom edge
+      '1.25px 0 0 -0.75px rgba(0,69,120,0.08)',     // thin rims on the left and right ends
+      '-1.25px 0 0 -0.75px rgba(0,69,120,0.08)',
+      '0 0 0 0.5px rgba(0,69,120,0.06)',            // hairline outline
+      '0 6px 12px rgba(0,69,120,0.03)',             // lift
+    ].join(', '),
+  },
+  // Bright ring that fades around the edge, brightest top left and bottom right, like light through glass
+  // Shared by the switcher and the panel below it.
+  glassSheen: {
+    position: 'absolute', inset: 0, borderRadius: 'inherit', padding: 1, pointerEvents: 'none',
+    background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 35%, rgba(255,255,255,0.05) 65%, rgba(255,255,255,0.3) 100%)',
+    WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)', WebkitMaskComposite: 'xor',
+    mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
+  },
+  // The selected pill slides between tabs with a slight overshoot, so it settles like a drop of liquid
+  tabsThumb: {
+    position: 'absolute', top: 6, bottom: 6, left: 0, borderRadius: 999, pointerEvents: 'none',
+    background: 'linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.9) 100%)',
+    boxShadow: 'inset 0 -1px 1px rgba(0,69,120,0.03), 0 1px 4px rgba(0,69,120,0.06), 0 0 0 0.5px rgba(0,69,120,0.04)',
+    transition: 'transform 0.5s cubic-bezier(0.3, 1.1, 0.5, 1), width 0.5s cubic-bezier(0.3, 1.1, 0.5, 1)',
+  },
   tab: {
-    padding: '10px 24px', margin: 0, border: 'none', borderRadius: 24, cursor: 'pointer',
+    position: 'relative', zIndex: 1,
+    padding: '10px 24px', margin: 0, border: 'none', borderRadius: 24, cursor: 'pointer', background: 'transparent',
     fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Lato', sans-serif", fontSize: 16, lineHeight: '16px', fontWeight: 600,
-    transition: 'background 0.15s, color 0.15s',
+    transition: 'color 0.2s',
   },
   panel: {
-    alignSelf: 'stretch',
+    position: 'relative', alignSelf: 'stretch',
     // More solid white at the top, where the blue page background is strongest, fading toward the bottom
     background: 'linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.4) 100%)',
+    backdropFilter: GLASS_BLUR, WebkitBackdropFilter: GLASS_BLUR,
     border: '1px solid rgba(32,44,60,0.08)', borderTop: 'none', borderRadius: 8,
-    boxShadow: '0 12px 36px rgba(0,69,120,0.08)', padding: 16,
+    // Same glass edges as the switcher: lit top, soft bottom, faint side rims, then the lift
+    boxShadow: [
+      'inset 0 1px 0.5px rgba(255,255,255,0.5)',
+      'inset 0 -1px 0.5px rgba(255,255,255,0.2)',
+      '1.25px 0 0 -0.75px rgba(0,69,120,0.08)',
+      '-1.25px 0 0 -0.75px rgba(0,69,120,0.08)',
+      '0 12px 36px rgba(0,69,120,0.08)',
+    ].join(', '),
+    padding: 16,
   },
   workGrid: { display: 'grid', gap: 24 },
   footer: { width: '100%', display: 'flex', justifyContent: 'center', padding: '24px' },
@@ -168,15 +209,47 @@ function Hero() {
   )
 }
 
-function Tab({ id, label, active, onSelect }) {
+const HOME_TABS = [
+  { id: 'work', label: 'Work' },
+  { id: 'article', label: 'Article' },
+  { id: 'about', label: 'About' },
+]
+
+// Glass segment control. One white pill sits under the selected tab and slides to the next one.
+function GlassTabs({ value, onSelect }) {
+  const btns = React.useRef({})
+  const [thumb, setThumb] = React.useState(null)
+
+  React.useLayoutEffect(() => {
+    function measure() {
+      const el = btns.current[value]
+      if (el) setThumb({ x: el.offsetLeft, w: el.offsetWidth })
+    }
+    measure()
+    // Tab widths change once the web fonts load, and on resize
+    document.fonts?.ready.then(measure)
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [value])
+
   return (
-    <button
-      type="button" role="tab" id={`home-v2-tab-${id}`} aria-selected={active} aria-controls={`home-v2-panel-${id}`}
-      onClick={() => onSelect(id)}
-      style={{ ...s.tab, background: active ? '#ffffff' : 'transparent', color: active ? '#004578' : 'rgba(0,69,120,0.8)' }}
-    >
-      {label}
-    </button>
+    <div role="tablist" aria-label="Work and articles" style={s.tabs}>
+      {thumb && <span aria-hidden="true" style={{ ...s.tabsThumb, width: thumb.w, transform: `translateX(${thumb.x}px)` }} />}
+      {HOME_TABS.map(({ id, label }) => {
+        const active = id === value
+        return (
+          <button
+            key={id} ref={(el) => { btns.current[id] = el }}
+            type="button" role="tab" id={`home-v2-tab-${id}`} aria-selected={active} aria-controls={`home-v2-panel-${id}`}
+            onClick={() => onSelect(id)}
+            style={{ ...s.tab, color: active ? '#004578' : 'rgba(0,69,120,0.8)' }}
+          >
+            {label}
+          </button>
+        )
+      })}
+      <span aria-hidden="true" style={s.glassSheen} />
+    </div>
   )
 }
 
@@ -390,12 +463,9 @@ export default function HomeV2() {
           <Hero />
 
           <div style={s.folder}>
-            <div role="tablist" aria-label="Work and articles" style={s.tabs}>
-              <Tab id="work" label="Work" active={tab === 'work'} onSelect={selectTab} />
-              <Tab id="article" label="Article" active={tab === 'article'} onSelect={selectTab} />
-              <Tab id="about" label="About" active={tab === 'about'} onSelect={selectTab} />
-            </div>
+            <GlassTabs value={tab} onSelect={selectTab} />
             <section role="tabpanel" id={`home-v2-panel-${tab}`} aria-labelledby={`home-v2-tab-${tab}`} style={s.panel}>
+              <span aria-hidden="true" style={s.glassSheen} />
               {tab === 'work' ? (
                 <div style={{ ...s.workGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
                   {HOME_WORKS.map((w) => <CaseStudy key={w.id} {...w} aspectRatio="760 / 487" hoverZoom={false} titleSize={16} />)}
