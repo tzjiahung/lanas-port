@@ -87,7 +87,9 @@ const s = {
   hero: { width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 0 0' },
   intro: { margin: 0, maxWidth: 1576, fontFamily: "'Libertinus Sans', 'Lato', ui-sans-serif, system-ui, sans-serif", fontSize: 24, lineHeight: '32px', fontWeight: 400, letterSpacing: '0em', color: '#004578', textAlign: 'center', textWrap: 'pretty' },
   // Centred pill switcher above a see-through panel (Figma node 453:2457)
-  folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 },
+  // 28px under the switcher matches how the 24px gap above it looks: the intro's 32px line height
+  // adds about 4px of empty space under its last line.
+  folder: { width: '100%', maxWidth: CONTENT_MAX, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28 },
   // Switcher padding and colours from Figma node 453:2450. The glass look (frosted fill, lit rim,
   // thin side edges, soft lift) follows the iOS tab bar in Figma node 458:3088.
   tabs: {
