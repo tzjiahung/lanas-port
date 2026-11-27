@@ -377,7 +377,7 @@ export default function OecCompliance() {
 
   useEffect(() => {
     const prev = document.title
-    document.title = 'Lana Hung — OEC Finance Compliance Module'
+    document.title = 'OEC Finance Compliance Module'
     const prevBg = document.body.style.background
     const prevColor = document.body.style.color
     document.body.style.background = '#FFFFFF'
