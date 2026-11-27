@@ -25,6 +25,10 @@ export function useScrollSpy(sections) {
         const el = document.getElementById(s.id)
         if (el && el.offsetTop <= y) current = s.id
       }
+      // A short last section (Reflection) can never scroll up to the top line, so the page
+      // bottoms out with the section before it still active. At the bottom, the last section wins.
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+      if (atBottom && sections.length) current = sections[sections.length - 1].id
       setActive(current)
     }
     window.addEventListener('scroll', sync, { passive: true })
