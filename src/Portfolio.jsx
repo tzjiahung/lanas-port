@@ -338,7 +338,7 @@ export const WORKS = [
   {
     id: 'cathay-fitback',
     title: 'Researching Social Impact in Health & Fitness Apps',
-    subtitle: 'Cathay Financial\u00a0 · \u00a0Taiwan\u00a0 · \u00a0Reshaped product roadmap',
+    subtitle: 'Cathay Financial Holdings\u00a0 · \u00a0Taiwan\u00a0 · \u00a0Reshaped product roadmap',
     role: 'UX Research · Handed Over',
     year: '2023',
     url: '#/fitback',
