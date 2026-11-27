@@ -14,13 +14,21 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-85QSRE6D1C"></script>
+  <!-- Google tag (gtag.js). Not loaded on localhost or a local network address, so local
+       development never reaches GA. Without window.gtag, src/analytics.js sends nothing. -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-85QSRE6D1C', { send_page_view: false }); // page views are sent by src/analytics.js
+    (function(){
+      var h = location.hostname;
+      if (h === 'localhost' || h === '127.0.0.1' || h === '[::1]' || h === '' || /^(10|192\.168|172\.(1[6-9]|2\d|3[01]))\./.test(h)) return;
+      var t = document.createElement('script');
+      t.async = true;
+      t.src = 'https://www.googletagmanager.com/gtag/js?id=G-85QSRE6D1C';
+      document.head.appendChild(t);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-85QSRE6D1C', { send_page_view: false }); // page views are sent by src/analytics.js
+    })();
   </script>
 
   <!-- Fonts (loaded via JS to avoid static URL patterns flagged by secret scanners) -->
