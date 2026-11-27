@@ -486,7 +486,7 @@ export default function ShopBackNMA() {
 
   useEffect(() => {
     const prev = document.title
-    document.title = 'Lana Hung — ShopBack New Market Activation'
+    document.title = 'ShopBack New Market Activation'
     const prevBg = document.body.style.background
     const prevColor = document.body.style.color
     document.body.style.background = '#FFFFFF'

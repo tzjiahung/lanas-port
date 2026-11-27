@@ -370,7 +370,7 @@ export default function OecFin() {
 
   useEffect(() => {
     const prev = document.title
-    document.title = 'Lana Hung — Cathay FitBack Exploratory Research'
+    document.title = 'Cathay Financial Holdings FitBack'
     const prevBg = document.body.style.background
     const prevColor = document.body.style.color
     document.body.style.background = '#FFFFFF'

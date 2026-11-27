@@ -265,7 +265,7 @@ export default function OecTypo() {
 
   useEffect(() => {
     const prev = document.title
-    document.title = 'Lana Hung — OEC Portal Typography System Redesign'
+    document.title = 'OEC Typography System'
     const prevBg = document.body.style.background
     const prevColor = document.body.style.color
     document.body.style.background = '#FFFFFF'
