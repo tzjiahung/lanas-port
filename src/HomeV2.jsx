@@ -1,5 +1,6 @@
 import React from 'react'
 import { trackClick } from './analytics.js'
+import { HERO_STARS } from './heroStars.js'
 import { createPortal } from 'react-dom'
 import {
   ArrowOut, HeroSparkle, CaseStudy,
@@ -69,6 +70,7 @@ const s = {
     position: 'absolute', top: 0, left: 0, width: '100%', height: 959,
     display: 'block', pointerEvents: 'none', userSelect: 'none',
   },
+  heroStars: { position: 'absolute', top: 0, left: 0, width: '100%', height: 959, pointerEvents: 'none' },
   sparkleLayer: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, pointerEvents: 'none' },
   content: { position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' },
   topBar: {
@@ -189,6 +191,25 @@ const BG_SPARKLES = [
   { size: 26, top: '62%', left: '3%',  delay: 0.9 },
   { size: 22, top: '88%', left: '9%',  delay: 1.5 },
 ]
+
+// The background artwork's white fade (20% to 100% of its 959px height) used to sit on top of these
+// stars, so stars lower down are dimmed by the same amount.
+const starFade = (y) => 1 - Math.min(Math.max((y / 959 - 0.2) / 0.8, 0), 1)
+
+function HeroStars() {
+  return (
+    <div aria-hidden="true" style={s.heroStars}>
+      {HERO_STARS.map(({ d, fill, opacity, box: [x, y, w, h] }, i) => (
+        <svg
+          key={i} width={w} height={h} viewBox={`${x} ${y} ${w} ${h}`}
+          style={{ position: 'absolute', left: `calc(${((x + w / 2) / 1920) * 100}% - ${w / 2}px)`, top: y, opacity: opacity * starFade(y + h / 2) }}
+        >
+          <path d={d} fill={fill} />
+        </svg>
+      ))}
+    </div>
+  )
+}
 
 function BackgroundSparkles() {
   return (
@@ -452,6 +473,7 @@ export default function HomeV2() {
   return (
     <div style={s.page}>
       <img src="home-v2/hero-bg-blue.svg" alt="" aria-hidden="true" style={s.heroBg} />
+      <HeroStars />
       <BackgroundSparkles />
       <div style={s.content}>
         <header style={{ ...s.topBar, flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? 8 : 0 }}>
