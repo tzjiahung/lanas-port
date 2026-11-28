@@ -299,7 +299,7 @@ export const WORKS = [
     id: 'shopback-activation',
     title: 'Researching New Market Activation for an E-commerce Platform',
     // Non-breaking spaces give the dots an extra space on each side (HTML collapses plain double spaces).
-    subtitle: '+9.38% activation for ShopBack in the US and German markets',
+    subtitle: '+9.38% activation for ShopBack in the US and German markets.',
     role: 'UX Research · Shipped',
     year: '2025',
     url: '#/shopback-nma',
@@ -312,7 +312,7 @@ export const WORKS = [
   {
     id: 'oec-finance',
     title: 'Designing a Finance Module for a Logistics Company',
-    subtitle: "Built from 0 to 1 for OEC Group's US and China offices",
+    subtitle: "Built from 0 to 1 for OEC Group's US and China offices.",
     role: 'UX Design · Shipped',
     year: '2024',
     url: '#/oec-fin',
@@ -325,7 +325,7 @@ export const WORKS = [
   {
     id: 'oec-typography',
     title: 'Redesigning the Typography System for a Logistics Tracking Platform',
-    subtitle: "Shipped across 3 B2B products in OEC Group's US and China markets",
+    subtitle: "Shipped across 3 B2B products in OEC Group's US and China markets.",
     role: 'UX Design · Shipped',
     year: '2024',
     url: '#/oec-typo',
@@ -338,7 +338,7 @@ export const WORKS = [
   {
     id: 'cathay-fitback',
     title: 'Researching Social Impact in Health & Fitness Apps',
-    subtitle: 'Reshaped the product roadmap for Cathay Financial Holdings in Taiwan',
+    subtitle: 'Reshaped the product roadmap for Cathay Financial Holdings in Taiwan.',
     role: 'UX Research · Handed Over',
     year: '2023',
     url: '#/fitback',
