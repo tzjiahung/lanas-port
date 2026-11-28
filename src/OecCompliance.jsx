@@ -55,7 +55,7 @@ function Overview() {
           Europe, Asia, South America, Australia, and the Middle East.
         </p>
         <p className="snma-section-intro" style={{ marginTop: 16, marginBottom: 0, maxWidth: 'none' }}>
-          The main product is the tracking portal that allows customers and account managers to track their
+          The main product is the B2B tracking portal that allows customers and account managers to track their
           bookings, shipments, and billing. It has around <b>1.9k monthly active users</b>.
         </p>
         {/* Office map beside the customer tracking platform: customers had a platform, finance staff didn't */}
