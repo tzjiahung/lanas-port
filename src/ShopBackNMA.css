@@ -1074,15 +1074,17 @@ html:has(.snma-root) body { background: #FFFFFF; }
   position: relative;
   isolation: isolate;
   background: url('/oec-fin/demo-gradient.jpg') center / cover no-repeat;
-  border-radius: var(--snma-radius);
   padding: 6%;
+  /* Rounded by the clip only, once the colour and the grain are combined. Rounding the layers
+     themselves left half-covered corner pixels where the grain (added with plus-lighter) showed
+     through dark, which drew a dark edge around the curve. */
+  clip-path: inset(0 round var(--snma-radius));
 }
 .oec-demo::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
-  border-radius: inherit;
   background: url('/oec-fin/demo-grain.png') 0 0 / 128px 128px repeat;
   mix-blend-mode: plus-lighter;
   pointer-events: none;
