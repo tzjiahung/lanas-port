@@ -3,13 +3,20 @@ import './ShopBackNMA.css'
 import { useScrollSpy, RailNav, TopBar, CaseFooter, CaseCover, CaseMeta } from './CaseLayout.jsx'
 
 const SECTIONS = [
-  { id: 'overview',  label: 'Overview'  },
-  { id: 'problem',   label: 'Problem'   },
-  { id: 'design',    label: 'Design'    },
-  { id: 'guidelines', label: 'Guidelines' },
-  { id: 'impact',    label: 'Impact'    },
+  { id: 'overview',   label: 'Overview'   },
+  { id: 'problem',    label: 'Problem',   sub: true },
+  { id: 'role',       label: 'My Role',   sub: true },
+  // Design groups the section below it.
+  { id: 'design',     label: 'Design'     },
+  { id: 'guidelines', label: 'Font Guidelines', sub: true },
+  { id: 'impact',     label: 'Impact'     },
   { id: 'reflection', label: 'Reflection' },
 ]
+
+// Same image frame as OEC Compliance (gradient image plus a separate grain tile), in this page's deeper blues.
+const framedImg = { width: '100%', height: 'auto', display: 'block', borderRadius: 12, boxShadow: '0 12px 32px rgba(20, 40, 90, 0.18)' }
+// For cut-out images with see-through areas: the shadow follows the shapes, not the image's box.
+const cutoutImg = { width: '100%', height: 'auto', display: 'block', filter: 'drop-shadow(0 12px 32px rgba(20, 40, 90, 0.18))' }
 
 function Hero() {
   return (
@@ -41,23 +48,16 @@ function Meta() {
 
 function Overview() {
   return (
-    <section id="overview" className="snma-section">
+    <section id="overview" className="snma-section" style={{ paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Overview</span>
         <h2 className="snma-section-title">
           A B2B portal where hierarchy is everything
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 28, maxWidth: 'none' }}>
-          The <b>OEC Portal</b> is a B2B product that allows customers to track shipment
-          status and communicate with OEC's customer service team. In a data-dense enterprise
-          interface, <b>finding information quickly is the top priority</b> — making a clear
-          typographic hierarchy critical.
-        </p>
-        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none', color: 'var(--snma-fg-soft)' }}>
-          The existing hierarchy wasn't clear enough, leading to user confusion and usability
-          issues. I took this on as a personal project: redesign the typography system and
-          adjust paddings to improve visual hierarchy, readability, and consistency across
-          the entire portal.
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          The <b>OEC Portal</b> is a B2B product that lets customers track shipment status and talk with
+          OEC's customer service team. In a data-dense enterprise interface, <b>finding information quickly
+          is the top priority</b>, which makes a clear typographic hierarchy critical.
         </p>
       </div>
     </section>
@@ -66,38 +66,49 @@ function Overview() {
 
 function Problem() {
   return (
-    <section id="problem" className="snma-section">
+    <section id="problem" className="snma-section" style={{ paddingTop: 72, paddingBottom: 0 }}>
       <div className="snma-wrap">
-        <span className="snma-section-label">Problem Statement</span>
+        <span className="snma-section-label">Problem</span>
         <h2 className="snma-section-title">
-          Three layers of confusion in one interface
+          The type hierarchy wasn't clear enough
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          The typography issues affected users, designers, and the product's overall
-          visual credibility.
+        <p className="snma-section-intro" style={{ marginBottom: 24, maxWidth: 'none' }}>
+          The existing typography confused users, slowed designers down, and made the product look less polished.
         </p>
-
-        <div className="snma-goals">
-          <div className="snma-goal">
-            <div className="snma-goal-n">01</div>
-            <h3>Page title vs. section title</h3>
-            <p>Users struggled to distinguish between page-level titles and section-level titles — the visual difference was too subtle to guide scanning.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">02</div>
-            <h3>Label marks vs. text content</h3>
-            <p>Users found it difficult to differentiate label marks from body text content, causing confusion when reading dense data tables and forms.</p>
-          </div>
-          <div className="snma-goal">
-            <div className="snma-goal-n">03</div>
-            <h3>No guidelines for designers</h3>
-            <p>Without clear font-picking rules, designers made inconsistent choices across screens — compounding the hierarchy problem at every new feature.</p>
-          </div>
+        <ol className="snma-goal-list" style={{ marginBottom: 0 }}>
+          <li>
+            <h4>Page titles and section titles looked alike</h4>
+            <p>The size difference was too small, so users couldn't tell a page title from a section title while scanning.</p>
+          </li>
+          <li>
+            <h4>Labels blended into content</h4>
+            <p>Field labels and their values looked the same, which made dense forms and tables hard to read.</p>
+          </li>
+          <li>
+            <h4>No rules for picking a font size</h4>
+            <p>Designers chose type case by case, so every new feature added more inconsistency.</p>
+          </li>
+        </ol>
+        <div className="oec-demo oectypo-frame" style={{ marginTop: 40 }}>
+          <img src="/oec-typo/problem-screen.png" width={907} height={669} alt="The OEC Portal account page before the redesign, annotated with the three problems: page and section titles can't be distinguished, labels and content can't be differentiated, and it's hard to decide which font size to use" loading="lazy" style={framedImg} />
         </div>
+      </div>
+    </section>
+  )
+}
 
-        <div style={{ marginTop: 48 }}>
-          <img src="/oec-typo/problem-statement.png" width={960} height={772} alt="Before — existing typography problems annotated" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
-        </div>
+function MyRole() {
+  return (
+    <section id="role" className="snma-section" style={{ paddingTop: 72 }}>
+      <div className="snma-wrap">
+        <span className="snma-section-label">My Role</span>
+        <h2 className="snma-section-title">
+          Redesigning the portal's typography system
+        </h2>
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          I redesigned the typography system and adjusted spacing to improve visual hierarchy, readability
+          and consistency across the whole portal, then wrote a font guideline for the design team.
+        </p>
       </div>
     </section>
   )
@@ -105,36 +116,23 @@ function Problem() {
 
 function Design() {
   return (
-    <section id="design" className="snma-section">
+    <section id="design" className="snma-section" style={{ paddingBottom: 0 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Design</span>
         <h2 className="snma-section-title">
-          Referenced Jira and Flexport. Then built the rules
+          Two levers: spacing and type scale
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          To stay aligned with design trends and industry standards for B2B data-dense
-          products, I referenced Jira and Flexport's typographic systems before defining
-          our own.
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          To stay in line with industry standards for data-dense B2B products, I referenced Jira's and
+          Flexport's type systems before defining our own.
         </p>
-
-        {/* Adjustments */}
-        <div className="snma-impact-grid">
-          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
-            <div className="snma-impact-text">
-              <span className="snma-impact-kind">Key adjustments</span>
-              <h3>Spacing and scale — two levers</h3>
-              <p>
-                The most impactful change was increasing padding between page title and section
-                title from <b>16px → 32px</b>, giving the hierarchy room to breathe. Type scale
-                and weight distinctions were also refined to make label marks clearly
-                distinguishable from body content.
-              </p>
-              <div className="snma-post-impact">
-                Padding between page title &amp; section title: <b>16px → 32px</b>
-              </div>
-            </div>
-            <img src="/oec-typo/design.png" width={960} height={772} alt="Before / after — typography spacing adjustments" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
-          </div>
+        <p className="snma-section-intro" style={{ marginTop: 16, marginBottom: 0, maxWidth: 'none' }}>
+          The biggest change was doubling the space between the page title and the section title,
+          from <b>16px to 32px</b>, so the hierarchy has room to breathe. I also refined type sizes and
+          weights so labels stand apart from content.
+        </p>
+        <div className="oec-demo oectypo-frame" style={{ marginTop: 40 }}>
+          <img src="/oec-typo/design-screens.png" width={881} height={666} alt="Before and after of the account page: page title to section title spacing goes from 16px to 32px, and title, section and label font sizes drop to 20px, 16px and 12px" loading="lazy" style={cutoutImg} />
         </div>
       </div>
     </section>
@@ -143,17 +141,19 @@ function Design() {
 
 function Guidelines() {
   return (
-    <section id="guidelines" className="snma-section">
+    <section id="guidelines" className="snma-section" style={{ paddingTop: 72 }}>
       <div className="snma-wrap">
         <span className="snma-section-label">Font Guidelines</span>
         <h2 className="snma-section-title">
           One rulebook for every type decision
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          Established a font guideline for all designers on the team, specifying which
-          type style to use in each context and removing ambiguity from every design decision.
+        <p className="snma-section-intro" style={{ marginBottom: 0, maxWidth: 'none' }}>
+          I wrote a font guideline for every designer on the team, spelling out which type style to use
+          where, so no one has to guess.
         </p>
-        <img src="/oec-typo/guideline.png" width={960} height={660} alt="Typography style guide — font scales, weights, usage rules" style={{ width: '100%', borderRadius: 'var(--snma-radius)', display: 'block' }} />
+        <div className="oec-demo oectypo-frame" style={{ marginTop: 40 }}>
+          <img src="/oec-typo/guideline-card.png" width={888} height={561} alt="Font guideline general rules: Title, Label and Body styles in L, M and S sizes, each with where to use it" loading="lazy" style={cutoutImg} />
+        </div>
       </div>
     </section>
   )
@@ -165,72 +165,22 @@ function Impact() {
       <div className="snma-wrap">
         <span className="snma-section-label">Impact</span>
         <h2 className="snma-section-title">
-          Clear hierarchy. Appealing visuals. Guided usage
+          A clearer portal, and one rulebook for the team
         </h2>
-        <p className="snma-section-intro" style={{ marginBottom: 56, maxWidth: 'none' }}>
-          The redesign elevated visual clarity and usability across the entire portal —
-          and gave the team a shared framework to maintain consistency going forward.
+        <p className="snma-section-intro" style={{ marginBottom: 32, maxWidth: 'none' }}>
+          The new type scale and spacing made every portal screen easier to scan, and the guideline kept new features consistent.
         </p>
-
-        <div className="snma-stats" style={{ marginBottom: 32 }}>
-          <div className="snma-stat">
-            <div className="snma-stat-n">3</div>
-            <div>
-              <div className="snma-stat-lbl">Problems addressed</div>
-              <div className="snma-stat-desc">Hierarchy · labels · designer guidance</div>
+        <div className="snma-impact-rows">
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>Clearer hierarchy on every screen</h3>
+              <p>Users can tell page titles from section titles, and labels from content, at a glance.</p>
             </div>
           </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">2</div>
-            <div>
-              <div className="snma-stat-lbl">Design references</div>
-              <div className="snma-stat-desc">Jira · Flexport</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">16→32</div>
-            <div>
-              <div className="snma-stat-lbl">Padding (px)</div>
-              <div className="snma-stat-desc">Page title to section title spacing</div>
-            </div>
-          </div>
-          <div className="snma-stat">
-            <div className="snma-stat-n">1</div>
-            <div>
-              <div className="snma-stat-lbl">Style guide created</div>
-              <div className="snma-stat-desc">For designers across the team</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="snma-impact-grid">
-          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
-            <div className="snma-impact-text">
-              <span className="snma-impact-kind">Product outcome</span>
-              <h3>Refreshed experience for users</h3>
-              <p>
-                The clearer typographic hierarchy reduced confusion when scanning the portal.
-                Users could now distinguish page titles from section titles and labels from
-                content at a glance — significantly improving the B2B reading experience.
-              </p>
-              <div className="snma-post-impact">
-                Visual clarity and usability <b>significantly elevated</b> post-redesign.
-              </div>
-            </div>
-          </div>
-
-          <div className="snma-impact-card" style={{ gridTemplateColumns: '1fr' }}>
-            <div className="snma-impact-text">
-              <span className="snma-impact-kind">Team outcome</span>
-              <h3>Style guide minimizes design effort</h3>
-              <p>
-                The added style guide gave the design team a clear usage framework,
-                reducing the back-and-forth over font choices and ensuring new features
-                inherit the same visual consistency from day one.
-              </p>
-              <div className="snma-post-impact">
-                Fewer design decisions needed per feature — consistency maintained by default.
-              </div>
+          <div className="snma-impact-row">
+            <div className="snma-impact-row-text">
+              <h3>One style guide for the whole team</h3>
+              <p>Designers pick type from a shared set of rules, so new features stay consistent with less back and forth.</p>
             </div>
           </div>
         </div>
@@ -290,6 +240,7 @@ export default function OecTypo() {
       <Meta />
       <Overview />
       <Problem />
+      <MyRole />
       <Design />
       <Guidelines />
       <Impact />
