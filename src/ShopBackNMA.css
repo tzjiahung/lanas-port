@@ -1088,6 +1088,10 @@ html:has(.snma-root) body { background: #FFFFFF; }
   pointer-events: none;
 }
 .oec-demo > * { position: relative; z-index: 1; }
+/* OEC Typography frames: a deeper #005881 / #1E77D9 gradient, same separate grain on top */
+.oec-demo.oectypo-frame { background-image: url('/oec-typo/frame-gradient.jpg'); }
+/* Grain reads stronger on the darker blues, so it is dialled back */
+.oec-demo.oectypo-frame::before { opacity: 0.55; }
 .oec-demo-screen {
   position: relative;
   overflow: hidden;
